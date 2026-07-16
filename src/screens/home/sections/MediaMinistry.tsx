@@ -4,17 +4,14 @@ import { slideUp, staggerContainer } from "@/shared/ui/Framer"
 const mediaItems = [
 	{
 		icon: "radio",
-		title: "Voice of Hope",
-		description: "Broadcasting wisdom 24/7 across the nation.",
-		cta: "Listen Now",
-		href: "#",
+		title: "SunSum 98.7 FM",
+		description:
+			"Broadcasting wisdom 24/7 across the nation. Join us on SunSum 98.7 FM, every Friday from 7:00 - 8:00 PM for a live radio program.",
 	},
 	{
 		icon: "live_tv",
-		title: "Sanctuary TV",
-		description: "Weekly broadcasts on DSTV and local networks.",
-		cta: "Watch Live",
-		href: "#",
+		title: "Fundamental Hour",
+		description: "WATCH US ON GTV, every Saturday Morning from 6:30 - 7:00 AM.",
 	},
 ]
 
@@ -44,12 +41,6 @@ export function MediaMinistry() {
 							<p className="text-on-surface-variant leading-relaxed mb-6">
 								{item.description}
 							</p>
-							<a
-								href={item.href}
-								className="inline-flex items-center gap-2 text-secondary font-semibold hover:underline"
-							>
-								{item.cta}
-							</a>
 						</motion.div>
 					))}
 				</motion.div>

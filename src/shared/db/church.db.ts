@@ -12,18 +12,16 @@ export const church: ChurchInfo = {
 	email: "info@houseanderson.org",
 	serviceTimes: [
 		{
-			day: "Sunday Worship",
-			time: "8:00 AM",
-			location: "Main Sanctuary",
-			description:
-				"Join us for a powerful morning of traditional and contemporary worship.",
+			day: "Sunday Morning",
+			time: "9:45 AM",
 		},
 		{
-			day: "Wednesday Midweek",
+			day: "Sunday Evening",
 			time: "6:00 PM",
-			location: "Community Hall",
-			description:
-				"A deep dive into scripture and intimate prayer sessions for all ages.",
+		},
+		{
+			day: "Wednesday Evening",
+			time: "7:00 PM",
 		},
 	],
 	socials: {

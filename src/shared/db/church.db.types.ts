@@ -1,3 +1,8 @@
+export type ServiceTime = {
+	day: string
+	time: string
+}
+
 export type ChurchInfo = {
 	name: string
 	tagline: string
@@ -5,12 +10,7 @@ export type ChurchInfo = {
 	address: string
 	phone: string
 	email: string
-	serviceTimes: {
-		day: string
-		time: string
-		location: string
-		description: string
-	}[]
+	serviceTimes: ServiceTime[]
 	socials: {
 		facebook: string
 		youtube: string

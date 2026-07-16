@@ -2,12 +2,14 @@ import { Link } from "@tanstack/react-router"
 import { BRANDING } from "@/shared/constants"
 import { church } from "@/shared/db"
 import { footerSections } from "./constants"
+import { ChurchMap } from "./Map"
 
 export function Footer() {
 	return (
-		<footer id="contact" className="bg-primary text-white">
-			<div className="container-app py-16">
-				<div className="grid grid-cols-1 md:grid-cols-4 gap-10">
+		<footer className="bg-primary text-white">
+			<div className="container-app pt-8 pb-16">
+				<ChurchMap />
+				<div className="grid grid-cols-1 md:grid-cols-4 pt-10 gap-10">
 					<div className="md:col-span-2">
 						<div className="flex items-center gap-2 mb-4">
 							<img src="/logo.png" alt={BRANDING.name} className="h-8 w-auto" />
@@ -84,26 +86,6 @@ export function Footer() {
 							</ul>
 						</div>
 					))}
-
-					<div>
-						<h4 className="font-headline font-semibold mb-4">Newsletter</h4>
-						<p className="text-sm text-white/70 mb-4">
-							Stay updated with our latest news and events.
-						</p>
-						<div className="flex gap-2">
-							<input
-								type="email"
-								placeholder="Your email"
-								className="flex-1 rounded-lg bg-white/10 border border-white/20 px-3 py-2 text-sm text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-secondary"
-							/>
-							<button
-								type="button"
-								className="rounded-lg bg-secondary px-4 py-2 text-sm font-semibold text-white hover:bg-secondary/90 transition-colors"
-							>
-								Subscribe
-							</button>
-						</div>
-					</div>
 				</div>
 
 				<div className="mt-12 pt-8 border-t border-white/10 text-center text-sm text-white/50">

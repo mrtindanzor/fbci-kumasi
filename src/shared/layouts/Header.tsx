@@ -1,9 +1,9 @@
-import { Link } from "@tanstack/react-router"
+"use client"
+
 import { useState } from "react"
 import { BRANDING } from "@/shared/constants"
-import { routes } from "@/shared/routes"
-import { Button } from "@/shared/ui/primitives/button"
-import { Image } from "../ui/primitives/Image"
+import { Link } from "@/shared/ui/primitives/button"
+import { routes } from "../routes"
 import { navLinks } from "./constants"
 import { MobileNav } from "./MobileNav"
 
@@ -11,18 +11,20 @@ export function Header() {
 	const [mobileOpen, setMobileOpen] = useState(false)
 
 	return (
-		<header className="sticky top-0 z-50 bg-primary-container *:text-neutral-200">
+		<header className="sticky bg-background top-0 z-50 glass">
 			<div className="container-app flex h-16 items-center justify-between">
 				<Link to="/" className="flex items-center">
-					<Image src="/logo.png" alt={BRANDING.name} className="h-10 w-auto" />
+					<img src="/logo.png" alt={BRANDING.name} className="h-10 w-auto" />
 				</Link>
 
-				<nav className="hidden md:flex items-center gap-6">
+				<nav className="hidden md:flex items-center">
 					{navLinks.map((link) => (
 						<Link
 							key={link.href}
-							to={link.href as never}
-							className="text-sm font-medium hover:text-primary transition-colors"
+							href={link.href}
+							variant="none"
+							size="none"
+							className="text-sm px-2 py-1 rounded-sm font-medium text-on-surface-variant hover:text-primary transition-colors"
 						>
 							{link.label}
 						</Link>
@@ -30,25 +32,14 @@ export function Header() {
 				</nav>
 
 				<div className="hidden md:flex items-center gap-3">
-					<Button variant="ghost" size="sm">
-						<span className="material-symbols-outlined text-lg">call</span>
-					</Button>
-					<Button variant="ghost" size="sm">
-						<span className="material-symbols-outlined text-lg">mail</span>
-					</Button>
-					<Link to={routes.projects}>
-						<Button variant="gold" size="sm">
-							Projects
-						</Button>
+					<Link href={routes.projects} variant="primary" size="sm">
+						Projects
 					</Link>
-					<Button variant="primary" size="sm">
-						Donate
-					</Button>
 				</div>
 
 				<button
 					type="button"
-					className=" material-symbols-outlined md:hidden! text-2xl text-primary"
+					className="md:hidden! material-symbols-outlined text-2xl text-primary"
 					onClick={() => setMobileOpen(true)}
 				>
 					menu

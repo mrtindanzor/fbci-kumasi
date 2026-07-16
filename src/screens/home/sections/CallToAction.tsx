@@ -1,5 +1,6 @@
+import { routes } from "@/shared/routes"
 import { AnimatePosition, slideUp } from "@/shared/ui/Framer"
-import { Button } from "@/shared/ui/primitives/button"
+import { Link } from "@/shared/ui/primitives/button"
 
 export function CallToAction() {
 	return (
@@ -15,19 +16,17 @@ export function CallToAction() {
 							involved, we have a place for you. Join a community that cares.
 						</p>
 						<div className="flex flex-wrap justify-center gap-4">
-							<Button variant="gold" size="lg">
-								Get Started
-							</Button>
-							<Button
-								variant="secondary"
+							<Link
+								href={routes.contact}
+								variant="gold"
 								size="lg"
 								className="border-white text-white hover:bg-white hover:text-primary"
 							>
-								Speak with a Pastor
+								Contact Us
 								<span className="material-symbols-outlined text-lg">
 									arrow_forward
 								</span>
-							</Button>
+							</Link>
 						</div>
 					</div>
 				</AnimatePosition>

@@ -1,12 +1,13 @@
-import type { cva } from "class-variance-authority"
+import type { VariantProps } from "class-variance-authority"
 
-type CvaReturnType = ReturnType<typeof cva>
+export type MakeVariantNonNullable<Variant extends Record<string, unknown>> = {
+	[k in keyof Variant]: Extract<Variant[k], string | number>
+}
 
-export type ExtractVariantsTypes<T extends CvaReturnType> =
-	Parameters<T>[1] extends {
-		variants: infer V
-	}
-		? {
-				[K in keyof V]?: keyof V[K]
-			}
-		: Record<string, never>
+//biome-ignore  lint/suspicious/noExplicitAny: any type needed else it won't work
+export type ExtractVariantsTypes<Variant extends (...args: any[]) => unknown> =
+	VariantProps<Variant> extends infer ElementVariants
+		? ElementVariants extends Record<string, unknown>
+			? MakeVariantNonNullable<ElementVariants>
+			: never
+		: never

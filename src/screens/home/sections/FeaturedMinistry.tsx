@@ -1,29 +1,16 @@
-import { motion } from "framer-motion"
-import { MINISTRIES, type Ministry as MinistryType } from "@/shared/db"
-import {
-	AnimatePosition,
-	motionVariants,
-	staggerContainer,
-} from "@/shared/ui/Framer"
+import { FEATURED_MINISTRIES, type Ministry as MinistryType } from "@/shared/db"
+import { AnimatePosition, motionVariants } from "@/shared/ui/Framer"
 import { Link } from "@/shared/ui/primitives/button"
 import { Image } from "@/shared/ui/primitives/Image"
 
-export function MinistryCards() {
+export function FeaturedMinistry() {
 	return (
-		<section className="section-gap">
-			<div className="container-app">
-				<motion.div
-					variants={staggerContainer}
-					initial="hidden"
-					whileInView="show"
-					viewport={{ once: true }}
-					className="space-y-12"
-				>
-					{MINISTRIES.map((ministry, index) => (
-						<Ministry key={ministry.name} ministry={ministry} index={index} />
-					))}
-				</motion.div>
-			</div>
+		<section className="px-margin-mobile md:px-margin-desktop py-3xl">
+			<ul className="grid h-fit gap-y-40 py-20">
+				{FEATURED_MINISTRIES.map((ministry, index) => (
+					<Ministry key={ministry.name} ministry={ministry} index={index} />
+				))}
+			</ul>
 		</section>
 	)
 }

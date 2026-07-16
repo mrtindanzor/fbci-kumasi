@@ -1,88 +1,117 @@
-import type { Ministry } from "./ministries.db.types"
+import { routes } from "@/shared/routes"
+import { BRANDING } from "../constants"
 
-export const ministries: Ministry[] = [
+export type Ministry = {
+	featured: boolean
+	id: string
+	name: string
+	description: string
+	image: string
+	schedule: string[] | null
+	cta: [/*title */ string, /*url*/ string][] | null
+}
+
+export const MINISTRIES: Ministry[] = [
 	{
+		featured: true,
+		id: "tv-preaching",
+		name: "TV Preaching",
+		description: `God has blessed us since 2018 with the privilege of preaching on Ghana's most prominent TV station, TV3. Our program, called Fundamental Hour, airs every Sunday morning from 6:00 to 6:30 a.m.
+
+            We have had many people contact us over the last few years to learn more or to tell us how this ministry has changed their lives. We are now on GTV.
+
+            Have you been watching our TV program? If so, we'd love to know. You can contact us via our contact page or on any of our social media platforms.
+        `,
+		image:
+			"https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&h=500&fit=crop",
+		schedule: ["Sundays 6:00 - 6:30 AM"],
+		cta: null,
+	},
+	{
+		featured: true,
 		id: "bible-college",
-		name: "Bible College",
-		description: "Training the next generation of spiritual leaders.",
-		icon: "school",
+		name: "Bible and Ministry Training",
+		description:
+			"Hyles-Anderson College of West Africa is a Bible college run by our church. Its mission is to train men to serve God. God has blessed us with students from all over Ghana and a few other West African countries. If you are interested in enrolling or learning more, feel free to contact us via our contact page. You can also read the PDF we've made available below to learn a few more details.",
+		image:
+			"https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=800&h=500&fit=crop",
+		schedule: null,
+		cta: [["Learn More", routes.college]],
 	},
 	{
-		id: "kids-church",
-		name: "Kids Church",
-		description: "Building a strong foundation for our little ones.",
-		icon: "child_care",
+		featured: false,
+		id: "fundamental-baptist-academy",
+		name: "Fundamental Baptist Academy",
+		description:
+			"Our church also has a Christian school. Our school covers creche all the way through SHS. We have had nine SHS students graduate with our American-standard curriculum, three of whom currently teach in our school. If you are interested in setting up an interview or learning anything more about our school, you can call us.",
+		image:
+			"https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=800&h=500&fit=crop",
+		schedule: null,
+		cta: [["Call Now", `tel:${BRANDING.fba.phone}`]],
 	},
 	{
-		id: "youth-ministry",
-		name: "Youth Ministry",
-		description: "Empowering teenagers to live with purpose.",
-		icon: "groups",
+		featured: true,
+		id: "radio-preaching",
+		name: "Radio Preaching",
+		description: `
+            In 2020, we were able to get on the radio. This was out of necessity because of covid-19. Now that we are back in church, God has provided the funds for us to stay on the radio. We are currently on SunSum 98.7 FM.
+
+            On Friday evenings, a group of our Ghanaian staff drives to the station, and from 7:00 to 8:00 p.m. they preach and answer questions mainly on salvation.
+
+            Each radio station has its own base audience. So far, we have had the privilege of preaching to the audiences of four stations for a period of time. These include Silver, Angel, Bohye, and SunSum.
+
+            We have seen much fruit from this ministry, and we hope to continue on the radio for as long as God provides the funds.`,
+		image:
+			"https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800&h=500&fit=crop",
+		schedule: ["Fridays 7:00 - 8:00 PM"],
+		cta: null,
 	},
 	{
-		id: "christian-school",
-		name: "Christian School",
-		description: "Excellence in education with a biblical worldview.",
-		icon: "menu_book",
+		featured: false,
+		id: "information-center-preaching",
+		name: "Information Center Preaching",
+		description: `An information center is a privately owned PA system ideally housed and run in a prominent area of the city (like a market). Cone shaped loudspeakers are erected on a pole outside to fill the entire area with the sound of whatever is spoken on the mics inside.
+
+We have had the privilege of preaching on many different information centers across Kumasi. They have proven to be great media for publishing the gospel of our Lord Jesus Christ. Each week, a group of men from our church preaches in at least one somewhere in Kumasi. We have also encouraged our daughter churches to do the same.`,
+		image:
+			"https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&h=500&fit=crop",
+		schedule: null,
+		cta: null,
 	},
 	{
-		id: "charity-outreach",
-		name: "Charity Outreach",
-		description: "Feeding the hungry and clothing the needy.",
-		icon: "favorite",
+		featured: false,
+		id: "school-preaching",
+		name: "School Preaching",
+		description: `Due to covid-19 restrictions, we canceled much of our preaching in schools. However, as restrictions ease, we will resume preaching weekly in schools across Kumasi. If you are interested in having us preach at your school, please contact us.`,
+		image:
+			"https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&h=500&fit=crop",
+		schedule: null,
+		cta: [["Call Now", `tel:${BRANDING.fba.phone}`]],
 	},
 	{
-		id: "music-academy",
-		name: "Music Academy",
-		description: "Cultivating talents for creative worship.",
-		icon: "music_note",
+		featured: false,
+		id: "market-preaching",
+		name: "Market Preaching",
+		description: `God led us to start this ministry after covid-19 prevented us from preaching in schools. Each week a group of men from our church pays a visit to a market and preaches the gospel message on a portable PA system. We have had much positive response from this ministry, and several ladies at the markets have put their faith in Christ as a result.`,
+		image:
+			"https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&h=500&fit=crop",
+		schedule: null,
+		cta: null,
 	},
 	{
-		id: "counseling",
-		name: "Counseling",
-		description: "Healing and support for life's challenges.",
-		icon: "psychology",
-	},
-	{
-		id: "missions",
-		name: "Missions",
-		description: "Spreading the message across global borders.",
-		icon: "volunteer_activism",
+		featured: false,
+		id: "soul-winning",
+		name: "Personal Soul Winning",
+		description: `Our oldest and still most productive ministry takes the form of personal evangelism. It is everyone's duty to preach the gospel. Every Saturday morning we have what we call our soul-winning meeting. Everyone is welcome. This lasts from 9:15 to 9:45 a.m. After this, we split up into groups and go across the city to win lost souls for Jesus Christ.`,
+		image:
+			"https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&h=500&fit=crop",
+		schedule: ["Saturdays 9:15 - 9:45 AM"],
+		cta: null,
 	},
 ]
 
-export const ministriesDetail = [
-	{
-		id: "bible-college",
-		name: "Bible College",
-		description:
-			"Our Bible College offers an intensive, spiritually grounded curriculum designed to equip future leaders with deep theological knowledge and practical ministry skills. Rooted in tradition but focused on modern application, we provide a transformative educational experience.",
-		cta: "Enroll Now",
-		image: "https://picsum.photos/seed/bible-college/800/600",
-	},
-	{
-		id: "christian-school",
-		name: "Christian School",
-		description:
-			"We believe in a holistic approach to education. Our school provides a safe and nurturing environment where children grow academically, socially, and spiritually. We integrate faith into every lesson, fostering a generation of principled and compassionate citizens.",
-		cta: "View Curriculum",
-		image: "https://picsum.photos/seed/christian-school/800/600",
-	},
-	{
-		id: "radio-ministry",
-		name: "Radio Ministry",
-		description:
-			"Bringing the word to the airwaves. Our Radio Ministry reaches thousands daily with uplifting messages, worship music, and insightful talk programs. Whether you're commuting or at home, we are your constant companion in faith and inspiration.",
-		cta: "Listen Live",
-		icon: "radio",
-		image: "https://picsum.photos/seed/radio/800/600",
-	},
-	{
-		id: "tv-ministry",
-		name: "TV Ministry",
-		description:
-			"Visualizing the Gospel for a global audience. Our television broadcasts bring high-quality Christian programming directly to your living room. From televised sermons to documentaries, we use modern media to share timeless truths.",
-		cta: "Schedule",
-		image: "https://picsum.photos/seed/tv-ministry/800/600",
-	},
-]
+export function getMinistryById(id: string) {
+	return MINISTRIES.find((m) => m.id === id)
+}
+
+export const FEATURED_MINISTRIES = MINISTRIES.filter((m) => m.featured)

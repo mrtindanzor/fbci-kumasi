@@ -1,4 +1,4 @@
-import { church } from "@/shared/db"
+import { church, type ServiceTime } from "@/shared/db"
 import { AnimatePosition, slideUp } from "@/shared/ui/Framer"
 
 export function ServiceTimes() {
@@ -15,30 +15,40 @@ export function ServiceTimes() {
 					</p>
 				</AnimatePosition>
 
-				<div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+				<div className="flex flex-wrap gap-6 max-w-4xl mx-auto">
 					{church.serviceTimes.map((service, index) => (
-						<AnimatePosition key={service.day} variants={slideUp}>
-							<div className="bg-surface-container rounded-2xl p-8 border border-outline-variant/30">
-								<div className="flex items-center gap-3 mb-4">
-									<span className="material-symbols-outlined text-3xl text-secondary">
-										{index === 0 ? "sunny" : "nightlight"}
-									</span>
-									<h3 className="text-xl font-headline font-semibold text-primary">
-										{service.day}
-									</h3>
-								</div>
-								<p className="text-2xl font-bold text-primary mb-1">
-									{service.time}
-								</p>
-								<p className="text-on-surface-variant text-sm mb-3">
-									{service.location}
-								</p>
-								<p className="text-on-surface-variant">{service.description}</p>
-							</div>
-						</AnimatePosition>
+						<ServiceTimeCard
+							key={service.day}
+							service={service}
+							index={index}
+						/>
 					))}
 				</div>
 			</div>
 		</section>
+	)
+}
+
+type ServiceTimeCardProps = {
+	service: ServiceTime
+	index: number
+}
+function ServiceTimeCard({ service, index }: ServiceTimeCardProps) {
+	return (
+		<AnimatePosition variants={slideUp} className="flex-1 min-w-65">
+			<div className="bg-surface-container rounded-2xl p-8 border border-outline-variant/30">
+				<div className="flex text-center items-center justify-center gap-3 mb-4">
+					<span className="material-symbols-outlined text-3xl text-secondary">
+						{index === 0 ? "sunny" : "nightlight"}
+					</span>
+					<h3 className="text-xl font-headline font-semibold text-primary">
+						{service.day}
+					</h3>
+				</div>
+				<p className="text-2xl text-center font-bold text-primary mb-1">
+					{service.time}
+				</p>
+			</div>
+		</AnimatePosition>
 	)
 }
