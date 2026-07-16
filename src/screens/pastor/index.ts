@@ -1,0 +1,1 @@
+export { PastorPage } from "./PastorPage"

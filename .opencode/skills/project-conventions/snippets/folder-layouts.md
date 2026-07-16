@@ -1,0 +1,164 @@
+# Folder Layout Snippets
+
+> See folder-structure.md for the canonical directory breakdown with rules for each layer.
+
+## Full Application Scaffold
+
+```
+src/
+  assets/
+    svgs/
+  config/
+    utils/
+      getEnv.ts
+    publicUrls.ts
+    socials.ts
+  features/
+    <name>/
+      index.ts
+      <name>.contract.types.ts
+      <name>.services.ts
+      <name>.validators.ts
+      <name>.use<Name>.ts
+  libs/
+    fetchData/
+      index.ts
+      axios.ts
+      fetchData.ts
+      fetchData.types.ts
+      fetchQuery.ts
+      createService.ts
+    tanstack/
+      index.ts
+      utils/
+        generateMetadata.ts
+  providers/
+    BaseProvider.tsx
+    RoutingProvider.tsx
+    ScrollProvider.tsx
+  routes/
+    __root.tsx
+    index.tsx
+    <page>.tsx
+    globals.css
+    routeTree.gen.ts
+  screens/
+    <screen-name>/
+      index.ts
+      <Name>Page.tsx
+      sections/
+        <SectionName>.tsx
+  shared/
+    constants/
+      branding.ts
+    db/
+      index.ts
+      <name>.db.ts
+      <name>.db.types.ts
+    hooks/
+      use<Name>.ts
+      use<Name>/
+        use<Name>.ts
+        <Name>.types.ts
+        index.ts
+    layouts/
+      index.ts
+      Header.tsx
+      Footer.tsx
+      Navbar.tsx
+      constants.ts
+    routes/
+      index.ts
+      routes.ts
+      apiRoutes.ts
+      opengraph.ts
+    types/
+      types.ts
+      utils/
+        ExtractVariants.ts
+        setState.ts
+    ui/
+      primitive/
+        Button/
+          index.ts
+          button.types.ts
+          components/
+            Button.tsx
+            IconLink.tsx
+            Pill.tsx
+        Input.tsx
+        Label.tsx
+        Spinner.tsx
+        ErrorCard.tsx
+        LoadingSwap.tsx
+        Visibility.tsx
+        Backdrop.tsx
+        AccentText.tsx
+        Image.tsx
+      Framer/
+        index.ts
+        framer.types.ts
+        components/
+          AnimatePosition.tsx
+          AnimateScroll.tsx
+        hooks/
+          useFramerScroll.ts
+          usePosition.ts
+        utils/
+          motion.ts
+    utils/
+      cn.ts
+      tryCatch.ts
+      fe.ts
+      textFormat.ts
+      pageMetadata.ts
+      response/
+        response.util.ts
+        response.util.types.ts
+        index.ts
+```
+
+## Minimal Scaffold (Getting Started)
+
+```
+src/
+  config/
+    utils/
+      getEnv.ts
+    publicUrls.ts
+  features/
+  libs/
+  providers/
+  routes/
+    __root.tsx
+    index.tsx
+    globals.css
+  screens/
+    <screen-name>/
+      index.ts
+      <Name>Page.tsx
+      sections/
+  shared/
+    constants/
+    hooks/
+    layouts/
+      Header.tsx
+      Footer.tsx
+      constants.ts
+    routes/
+      index.ts
+      routes.ts
+      apiRoutes.ts
+      opengraph.ts
+    types/
+      utils/
+        ExtractVariants.ts
+    ui/
+      primitive/
+    utils/
+      cn.ts
+      tryCatch.ts
+      fe.ts
+  Layout.tsx
+  router.tsx
+```

@@ -1,0 +1,1 @@
+export { MinistriesPage } from "./MinistriesPage"

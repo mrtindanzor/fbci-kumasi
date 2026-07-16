@@ -1,0 +1,8 @@
+node_modules
+opencode
+.env
+.env.production
+dist
+.tanstack
+.output
+*.buildconfig.json

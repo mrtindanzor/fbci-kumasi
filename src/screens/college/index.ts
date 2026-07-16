@@ -1,0 +1,1 @@
+export { CollegePage } from "./CollegePage"
