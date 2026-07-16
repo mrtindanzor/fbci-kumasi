@@ -1,4 +1,6 @@
 import { CallToAction } from "./sections/CallToAction"
+import { ConferenceCTA } from "./sections/ConferenceCTA"
+import { DiscipleshipCTA } from "./sections/DiscipleshipCTA"
 import { FeaturedMinistry } from "./sections/FeaturedMinistry"
 import { HeavenCTA } from "./sections/HeavenCTA"
 import { Hero } from "./sections/Hero2"
@@ -12,6 +14,8 @@ export function HomePage() {
 			<Hero />
 			<ServiceTimes />
 			<HeavenCTA />
+			<ConferenceCTA />
+			<DiscipleshipCTA />
 			<OnDemand />
 			<MediaMinistry />
 			<FeaturedMinistry />

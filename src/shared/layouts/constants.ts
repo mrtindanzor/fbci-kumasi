@@ -5,7 +5,7 @@ export const navLinks = [
 	{ label: "About", href: routes.about },
 	{ label: "Ministries", href: routes.ministries },
 	{ label: "Conferences", href: routes.conferences },
-	{ label: "Resources", href: routes.resources },
+	{ label: "Resources", href: routes.resources.home },
 	{ label: "Churches", href: routes.churches },
 	{ label: "Contact", href: routes.contact },
 ] as const
@@ -22,10 +22,10 @@ export const footerSections = [
 	{
 		title: "Resources",
 		links: [
-			{ label: "Sermon Notes", href: routes.resources },
-			{ label: "Digital Bible", href: routes.resources },
-			{ label: "Event Calendar", href: routes.resources },
-			{ label: "Volunteer Hub", href: routes.resources },
+			{ label: "Sermon Notes", href: routes.resources.home },
+			{ label: "Digital Bible", href: routes.resources.home },
+			{ label: "Event Calendar", href: routes.resources.home },
+			{ label: "Volunteer Hub", href: routes.resources.home },
 		],
 	},
 ] as const

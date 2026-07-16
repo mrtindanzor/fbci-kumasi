@@ -8,7 +8,10 @@ export const routes = Object.freeze({
 	college: "/college",
 	heaven: "/heaven",
 	contact: "/contact",
-	resources: "/resources",
+	resources: {
+		home: "/resources",
+		discipleship: "/resources#discipleship-lesson-books",
+	},
 	donate: "/donate",
 	churches: "/churches",
 } as const)
