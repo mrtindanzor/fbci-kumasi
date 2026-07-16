@@ -7,7 +7,7 @@ export const church: ChurchInfo = {
 		"A modern sanctuary dedicated to transformative worship and global impact.",
 	description:
 		"A modern sanctuary for spiritual growth, fellowship, and community service.",
-	address: "GhanaPost GPS: AK-000-0000",
+	address: "GhanaPost GPS: AK-165-9396",
 	phone: "+233 00 000 0000",
 	email: "info@houseanderson.org",
 	serviceTimes: [

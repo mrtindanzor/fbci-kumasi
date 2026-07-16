@@ -38,9 +38,6 @@ export function Biography() {
 									<p className="text-sm text-on-surface-variant">
 										Family & Faith
 									</p>
-									<p className="font-semibold text-primary">
-										35 Years of Shared Ministry
-									</p>
 								</div>
 							</div>
 						</AnimatePosition>
@@ -49,9 +46,9 @@ export function Biography() {
 							<h2 className="text-3xl font-headline font-bold text-primary mb-6">
 								A Vision of Restoration
 							</h2>
-							{pastorData.biography.map((paragraph, index) => (
+							{pastorData.biography.map((paragraph) => (
 								<p
-									key={index}
+									key={paragraph.slice(0, 40)}
 									className="text-on-surface-variant leading-relaxed mb-4"
 								>
 									{paragraph}

@@ -9,7 +9,7 @@ export function Registration() {
 			<div className="container-app">
 				<AnimatePosition variants={slideUp}>
 					<h2 className="text-3xl md:text-4xl font-headline font-bold text-primary text-center mb-4">
-						Secure Your Place in the Sanctuary
+						Secure your place
 					</h2>
 					<p className="text-on-surface-variant text-center max-w-xl mx-auto mb-12">
 						Early bird registration is open until August 30th. Group discounts

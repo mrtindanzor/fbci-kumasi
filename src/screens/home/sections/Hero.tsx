@@ -5,7 +5,7 @@ export function Hero() {
 	return (
 		<section className="relative min-h-[600px] md:min-h-[700px] flex items-center bg-gradient-to-br from-primary to-primary-container overflow-hidden">
 			<div className="absolute inset-0 opacity-20">
-				<div className="absolute inset-0 bg-[url('https://picsum.photos/seed/church-hero/1920/1080')] bg-cover bg-center" />
+				<div className="absolute inset-0 bg-[url('/images/heaven-page-bg.avif')] bg-cover bg-center" />
 			</div>
 
 			<div className="container-app relative z-10 py-20">

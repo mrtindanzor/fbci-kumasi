@@ -1,5 +1,4 @@
 import type { cva } from "class-variance-authority"
-import type { ClassValue } from "clsx"
 
 type CvaReturnType = ReturnType<typeof cva>
 

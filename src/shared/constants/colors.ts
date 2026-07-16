@@ -1,5 +1,5 @@
 export const COLORS = Object.freeze({
-	primary: "#0f172a",
+	primary: "#000000",
 	primaryContainer: "#131b2e",
 	secondary: "#735c00",
 	secondaryContainer: "#fed65b",

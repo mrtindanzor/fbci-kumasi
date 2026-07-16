@@ -23,9 +23,6 @@ export function Hero() {
 					<div className="flex flex-wrap gap-4">
 						<Button variant="gold" size="lg">
 							Register Now
-							<span className="material-symbols-outlined text-lg">
-								arrow_forward
-							</span>
 						</Button>
 						<Button
 							variant="secondary"

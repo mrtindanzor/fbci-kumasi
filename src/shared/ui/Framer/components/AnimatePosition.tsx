@@ -1,5 +1,3 @@
-"use client"
-
 import { type HTMLMotionProps, motion } from "framer-motion"
 import { forwardRef } from "react"
 

@@ -15,7 +15,6 @@ export function Footer() {
 								{BRANDING.name}
 							</span>
 						</div>
-						<p className="text-white/70 max-w-sm">{church.description}</p>
 						<div className="flex gap-3 mt-6">
 							<a
 								href={church.socials.facebook}
@@ -85,6 +84,26 @@ export function Footer() {
 							</ul>
 						</div>
 					))}
+
+					<div>
+						<h4 className="font-headline font-semibold mb-4">Newsletter</h4>
+						<p className="text-sm text-white/70 mb-4">
+							Stay updated with our latest news and events.
+						</p>
+						<div className="flex gap-2">
+							<input
+								type="email"
+								placeholder="Your email"
+								className="flex-1 rounded-lg bg-white/10 border border-white/20 px-3 py-2 text-sm text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-secondary"
+							/>
+							<button
+								type="button"
+								className="rounded-lg bg-secondary px-4 py-2 text-sm font-semibold text-white hover:bg-secondary/90 transition-colors"
+							>
+								Subscribe
+							</button>
+						</div>
+					</div>
 				</div>
 
 				<div className="mt-12 pt-8 border-t border-white/10 text-center text-sm text-white/50">

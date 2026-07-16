@@ -15,9 +15,6 @@ export function Hero() {
 						<p className="text-secondary font-semibold text-sm uppercase tracking-wider mb-4">
 							Meet Our Lead Pastor
 						</p>
-						<h1 className="text-4xl md:text-5xl font-headline font-bold text-white leading-tight mb-4">
-							A Life Poured Out For The Kingdom
-						</h1>
 						<p className="text-lg text-white/80 mb-8">
 							Guided by faith and a passion for restoration, Pastor Anderson has
 							dedicated three decades to building a sanctuary where every soul

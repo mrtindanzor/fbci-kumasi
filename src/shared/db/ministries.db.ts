@@ -1,10 +1,9 @@
-import { BRANDING } from "@/shared/constants"
 import type { Ministry } from "./ministries.db.types"
 
 export const ministries: Ministry[] = [
 	{
 		id: "bible-college",
-		name: BRANDING.college.name,
+		name: "Bible College",
 		description: "Training the next generation of spiritual leaders.",
 		icon: "school",
 	},
@@ -55,7 +54,7 @@ export const ministries: Ministry[] = [
 export const ministriesDetail = [
 	{
 		id: "bible-college",
-		name: BRANDING.college.name,
+		name: "Bible College",
 		description:
 			"Our Bible College offers an intensive, spiritually grounded curriculum designed to equip future leaders with deep theological knowledge and practical ministry skills. Rooted in tradition but focused on modern application, we provide a transformative educational experience.",
 		cta: "Enroll Now",

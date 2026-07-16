@@ -1,0 +1,1 @@
+export { HeavenPage } from "./HeavenPage"

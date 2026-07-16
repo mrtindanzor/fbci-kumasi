@@ -6,6 +6,33 @@ export function Stats() {
 	return (
 		<section className="section-gap bg-surface">
 			<div className="container-app">
+				<AnimatePosition variants={slideUp}>
+					<p className="text-on-surface-variant text-center mb-8">
+						Joined by 500+ attendees
+					</p>
+				</AnimatePosition>
+
+				<motion.div
+					variants={staggerContainer}
+					initial="hidden"
+					whileInView="show"
+					viewport={{ once: true }}
+					className="flex flex-wrap justify-center gap-8 mb-12"
+				>
+					<div className="flex items-center gap-2 text-on-surface-variant">
+						<span className="material-symbols-outlined text-secondary">
+							calendar_today
+						</span>
+						<span className="text-sm">Oct 12-14</span>
+					</div>
+					<div className="flex items-center gap-2 text-on-surface-variant">
+						<span className="material-symbols-outlined text-secondary">
+							location_on
+						</span>
+						<span className="text-sm">Main Campus</span>
+					</div>
+				</motion.div>
+
 				<motion.div
 					variants={staggerContainer}
 					initial="hidden"

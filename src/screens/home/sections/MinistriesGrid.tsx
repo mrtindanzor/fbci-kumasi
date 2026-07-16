@@ -7,13 +7,22 @@ export function MinistriesGrid() {
 		<section className="section-gap bg-surface-container">
 			<div className="container-app">
 				<AnimatePosition variants={slideUp}>
-					<h2 className="text-3xl md:text-4xl font-headline font-bold text-primary text-center mb-4">
-						Our Ministries
-					</h2>
-					<p className="text-on-surface-variant text-center max-w-xl mx-auto mb-12">
-						From early childhood to professional leadership training, we are
-						dedicated to holistic growth.
-					</p>
+					<div className="flex items-center justify-between mb-12">
+						<div>
+							<h2 className="text-3xl md:text-4xl font-headline font-bold text-primary">
+								Our Ministries
+							</h2>
+						</div>
+						<button
+							type="button"
+							className="inline-flex items-center gap-2 text-secondary font-semibold hover:underline"
+						>
+							View All Departments
+							<span className="material-symbols-outlined text-lg">
+								arrow_forward
+							</span>
+						</button>
+					</div>
 				</AnimatePosition>
 
 				<motion.div

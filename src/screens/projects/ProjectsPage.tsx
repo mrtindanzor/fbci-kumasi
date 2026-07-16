@@ -1,3 +1,4 @@
+import { CallToAction } from "./sections/CallToAction"
 import { Hero } from "./sections/Hero"
 import { ProjectCards } from "./sections/ProjectCards"
 
@@ -6,6 +7,7 @@ export function ProjectsPage() {
 		<main>
 			<Hero />
 			<ProjectCards />
+			<CallToAction />
 		</main>
 	)
 }

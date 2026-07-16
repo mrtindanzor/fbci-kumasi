@@ -6,6 +6,7 @@ export const routes = Object.freeze({
 	projects: "/projects",
 	pastor: "/pastor",
 	college: "/college",
+	heaven: "/heaven",
 } as const)
 
 export type Routes = (typeof routes)[keyof typeof routes]

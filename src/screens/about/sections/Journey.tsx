@@ -12,7 +12,7 @@ export function Journey() {
 								Our Journey
 							</h2>
 							<p className="text-secondary font-semibold text-sm uppercase tracking-wider mb-6">
-								The Legacy of {BRANDING.name}
+								The Legacy of House Anderson
 							</p>
 							<p className="text-on-surface-variant leading-relaxed mb-4">
 								{BRANDING.name} began in the heart of the city with a simple

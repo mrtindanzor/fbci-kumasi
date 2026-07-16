@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
 import { ministriesDetail } from "@/shared/db"
-import { AnimatePosition, slideUp, staggerContainer } from "@/shared/ui/Framer"
+import { slideUp, staggerContainer } from "@/shared/ui/Framer"
 import { Button } from "@/shared/ui/primitives/button"
 
 export function MinistryCards() {

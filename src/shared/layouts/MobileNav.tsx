@@ -1,9 +1,6 @@
-"use client"
-
 import { Link } from "@tanstack/react-router"
 import { AnimatePresence, motion } from "framer-motion"
 import { BRANDING } from "@/shared/constants"
-import { church } from "@/shared/db"
 import { mobileNavLinks } from "./constants"
 
 type MobileNavProps = {

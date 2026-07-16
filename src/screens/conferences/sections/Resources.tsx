@@ -7,13 +7,17 @@ export function Resources() {
 		<section className="section-gap">
 			<div className="container-app">
 				<AnimatePosition variants={slideUp}>
-					<h2 className="text-3xl md:text-4xl font-headline font-bold text-primary text-center mb-4">
-						Conference Resources
-					</h2>
-					<p className="text-on-surface-variant text-center max-w-xl mx-auto mb-12">
-						Access essential media kits, logistical forms, and promotional
-						materials.
-					</p>
+					<div className="flex items-center justify-between mb-12">
+						<h2 className="text-3xl md:text-4xl font-headline font-bold text-primary">
+							Conference Resources
+						</h2>
+						<button
+							type="button"
+							className="h-10 w-10 rounded-full border border-outline-variant flex items-center justify-center hover:bg-surface-container transition-colors"
+						>
+							<span className="material-symbols-outlined">filter_list</span>
+						</button>
+					</div>
 				</AnimatePosition>
 
 				<motion.div

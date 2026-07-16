@@ -1,5 +1,5 @@
 import { motion } from "framer-motion"
-import { AnimatePosition, slideUp, staggerContainer } from "@/shared/ui/Framer"
+import { slideUp, staggerContainer } from "@/shared/ui/Framer"
 import { Button } from "@/shared/ui/primitives/button"
 import { projects } from "../data"
 

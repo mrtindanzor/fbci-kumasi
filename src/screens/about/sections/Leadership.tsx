@@ -28,12 +28,25 @@ export function Leadership() {
 		<section className="section-gap">
 			<div className="container-app">
 				<AnimatePosition variants={slideUp}>
-					<h2 className="text-3xl md:text-4xl font-headline font-bold text-primary text-center mb-4">
-						Leadership
-					</h2>
-					<p className="text-on-surface-variant text-center max-w-xl mx-auto mb-12">
-						The Hearts Behind the Vision
-					</p>
+					<div className="flex items-center justify-between mb-12">
+						<div>
+							<h2 className="text-3xl md:text-4xl font-headline font-bold text-primary mb-2">
+								Leadership
+							</h2>
+							<p className="text-on-surface-variant">
+								The Hearts Behind the Vision
+							</p>
+						</div>
+						<button
+							type="button"
+							className="inline-flex items-center gap-2 text-secondary font-semibold hover:underline"
+						>
+							View All Staff
+							<span className="material-symbols-outlined text-lg">
+								arrow_forward
+							</span>
+						</button>
+					</div>
 				</AnimatePosition>
 
 				<motion.div
@@ -41,7 +54,7 @@ export function Leadership() {
 					initial="hidden"
 					whileInView="show"
 					viewport={{ once: true }}
-					className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto"
+					className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto"
 				>
 					{leaders.map((leader) => (
 						<motion.div
@@ -49,7 +62,7 @@ export function Leadership() {
 							variants={slideUp}
 							className="text-center"
 						>
-							<div className="w-32 h-32 mx-auto rounded-full overflow-hidden mb-4 border-4 border-outline-variant/30">
+							<div className="w-40 h-40 mx-auto rounded-full overflow-hidden mb-4 border-4 border-outline-variant/30">
 								<img
 									src={leader.image}
 									alt={leader.name}
@@ -70,18 +83,26 @@ export function Leadership() {
 					))}
 				</motion.div>
 
-				<AnimatePosition variants={slideUp} className="mt-12 text-center">
-					<div className="bg-surface-container rounded-2xl p-8 max-w-2xl mx-auto">
-						<span className="material-symbols-outlined text-4xl text-secondary mb-3 block">
-							music_note
+				<AnimatePosition variants={slideUp} className="mt-12">
+					<div className="bg-surface-container rounded-2xl p-8 max-w-2xl mx-auto flex items-start gap-4">
+						<span className="material-symbols-outlined text-4xl text-secondary">
+							work
 						</span>
-						<h3 className="text-xl font-headline font-semibold text-primary mb-2">
-							Join the Team
-						</h3>
-						<p className="text-on-surface-variant">
-							We are always looking for passionate individuals to help us build
-							the kingdom.
-						</p>
+						<div>
+							<h3 className="text-xl font-headline font-semibold text-primary mb-2">
+								Join the Team
+							</h3>
+							<p className="text-on-surface-variant mb-3">
+								We are always looking for passionate individuals to help us
+								build the kingdom.
+							</p>
+							<button
+								type="button"
+								className="text-secondary font-semibold text-sm hover:underline"
+							>
+								Career Openings
+							</button>
+						</div>
 					</div>
 				</AnimatePosition>
 			</div>

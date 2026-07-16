@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as PastorRouteImport } from './routes/pastor'
 import { Route as MinistriesRouteImport } from './routes/ministries'
+import { Route as HeavenRouteImport } from './routes/heaven'
 import { Route as ConferencesRouteImport } from './routes/conferences'
 import { Route as CollegeRouteImport } from './routes/college'
 import { Route as AboutRouteImport } from './routes/about'
@@ -30,6 +31,11 @@ const PastorRoute = PastorRouteImport.update({
 const MinistriesRoute = MinistriesRouteImport.update({
   id: '/ministries',
   path: '/ministries',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HeavenRoute = HeavenRouteImport.update({
+  id: '/heaven',
+  path: '/heaven',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ConferencesRoute = ConferencesRouteImport.update({
@@ -58,6 +64,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/college': typeof CollegeRoute
   '/conferences': typeof ConferencesRoute
+  '/heaven': typeof HeavenRoute
   '/ministries': typeof MinistriesRoute
   '/pastor': typeof PastorRoute
   '/projects': typeof ProjectsRoute
@@ -67,6 +74,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/college': typeof CollegeRoute
   '/conferences': typeof ConferencesRoute
+  '/heaven': typeof HeavenRoute
   '/ministries': typeof MinistriesRoute
   '/pastor': typeof PastorRoute
   '/projects': typeof ProjectsRoute
@@ -77,6 +85,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/college': typeof CollegeRoute
   '/conferences': typeof ConferencesRoute
+  '/heaven': typeof HeavenRoute
   '/ministries': typeof MinistriesRoute
   '/pastor': typeof PastorRoute
   '/projects': typeof ProjectsRoute
@@ -88,6 +97,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/college'
     | '/conferences'
+    | '/heaven'
     | '/ministries'
     | '/pastor'
     | '/projects'
@@ -97,6 +107,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/college'
     | '/conferences'
+    | '/heaven'
     | '/ministries'
     | '/pastor'
     | '/projects'
@@ -106,6 +117,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/college'
     | '/conferences'
+    | '/heaven'
     | '/ministries'
     | '/pastor'
     | '/projects'
@@ -116,6 +128,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   CollegeRoute: typeof CollegeRoute
   ConferencesRoute: typeof ConferencesRoute
+  HeavenRoute: typeof HeavenRoute
   MinistriesRoute: typeof MinistriesRoute
   PastorRoute: typeof PastorRoute
   ProjectsRoute: typeof ProjectsRoute
@@ -142,6 +155,13 @@ declare module '@tanstack/react-router' {
       path: '/ministries'
       fullPath: '/ministries'
       preLoaderRoute: typeof MinistriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/heaven': {
+      id: '/heaven'
+      path: '/heaven'
+      fullPath: '/heaven'
+      preLoaderRoute: typeof HeavenRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/conferences': {
@@ -180,6 +200,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   CollegeRoute: CollegeRoute,
   ConferencesRoute: ConferencesRoute,
+  HeavenRoute: HeavenRoute,
   MinistriesRoute: MinistriesRoute,
   PastorRoute: PastorRoute,
   ProjectsRoute: ProjectsRoute,

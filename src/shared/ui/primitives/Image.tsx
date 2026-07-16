@@ -1,17 +1,11 @@
 import type { ComponentProps } from "react"
 import { cn } from "@/shared/utils/cn"
 
-type MImageProps = ComponentProps<"img"> & {
+type ImageProps = ComponentProps<"img"> & {
 	fallback?: string
 }
 
-export function MImage({
-	className,
-	fallback,
-	alt,
-	src,
-	...props
-}: MImageProps) {
+export function Image({ className, fallback, alt, src, ...props }: ImageProps) {
 	return (
 		<img
 			className={cn("object-cover", className)}
