@@ -1,6 +1,7 @@
 import { CHURCH_INFO } from "@/shared/db"
 import { AnimatePosition, slideUp } from "@/shared/ui/Framer"
-import { Button } from "@/shared/ui/primitives/button"
+import { Link } from "@/shared/ui/primitives/button"
+import { PaymentForm } from "@/shared/ui/primitives/PaymentForm"
 
 export function GivingOptions() {
 	return (
@@ -24,83 +25,71 @@ export function GivingOptions() {
 						Choose Your Location
 					</h2>
 
-					<div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16">
-						<div className="bg-surface rounded-2xl border border-outline-variant p-8">
-							<span className="material-symbols-outlined text-4xl text-secondary mb-4 block">
-								public
-							</span>
-							<h3 className="font-headline font-semibold text-primary text-lg mb-2">
-								United States Giving
-							</h3>
-							<p className="text-sm text-on-surface-variant mb-6">
-								Secure international processing
-							</p>
-							<div className="space-y-4">
-								<span className="inline-flex items-center gap-2 text-sm text-on-surface-variant">
-									<span className="material-symbols-outlined text-lg">
-										lock
-									</span>
-									Secure Donation Portal
-								</span>
-								<Button className="block w-full text-center px-6 py-3 bg-primary text-white rounded-xl font-semibold hover:bg-primary/90 transition-colors">
-									Open Donation Form
-								</Button>
-							</div>
-						</div>
-
-						<div className="grid gap-6">
-							<div className="bg-surface rounded-2xl border border-outline-variant p-8">
+					<div className="grid gap-8 max-w-4xl mx-auto mb-16">
+						<div id="local" className="grid gap-6">
+							<div className="bg-surface rounded-2xl sm:border sm:border-outline-variant/30 py-8 px-4 sm:px-8">
 								<span className="material-symbols-outlined text-4xl text-secondary mb-4 block">
 									smartphone
 								</span>
-								<h3 className="font-headline font-semibold text-primary text-lg mb-4">
-									Mobile Money
+								<h3 className="font-headline font-semibold text-primary text-lg mb-2">
+									Donating from Ghana
 								</h3>
-								<div className="space-y-3 text-sm">
-									<div>
-										<p className="font-semibold text-primary">
-											MTN Mobile Money
-										</p>
-										<p className="text-on-surface-variant">
+								<p className="text-sm text-on-surface-variant mb-6">
+									MOMO (MTN, AirtelTigo, Telecel) or bank account
+								</p>
+								<p className="text-on-surface-variant">
+									Dial{" "}
+									<Link
+										href={`tel:${CHURCH_INFO.giving}`}
+										size="none"
+										variant="none"
+										className="p-0"
+									>
+										<code className="mx-1 flex items-end leading-8 border-b-2 bg-surface-container font-semibold px-2 text-lg">
 											{CHURCH_INFO.giving}
-										</p>
-									</div>
-									<div>
-										<p className="font-semibold text-primary">Telecel Cash</p>
-										<p className="text-on-surface-variant">*110#</p>
-									</div>
-								</div>
+										</code>
+									</Link>
+									and follow the prompts. If you are giving anything except
+									tithe, use the reference option to state your purpose.
+								</p>
 							</div>
+						</div>
 
-							<div className="bg-surface rounded-2xl border border-outline-variant p-8">
+						<div
+							id="overseas"
+							className="bg-neutral-50 rounded-2xl sm:border sm:border-outline-variant/30 py-8"
+						>
+							<div className="px-4 sm:px-8">
 								<span className="material-symbols-outlined text-4xl text-secondary mb-4 block">
-									account_balance
+									public
 								</span>
-								<h3 className="font-headline font-semibold text-primary text-lg mb-4">
-									Bank Transfer
+								<h3 className="font-headline font-semibold text-primary text-lg mb-2">
+									United States Giving
 								</h3>
-								<div className="space-y-2 text-sm">
-									<div className="flex justify-between">
-										<span className="text-on-surface-variant">Bank</span>
-										<span className="font-semibold text-primary">
-											GCB Bank PLC
+								<p className="text-sm text-on-surface-variant mb-6">
+									If you would like to donate to our ministry, you can do so
+									through our mission board, Fundamental Baptist Missions
+									International. <br /> They have provided us with the form
+									below, so you don't need to leave our site. Simply select your
+									preferences, fill in the fields, and you're good to go. Thank
+									you for setting your "<b>affection on things above</b>"!
+								</p>
+							</div>
+							<div className="space-y-4">
+								<div className="px-4 sm:px-8">
+									<span className="inline-flex items-center gap-2 text-sm text-on-surface-variant">
+										<span className="material-symbols-outlined text-lg">
+											lock
 										</span>
-									</div>
-									<div className="flex justify-between">
-										<span className="text-on-surface-variant">
-											Account Number
-										</span>
-										<span className="font-semibold text-primary">
-											1011130005423
-										</span>
-									</div>
-									<div className="flex justify-between">
-										<span className="text-on-surface-variant">Branch</span>
-										<span className="font-semibold text-primary">
-											Accra High Street
-										</span>
-									</div>
+										Secure Donation Portal
+									</span>
 								</div>
+
+								<PaymentForm
+									title="Give to Support Missions"
+									src={CHURCH_INFO.donationLink}
+									className="h-350 sm:h-250"
+								/>
 							</div>
 						</div>
 					</div>

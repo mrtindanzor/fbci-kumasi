@@ -118,7 +118,7 @@
 
 @layer base {
 	* {
-		@apply border-outline-variant;
+		@apply border-outline-variant scroll-mt-30;
 		scrollbar-width: thin;
 	}
 

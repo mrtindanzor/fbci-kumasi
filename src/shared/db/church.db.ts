@@ -8,8 +8,7 @@ export const CHURCH_INFO: ChurchInfo = {
 	description:
 		"A modern sanctuary for spiritual growth, fellowship, and community service.",
 	address: "GhanaPost GPS: AK-165-9396",
-	phone: "+233 00 000 0000",
-	email: "info@houseanderson.org",
+	phone: "+233544352810",
 	serviceTimes: [
 		{
 			day: "Sunday Morning",
@@ -27,13 +26,15 @@ export const CHURCH_INFO: ChurchInfo = {
 	socials: {
 		facebook: "https://facebook.com/houseanderson",
 		youtube: "https://youtube.com/houseanderson",
-		email: "mailto:info@houseanderson.org",
+		email: "fbcikumasi@gmail.com",
 	},
-	giving: "*711*123#",
+	giving: "*713*2810#",
 	pastor: {
 		name: "Dr. Pastor Ted Speer ",
 		image: "/images/leaders/dr-pastor-ted-speer-and-wife.avif",
 		profile: ["F.B.M.I Profile", "https://www.fbmi.org/missionary/speer"],
 		role: "Senior Pastor",
 	},
+	donationLink:
+		"https://forms.ministryforms.net/viewForm.aspx?formid=4acd952d-1877-4a34-8cf1-b236e92ec5cb&direct-link=&embed=true&frameid=726864893714642",
 }

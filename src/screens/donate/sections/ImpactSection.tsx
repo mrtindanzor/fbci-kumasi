@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
 import { AnimatePosition, slideUp, staggerContainer } from "@/shared/ui/Framer"
-import { Link } from "@/shared/ui/primitives/button"
+import { IMPACTS } from "../constants"
 
 export function ImpactSection() {
 	return (
@@ -13,32 +13,7 @@ export function ImpactSection() {
 					viewport={{ once: true }}
 					className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 max-w-5xl mx-auto mb-16"
 				>
-					{[
-						{
-							icon: "school",
-							title: "HACWA Scholarships",
-							description:
-								"Supporting the next generation of pastors and leaders across West Africa.",
-						},
-						{
-							icon: "church",
-							title: "Church Planting",
-							description:
-								"Establishing fundamental churches in rural and urban communities.",
-						},
-						{
-							icon: "volunteer_activism",
-							title: "Community Outreach",
-							description:
-								"Providing physical and spiritual support to families in need.",
-						},
-						{
-							icon: "menu_book",
-							title: "Resource Dev",
-							description:
-								"Printing and distributing Bibles and sound theological literature.",
-						},
-					].map((area) => (
+					{IMPACTS.map((area) => (
 						<motion.li
 							key={area.title}
 							variants={slideUp}
@@ -70,17 +45,6 @@ export function ImpactSection() {
 								Every contribution to Fundamental Baptist Church International
 								is managed with the highest level of accountability and prayer.
 							</p>
-							<p className="text-sm text-on-surface-variant italic mb-6">
-								&ldquo;FBCI is a registered non-profit organization. All
-								donations from the USA are tax-deductible to the full extent of
-								the law.&rdquo;
-							</p>
-							<Link href="#" variant="secondary" className="gap-x-2">
-								<span className="material-symbols-outlined text-lg">
-									receipt_long
-								</span>
-								View Missions Report
-							</Link>
 						</div>
 					</div>
 				</AnimatePosition>

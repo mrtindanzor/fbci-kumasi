@@ -43,7 +43,7 @@ export function ContactInfo() {
 								Email
 							</h3>
 							<p className="text-sm text-on-surface-variant">
-								{CHURCH_INFO.email}
+								{CHURCH_INFO.socials.email}
 							</p>
 						</div>
 					</div>

@@ -9,7 +9,6 @@ export type ChurchInfo = {
 	description: string
 	address: string
 	phone: string
-	email: string
 	serviceTimes: ServiceTime[]
 	socials: {
 		facebook: string
@@ -23,4 +22,5 @@ export type ChurchInfo = {
 		profile: [/*title */ string, /*url*/ string]
 		role: string
 	}
+	donationLink: string
 }

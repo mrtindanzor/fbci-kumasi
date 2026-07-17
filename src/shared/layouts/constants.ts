@@ -11,7 +11,7 @@ export const NAV_LINKS = [
 	{ label: "Churches", href: routes.churches },
 	{ label: "Contact", href: routes.contact },
 	{ label: "College", href: routes.college },
-	{ label: "Donate", href: routes.donate },
+	{ label: "Donate", href: routes.donate.home },
 ] as const
 
 export const footerSections = [

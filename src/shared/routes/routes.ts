@@ -19,7 +19,11 @@ export const routes = Object.freeze({
 		home: "/resources",
 		discipleship: "/resources#discipleship-lesson-books",
 	},
-	donate: "/donate",
+	donate: {
+		home: "/donate",
+		overseas: "/donate#overseas",
+		local: "/donate#local",
+	},
 	churches: "/churches",
 } as const)
 
