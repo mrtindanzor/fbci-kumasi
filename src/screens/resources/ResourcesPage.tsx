@@ -1,7 +1,9 @@
 import { Categories } from "./sections/Categories"
+import { DiscipleshipSection } from "./sections/DiscipleshipSection"
 import { Hero } from "./sections/Hero"
 import { PodcastSection } from "./sections/PodcastSection"
-import { ResourceLibrary } from "./sections/ResourceLibrary"
+import { SalvationSection } from "./sections/SalvationSection"
+import { YouTubeSection } from "./sections/YouTubeSection"
 
 export function ResourcesPage() {
 	return (
@@ -9,7 +11,9 @@ export function ResourcesPage() {
 			<Hero />
 			<Categories />
 			<PodcastSection />
-			<ResourceLibrary />
+			<YouTubeSection />
+			<DiscipleshipSection />
+			<SalvationSection />
 		</main>
 	)
 }

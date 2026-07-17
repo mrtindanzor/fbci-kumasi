@@ -9,7 +9,6 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as ResourcesRouteImport } from './routes/resources'
 import { Route as PastorRouteImport } from './routes/pastor'
 import { Route as MinistriesRouteImport } from './routes/ministries'
 import { Route as HeavenRouteImport } from './routes/heaven'
@@ -20,15 +19,12 @@ import { Route as CollegeRouteImport } from './routes/college'
 import { Route as ChurchesRouteImport } from './routes/churches'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ResourcesIndexRouteImport } from './routes/resources/index'
 import { Route as ProjectsIndexRouteImport } from './routes/projects/index'
+import { Route as ResourcesDiscipleshipRouteImport } from './routes/resources/discipleship'
 import { Route as ProjectsFundedRouteImport } from './routes/projects/funded'
 import { Route as ProjectsProjectIdRouteImport } from './routes/projects/project.$id'
 
-const ResourcesRoute = ResourcesRouteImport.update({
-  id: '/resources',
-  path: '/resources',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const PastorRoute = PastorRouteImport.update({
   id: '/pastor',
   path: '/pastor',
@@ -79,9 +75,19 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ResourcesIndexRoute = ResourcesIndexRouteImport.update({
+  id: '/resources/',
+  path: '/resources/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProjectsIndexRoute = ProjectsIndexRouteImport.update({
   id: '/projects/',
   path: '/projects/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResourcesDiscipleshipRoute = ResourcesDiscipleshipRouteImport.update({
+  id: '/resources/discipleship',
+  path: '/resources/discipleship',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProjectsFundedRoute = ProjectsFundedRouteImport.update({
@@ -106,9 +112,10 @@ export interface FileRoutesByFullPath {
   '/heaven': typeof HeavenRoute
   '/ministries': typeof MinistriesRoute
   '/pastor': typeof PastorRoute
-  '/resources': typeof ResourcesRoute
   '/projects/funded': typeof ProjectsFundedRoute
+  '/resources/discipleship': typeof ResourcesDiscipleshipRoute
   '/projects/': typeof ProjectsIndexRoute
+  '/resources/': typeof ResourcesIndexRoute
   '/projects/project/$id': typeof ProjectsProjectIdRoute
 }
 export interface FileRoutesByTo {
@@ -122,9 +129,10 @@ export interface FileRoutesByTo {
   '/heaven': typeof HeavenRoute
   '/ministries': typeof MinistriesRoute
   '/pastor': typeof PastorRoute
-  '/resources': typeof ResourcesRoute
   '/projects/funded': typeof ProjectsFundedRoute
+  '/resources/discipleship': typeof ResourcesDiscipleshipRoute
   '/projects': typeof ProjectsIndexRoute
+  '/resources': typeof ResourcesIndexRoute
   '/projects/project/$id': typeof ProjectsProjectIdRoute
 }
 export interface FileRoutesById {
@@ -139,9 +147,10 @@ export interface FileRoutesById {
   '/heaven': typeof HeavenRoute
   '/ministries': typeof MinistriesRoute
   '/pastor': typeof PastorRoute
-  '/resources': typeof ResourcesRoute
   '/projects/funded': typeof ProjectsFundedRoute
+  '/resources/discipleship': typeof ResourcesDiscipleshipRoute
   '/projects/': typeof ProjectsIndexRoute
+  '/resources/': typeof ResourcesIndexRoute
   '/projects/project/$id': typeof ProjectsProjectIdRoute
 }
 export interface FileRouteTypes {
@@ -157,9 +166,10 @@ export interface FileRouteTypes {
     | '/heaven'
     | '/ministries'
     | '/pastor'
-    | '/resources'
     | '/projects/funded'
+    | '/resources/discipleship'
     | '/projects/'
+    | '/resources/'
     | '/projects/project/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -173,9 +183,10 @@ export interface FileRouteTypes {
     | '/heaven'
     | '/ministries'
     | '/pastor'
-    | '/resources'
     | '/projects/funded'
+    | '/resources/discipleship'
     | '/projects'
+    | '/resources'
     | '/projects/project/$id'
   id:
     | '__root__'
@@ -189,9 +200,10 @@ export interface FileRouteTypes {
     | '/heaven'
     | '/ministries'
     | '/pastor'
-    | '/resources'
     | '/projects/funded'
+    | '/resources/discipleship'
     | '/projects/'
+    | '/resources/'
     | '/projects/project/$id'
   fileRoutesById: FileRoutesById
 }
@@ -206,21 +218,15 @@ export interface RootRouteChildren {
   HeavenRoute: typeof HeavenRoute
   MinistriesRoute: typeof MinistriesRoute
   PastorRoute: typeof PastorRoute
-  ResourcesRoute: typeof ResourcesRoute
   ProjectsFundedRoute: typeof ProjectsFundedRoute
+  ResourcesDiscipleshipRoute: typeof ResourcesDiscipleshipRoute
   ProjectsIndexRoute: typeof ProjectsIndexRoute
+  ResourcesIndexRoute: typeof ResourcesIndexRoute
   ProjectsProjectIdRoute: typeof ProjectsProjectIdRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/resources': {
-      id: '/resources'
-      path: '/resources'
-      fullPath: '/resources'
-      preLoaderRoute: typeof ResourcesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/pastor': {
       id: '/pastor'
       path: '/pastor'
@@ -291,11 +297,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/resources/': {
+      id: '/resources/'
+      path: '/resources'
+      fullPath: '/resources/'
+      preLoaderRoute: typeof ResourcesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/projects/': {
       id: '/projects/'
       path: '/projects'
       fullPath: '/projects/'
       preLoaderRoute: typeof ProjectsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/resources/discipleship': {
+      id: '/resources/discipleship'
+      path: '/resources/discipleship'
+      fullPath: '/resources/discipleship'
+      preLoaderRoute: typeof ResourcesDiscipleshipRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/projects/funded': {
@@ -326,9 +346,10 @@ const rootRouteChildren: RootRouteChildren = {
   HeavenRoute: HeavenRoute,
   MinistriesRoute: MinistriesRoute,
   PastorRoute: PastorRoute,
-  ResourcesRoute: ResourcesRoute,
   ProjectsFundedRoute: ProjectsFundedRoute,
+  ResourcesDiscipleshipRoute: ResourcesDiscipleshipRoute,
   ProjectsIndexRoute: ProjectsIndexRoute,
+  ResourcesIndexRoute: ResourcesIndexRoute,
   ProjectsProjectIdRoute: ProjectsProjectIdRoute,
 }
 export const routeTree = rootRouteImport
