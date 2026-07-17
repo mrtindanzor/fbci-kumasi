@@ -6,7 +6,7 @@ import { Link } from "@/shared/ui/primitives/button"
 
 export function DiscipleshipSection() {
 	return (
-		<section className="section-gap">
+		<section id="discipleship-lesson-books" className="section-gap">
 			<div className="container-app">
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
 					<AnimatePosition variants={slideUp}>

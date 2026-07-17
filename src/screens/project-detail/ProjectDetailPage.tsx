@@ -12,20 +12,7 @@ type ProjectDetailPageProps = {
 export function ProjectDetailPage({ id }: ProjectDetailPageProps) {
 	const project = projects.find((p) => p.id === id)
 
-	if (!project) {
-		return (
-			<main className="section-gap">
-				<div className="container-app text-center">
-					<h1 className="font-h1-mobile md:font-h1 text-h1-mobile md:text-h1 font-bold text-primary">
-						Project Not Found
-					</h1>
-					<p className="text-on-surface-variant mt-4 font-body-lg text-body-lg">
-						The project you are looking for does not exist.
-					</p>
-				</div>
-			</main>
-		)
-	}
+	if (!project) return <ProjectNotFound />
 
 	return (
 		<main className="min-h-screen">
@@ -44,6 +31,21 @@ export function ProjectDetailPage({ id }: ProjectDetailPageProps) {
 			</section>
 
 			<SupportSection project={project} />
+		</main>
+	)
+}
+
+function ProjectNotFound() {
+	return (
+		<main className="section-gap">
+			<div className="container-app text-center">
+				<h1 className="font-h1-mobile md:font-h1 text-h1-mobile md:text-h1 font-bold text-primary">
+					Project Not Found
+				</h1>
+				<p className="text-on-surface-variant mt-4 font-body-lg text-body-lg">
+					The project you are looking for does not exist.
+				</p>
+			</div>
 		</main>
 	)
 }

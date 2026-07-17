@@ -22,4 +22,5 @@ export type Project = {
 	completionDate: string
 	tags: string[]
 	phases: ProjectPhase[]
+	paymentLink: string
 }
