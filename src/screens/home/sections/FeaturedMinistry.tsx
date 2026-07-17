@@ -31,7 +31,7 @@ function Ministry({
 				<Image
 					src={image}
 					alt={name}
-					className="w-full h-100 rounded-2xl shadow-xl"
+					className="w-full lg:h-100 rounded-2xl shadow-md object-top-right aspect-video "
 				/>
 			</AnimatePosition>
 			<AnimatePosition

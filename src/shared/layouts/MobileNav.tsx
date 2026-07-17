@@ -1,7 +1,9 @@
-import { Link } from "@tanstack/react-router"
 import { AnimatePresence, motion } from "framer-motion"
-import { BRANDING } from "@/shared/constants"
-import { mobileNavLinks } from "./constants"
+import { X } from "lucide-react"
+import { routes } from "../routes"
+import { Logo } from "../ui/Logo"
+import { Button, Link } from "../ui/primitives/button"
+import { NAV_LINKS } from "./constants"
 
 type MobileNavProps = {
 	open: boolean
@@ -25,52 +27,44 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
 						animate={{ x: 0 }}
 						exit={{ x: "100%" }}
 						transition={{ type: "spring", damping: 25, stiffness: 200 }}
-						className="fixed inset-y-0 right-0 z-50 w-80 max-w-[85vw] bg-surface shadow-xl md:hidden"
+						className="fixed inset-y-0 border-l border-l-neutral-100 right-0 z-50 w-80 max-w-[85vw] bg-surface shadow-xl md:hidden"
 					>
 						<div className="flex flex-col h-full">
-							<div className="flex items-center justify-between p-5 border-b border-outline-variant">
-								<div className="flex items-center gap-2">
-									<img
-										src="/logo.png"
-										alt={BRANDING.name}
-										className="h-8 w-auto"
-									/>
-									<span className="font-headline text-lg font-semibold text-primary">
-										{BRANDING.name}
-									</span>
-								</div>
-								<button
-									type="button"
+							<div className="flex items-center bg-primary justify-between py-5 px-2 border-b border-outline-variant">
+								<Logo />
+
+								<Button
+									variant="none"
 									onClick={onClose}
-									className="material-symbols-outlined text-2xl text-on-surface-variant"
+									size="none"
+									className="p-1 text-neutral-300 transition-colors hover:bg-none"
 								>
-									close
-								</button>
+									<X className="size-8" />
+								</Button>
 							</div>
 
 							<nav className="flex-1 overflow-y-auto p-5">
-								{mobileNavLinks.map((link) => (
+								{NAV_LINKS.map((link) => (
 									<Link
 										key={link.href}
-										to={link.href as never}
+										href={link.href}
 										onClick={onClose}
-										className="flex items-center gap-3 py-3 text-on-surface hover:text-primary transition-colors border-b border-outline-variant/50"
+										variant="none"
+										size="none"
+										className="flex py-3 text-left  justify-center text-on-surface hover:text-primary transition-colors border-b border-outline-variant/20 font-medium"
 									>
-										<span className="material-symbols-outlined text-xl">
-											{link.icon}
-										</span>
-										<span className="font-medium">{link.label}</span>
+										{link.label}
 									</Link>
 								))}
 							</nav>
 
 							<div className="p-5 border-t border-outline-variant">
 								<Link
-									to="/"
+									href={routes.projects}
 									onClick={onClose}
 									className="flex items-center justify-center gap-2 w-full h-11 bg-primary text-white rounded-xl font-semibold hover:bg-primary/90 transition-colors"
 								>
-									Give Now
+									Projects
 								</Link>
 							</div>
 						</div>
