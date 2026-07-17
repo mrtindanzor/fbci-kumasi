@@ -7,7 +7,13 @@ export const CHURCH_INFO: ChurchInfo = {
 		"A modern sanctuary dedicated to transformative worship and global impact.",
 	description:
 		"A modern sanctuary for spiritual growth, fellowship, and community service.",
-	address: "GhanaPost GPS: AK-165-9396",
+	address: {
+		gpa: "GhanaPost GPS: AK-165-9396",
+		poBox: `
+        P.O. Box KS 16994
+        Adum, Kumasi, Ghana
+        `,
+	},
 	phone: "+233544352810",
 	serviceTimes: [
 		{

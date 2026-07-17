@@ -2,10 +2,19 @@ import { useContact } from "@/features/contact"
 import { CHURCH_INFO } from "@/shared/db"
 import { AnimatePosition, slideUp } from "@/shared/ui/Framer"
 import { Button, Link } from "@/shared/ui/primitives/button"
+import { FieldError } from "@/shared/ui/primitives/FieldError"
 import { Input } from "@/shared/ui/primitives/Input"
 
 export function QuestionForm() {
-	const { onSubmit, register, formState: _f } = useContact()
+	const {
+		onSubmit,
+		register,
+		formState: { errors },
+	} = useContact({
+		defaultValues: {
+			subject: "Question on How to Be Saved",
+		},
+	})
 
 	return (
 		<section className="section-gap bg-surface-container">
@@ -20,17 +29,20 @@ export function QuestionForm() {
 					<AnimatePosition variants={slideUp} className="md:col-span-2">
 						<form onSubmit={onSubmit} className="space-y-4">
 							<Input placeholder="Full Name" {...register("name")} required />
+							<FieldError message={errors.name?.message} />
 							<Input
 								type="email"
 								placeholder="Email Address"
 								{...register("email")}
 								required
 							/>
+							<FieldError message={errors.email?.message} />
 							<Input
 								type="tel"
 								placeholder="Phone Number"
-								{...register("email")}
+								{...register("phone")}
 							/>
+							<FieldError message={errors.phone?.message} />
 							<textarea
 								placeholder="Your Question"
 								{...register("message")}
@@ -38,6 +50,7 @@ export function QuestionForm() {
 								rows={4}
 								className="w-full rounded-xl border border-outline-variant bg-surface px-4 py-3 text-on-surface placeholder:text-on-surface-variant focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-colors resize-none"
 							/>
+							<FieldError message={errors.message?.message} />
 							<Button type="submit" variant="primary" className="w-full">
 								Submit Inquiry
 							</Button>

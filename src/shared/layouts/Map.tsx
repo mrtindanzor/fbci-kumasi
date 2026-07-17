@@ -9,7 +9,7 @@ export function ChurchMap() {
 				<p>
 					Visit us in Kumasi
 					<br />
-					<span className="text-sm">{CHURCH_INFO.address}</span>
+					<span className="text-sm">{CHURCH_INFO.address.gpa}</span>
 				</p>
 				<span className="material-symbols-outlined ml-auto">church</span>
 			</div>

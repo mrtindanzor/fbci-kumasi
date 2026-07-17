@@ -26,7 +26,7 @@ export function Footer() {
 								<span className="material-symbols-outlined text-sm">
 									location_on
 								</span>
-								{CHURCH_INFO.address}
+								{CHURCH_INFO.address.gpa}
 							</li>
 							<li className="flex items-center gap-2">
 								<span className="material-symbols-outlined text-sm">

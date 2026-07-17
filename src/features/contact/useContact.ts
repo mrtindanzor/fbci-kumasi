@@ -1,10 +1,11 @@
 import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
+import { type UseFormProps, useForm } from "react-hook-form"
 import type { ContactType } from "./contact.contract.types"
 import { contactFormValidator } from "./contact.validators"
 
-export function useContact() {
-	const { register, handleSubmit, formState } = useForm<ContactType>({
+export function useContact(props?: UseFormProps<ContactType>) {
+	const { register, handleSubmit, formState, setValue } = useForm<ContactType>({
+		...props,
 		resolver: zodResolver(contactFormValidator),
 	})
 
@@ -12,5 +13,5 @@ export function useContact() {
 		console.log(data)
 	})
 
-	return { onSubmit, register, formState }
+	return { onSubmit, register, formState, setValue }
 }
