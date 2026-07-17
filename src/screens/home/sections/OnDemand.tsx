@@ -1,5 +1,6 @@
 import { AnimatePosition, slideUp } from "@/shared/ui/Framer"
 import { Link } from "@/shared/ui/primitives/button"
+import { Player } from "@/shared/ui/primitives/PodbeanPlayer"
 
 const sources = [
 	"https://45b0d593-e76f-4149-bcd8-a3755e2d03f9.htmlcomponentservice.com/get_draft?id=45b0d5_af7c353f77233bc6d92a6afb8b7cd210.html",
@@ -40,18 +41,5 @@ export function OnDemand() {
 				</AnimatePosition>
 			</div>
 		</section>
-	)
-}
-
-type PlayerProps = { src: string }
-function Player({ src }: PlayerProps) {
-	return (
-		<iframe
-			title="Podbean Player"
-			src={src}
-			width="100%"
-			height="315"
-			allowFullScreen
-		/>
 	)
 }

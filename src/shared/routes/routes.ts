@@ -18,6 +18,9 @@ export const routes = Object.freeze({
 	resources: {
 		home: "/resources",
 		discipleship: "/resources#discipleship-lesson-books",
+		sermon: "/resources#sermons",
+		youtube: "/resources#youtube",
+		music: "/resources#music",
 	},
 	donate: {
 		home: "/donate",

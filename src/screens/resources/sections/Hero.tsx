@@ -1,4 +1,6 @@
+import { routes } from "@/shared/routes"
 import { AnimatePosition, slideInLeft, slideUp } from "@/shared/ui/Framer"
+import { Link } from "@/shared/ui/primitives/button"
 
 export function Hero() {
 	return (
@@ -13,14 +15,25 @@ export function Hero() {
 						Knowledge & Spirit
 					</span>
 					<h1 className="text-4xl md:text-6xl font-headline font-bold text-white leading-tight mb-6 max-w-2xl">
-						Resources for Growth
+						Resources
 					</h1>
 				</AnimatePosition>
 
 				<AnimatePosition variants={slideUp} className="max-w-2xl">
 					<p className="text-lg text-white/80 max-w-lg">
-						Access our extensive library of sermons, educational materials, and
-						spiritual music designed to support your walk with Christ.
+						Here are some resources provided free by our church for you. If any
+						of these downloads help you in any way, we'd love to know. Also, if
+						you have questions or experience any problems downloading any of
+						these resources, feel free to{" "}
+						<Link
+							href={routes.contact}
+							variant="none"
+							size="none"
+							className="underline"
+						>
+							contact us
+						</Link>
+						.
 					</p>
 				</AnimatePosition>
 			</div>

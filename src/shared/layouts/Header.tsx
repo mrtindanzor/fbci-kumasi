@@ -13,7 +13,7 @@ export function Header() {
 	useNavhide(mobileOpen)
 
 	return (
-		<header className="fixed inset-x-0 top-0 z-50 py-3 px-4 lg:px-8">
+		<header className="fixed inset-x-0 top-0 bg-primary z-50 py-3 px-4 lg:px-8">
 			<div className="mx-auto flex max-w-7xl items-center justify-between gap-3">
 				{/* LEFT: Logo + Social Links */}
 				<div className="flex flex-col items-center gap-y-0.5 rounded-xl bg-primary py-1 shadow-lg">
