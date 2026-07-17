@@ -1,4 +1,4 @@
-import { church, type ServiceTime } from "@/shared/db"
+import { CHURCH_INFO, type ServiceTime } from "@/shared/db"
 import { AnimatePosition, slideUp } from "@/shared/ui/Framer"
 
 export function ServiceTimes() {
@@ -16,7 +16,7 @@ export function ServiceTimes() {
 				</AnimatePosition>
 
 				<div className="flex flex-wrap gap-6 max-w-4xl mx-auto">
-					{church.serviceTimes.map((service, index) => (
+					{CHURCH_INFO.serviceTimes.map((service, index) => (
 						<ServiceTimeCard
 							key={service.day}
 							service={service}

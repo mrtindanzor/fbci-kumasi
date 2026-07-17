@@ -1,7 +1,7 @@
 import { BRANDING } from "@/shared/constants"
 import type { ChurchInfo } from "./church.db.types"
 
-export const church: ChurchInfo = {
+export const CHURCH_INFO: ChurchInfo = {
 	name: BRANDING.name,
 	tagline:
 		"A modern sanctuary dedicated to transformative worship and global impact.",
@@ -30,4 +30,10 @@ export const church: ChurchInfo = {
 		email: "mailto:info@houseanderson.org",
 	},
 	giving: "*711*123#",
+	pastor: {
+		name: "Dr. Pastor Ted Speer ",
+		image: "/images/leaders/dr-pastor-ted-speer-and-wife.avif",
+		profile: ["F.B.M.I Profile", "https://www.fbmi.org/missionary/speer"],
+		role: "Senior Pastor",
+	},
 }

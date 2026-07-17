@@ -17,4 +17,10 @@ export type ChurchInfo = {
 		email: string
 	}
 	giving: string
+	pastor: {
+		name: string
+		image: string
+		profile: [/*title */ string, /*url*/ string]
+		role: string
+	}
 }

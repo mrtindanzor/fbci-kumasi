@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router"
 import { BRANDING } from "@/shared/constants"
-import { church } from "@/shared/db"
+import { CHURCH_INFO } from "@/shared/db"
 import { footerSections } from "./constants"
 import { ChurchMap } from "./Map"
 
@@ -19,7 +19,7 @@ export function Footer() {
 						</div>
 						<div className="flex gap-3 mt-6">
 							<a
-								href={church.socials.facebook}
+								href={CHURCH_INFO.socials.facebook}
 								target="_blank"
 								rel="noopener noreferrer"
 								className="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
@@ -27,7 +27,7 @@ export function Footer() {
 								<span className="material-symbols-outlined">public</span>
 							</a>
 							<a
-								href={church.socials.youtube}
+								href={CHURCH_INFO.socials.youtube}
 								target="_blank"
 								rel="noopener noreferrer"
 								className="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
@@ -35,7 +35,7 @@ export function Footer() {
 								<span className="material-symbols-outlined">video_library</span>
 							</a>
 							<a
-								href={church.socials.email}
+								href={CHURCH_INFO.socials.email}
 								className="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
 							>
 								<span className="material-symbols-outlined">
@@ -52,7 +52,7 @@ export function Footer() {
 								<span className="material-symbols-outlined text-sm">
 									location_on
 								</span>
-								{church.address}
+								{CHURCH_INFO.address}
 							</li>
 							<li className="flex items-center gap-2">
 								<span className="material-symbols-outlined text-sm">
@@ -62,7 +62,7 @@ export function Footer() {
 							</li>
 							<li className="flex items-center gap-2">
 								<span className="material-symbols-outlined text-sm">call</span>
-								{church.phone}
+								{CHURCH_INFO.phone}
 							</li>
 						</ul>
 					</div>

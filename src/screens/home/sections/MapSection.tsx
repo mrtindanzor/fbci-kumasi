@@ -1,4 +1,4 @@
-import { church } from "@/shared/db"
+import { CHURCH_INFO } from "@/shared/db"
 import { AnimatePosition, slideUp } from "@/shared/ui/Framer"
 
 export function MapSection() {
@@ -13,18 +13,12 @@ export function MapSection() {
 						<p>
 							Visit Our Sanctuary in Accra
 							<br />
-							<span className="text-sm">{church.address}</span>
+							<span className="text-sm">{CHURCH_INFO.address}</span>
 						</p>
 						<span className="material-symbols-outlined text-secondary ml-auto">
 							church
 						</span>
 					</div>
-
-					<iframe
-						className="w-full h-100"
-						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.39790308342!2d-1.649827290784224!3d6.721204993246686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdb97b9e10fce3b%3A0x4af369bd6cf55235!2sFundamental%20Baptist%20Church%20International!5e0!3m2!1sen!2sgh!4v1736628732207!5m2!1sen!2sgh"
-						title={`${church.name} Map`}
-					/>
 				</AnimatePosition>
 			</div>
 		</section>

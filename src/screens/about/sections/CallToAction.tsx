@@ -1,5 +1,7 @@
+import { CHURCH_INFO } from "@/shared/db"
+import { routes } from "@/shared/routes"
 import { AnimatePosition, slideUp } from "@/shared/ui/Framer"
-import { Button } from "@/shared/ui/primitives/button"
+import { Link } from "@/shared/ui/primitives/button"
 
 export function CallToAction() {
 	return (
@@ -15,31 +17,43 @@ export function CallToAction() {
 							beliefs, we'd love to connect with you.
 						</p>
 						<div className="flex flex-wrap justify-center gap-4 mb-10">
-							<Button variant="primary" size="lg">
+							<Link href={routes.contact} variant="primary" size="lg">
 								Contact Us
-							</Button>
-							<Button variant="secondary" size="lg">
-								Learn More
-							</Button>
+							</Link>
 						</div>
 
-						<div className="flex flex-wrap justify-center gap-6">
-							<div className="flex items-center gap-3 text-on-surface-variant">
-								<span className="material-symbols-outlined text-secondary">
-									calendar_month
-								</span>
-								<div className="text-left">
-									<p className="font-semibold text-primary text-sm">Visit Us</p>
-									<p className="text-sm">Sunday 8am & 10:30am</p>
-								</div>
+						<div className="flex flex-wrap gap-8 items-start max-w-2xl mx-auto w-fit">
+							<div className="h-fit grid gap-y-2">
+								<p className="font-semibold justify-center gap-x-2 flex items-end text-primary">
+									<span className="material-symbols-outlined text-secondary">
+										calendar_month
+									</span>{" "}
+									Visit Us
+								</p>
+								<ul className="grid gap-y-1.5 pl-8 pr-2">
+									{CHURCH_INFO.serviceTimes.map((service) => (
+										<li
+											key={service.day}
+											className="flex items-center gap-3 text-on-surface-variant"
+										>
+											<div className="text-left">
+												<p className="text-sm">
+													{service.day} {service.time}
+												</p>
+											</div>
+										</li>
+									))}
+								</ul>
 							</div>
-							<div className="flex items-center gap-3 text-on-surface-variant">
-								<span className="material-symbols-outlined text-secondary">
-									favorite
-								</span>
+							<div className="flex items-end gap-3 text-on-surface-variant">
 								<div className="text-left">
-									<p className="font-semibold text-primary text-sm">Give</p>
-									<p className="text-sm">Support our mission</p>
+									<div className="flex justify-center items-end gap-2">
+										<span className="material-symbols-outlined text-secondary">
+											favorite
+										</span>
+										<p className="font-semibold text-primary text-sm">Give</p>
+									</div>
+									<p className="text-sm pl-8">Support our mission</p>
 								</div>
 							</div>
 						</div>

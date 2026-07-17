@@ -1,101 +1,77 @@
 import { motion } from "framer-motion"
-import { AnimatePosition, slideUp, staggerContainer } from "@/shared/ui/Framer"
+import { CHURCH_INFO } from "@/shared/db"
+import { routes } from "@/shared/routes"
+import {
+	AnimatePosition,
+	slideInLeft,
+	slideUp,
+	staggerContainer,
+} from "@/shared/ui/Framer"
 import { Link } from "@/shared/ui/primitives/button"
 import { Image } from "@/shared/ui/primitives/Image"
-
-type Leader = {
-	name: string
-	role: string
-	image: string
-	profile: [/*title */ string, /*url*/ string] | null
-}
-
-const leaders: Leader[] = [
-	{
-		name: "Alex & Justina Addo",
-		role: "Public Relations Officer, Teacher of the Abundant Life Class",
-		image: "/images/leaders/alex-and-justina-addo.avif",
-		profile: null,
-	},
-	{
-		name: "Eric Arthur",
-		role: "Head of Usher, Teacher of Together Builders",
-		image: "images/leaders/eric-auther-and-wife.avif",
-		profile: null,
-	},
-	{
-		name: "Micah & Abbie Christiansen",
-		role: "Children's Pastor, Headmaster of Fundamental Baptist Academy",
-		image: "images/leaders/micah-and-abbie-christiansen.avif",
-		profile: [
-			"F.B.M.I Profile",
-			"https://www.fbmi.org/missionary/christiansenm",
-		],
-	},
-	{
-		name: "Stephen & Rhoda Opoku",
-		role: "Teen Pastor, Senior High Boys' Teacher",
-		image: "images/leaders/stephen-and-rhoda.avif",
-		profile: null,
-	},
-	{
-		name: "Charles & Lindsey Osgood",
-		role: "Singles Pastor, Choir Director, Teacher the of Difference Makers Class",
-		image: "images/leaders/charles-and-lindsey-osgood.avif",
-		profile: [
-			"F.B.M.I Profile",
-			"https://www.fbmi.org/missionary/osgood?portfolioCats=1292%2C627%2C635%2C626",
-		],
-	},
-	{
-		name: "Micheal & Abigail Sakyi",
-		role: "Media Director, Teacher of the Gap Fillers Class",
-		image: "images/leaders/michael-and-abigial-sakyi.avif",
-		profile: null,
-	},
-	{
-		name: "Mike & Maria Sarver",
-		role: "Associate Pastor, Teacher of the Common Faith Class",
-		image: "images/leaders/mike-and-maria-sarver.avif",
-		profile: [
-			"F.B.M.I Profile",
-			"https://www.fbmi.org/missionary/osgood?portfolioCats=1292%2C627%2C635%2C626",
-		],
-	},
-	{
-		name: "Emmanuel & Lawrencia Tawiah",
-		role: "Financial Secretary, Teacher of the Faith Builders Class",
-		image: "images/leaders/emmanuel-and-lawrencia-tawiah.avif",
-		profile: null,
-	},
-]
+import { LEADERS } from "../constants"
+import type { Leader } from "../types"
 
 export function Leadership() {
 	return (
 		<section className="section-gap">
 			<div className="container-app">
+				<AnimatePosition variants={slideInLeft} className="w-fit mx-auto">
+					<h2 className="text-3xl col-span-full text-center md:text-4xl font-headline font-bold mb-4 text-primary">
+						Our Pastor
+					</h2>
+					<ul className="grid grid-cols-1 gap-4 items-center *:*:first:h-70 *:*:first:w-auto">
+						<LeaderCard
+							name={CHURCH_INFO.pastor.name}
+							image={CHURCH_INFO.pastor.image}
+							profile={CHURCH_INFO.pastor.profile}
+							role={CHURCH_INFO.pastor.role}
+						/>
+					</ul>
+				</AnimatePosition>
+
+				<AnimatePosition variants={slideUp} className="mx-w-sm mx-auto">
+					<div className="text-center mt-8 mb-12 px-6 pb-12">
+						<p className="text-on-surface-variant mb-4">
+							Want to learn more about our pastor&rsquo;s vision, ministry, and
+							journey?
+						</p>
+						<Link
+							href={routes.pastor}
+							variant="primary"
+							size="lg"
+							className="font-label"
+						>
+							Visit Pastor&rsquo;s Page
+							<span className="material-symbols-outlined text-lg">
+								arrow_forward
+							</span>
+						</Link>
+					</div>
+				</AnimatePosition>
+
 				<AnimatePosition variants={slideUp}>
 					<div className="mb-12">
-						<h2 className="text-lg md:text-2xl font-headline font-bold text-primary mb-2">
+						<h3 className="text-lg md:text-2xl font-headline font-bold text-primary mb-2">
 							Meet Our Assistant Pastors and Adult Sunday School Teachers
-						</h2>
+						</h3>
 						<p className="text-on-surface-variant">
 							The Hearts Behind the Vision
 						</p>
 					</div>
 				</AnimatePosition>
 
-				<motion.div
+				<motion.ul
 					variants={staggerContainer}
 					initial="hidden"
 					whileInView="show"
 					viewport={{ once: true }}
 					className="grid grid-cols-1 md:grid-cols-3 gap-x-4 gap-y-12 max-w-5xl mx-auto"
 				>
-					{leaders.map((leader) => (
+					{LEADERS.map((leader) => (
 						<LeaderCard key={leader.name} {...leader} />
 					))}
-				</motion.div>
+				</motion.ul>
 			</div>
 		</section>
 	)
@@ -105,7 +81,7 @@ function LeaderCard({ name, role, image, profile }: Leader) {
 	const [profileTitle, profileUrl] = profile ?? []
 
 	return (
-		<motion.div variants={slideUp} className="text-center">
+		<motion.li variants={slideUp} className="text-center">
 			<div className="relative size-50 mx-auto mb-6">
 				<Image
 					src={image}
@@ -133,6 +109,6 @@ function LeaderCard({ name, role, image, profile }: Leader) {
 				{role}
 			</h3>
 			<p className="text-on-surface font-medium">{name}</p>
-		</motion.div>
+		</motion.li>
 	)
 }
