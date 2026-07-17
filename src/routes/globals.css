@@ -151,3 +151,7 @@
 @utility glass {
 	@apply bg-neutral-50/70 backdrop-blur-[15px] border border-neutral-50/20;
 }
+
+@utility link {
+	@apply before:content-['_'] before:absolute before:inset-0 before:z-0;
+}

@@ -3,7 +3,11 @@ export const routes = Object.freeze({
 	about: "/about",
 	conferences: "/conferences",
 	ministries: "/ministries",
-	projects: "/projects",
+	projects: {
+		home: "/projects",
+		projectById: (id: string) => `/projects/project/${id}` as const,
+		funded: "/projects/funded",
+	},
 	pastor: {
 		home: "/pastor",
 		biography: "/pastor#biography",

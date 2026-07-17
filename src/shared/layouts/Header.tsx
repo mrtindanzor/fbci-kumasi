@@ -36,7 +36,7 @@ export function Header() {
 				</nav>
 
 				<div className="hidden md:flex items-center gap-3">
-					<Link href={routes.projects} variant="gold" size="sm">
+					<Link href={routes.projects.home} variant="gold" size="sm">
 						Projects
 					</Link>
 				</div>

@@ -12,6 +12,18 @@ export const buttonVariants = cva(
 				gold: "bg-secondary text-white hover:bg-secondary/90",
 				none: "",
 			},
+			y: {
+				center: "items-center",
+				start: "items-start",
+				end: "items-end",
+				none: "",
+			},
+			x: {
+				center: "justify-center",
+				left: "justify-start",
+				right: "justify-end",
+				none: "",
+			},
 			size: {
 				sm: "h-9 px-4 text-sm rounded-lg",
 				md: "h-11 px-6 text-base rounded-xl",
@@ -20,6 +32,8 @@ export const buttonVariants = cva(
 			},
 		},
 		defaultVariants: {
+			y: "center",
+			x: "center",
 			variant: "primary",
 			size: "md",
 		},

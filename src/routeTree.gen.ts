@@ -9,18 +9,24 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as ProjectsRouteImport } from './routes/projects'
+import { Route as ResourcesRouteImport } from './routes/resources'
 import { Route as PastorRouteImport } from './routes/pastor'
 import { Route as MinistriesRouteImport } from './routes/ministries'
 import { Route as HeavenRouteImport } from './routes/heaven'
+import { Route as DonateRouteImport } from './routes/donate'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ConferencesRouteImport } from './routes/conferences'
 import { Route as CollegeRouteImport } from './routes/college'
+import { Route as ChurchesRouteImport } from './routes/churches'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProjectsIndexRouteImport } from './routes/projects/index'
+import { Route as ProjectsFundedRouteImport } from './routes/projects/funded'
+import { Route as ProjectsProjectIdRouteImport } from './routes/projects/project.$id'
 
-const ProjectsRoute = ProjectsRouteImport.update({
-  id: '/projects',
-  path: '/projects',
+const ResourcesRoute = ResourcesRouteImport.update({
+  id: '/resources',
+  path: '/resources',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PastorRoute = PastorRouteImport.update({
@@ -38,6 +44,16 @@ const HeavenRoute = HeavenRouteImport.update({
   path: '/heaven',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DonateRoute = DonateRouteImport.update({
+  id: '/donate',
+  path: '/donate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ConferencesRoute = ConferencesRouteImport.update({
   id: '/conferences',
   path: '/conferences',
@@ -46,6 +62,11 @@ const ConferencesRoute = ConferencesRouteImport.update({
 const CollegeRoute = CollegeRouteImport.update({
   id: '/college',
   path: '/college',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChurchesRoute = ChurchesRouteImport.update({
+  id: '/churches',
+  path: '/churches',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -58,89 +79,146 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProjectsIndexRoute = ProjectsIndexRouteImport.update({
+  id: '/projects/',
+  path: '/projects/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsFundedRoute = ProjectsFundedRouteImport.update({
+  id: '/projects/funded',
+  path: '/projects/funded',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsProjectIdRoute = ProjectsProjectIdRouteImport.update({
+  id: '/projects/project/$id',
+  path: '/projects/project/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/churches': typeof ChurchesRoute
   '/college': typeof CollegeRoute
   '/conferences': typeof ConferencesRoute
+  '/contact': typeof ContactRoute
+  '/donate': typeof DonateRoute
   '/heaven': typeof HeavenRoute
   '/ministries': typeof MinistriesRoute
   '/pastor': typeof PastorRoute
-  '/projects': typeof ProjectsRoute
+  '/resources': typeof ResourcesRoute
+  '/projects/funded': typeof ProjectsFundedRoute
+  '/projects/': typeof ProjectsIndexRoute
+  '/projects/project/$id': typeof ProjectsProjectIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/churches': typeof ChurchesRoute
   '/college': typeof CollegeRoute
   '/conferences': typeof ConferencesRoute
+  '/contact': typeof ContactRoute
+  '/donate': typeof DonateRoute
   '/heaven': typeof HeavenRoute
   '/ministries': typeof MinistriesRoute
   '/pastor': typeof PastorRoute
-  '/projects': typeof ProjectsRoute
+  '/resources': typeof ResourcesRoute
+  '/projects/funded': typeof ProjectsFundedRoute
+  '/projects': typeof ProjectsIndexRoute
+  '/projects/project/$id': typeof ProjectsProjectIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/churches': typeof ChurchesRoute
   '/college': typeof CollegeRoute
   '/conferences': typeof ConferencesRoute
+  '/contact': typeof ContactRoute
+  '/donate': typeof DonateRoute
   '/heaven': typeof HeavenRoute
   '/ministries': typeof MinistriesRoute
   '/pastor': typeof PastorRoute
-  '/projects': typeof ProjectsRoute
+  '/resources': typeof ResourcesRoute
+  '/projects/funded': typeof ProjectsFundedRoute
+  '/projects/': typeof ProjectsIndexRoute
+  '/projects/project/$id': typeof ProjectsProjectIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/about'
+    | '/churches'
     | '/college'
     | '/conferences'
+    | '/contact'
+    | '/donate'
     | '/heaven'
     | '/ministries'
     | '/pastor'
-    | '/projects'
+    | '/resources'
+    | '/projects/funded'
+    | '/projects/'
+    | '/projects/project/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
+    | '/churches'
     | '/college'
     | '/conferences'
+    | '/contact'
+    | '/donate'
     | '/heaven'
     | '/ministries'
     | '/pastor'
+    | '/resources'
+    | '/projects/funded'
     | '/projects'
+    | '/projects/project/$id'
   id:
     | '__root__'
     | '/'
     | '/about'
+    | '/churches'
     | '/college'
     | '/conferences'
+    | '/contact'
+    | '/donate'
     | '/heaven'
     | '/ministries'
     | '/pastor'
-    | '/projects'
+    | '/resources'
+    | '/projects/funded'
+    | '/projects/'
+    | '/projects/project/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  ChurchesRoute: typeof ChurchesRoute
   CollegeRoute: typeof CollegeRoute
   ConferencesRoute: typeof ConferencesRoute
+  ContactRoute: typeof ContactRoute
+  DonateRoute: typeof DonateRoute
   HeavenRoute: typeof HeavenRoute
   MinistriesRoute: typeof MinistriesRoute
   PastorRoute: typeof PastorRoute
-  ProjectsRoute: typeof ProjectsRoute
+  ResourcesRoute: typeof ResourcesRoute
+  ProjectsFundedRoute: typeof ProjectsFundedRoute
+  ProjectsIndexRoute: typeof ProjectsIndexRoute
+  ProjectsProjectIdRoute: typeof ProjectsProjectIdRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/projects': {
-      id: '/projects'
-      path: '/projects'
-      fullPath: '/projects'
-      preLoaderRoute: typeof ProjectsRouteImport
+    '/resources': {
+      id: '/resources'
+      path: '/resources'
+      fullPath: '/resources'
+      preLoaderRoute: typeof ResourcesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/pastor': {
@@ -164,6 +242,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HeavenRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/donate': {
+      id: '/donate'
+      path: '/donate'
+      fullPath: '/donate'
+      preLoaderRoute: typeof DonateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/conferences': {
       id: '/conferences'
       path: '/conferences'
@@ -176,6 +268,13 @@ declare module '@tanstack/react-router' {
       path: '/college'
       fullPath: '/college'
       preLoaderRoute: typeof CollegeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/churches': {
+      id: '/churches'
+      path: '/churches'
+      fullPath: '/churches'
+      preLoaderRoute: typeof ChurchesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -192,18 +291,45 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/projects/': {
+      id: '/projects/'
+      path: '/projects'
+      fullPath: '/projects/'
+      preLoaderRoute: typeof ProjectsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects/funded': {
+      id: '/projects/funded'
+      path: '/projects/funded'
+      fullPath: '/projects/funded'
+      preLoaderRoute: typeof ProjectsFundedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects/project/$id': {
+      id: '/projects/project/$id'
+      path: '/projects/project/$id'
+      fullPath: '/projects/project/$id'
+      preLoaderRoute: typeof ProjectsProjectIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  ChurchesRoute: ChurchesRoute,
   CollegeRoute: CollegeRoute,
   ConferencesRoute: ConferencesRoute,
+  ContactRoute: ContactRoute,
+  DonateRoute: DonateRoute,
   HeavenRoute: HeavenRoute,
   MinistriesRoute: MinistriesRoute,
   PastorRoute: PastorRoute,
-  ProjectsRoute: ProjectsRoute,
+  ResourcesRoute: ResourcesRoute,
+  ProjectsFundedRoute: ProjectsFundedRoute,
+  ProjectsIndexRoute: ProjectsIndexRoute,
+  ProjectsProjectIdRoute: ProjectsProjectIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

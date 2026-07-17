@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router"
 import { ProjectsPage } from "@/screens/projects"
 import { BRANDING } from "@/shared/constants"
 
-export const Route = createFileRoute("/projects")({
+export const Route = createFileRoute("/projects/")({
 	component: ProjectsPage,
 	head: () => ({
 		title: `Projects | ${BRANDING.name}`,
