@@ -1,21 +1,16 @@
 import { routes } from "@/shared/routes"
 
-export const navLinks = [
+export const NAV_LINKS = [
 	{ label: "Home", href: routes.home },
+	{ label: "Heaven", href: routes.heaven },
 	{ label: "About", href: routes.about },
-	{ label: "Ministries", href: routes.ministries },
+	{ label: "Pastor", href: routes.pastor.home },
 	{ label: "Conferences", href: routes.conferences },
+	{ label: "Ministries", href: routes.ministries },
 	{ label: "Resources", href: routes.resources.home },
 	{ label: "Churches", href: routes.churches },
 	{ label: "Contact", href: routes.contact },
-] as const
-
-export const mobileNavLinks = [
-	{ label: "Home", href: routes.home, icon: "home" },
-	{ label: "College", href: routes.college, icon: "school" },
-	{ label: "Sermons", href: routes.conferences, icon: "menu_book" },
-	{ label: "Heaven", href: routes.heaven, icon: "favorite" },
-	{ label: "Contact", href: routes.contact, icon: "contact_support" },
+	{ label: "College", href: routes.college },
 ] as const
 
 export const footerSections = [

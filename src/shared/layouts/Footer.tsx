@@ -1,6 +1,8 @@
 import { Link } from "@tanstack/react-router"
 import { BRANDING } from "@/shared/constants"
 import { CHURCH_INFO } from "@/shared/db"
+import { Logo } from "../ui/Logo"
+import { SocialMediaLinks } from "../ui/SocialMediaLinks"
 import { footerSections } from "./constants"
 import { ChurchMap } from "./Map"
 
@@ -10,38 +12,10 @@ export function Footer() {
 			<div className="container-app pt-8 pb-16">
 				<ChurchMap />
 				<div className="grid grid-cols-1 md:grid-cols-4 pt-10 gap-10">
-					<div className="md:col-span-2">
-						<div className="flex items-center gap-2 mb-4">
-							<img src="/logo.png" alt={BRANDING.name} className="h-8 w-auto" />
-							<span className="font-headline text-lg font-semibold">
-								{BRANDING.name}
-							</span>
-						</div>
-						<div className="flex gap-3 mt-6">
-							<a
-								href={CHURCH_INFO.socials.facebook}
-								target="_blank"
-								rel="noopener noreferrer"
-								className="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
-							>
-								<span className="material-symbols-outlined">public</span>
-							</a>
-							<a
-								href={CHURCH_INFO.socials.youtube}
-								target="_blank"
-								rel="noopener noreferrer"
-								className="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
-							>
-								<span className="material-symbols-outlined">video_library</span>
-							</a>
-							<a
-								href={CHURCH_INFO.socials.email}
-								className="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
-							>
-								<span className="material-symbols-outlined">
-									alternate_email
-								</span>
-							</a>
+					<div className="md:col-span-2 flex flex-col items-start gap-y-4">
+						<Logo />
+						<div className="pl-8">
+							<SocialMediaLinks />
 						</div>
 					</div>
 
