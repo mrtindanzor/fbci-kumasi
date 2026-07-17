@@ -6,3 +6,4 @@ dist
 .tanstack
 .output
 *.buildconfig.json
+.wrangler
