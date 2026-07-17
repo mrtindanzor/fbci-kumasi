@@ -1,18 +1,36 @@
 import { routes } from "@/shared/routes"
 
-export const NAV_LINKS = [
+export type NavItem = {
+	label: string
+	href: string
+	children?: NavItem[]
+}
+
+export const NAV_ITEMS: NavItem[] = [
 	{ label: "Home", href: routes.home },
-	{ label: "Heaven", href: routes.heaven },
-	{ label: "About", href: routes.about },
-	{ label: "Pastor", href: routes.pastor.home },
-	{ label: "Conferences", href: routes.conferences },
-	{ label: "Ministries", href: routes.ministries },
+	{
+		label: "About",
+		href: routes.about,
+		children: [
+			{ label: "About", href: routes.about },
+			{ label: "Pastor", href: routes.pastor.home },
+			{ label: "Churches", href: routes.churches },
+		],
+	},
+	{
+		label: "Ministries",
+		href: routes.ministries,
+		children: [
+			{ label: "Ministries", href: routes.ministries },
+			{ label: "College", href: routes.college },
+			{ label: "Conferences", href: routes.conferences },
+		],
+	},
 	{ label: "Resources", href: routes.resources.home },
-	{ label: "Churches", href: routes.churches },
-	{ label: "Contact", href: routes.contact },
-	{ label: "College", href: routes.college },
+	{ label: "Heaven", href: routes.heaven },
 	{ label: "Donate", href: routes.donate.home },
-] as const
+	{ label: "Contact", href: routes.contact },
+]
 
 export const footerSections = [
 	{

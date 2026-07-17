@@ -27,7 +27,7 @@ export function Hero() {
 							Tech to the pulpits of Ghana, his journey is a testimony of
 							surrender, service, and a passion for seeing souls won to Christ.
 						</p>
-						<div className="flex flex-wrap justify-center md:justify-start gap-4">
+						<div className="flex flex-wrap justify-center md:justify-start gap-4 *:gap-x-2 *:text-base">
 							<Link href={routes.pastor.biography} variant="gold" size="lg">
 								Read Biography
 								<span className="material-symbols-outlined text-lg">

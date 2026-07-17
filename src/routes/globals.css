@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -76,6 +78,7 @@
 	--spacing-gutter: 24px;
 	--spacing-margin-mobile: 16px;
 	--spacing-margin-desktop: 80px;
+	--spacing-header-claim: 3rem;
 
 	--radius-sm: 0.25rem;
 	--radius-md: 0.5rem;

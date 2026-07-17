@@ -8,7 +8,7 @@ const faqLinks = [
 
 export function Hero() {
 	return (
-		<section className="relative min-h-150 flex items-center bg-linear-to-br from-primary/40 to-primary-container overflow-hidden">
+		<section className="relative min-h-150 pt-header-claim flex items-center bg-linear-to-br from-primary/40 to-primary-container overflow-hidden">
 			<div className="absolute inset-0 opacity-15">
 				<div className="absolute inset-0 bg-[url('/images/heaven-page-bg.avif')] bg-cover bg-center" />
 			</div>

@@ -4,6 +4,7 @@ import {
 	Outlet,
 	Scripts,
 } from "@tanstack/react-router"
+import type { PropsWithChildren } from "react"
 import { BRANDING } from "@/shared/constants"
 import { Footer } from "@/shared/layouts/Footer"
 import { Header } from "@/shared/layouts/Header"
@@ -21,14 +22,19 @@ export const Route = createRootRoute({
 		links: [
 			{ rel: "stylesheet", href: appCss },
 			{
-				rel: "stylesheet",
-				href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap",
+				rel: "icon",
+				type: "image/png",
+				href: `/favicon/favicon-96x96.png`,
+				sizes: "96x96",
 			},
+			{ rel: "icon", type: "image/svg+xml", href: `/favicon/favicon.svg` },
+			{ rel: "shortcut icon", href: `/favicon/favicon.ico` },
 			{
-				rel: "stylesheet",
-				href: "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined",
+				rel: "apple-touch-icon",
+				sizes: "180x180",
+				href: `/favicon/apple-touch-icon.png`,
 			},
-			{ rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
+			{ rel: "manifest", href: `/favicon/site.webmanifest` },
 		],
 	}),
 })
@@ -48,11 +54,19 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 				<HeadContent />
 			</head>
 			<body className="bg-background text-on-surface font-body antialiased">
-				<Header />
-				{children}
-				<Footer />
+				<LayoutOne>{children}</LayoutOne>
 				<Scripts />
 			</body>
 		</html>
+	)
+}
+
+function LayoutOne({ children }: PropsWithChildren) {
+	return (
+		<>
+			<Header />
+			<div className=""> {children}</div>
+			<Footer />
+		</>
 	)
 }

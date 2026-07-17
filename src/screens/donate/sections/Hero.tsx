@@ -4,7 +4,7 @@ import { Link } from "@/shared/ui/primitives/button"
 
 export function Hero() {
 	return (
-		<section className="relative min-h-[60vh] flex items-center bg-linear-to-br from-primary to-primary-container overflow-hidden">
+		<section className="relative min-h-[60vh] pt-header-claim flex items-center bg-linear-to-br from-primary to-primary-container overflow-hidden">
 			<div className="absolute inset-0 opacity-40">
 				<div className="absolute inset-0 bg-[url('/images/church-side-3.avif')] bg-cover bg-center" />
 			</div>

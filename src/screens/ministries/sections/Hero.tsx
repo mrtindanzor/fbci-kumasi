@@ -3,7 +3,7 @@ import { AnimatePosition, slideInLeft, slideInRight } from "@/shared/ui/Framer"
 
 export function Hero() {
 	return (
-		<section className="relative min-h-100 flex items-center bg-linear-to-br from-primary to-primary-container overflow-hidden">
+		<section className="relative min-h-100 pt-header-claim flex items-center bg-linear-to-br from-primary to-primary-container overflow-hidden">
 			<div className="container-app relative z-10 py-20">
 				<AnimatePosition variants={slideInLeft} className="max-w-2xl">
 					<h1 className="text-4xl md:text-6xl font-headline font-bold text-white leading-tight mb-4">
