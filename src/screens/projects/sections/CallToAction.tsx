@@ -1,11 +1,14 @@
+import { ArrowRight } from "lucide-react"
+import { routes } from "@/shared/routes"
 import { AnimatePosition, slideUp } from "@/shared/ui/Framer"
+import { Link } from "@/shared/ui/primitives/button"
 
 export function CallToAction() {
 	return (
-		<section className="section-gap">
+		<section className="section-gap py-0 mb-20">
 			<div className="container-app">
 				<AnimatePosition variants={slideUp}>
-					<div className="bg-surface-container rounded-2xl p-10 md:p-16 text-center">
+					<div className="rounded-2xl px-10 py-2 text-center">
 						<span className="material-symbols-outlined text-5xl text-secondary mb-4 block">
 							history
 						</span>
@@ -17,15 +20,15 @@ export function CallToAction() {
 							history of our successful missions and see how lives have been
 							transformed.
 						</p>
-						<button
+						<Link
+							variant="none"
+							href={routes.projects.funded}
 							type="button"
 							className="inline-flex items-center gap-2 text-secondary font-semibold hover:underline"
 						>
 							View Funded Projects
-							<span className="material-symbols-outlined text-lg">
-								arrow_forward
-							</span>
-						</button>
+							<ArrowRight className="size-4.5" />
+						</Link>
 					</div>
 				</AnimatePosition>
 			</div>

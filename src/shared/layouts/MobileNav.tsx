@@ -60,7 +60,7 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
 
 							<div className="p-5 border-t border-outline-variant">
 								<Link
-									href={routes.projects}
+									href={routes.projects.home}
 									onClick={onClose}
 									className="flex items-center justify-center gap-2 w-full h-11 bg-primary text-white rounded-xl font-semibold hover:bg-primary/90 transition-colors"
 								>

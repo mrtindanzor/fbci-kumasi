@@ -7,10 +7,17 @@ type ButtonVariants = VariantProps<typeof buttonVariants>
 
 type ButtonProps = ComponentProps<"button"> & ButtonVariants
 
-export function Button({ variant, size, className, ...props }: ButtonProps) {
+export function Button({
+	variant,
+	size,
+	className,
+	x,
+	y,
+	...props
+}: ButtonProps) {
 	return (
 		<button
-			className={cn(buttonVariants({ variant, size, className }))}
+			className={cn(buttonVariants({ variant, size, x, y, className }))}
 			{...props}
 		/>
 	)

@@ -22,13 +22,15 @@ export function Link({
 	href,
 	variant,
 	size,
+	x,
+	y,
 	...props
 }: LinkProps) {
 	return (
 		<TanstackLink
 			// biome-ignore lint/suspicious/noExplicitAny: I do not need the tanstack type
 			to={href as any}
-			className={cn(buttonVariants({ variant, size, className }))}
+			className={cn(buttonVariants({ variant, size, y, x, className }))}
 			{...props}
 		/>
 	)

@@ -1,0 +1,1 @@
+export { FundedProjectsPage } from "./FundedProjectsPage"
