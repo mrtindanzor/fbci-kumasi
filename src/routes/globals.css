@@ -127,7 +127,7 @@
 	}
 
 	body {
-		@apply bg-background text-on-surface font-body antialiased;
+		@apply bg-background overflow-x-hidden text-neutral-300 font-body antialiased;
 	}
 
 	h1,
@@ -140,16 +140,14 @@
 	}
 }
 
-@layer utilities {
-	.container-app {
-		@apply mx-auto w-full max-w-[1280px] px-5 md:px-6;
-	}
+@utility container-app {
+	@apply mx-auto w-full max-w-7xl px-5 md:px-6;
+}
 
-	.section-gap {
-		@apply py-16 md:py-24;
-	}
+@utility section-gap {
+	@apply py-16 md:py-24;
+}
 
-	.glass {
-		@apply bg-white/70 backdrop-blur-[15px] border border-white/20;
-	}
+@utility glass {
+	@apply bg-neutral-50/70 backdrop-blur-[15px] border border-neutral-50/20;
 }

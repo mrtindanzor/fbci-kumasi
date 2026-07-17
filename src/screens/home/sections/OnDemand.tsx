@@ -2,6 +2,7 @@ import { AnimatePosition, slideUp } from "@/shared/ui/Framer"
 import { Link } from "@/shared/ui/primitives/button"
 
 const sources = [
+	"https://45b0d593-e76f-4149-bcd8-a3755e2d03f9.htmlcomponentservice.com/get_draft?id=45b0d5_af7c353f77233bc6d92a6afb8b7cd210.html",
 	"https://www.podbean.com/player-v2/?i=zstd8-2604e7-pbblog-playlist&share=1&download=1&rtl=0&fonts=Arial&skin=1&font-color=auto&logo_link=episode_page&order=episodic&limit=10&filter=all&ss=a713390a017602015775e868a2cf26b0&btn-skin=7&size=315",
 ] as const
 
@@ -21,7 +22,7 @@ export function OnDemand() {
 							href="https://tedspeer.podbean.com/"
 							target="_blank"
 							rel="noopener noreferrer"
-							className="inline-flex items-center gap-2 text-secondary font-semibold hover:underline"
+							className="inline-flex items-center gap-2 font-semibold hover:underline"
 						>
 							View Full Library
 						</Link>
@@ -30,7 +31,12 @@ export function OnDemand() {
 					<p className="text-white/70 max-w-2xl mb-8">
 						You can listen here or go to Podbean
 					</p>
-					<Player src={sources[0]} />
+
+					<ul className="grid md:grid-cols-2 gap-gutter">
+						{sources.map((src) => (
+							<Player key={src} src={src} />
+						))}
+					</ul>
 				</AnimatePosition>
 			</div>
 		</section>

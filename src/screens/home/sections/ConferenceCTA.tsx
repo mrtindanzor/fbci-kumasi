@@ -12,14 +12,11 @@ const highlights = [
 export function ConferenceCTA() {
 	return (
 		<section className="relative w-full min-h-app-height flex items-center overflow-hidden">
-			<div className="absolute inset-0">
-				<div className="absolute inset-0 bg-[url('/images/church-side-1.avif')] bg-cover bg-center" />
-			</div>
-			<div className="absolute inset-0 bg-linear-to-b from-primary/90 via-primary/80 to-primary/90" />
+			<div className="absolute inset-0 bg-linear-to-b from-primary via-primary/90 to-primary" />
 
 			<div className="relative z-10 w-full py-16 md:py-20">
 				<div className="container-app">
-					<AnimatePosition variants={slideUp} className="max-w-3xl">
+					<AnimatePosition variants={slideUp} className="max-w-3xl ">
 						<span className="inline-block bg-secondary/20 text-secondary px-4 py-1.5 rounded-full text-sm font-semibold uppercase tracking-wider mb-6">
 							Annual Event
 						</span>

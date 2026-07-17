@@ -12,17 +12,17 @@ export function MinistryCards() {
 	return (
 		<section className="section-gap">
 			<div className="container-app">
-				<motion.div
+				<motion.ul
 					variants={staggerContainer}
 					initial="hidden"
 					whileInView="show"
 					viewport={{ once: true }}
-					className="space-y-12"
+					className="grid h-fit gap-y-20 lg:gap-y-30"
 				>
 					{MINISTRIES.map((ministry, index) => (
 						<Ministry key={ministry.name} ministry={ministry} index={index} />
 					))}
-				</motion.div>
+				</motion.ul>
 			</div>
 		</section>
 	)
@@ -34,7 +34,7 @@ function Ministry({
 	index,
 }: MinistryProps) {
 	return (
-		<li className="grid grid-cols-1 lg:grid-cols-2 even:*:last:row-start-1 even:*:last:col-start-1  gap-gutter max-w-6xl mx-auto">
+		<li className="grid grid-cols-1 lg:odd:grid-cols-[3fr_2fr] lg:even:grid-cols-[2fr_3fr] lg:even:*:last:row-start-1 lg:even:*:last:col-start-1 gap-gutter max-w-6xl mx-auto">
 			<AnimatePosition
 				variants={motionVariants({
 					hidden: { opacity: 0, x: index % 2 === 0 ? 50 : -50 },
@@ -44,17 +44,17 @@ function Ministry({
 				<Image
 					src={image}
 					alt={name}
-					className="w-full h-100 rounded-2xl shadow-xl"
+					className="w-full lg:h-100 rounded-2xl shadow-md object-top-right aspect-video "
 				/>
 			</AnimatePosition>
 			<AnimatePosition
 				variants={motionVariants({
-					hidden: { opacity: 0, x: 50 },
+					hidden: { opacity: 0, x: index % 2 === 0 ? -50 : 50 },
 					show: { opacity: 1, x: 0 },
 				})}
 				className="grid h-fit"
 			>
-				<h2 className="mt-2 font-h2 text-h3 md:text-h2">{name}</h2>
+				<h2 className="mt-2 font-bold text-h3 md:text-h2">{name}</h2>
 				{schedule && (
 					<ul className="grid gap-y-1.5 h-fit mt-1">
 						{schedule.map((time) => (
@@ -76,7 +76,7 @@ function Ministry({
 						href={url}
 						variant="primary"
 						size="lg"
-						className="mt-6 w-fit font-label text-label text-on-secondary hover:bg-secondary/90 inline-flex items-center gap-xs"
+						className="mt-6 w-fit font-label hover:bg-secondary/90 inline-flex items-center gap-xs"
 					>
 						{title}
 						<span className="material-symbols-outlined">arrow_forward</span>

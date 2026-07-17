@@ -5,14 +5,20 @@ type MotionVariantsConfig = {
 	show: TargetAndTransition
 }
 
-export function motionVariants(config: MotionVariantsConfig): Variants {
+export function motionVariants({
+	show = {},
+	hidden = {},
+}: MotionVariantsConfig): Variants {
 	return {
-		hidden: config.hidden,
+		hidden: hidden,
 		show: {
-			...config.show,
+			...show,
 			transition: {
 				duration: 0.5,
 				ease: "easeOut",
+				when: "beforeChildren",
+				staggerChildren: 0.1,
+				...(show.transition ?? {}),
 			} satisfies Transition,
 		},
 	}

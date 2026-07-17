@@ -16,8 +16,8 @@ export function HomePage() {
 			<HeavenCTA />
 			<ConferenceCTA />
 			<DiscipleshipCTA />
-			<OnDemand />
 			<MediaMinistry />
+			<OnDemand />
 			<FeaturedMinistry />
 			<CallToAction />
 		</main>

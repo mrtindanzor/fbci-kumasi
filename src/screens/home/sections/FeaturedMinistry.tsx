@@ -21,7 +21,7 @@ function Ministry({
 	index,
 }: MinistryProps) {
 	return (
-		<li className="grid grid-cols-1 lg:grid-cols-2 even:*:last:row-start-1 even:*:last:col-start-1  gap-gutter max-w-6xl mx-auto">
+		<li className="grid grid-cols-1 lg:grid-cols-2 lg:even:*:last:row-start-1 lg:even:*:last:col-start-1  gap-gutter max-w-6xl mx-auto">
 			<AnimatePosition
 				variants={motionVariants({
 					hidden: { opacity: 0, x: index % 2 === 0 ? 50 : -50 },
@@ -41,7 +41,7 @@ function Ministry({
 				})}
 				className="grid h-fit"
 			>
-				<h2 className="mt-2 font-h2 text-h3 md:text-h2">{name}</h2>
+				<h2 className="mt-2 font-bold text-h3 md:text-h2">{name}</h2>
 				{schedule && (
 					<ul className="grid gap-y-1.5 h-fit mt-1">
 						{schedule.map((time) => (
@@ -63,7 +63,7 @@ function Ministry({
 						href={url}
 						variant="primary"
 						size="lg"
-						className="mt-6 w-fit font-label text-label text-on-secondary hover:bg-secondary/90 inline-flex items-center gap-xs"
+						className="mt-6 w-fit font-label  hover:bg-secondary/90 inline-flex items-center gap-xs"
 					>
 						{title}
 						<span className="material-symbols-outlined">arrow_forward</span>
