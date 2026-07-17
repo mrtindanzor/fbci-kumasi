@@ -11,7 +11,7 @@ const faqs = [
 	{
 		question: "What must I do to be saved?",
 		answer:
-			"Scripture teaches that salvation is a gift received through faith in Jesus Christ. It involves acknowledging our need for a savior, believing in Christ's sacrifice, and committing to follow Him.",
+			"Scripture teaches that salvation is a gift received through faith in Jesus Christ. It involves acknowledging our need for a savior, and believing in Christ's sacrifice.",
 	},
 	{
 		question: "Can I lose my salvation?",
@@ -28,7 +28,7 @@ export function FAQAccordion() {
 			<div className="container-app max-w-3xl mx-auto">
 				<AnimatePosition variants={slideUp}>
 					<h2 className="text-3xl md:text-4xl font-headline font-bold text-primary text-center mb-12">
-						Common Questions
+						Here are answers to some common questions about salvation
 					</h2>
 				</AnimatePosition>
 

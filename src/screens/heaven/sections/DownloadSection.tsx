@@ -1,4 +1,5 @@
 import { AnimatePosition, slideUp } from "@/shared/ui/Framer"
+import { Link } from "@/shared/ui/primitives/button"
 
 const features = [
 	{
@@ -42,7 +43,7 @@ export function DownloadSection() {
 					</AnimatePosition>
 
 					<AnimatePosition variants={slideUp}>
-						<div className="bg-surface-container rounded-2xl p-8 border border-outline-variant/30">
+						<div className="bg-surface-container rounded-2xl p-4 sm:p-8 border border-outline-variant/30">
 							<div className="flex items-center gap-3 mb-4">
 								<span className="material-symbols-outlined text-3xl text-secondary">
 									description
@@ -62,25 +63,30 @@ export function DownloadSection() {
 									Salvation PDF
 								</p>
 								<p className="text-on-surface-variant text-xs mb-3">
-									Download our 12-page guide on finding eternal peace. Includes
-									prayer guides and scripture maps.
+									If you died today, where would you go? Do you want to know for
+									sure you would go to Heaven if you were to die? Don't live
+									another day without getting that settled! If you are unsure of
+									where you will go, you can watch the videos below, or you can
+									get our PDF explaining how to go to Heaven by clicking the
+									button below
 								</p>
-								<div className="flex items-center justify-between">
-									<a
+								<div className="items-center gap-y-2 grid  justify-between">
+									<Link
+										variant="none"
+										size="none"
 										download
 										href="/files/are-you-saved-booklet.pdf"
 										target="_blank"
 										rel="noopener"
-										type="button"
-										className="inline-flex items-center gap-2 text-secondary font-semibold text-sm hover:underline"
+										className="inline-flex gap-2 text-secondary font-semibold text-sm hover:underline"
 									>
 										<span className="material-symbols-outlined text-lg">
 											download
 										</span>
 										Download Guide
-									</a>
-									<span className="text-xs text-on-surface-variant">
-										PDF Format • 4.2 MB • Free Access
+									</Link>
+									<span className="text-xs text-on-surface-variant col-start-1 row-start-1 sm:col-start-2">
+										PDF Format • 1.3 MB • Free Access
 									</span>
 								</div>
 							</div>
