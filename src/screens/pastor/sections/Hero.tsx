@@ -1,33 +1,43 @@
+import { CHURCH_INFO } from "@/shared/db"
+import { routes } from "@/shared/routes"
 import { AnimatePosition, slideUp } from "@/shared/ui/Framer"
-import { Button } from "@/shared/ui/primitives/button"
+import { Link } from "@/shared/ui/primitives/button"
+import { Image } from "@/shared/ui/primitives/Image"
 import { pastorData } from "../data"
 
 export function Hero() {
 	return (
-		<section className="relative min-h-[600px] flex items-center bg-gradient-to-br from-primary to-primary-container overflow-hidden">
-			<div className="absolute inset-0 opacity-15">
-				<div className="absolute inset-0 bg-[url('https://picsum.photos/seed/pastor-hero/1920/1080')] bg-cover bg-center" />
+		<section className="relative min-h-app-height flex items-center bg-linear-to-br from-primary to-primary-container overflow-hidden">
+			<div className="absolute inset-0 opacity-20">
+				<div className="absolute inset-0 bg-[url('/images/church-side-2.avif')] bg-cover bg-center" />
 			</div>
 
 			<div className="container-app relative z-10 py-20">
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-					<AnimatePosition variants={slideUp}>
-						<p className="text-secondary font-semibold text-sm uppercase tracking-wider mb-4">
-							Meet Our Lead Pastor
+					<AnimatePosition
+						variants={slideUp}
+						className="text-center md:text-left"
+					>
+						<p className="text-secondary font-semibold text-sm uppercase tracking-wider mb-4 ">
+							Meet Our Senior Pastor
 						</p>
 						<p className="text-lg text-white/80 mb-8">
-							Guided by faith and a passion for restoration, Pastor Anderson has
-							dedicated three decades to building a sanctuary where every soul
-							can find peace and purpose.
+							Saved at the age of twenty, Pastor Speer&rsquo;s life was
+							transformed by the grace of God. From the classrooms of Virginia
+							Tech to the pulpits of Ghana, his journey is a testimony of
+							surrender, service, and a passion for seeing souls won to Christ.
 						</p>
-						<div className="flex flex-wrap gap-4">
-							<Button variant="gold" size="lg">
+						<div className="flex flex-wrap justify-center md:justify-start gap-4">
+							<Link href={routes.pastor.biography} variant="gold" size="lg">
 								Read Biography
 								<span className="material-symbols-outlined text-lg">
 									arrow_downward
 								</span>
-							</Button>
-							<Button
+							</Link>
+							<Link
+								href={CHURCH_INFO.pastor.profile[1]}
+								target="_blank"
+								rel="noopener noreferrer"
 								variant="secondary"
 								size="lg"
 								className="border-white text-white hover:bg-white hover:text-primary"
@@ -36,18 +46,18 @@ export function Hero() {
 								<span className="material-symbols-outlined text-lg">
 									launch
 								</span>
-							</Button>
+							</Link>
 						</div>
 					</AnimatePosition>
 
 					<AnimatePosition
 						variants={slideUp}
-						className="hidden md:flex justify-center"
+						className="row-start-1 md:col-start-2  flex justify-center"
 					>
 						<div className="relative">
 							<div className="w-72 h-72 rounded-full overflow-hidden border-4 border-white/20">
-								<img
-									src="https://picsum.photos/seed/pastor-samuel/400/400"
+								<Image
+									src={CHURCH_INFO.pastor.image}
 									alt={pastorData.name}
 									className="w-full h-full object-cover"
 									loading="lazy"

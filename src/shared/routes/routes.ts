@@ -4,7 +4,10 @@ export const routes = Object.freeze({
 	conferences: "/conferences",
 	ministries: "/ministries",
 	projects: "/projects",
-	pastor: "/pastor",
+	pastor: {
+		home: "/pastor",
+		biography: "/pastor#biography",
+	},
 	college: "/college",
 	heaven: "/heaven",
 	contact: "/contact",

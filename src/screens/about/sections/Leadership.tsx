@@ -37,7 +37,7 @@ export function Leadership() {
 							journey?
 						</p>
 						<Link
-							href={routes.pastor}
+							href={routes.pastor.home}
 							variant="primary"
 							size="lg"
 							className="font-label"

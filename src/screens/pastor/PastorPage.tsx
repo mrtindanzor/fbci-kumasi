@@ -1,6 +1,6 @@
 import { Biography } from "./sections/Biography"
+import { FaithAndFamily } from "./sections/FaithAndFamily"
 import { Hero } from "./sections/Hero"
-import { Highlights } from "./sections/Highlights"
 import { Timeline } from "./sections/Timeline"
 
 export function PastorPage() {
@@ -9,7 +9,7 @@ export function PastorPage() {
 			<Hero />
 			<Biography />
 			<Timeline />
-			<Highlights />
+			<FaithAndFamily />
 		</main>
 	)
 }
