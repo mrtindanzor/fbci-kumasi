@@ -1,9 +1,17 @@
 "use client"
 
+import { Button, Link } from "@/shared/ui/primitives/button"
+import { motion } from "framer-motion"
 import { Menu } from "lucide-react"
 import { useEffect, useState } from "react"
-import { Button, Link } from "@/shared/ui/primitives/button"
 import { routes } from "../routes"
+import { AnimatePosition } from "../ui/Framer"
+import {
+	slideDown,
+	slideInLeft,
+	slideInRight,
+	slideUp,
+} from "../ui/Framer/utils/motion"
 import { Logo } from "../ui/Logo"
 import { SocialMediaLinks } from "../ui/SocialMediaLinks"
 import { NAV_LINKS } from "./constants"
@@ -14,32 +22,45 @@ export function Header() {
 	useNavhide(mobileOpen)
 
 	return (
-		<header className="sticky bg-primary top-0 z-50">
+		<motion.header
+			variants={slideDown}
+			initial="hidden"
+			whileInView="show"
+			className="sticky bg-primary top-0 z-50"
+		>
 			<div className="container-app flex h-30 items-center justify-between">
 				<div className="flex flex-col gap-y-0.5 items-center h-fit">
-					<Logo />
-					<SocialMediaLinks />
+					<AnimatePosition variants={slideInLeft}>
+						<Logo />
+					</AnimatePosition>
+
+					<AnimatePosition variants={slideInRight}>
+						<SocialMediaLinks />
+					</AnimatePosition>
 				</div>
 
-				<nav className="hidden md:flex items-center">
-					{NAV_LINKS.map((link) => (
-						<Link
-							key={link.href}
-							href={link.href}
-							variant="none"
-							size="none"
-							className="text-sm px-2 py-1 rounded-sm font-medium text-neutral-300 hover:text-primary hover:bg-surface transition-colors"
-						>
-							{link.label}
-						</Link>
-					))}
-				</nav>
+				<motion.nav>
+					<motion.ul className="hidden md:flex items-center" variants={slideUp}>
+						{NAV_LINKS.map((link) => (
+							<motion.li key={link.href} variants={slideInLeft}>
+								<Link
+									href={link.href}
+									variant="none"
+									size="none"
+									className="text-sm px-2 py-1 rounded-sm font-medium text-neutral-300 hover:text-primary hover:bg-surface transition-colors"
+								>
+									{link.label}
+								</Link>
+							</motion.li>
+						))}
+					</motion.ul>
+				</motion.nav>
 
-				<div className="hidden md:flex items-center gap-3">
+				<AnimatePosition variants={slideInRight} className="hidden md:flex">
 					<Link href={routes.projects.home} variant="gold" size="sm">
 						Projects
 					</Link>
-				</div>
+				</AnimatePosition>
 
 				<Button
 					type="button"
@@ -53,7 +74,7 @@ export function Header() {
 			</div>
 
 			<MobileNav open={mobileOpen} onClose={() => setMobileOpen(false)} />
-		</header>
+		</motion.header>
 	)
 }
 

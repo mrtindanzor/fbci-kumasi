@@ -5,7 +5,7 @@ import { Image } from "./primitives/Image"
 export function Logo() {
 	return (
 		<Link to="/" variant="none" className="flex items-center">
-			<Image src="/logo.png" alt={BRANDING.name} className="h-12 w-auto" />
+			<Image src="/logo.png" alt={BRANDING.name} className="h-10  w-auto" />
 		</Link>
 	)
 }

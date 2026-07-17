@@ -17,7 +17,7 @@ export function motionVariants({
 				duration: 0.5,
 				ease: "easeOut",
 				when: "beforeChildren",
-				staggerChildren: 0.1,
+				staggerChildren: 0.2,
 				...(show.transition ?? {}),
 			} satisfies Transition,
 		},
@@ -29,6 +29,10 @@ export const fadeIn = motionVariants({
 	show: { opacity: 1 },
 })
 
+export const slideDown = motionVariants({
+	hidden: { opacity: 0, y: "-30%" },
+	show: { opacity: 1, y: 0 },
+})
 export const slideUp = motionVariants({
 	hidden: { opacity: 0, y: 20 },
 	show: { opacity: 1, y: 0 },
