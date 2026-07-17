@@ -3,7 +3,7 @@ import { Button } from "@/shared/ui/primitives/button"
 
 export function Hero() {
 	return (
-		<section className="relative min-h-[500px] flex items-center bg-gradient-to-br from-primary to-primary-container overflow-hidden">
+		<section className="relative min-h-app-height pt-header-claim flex items-center bg-linear-to-br from-primary to-primary-container overflow-hidden">
 			<div className="container-app relative z-10 py-20">
 				<AnimatePosition variants={slideUp} className="max-w-2xl">
 					<div className="flex items-center gap-3 mb-6">

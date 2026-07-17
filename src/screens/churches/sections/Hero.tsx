@@ -2,7 +2,7 @@ import { AnimatePosition, slideInLeft, slideUp } from "@/shared/ui/Framer"
 
 export function Hero() {
 	return (
-		<section className="relative min-h-[50vh] flex items-center bg-linear-to-br from-primary to-primary-container overflow-hidden">
+		<section className="relative min-h-[50vh] pt-header-claim flex items-center bg-linear-to-br from-primary to-primary-container overflow-hidden">
 			<div className="absolute inset-0 opacity-40">
 				<div className="absolute inset-0 bg-[url('/images/churches-bg.jpg')] bg-cover bg-center" />
 			</div>

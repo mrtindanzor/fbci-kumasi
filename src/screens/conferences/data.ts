@@ -2,8 +2,9 @@ import type { ConferenceResource, RegistrationTier } from "./data.types"
 
 export const conferenceData = {
 	title: "The 2024 Global Sanctuary Summit",
-	description:
-		"Join world-renowned scholars and community leaders for three days of deep spiritual immersion and strategic visioning for the modern church. Experience a blend of ancient wisdom and futuristic innovation.",
+	description: `
+Each year in August, we host a Pastors' and Workers' Conference aimed at strengthening, encouraging, and equipping pastors and church workers, along with their members, for more effective ministry. It is always a time of spiritual growth, fellowship, and renewal.
+We are pleased to invite you to be part of this year's conference.`,
 	dates: "Oct 12-14, 2024",
 	location: "Main Campus & Streaming",
 	stats: [

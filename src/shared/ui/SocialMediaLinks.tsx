@@ -43,6 +43,8 @@ export const SocialMediaLinks = () => {
 				return (
 					<li key={link.link}>
 						<Link
+							target="_blank"
+							rel="noopener noreferrer"
 							variant="none"
 							size="none"
 							href={link.link}

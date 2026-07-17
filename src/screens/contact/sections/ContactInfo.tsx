@@ -1,6 +1,5 @@
 import { CHURCH_INFO } from "@/shared/db"
 import { AnimatePosition, slideUp } from "@/shared/ui/Framer"
-import { SocialMediaLinks } from "@/shared/ui/SocialMediaLinks"
 
 export function ContactInfo() {
 	return (
@@ -13,13 +12,15 @@ export function ContactInfo() {
 								location_on
 							</span>
 							<h3 className="font-headline font-semibold text-primary mb-2">
-								Visit Us
+								Mailing Address
 							</h3>
-							<p className="text-sm text-on-surface-variant">
-								123 Faith Avenue, Accra, Ghana
+							<p className="text-sm text-secondary mt-1">
+								<b>{CHURCH_INFO.address.poBox}</b>{" "}
+								<span className="text-on-surface">(Works Internationally)</span>
 							</p>
 							<p className="text-sm text-secondary mt-1">
-								{CHURCH_INFO.address}
+								<b>{CHURCH_INFO.address.gpa}</b>{" "}
+								<span className="text-on-surface">(Works Locally)</span>
 							</p>
 						</div>
 
@@ -43,19 +44,8 @@ export function ContactInfo() {
 								Email
 							</h3>
 							<p className="text-sm text-on-surface-variant">
-								{CHURCH_INFO.email}
+								{CHURCH_INFO.socials.email}
 							</p>
-						</div>
-					</div>
-				</AnimatePosition>
-
-				<AnimatePosition variants={slideUp}>
-					<div className="text-center mt-12">
-						<h3 className="font-headline font-semibold text-primary mb-4 text-lg">
-							Follow Our Journey
-						</h3>
-						<div className="mx-auto w-fit">
-							<SocialMediaLinks />
 						</div>
 					</div>
 				</AnimatePosition>

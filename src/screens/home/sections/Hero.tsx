@@ -9,7 +9,7 @@ export function Hero() {
 				<div className="absolute inset-0 bg-[url('/images/church-side-1.avif')] bg-cover bg-center" />
 			</div>
 
-			<div className="container-app relative z-10 py-20">
+			<div className="container-app relative flex flex-col items-center text-center z-10 py-20">
 				<AnimatePosition variants={slideUp} className="max-w-2xl">
 					<h1 className="text-4xl md:text-6xl lg:text-7xl font-headline font-bold text-white leading-tight mb-6">
 						Welcome
@@ -19,16 +19,14 @@ export function Hero() {
 						community, and word. We believe in creating a modern sanctuary for
 						all generations.
 					</p>
-					<div className="flex flex-wrap gap-4">
-						<Link
-							href={routes.contact}
-							className="md:w-70"
-							variant="gold"
-							size="lg"
-						>
-							Contact Us
-						</Link>
-					</div>
+					<Link
+						href={routes.contact}
+						className="md:w-70 border border-neutral-50"
+						variant="gold"
+						size="lg"
+					>
+						Contact Us
+					</Link>
 				</AnimatePosition>
 			</div>
 		</section>

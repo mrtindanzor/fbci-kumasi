@@ -1,5 +1,6 @@
 import { CHURCH_INFO } from "@/shared/db"
 import { AnimatePosition, slideUp } from "@/shared/ui/Framer"
+import { Link } from "@/shared/ui/primitives/button"
 
 export function Questions() {
 	return (
@@ -17,8 +18,12 @@ export function Questions() {
 					</div>
 
 					<div className="flex flex-col sm:flex-row justify-center gap-6">
-						<a
-							href={`mailto:${CHURCH_INFO.email}`}
+						<Link
+							size="none"
+							variant="none"
+							href={`mailto:${CHURCH_INFO.socials.email}`}
+							target="_blank"
+							rel="noopener noreferrer"
 							className="flex items-center gap-3 px-6 py-4 bg-surface rounded-xl border border-outline-variant hover:border-secondary transition-colors group"
 						>
 							<span className="material-symbols-outlined text-2xl text-secondary">
@@ -27,12 +32,16 @@ export function Questions() {
 							<div>
 								<p className="text-sm text-on-surface-variant">Email</p>
 								<p className="font-semibold text-primary group-hover:text-secondary transition-colors">
-									{CHURCH_INFO.email}
+									{CHURCH_INFO.socials.email}
 								</p>
 							</div>
-						</a>
-						<a
+						</Link>
+						<Link
 							href={`tel:${CHURCH_INFO.phone}`}
+							target="_blank"
+							rel="noopener noreferrer"
+							size="none"
+							variant="none"
 							className="flex items-center gap-3 px-6 py-4 bg-surface rounded-xl border border-outline-variant hover:border-secondary transition-colors group"
 						>
 							<span className="material-symbols-outlined text-2xl text-secondary">
@@ -44,7 +53,7 @@ export function Questions() {
 									{CHURCH_INFO.phone}
 								</p>
 							</div>
-						</a>
+						</Link>
 					</div>
 				</AnimatePosition>
 			</div>

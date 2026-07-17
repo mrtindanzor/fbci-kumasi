@@ -1,16 +1,20 @@
-import { useState } from "react"
+import { useContact } from "@/features/contact"
+import { CHURCH_INFO } from "@/shared/db"
 import { AnimatePosition, slideUp } from "@/shared/ui/Framer"
-import { Button } from "@/shared/ui/primitives/button"
+import { Button, Link } from "@/shared/ui/primitives/button"
+import { FieldError } from "@/shared/ui/primitives/FieldError"
 import { Input } from "@/shared/ui/primitives/Input"
 
 export function QuestionForm() {
-	const [form, setForm] = useState({ name: "", email: "", question: "" })
-
-	function handleSubmit(e: React.FormEvent) {
-		e.preventDefault()
-		alert("Thank you for your question! A pastor will reach out to you soon.")
-		setForm({ name: "", email: "", question: "" })
-	}
+	const {
+		onSubmit,
+		register,
+		formState: { errors },
+	} = useContact({
+		defaultValues: {
+			subject: "Question on How to Be Saved",
+		},
+	})
 
 	return (
 		<section className="section-gap bg-surface-container">
@@ -23,28 +27,30 @@ export function QuestionForm() {
 
 				<div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 					<AnimatePosition variants={slideUp} className="md:col-span-2">
-						<form onSubmit={handleSubmit} className="space-y-4">
-							<Input
-								placeholder="Full Name"
-								value={form.name}
-								onChange={(e) => setForm({ ...form, name: e.target.value })}
-								required
-							/>
+						<form onSubmit={onSubmit} className="space-y-4">
+							<Input placeholder="Full Name" {...register("name")} required />
+							<FieldError message={errors.name?.message} />
 							<Input
 								type="email"
 								placeholder="Email Address"
-								value={form.email}
-								onChange={(e) => setForm({ ...form, email: e.target.value })}
+								{...register("email")}
 								required
 							/>
+							<FieldError message={errors.email?.message} />
+							<Input
+								type="tel"
+								placeholder="Phone Number"
+								{...register("phone")}
+							/>
+							<FieldError message={errors.phone?.message} />
 							<textarea
 								placeholder="Your Question"
-								value={form.question}
-								onChange={(e) => setForm({ ...form, question: e.target.value })}
+								{...register("message")}
 								required
 								rows={4}
 								className="w-full rounded-xl border border-outline-variant bg-surface px-4 py-3 text-on-surface placeholder:text-on-surface-variant focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-colors resize-none"
 							/>
+							<FieldError message={errors.message?.message} />
 							<Button type="submit" variant="primary" className="w-full">
 								Submit Inquiry
 							</Button>
@@ -59,12 +65,14 @@ export function QuestionForm() {
 							<p className="font-semibold text-primary text-sm mb-1">
 								Direct Inquiry
 							</p>
-							<a
-								href="mailto:pastor@houseanderson.org"
+							<Link
+								variant="none"
+								size="none"
+								href={`mailto:${CHURCH_INFO.socials.email}`}
 								className="text-secondary text-sm hover:underline"
 							>
-								pastor@houseanderson.org
-							</a>
+								{CHURCH_INFO.socials.email}
+							</Link>
 						</div>
 					</AnimatePosition>
 				</div>

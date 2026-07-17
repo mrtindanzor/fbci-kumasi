@@ -6,19 +6,7 @@ export function ChurchDirectory() {
 	return (
 		<section className="section-gap">
 			<div className="container-app">
-				<div className="flex flex-wrap gap-3 mb-10">
-					{["All", ...new Set(CHURCHES.map((c) => c.country))].map((filter) => (
-						<button
-							key={filter}
-							type="button"
-							className="px-4 py-2 text-sm font-label uppercase tracking-wider rounded-full border border-outline-variant text-on-surface-variant hover:border-secondary hover:text-secondary transition-colors"
-						>
-							{filter}
-						</button>
-					))}
-				</div>
-
-				<div className="mb-10 p-4 bg-surface-container rounded-xl border border-outline-variant flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
+				<div className="mb-10 p-4 bg-surface-container rounded-xl border border-outline-variant flex flex-wrap items-center gap-x-6 gap-y-2 text-sm w-fit">
 					<div className="flex items-center gap-2 text-on-surface-variant">
 						<span className="material-symbols-outlined text-lg text-secondary">
 							person

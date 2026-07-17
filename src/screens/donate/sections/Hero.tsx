@@ -1,11 +1,12 @@
+import { routes } from "@/shared/routes"
 import { AnimatePosition, slideInLeft, slideUp } from "@/shared/ui/Framer"
 import { Link } from "@/shared/ui/primitives/button"
 
 export function Hero() {
 	return (
-		<section className="relative min-h-[60vh] flex items-center bg-linear-to-br from-primary to-primary-container overflow-hidden">
+		<section className="relative min-h-[60vh] pt-header-claim flex items-center bg-linear-to-br from-primary to-primary-container overflow-hidden">
 			<div className="absolute inset-0 opacity-40">
-				<div className="absolute inset-0 bg-[url('/images/church-side-2.avif')] bg-cover bg-center" />
+				<div className="absolute inset-0 bg-[url('/images/church-side-3.avif')] bg-cover bg-center" />
 			</div>
 
 			<div className="container-app relative z-10 py-20">
@@ -24,7 +25,7 @@ export function Hero() {
 
 					<div className="flex flex-wrap gap-4">
 						<Link
-							href="#"
+							href={routes.donate.overseas}
 							className="inline-flex items-center gap-2 px-6 py-3 bg-secondary text-white rounded-xl font-semibold hover:bg-secondary/90 transition-colors"
 						>
 							Donate from USA
@@ -33,7 +34,7 @@ export function Hero() {
 							</span>
 						</Link>
 						<Link
-							href="#"
+							href={routes.donate.local}
 							className="inline-flex items-center gap-2 px-6 py-3 border-2 border-white/30 text-white rounded-xl font-semibold hover:bg-white/10 transition-colors"
 						>
 							Donate from Ghana

@@ -89,7 +89,7 @@ export function OngoingSupport() {
 						</div>
 
 						<Link
-							href={routes.donate}
+							href={routes.donate.home}
 							variant="primary"
 							size="lg"
 							className="w-full"
