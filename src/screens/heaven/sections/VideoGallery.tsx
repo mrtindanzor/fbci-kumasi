@@ -1,5 +1,6 @@
 import { motion } from "framer-motion"
 import { AnimatePosition, slideUp, staggerContainer } from "@/shared/ui/Framer"
+import { Image } from "@/shared/ui/primitives/Image"
 
 const videos = [
 	{
@@ -53,11 +54,10 @@ export function VideoGallery() {
 							className="bg-surface rounded-2xl overflow-hidden border border-outline-variant/30"
 						>
 							<div className="relative aspect-video">
-								<img
+								<Image
 									src={video.thumbnail}
 									alt={video.title}
 									className="w-full h-full object-cover"
-									loading="lazy"
 								/>
 								<div className="absolute inset-0 bg-black/30 flex items-center justify-center">
 									<span className="material-symbols-outlined text-white text-5xl">

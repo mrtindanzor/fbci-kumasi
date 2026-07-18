@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion"
 import { useState } from "react"
 import { AnimatePosition, slideUp } from "@/shared/ui/Framer"
+import { Button } from "@/shared/ui/primitives/button"
 
 const faqs = [
 	{
@@ -36,11 +37,13 @@ export function FAQAccordion() {
 					{faqs.map((faq, index) => (
 						<AnimatePosition key={faq.question} variants={slideUp}>
 							<div className="bg-surface-container rounded-2xl border border-outline-variant/30 overflow-hidden">
-								<button
+								<Button
 									type="button"
 									onClick={() =>
 										setOpenIndex(openIndex === index ? null : index)
 									}
+									variant="none"
+									size="none"
 									className="w-full flex items-center justify-between p-6 text-left"
 								>
 									<span className="font-headline font-semibold text-primary">
@@ -53,7 +56,7 @@ export function FAQAccordion() {
 									>
 										expand_more
 									</span>
-								</button>
+								</Button>
 								<AnimatePresence>
 									{openIndex === index && (
 										<motion.div

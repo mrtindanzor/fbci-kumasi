@@ -8,7 +8,7 @@ export function DesktopNav() {
 	const pathname = usePathname()
 
 	return (
-		<nav className="hidden lg:flex border border-surface/40 items-center gap-1 rounded-full bg-primary px-1.5 py-1.5 shadow-lg">
+		<nav className="hidden lg:flex border border-surface/40 items-center gap-1 rounded-full bg-primary-container px-1.5 py-1.5 shadow-lg">
 			{NAV_ITEMS.map((item) => {
 				if (item.children)
 					return (

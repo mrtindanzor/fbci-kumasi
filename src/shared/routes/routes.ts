@@ -6,6 +6,7 @@ export const routes = Object.freeze({
 	projects: {
 		home: "/projects",
 		projectById: (id: string) => `/projects/project/${id}` as const,
+		projectByIdAndGive: (id: string) => `/projects/project/${id}#give` as const,
 		funded: "/projects/funded",
 	},
 	pastor: {
@@ -17,7 +18,11 @@ export const routes = Object.freeze({
 	contact: "/contact",
 	resources: {
 		home: "/resources",
+		lessons: "/resources/discipleship",
 		discipleship: "/resources#discipleship-lesson-books",
+		sermon: "/resources#sermons",
+		youtube: "/resources#youtube",
+		music: "/resources#music",
 	},
 	donate: {
 		home: "/donate",

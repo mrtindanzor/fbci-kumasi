@@ -1,15 +1,19 @@
+import { Categories } from "./sections/Categories"
+import { DiscipleshipSection } from "./sections/DiscipleshipSection"
 import { Hero } from "./sections/Hero"
-import { Newsletter } from "./sections/Newsletter"
 import { PodcastSection } from "./sections/PodcastSection"
-import { ResourceLibrary } from "./sections/ResourceLibrary"
+import { SalvationSection } from "./sections/SalvationSection"
+import { YouTubeSection } from "./sections/YouTubeSection"
 
 export function ResourcesPage() {
 	return (
 		<main>
 			<Hero />
+			<Categories />
 			<PodcastSection />
-			<ResourceLibrary />
-			<Newsletter />
+			<YouTubeSection />
+			<DiscipleshipSection />
+			<SalvationSection />
 		</main>
 	)
 }

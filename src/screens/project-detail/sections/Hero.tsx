@@ -2,6 +2,7 @@ import type { Project } from "@/screens/projects/data.types"
 import { routes } from "@/shared/routes"
 import { AnimatePosition, slideInLeft, slideUp } from "@/shared/ui/Framer"
 import { Link } from "@/shared/ui/primitives/button"
+import { Image } from "@/shared/ui/primitives/Image"
 
 type HeroProps = {
 	project: Project
@@ -14,21 +15,21 @@ export function Hero({ project }: HeroProps) {
 	const statusIcon = isFunded ? "auto_awesome" : "volunteer_activism"
 
 	return (
-		<section className="relative h-[614px] md:h-[716px] flex items-end overflow-hidden">
+		<section className="relative min-h-app-height pt-header-claim flex items-end overflow-hidden">
 			<div className="absolute inset-0 z-0">
-				<img
+				<Image
 					src={project.image}
 					alt={project.title}
 					className="w-full h-full object-cover"
 				/>
-				<div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+				<div className="absolute inset-0 bg-linear-to-b from-primary/20 to-primary/90" />
 			</div>
 
 			<div className="relative z-10 w-full px-margin-mobile md:px-margin-desktop pb-16 flex flex-col md:flex-row justify-between items-end gap-10">
 				<AnimatePosition variants={slideInLeft} className="max-w-3xl">
 					<span className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label text-label mb-6">
 						<span
-							className="material-symbols-outlined text-[14px]"
+							className="material-symbols-outlined text-caption"
 							style={{ fontVariationSettings: "'FILL' 1" }}
 						>
 							{statusIcon}
@@ -82,13 +83,15 @@ export function Hero({ project }: HeroProps) {
 							)}
 						</div>
 						<Link
-							href={`${routes.donate}?project=${project.id}`}
+							href={`${routes.projects.projectByIdAndGive(project.id)}`}
 							variant="primary"
 							size="lg"
 							className="w-full flex items-center justify-center gap-2"
 						>
 							<span className="material-symbols-outlined">payments</span>
-							{isFunded ? "SUPPORT FUTURE PROJECTS" : "GIVE TO THIS PROJECT"}
+							<span className="whitespace-nowrap text-sm font-semibold">
+								GIVE TO THIS PROJECT
+							</span>
 						</Link>
 					</div>
 				</AnimatePosition>

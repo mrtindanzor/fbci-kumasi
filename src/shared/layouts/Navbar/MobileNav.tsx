@@ -139,9 +139,11 @@ function ExpandableGroup({
 
 	return (
 		<div className="border-b border-outline-variant/20">
-			<button
+			<Button
 				type="button"
 				onClick={onToggle}
+				variant="none"
+				size="none"
 				className={cn(
 					"flex w-full items-center justify-between gap-2 py-3 font-medium transition-colors",
 					isGroupActive ? "text-primary" : "text-on-surface hover:text-primary",
@@ -155,7 +157,7 @@ function ExpandableGroup({
 						expanded && "rotate-180",
 					)}
 				/>
-			</button>
+			</Button>
 
 			<AnimatePresence>
 				{expanded && (

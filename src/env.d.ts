@@ -3,6 +3,11 @@ declare module "*.css?url" {
 	export default href
 }
 
+declare module "*.mjs?url" {
+	const href: string
+	export default href
+}
+
 interface ImportMetaEnv {
 	readonly [key: string]: string | undefined
 }

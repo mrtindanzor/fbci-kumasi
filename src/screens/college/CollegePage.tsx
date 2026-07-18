@@ -1,14 +1,16 @@
-import { BentoGrid } from "./sections/BentoGrid"
+import { About } from "./sections/About"
 import { CallToAction } from "./sections/CallToAction"
-import { Downloads } from "./sections/Downloads"
 import { Hero } from "./sections/Hero"
+import { ProspectusPreview } from "./sections/ProspectusPreview"
+import { WhatsInside } from "./sections/WhatsInside"
 
 export function CollegePage() {
 	return (
 		<main>
 			<Hero />
-			<BentoGrid />
-			<Downloads />
+			<About />
+			<ProspectusPreview />
+			<WhatsInside />
 			<CallToAction />
 		</main>
 	)

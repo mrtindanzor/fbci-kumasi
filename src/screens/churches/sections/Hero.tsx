@@ -1,11 +1,10 @@
 import { AnimatePosition, slideInLeft, slideUp } from "@/shared/ui/Framer"
+import { BackgroundImage } from "@/shared/ui/primitives/BackgroundImage"
 
 export function Hero() {
 	return (
 		<section className="relative min-h-[50vh] pt-header-claim flex items-center bg-linear-to-br from-primary to-primary-container overflow-hidden">
-			<div className="absolute inset-0 opacity-40">
-				<div className="absolute inset-0 bg-[url('/images/churches-bg.jpg')] bg-cover bg-center" />
-			</div>
+			<BackgroundImage url="/images/churches-bg.jpg" />
 
 			<div className="container-app relative z-10 py-20">
 				<AnimatePosition variants={slideInLeft}>

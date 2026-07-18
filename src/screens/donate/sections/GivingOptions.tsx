@@ -88,7 +88,6 @@ export function GivingOptions() {
 								<PaymentForm
 									title="Give to Support Missions"
 									src={CHURCH_INFO.donationLink}
-									className="h-350 sm:h-250"
 								/>
 							</div>
 						</div>

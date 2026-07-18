@@ -45,6 +45,8 @@ export const projects: Project[] = [
 				completed: false,
 			},
 		],
+		paymentLink:
+			"https://forms.ministryforms.net/viewForm.aspx?formid=a34d9627-7270-4588-8d7e-76076e859003&direct-link=true&embed=true&frameid=6520757757407035",
 	},
 	{
 		id: "finish-walls-and-floor-for-church",
@@ -89,6 +91,8 @@ export const projects: Project[] = [
 				completed: false,
 			},
 		],
+		paymentLink:
+			"https://forms.ministryforms.net/viewForm.aspx?formid=e05e2938-e76b-4f38-9a2f-c5c6fe01c01a&direct-link=true&embed=true&frameid=5090822660640318",
 	},
 	{
 		id: "mission-house",
@@ -133,6 +137,8 @@ export const projects: Project[] = [
 				completed: false,
 			},
 		],
+		paymentLink:
+			"https://forms.ministryforms.net/viewForm.aspx?formid=78669205-bb64-4111-be3a-57f7e6d8a5f3&direct-link=true&embed=true&frameid=33660590572772486",
 	},
 	{
 		id: "village-outreach-tricycle",
@@ -177,5 +183,7 @@ export const projects: Project[] = [
 				completed: false,
 			},
 		],
+		paymentLink:
+			"https://forms.ministryforms.net/viewForm.aspx?formid=e05e2938-e76b-4f38-9a2f-c5c6fe01c01a&direct-link=true&embed=true&frameid=2823283372316159",
 	},
 ]

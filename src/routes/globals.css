@@ -5,10 +5,16 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/*
+1. 735c00
+2. c4a00e
+
+*/
+
 :root {
 	--color-primary: #000000;
 	--color-primary-container: #131b2e;
-	--color-secondary: #735c00;
+	--color-secondary: #e2a925;
 	--color-secondary-container: #fed65b;
 	--color-tertiary: #7d927d;
 	--color-tertiary-container: #0d1f11;
@@ -78,7 +84,7 @@
 	--spacing-gutter: 24px;
 	--spacing-margin-mobile: 16px;
 	--spacing-margin-desktop: 80px;
-	--spacing-header-claim: 3rem;
+	--spacing-header-claim: 4rem;
 
 	--radius-sm: 0.25rem;
 	--radius-md: 0.5rem;
@@ -131,6 +137,10 @@
 
 	body {
 		@apply bg-background overflow-x-hidden text-neutral-300 font-body antialiased;
+	}
+
+	button {
+		@apply cursor-pointer;
 	}
 
 	h1,

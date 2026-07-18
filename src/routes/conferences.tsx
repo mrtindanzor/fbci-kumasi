@@ -10,7 +10,7 @@ export const Route = createFileRoute("/conferences")({
 			{
 				name: "description",
 				content:
-					"Join the 2024 Global Sanctuary Summit - three days of deep spiritual immersion and strategic visioning.",
+					"Join the Annual Pastors & Workers Conference at FBCI Kumasi - a time of biblical teaching, spiritual renewal, and fellowship.",
 			},
 		],
 	}),

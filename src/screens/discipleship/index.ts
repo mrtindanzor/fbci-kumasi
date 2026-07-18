@@ -1,0 +1,1 @@
+export { DiscipleshipPage } from "./DiscipleshipPage"

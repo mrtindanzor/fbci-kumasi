@@ -4,6 +4,7 @@ import { DiscipleshipCTA } from "./sections/DiscipleshipCTA"
 import { FeaturedMinistry } from "./sections/FeaturedMinistry"
 import { HeavenCTA } from "./sections/HeavenCTA"
 import { Hero } from "./sections/Hero"
+import { MapSection } from "./sections/MapSection"
 import { MediaMinistry } from "./sections/MediaMinistry"
 import { OnDemand } from "./sections/OnDemand"
 import { ServiceTimes } from "./sections/ServiceTimes"
@@ -20,6 +21,7 @@ export function HomePage() {
 			<OnDemand />
 			<FeaturedMinistry />
 			<CallToAction />
+			<MapSection />
 		</main>
 	)
 }

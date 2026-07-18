@@ -1,5 +1,6 @@
 import { motion } from "framer-motion"
 import { slideUp, staggerContainer } from "@/shared/ui/Framer"
+import { Link } from "@/shared/ui/primitives/button"
 import { CHURCHES } from "../data"
 
 export function ChurchDirectory() {
@@ -75,12 +76,14 @@ export function ChurchDirectory() {
 										<span className="material-symbols-outlined text-lg">
 											phone
 										</span>
-										<a
+										<Link
 											href={`tel:${church.contact}`}
+											variant="none"
+											size="none"
 											className="hover:text-secondary transition-colors"
 										>
 											{church.contact}
-										</a>
+										</Link>
 									</div>
 								)}
 							</div>

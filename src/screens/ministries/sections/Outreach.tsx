@@ -1,5 +1,6 @@
 import { motion } from "framer-motion"
 import { AnimatePosition, slideUp, staggerContainer } from "@/shared/ui/Framer"
+import { Button } from "@/shared/ui/primitives/button"
 
 const outreachItems = [
 	{
@@ -61,15 +62,16 @@ export function Outreach() {
 								{item.description}
 							</p>
 							{item.cta && (
-								<button
-									type="button"
-									className="text-secondary font-semibold text-sm hover:underline inline-flex items-center gap-1"
+								<Button
+									variant="ghost"
+									size="sm"
+									className="text-secondary font-semibold hover:underline inline-flex items-center gap-1 w-fit"
 								>
 									{item.cta}
 									<span className="material-symbols-outlined text-sm">
 										north_east
 									</span>
-								</button>
+								</Button>
 							)}
 						</motion.div>
 					))}

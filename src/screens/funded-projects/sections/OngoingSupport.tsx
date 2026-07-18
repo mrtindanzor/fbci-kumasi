@@ -1,6 +1,7 @@
 import { routes } from "@/shared/routes"
 import { AnimatePosition, slideUp } from "@/shared/ui/Framer"
-import { Link } from "@/shared/ui/primitives/button"
+import { Button, Link } from "@/shared/ui/primitives/button"
+import { Label } from "@/shared/ui/primitives/Label"
 
 const SUPPORT_AREAS = [
 	{
@@ -67,13 +68,14 @@ export function OngoingSupport() {
 
 						<div className="flex flex-wrap justify-center gap-3 mb-6">
 							{AMOUNTS.map((amount) => (
-								<button
+								<Button
 									key={amount}
 									type="button"
-									className="px-6 py-3 border-2 border-outline-variant rounded-xl font-semibold text-on-surface hover:border-secondary hover:text-secondary transition-colors"
+									variant="secondary"
+									size="md"
 								>
 									{amount}
-								</button>
+								</Button>
 							))}
 						</div>
 
@@ -83,9 +85,9 @@ export function OngoingSupport() {
 								id="recurring"
 								className="rounded border-outline-variant"
 							/>
-							<label htmlFor="recurring">
+							<Label htmlFor="recurring" className="mb-0">
 								Make this a monthly recurring donation
-							</label>
+							</Label>
 						</div>
 
 						<Link

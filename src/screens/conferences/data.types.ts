@@ -1,15 +1,20 @@
 export type ConferenceResource = {
 	id: string
 	title: string
-	format: string
-	size: string
-	description: string
+	file: string
+	type: "pdf"
+	size?: string
 }
 
-export type RegistrationTier = {
+export type Conference = {
 	id: string
-	name: string
-	price: number
-	perPerson: boolean
+	title: string
+	subtitle: string
+	poster: string
+	theme: string
+	schedule: string
+	location?: string
 	description: string
+	closingMessage: string
+	resources: ConferenceResource[]
 }
