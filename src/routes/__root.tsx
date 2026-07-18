@@ -8,6 +8,7 @@ import type { PropsWithChildren } from "react"
 import { BRANDING } from "@/shared/constants"
 import { Footer } from "@/shared/layouts/Footer"
 import { Header } from "@/shared/layouts/Header"
+import { LoadingScreen } from "@/shared/ui/LoadingScreen"
 import appCss from "./globals.css?url"
 
 export const Route = createRootRoute({
@@ -64,6 +65,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 function LayoutOne({ children }: PropsWithChildren) {
 	return (
 		<>
+			<LoadingScreen />
 			<Header />
 			<div className=""> {children}</div>
 			<Footer />

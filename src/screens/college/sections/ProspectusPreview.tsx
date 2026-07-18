@@ -1,5 +1,6 @@
 import { Download, Eye } from "lucide-react"
 import { AnimatePosition, slideUp } from "@/shared/ui/Framer"
+import { Link } from "@/shared/ui/primitives/button"
 import { PdfThumbnail } from "@/shared/ui/primitives/PdfThumbnail"
 import { collegeData } from "../data"
 
@@ -47,23 +48,26 @@ export function ProspectusPreview() {
 								</p>
 
 								<div className="flex flex-wrap gap-3">
-									<a
+									<Link
 										href={prospectus.url}
 										target="_blank"
-										rel="noopener noreferrer"
-										className="inline-flex items-center gap-2 h-11 px-6 rounded-xl bg-primary text-white hover:bg-primary/90 transition-colors duration-200 font-body text-base"
+										variant="primary"
+										size="md"
+										className="gap-2"
 									>
 										<Eye className="size-4" />
 										View
-									</a>
-									<a
+									</Link>
+									<Link
 										href={prospectus.url}
 										download
-										className="inline-flex items-center gap-2 h-11 px-6 rounded-xl bg-secondary text-white hover:bg-secondary/90 transition-colors duration-200 font-body text-base"
+										variant="gold"
+										size="md"
+										className="gap-2"
 									>
 										<Download className="size-4" />
 										Download
-									</a>
+									</Link>
 								</div>
 							</div>
 						</div>

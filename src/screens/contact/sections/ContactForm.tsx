@@ -1,7 +1,10 @@
 import { useContact } from "@/features/contact"
 import { AnimatePosition, slideUp } from "@/shared/ui/Framer"
+import { Button } from "@/shared/ui/primitives/button"
 import { FieldError } from "@/shared/ui/primitives/FieldError"
 import { Input } from "@/shared/ui/primitives/Input"
+import { Label } from "@/shared/ui/primitives/Label"
+import { Textarea } from "@/shared/ui/primitives/Textarea"
 import { SocialMediaLinks } from "@/shared/ui/SocialMediaLinks"
 
 const SUBJECTS = [
@@ -45,12 +48,7 @@ export function ContactForm() {
 						<form className="grid gap-6" onSubmit={onSubmit}>
 							<div className="grid sm:grid-cols-2 gap-4">
 								<div>
-									<label
-										htmlFor="name"
-										className="block text-sm font-medium text-on-surface mb-1"
-									>
-										Full Name
-									</label>
+									<Label htmlFor="name">Full Name</Label>
 									<Input
 										id="name"
 										placeholder="John Doe"
@@ -59,12 +57,7 @@ export function ContactForm() {
 									<FieldError message={errors.name?.message} />
 								</div>
 								<div>
-									<label
-										htmlFor="email"
-										className="block text-sm font-medium text-on-surface mb-1"
-									>
-										Email Address
-									</label>
+									<Label htmlFor="email">Email Address</Label>
 									<Input
 										id="email"
 										type="email"
@@ -75,12 +68,7 @@ export function ContactForm() {
 								</div>
 							</div>
 							<div>
-								<label
-									htmlFor="phone"
-									className="block text-sm font-medium text-on-surface mb-1"
-								>
-									Phone Number
-								</label>
+								<Label htmlFor="phone">Phone Number</Label>
 								<Input
 									id="phone"
 									type="phone"
@@ -91,12 +79,7 @@ export function ContactForm() {
 							</div>
 
 							<div>
-								<label
-									htmlFor="subject"
-									className="block text-sm font-medium text-on-surface mb-1"
-								>
-									Subject
-								</label>
+								<Label htmlFor="subject">Subject</Label>
 								<select
 									id="subject"
 									className="w-full px-4 py-3 border border-outline-variant rounded-xl bg-surface text-on-surface focus:outline-none focus:border-secondary transition-colors"
@@ -111,29 +94,20 @@ export function ContactForm() {
 							</div>
 
 							<div>
-								<label
-									htmlFor="message"
-									className="block text-sm font-medium text-on-surface mb-1"
-								>
-									Message
-								</label>
-								<textarea
+								<Label htmlFor="message">Message</Label>
+								<Textarea
 									id="message"
 									rows={5}
 									{...register("message")}
 									placeholder="I'm interested in..."
-									className="w-full px-4 py-3 border border-outline-variant rounded-xl bg-surface text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:border-secondary transition-colors resize-none"
 								/>
 								<FieldError message={errors.message?.message} />
 							</div>
 
-							<button
-								type="submit"
-								className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-primary text-white rounded-xl font-semibold hover:bg-primary/90 transition-colors"
-							>
+							<Button type="submit" variant="primary" className="w-full gap-2">
 								Send Message
 								<span className="material-symbols-outlined text-lg">send</span>
-							</button>
+							</Button>
 						</form>
 					</div>
 				</AnimatePosition>

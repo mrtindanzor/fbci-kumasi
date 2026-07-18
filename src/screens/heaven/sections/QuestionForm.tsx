@@ -4,6 +4,7 @@ import { AnimatePosition, slideUp } from "@/shared/ui/Framer"
 import { Button, Link } from "@/shared/ui/primitives/button"
 import { FieldError } from "@/shared/ui/primitives/FieldError"
 import { Input } from "@/shared/ui/primitives/Input"
+import { Textarea } from "@/shared/ui/primitives/Textarea"
 
 export function QuestionForm() {
 	const {
@@ -43,12 +44,11 @@ export function QuestionForm() {
 								{...register("phone")}
 							/>
 							<FieldError message={errors.phone?.message} />
-							<textarea
+							<Textarea
 								placeholder="Your Question"
 								{...register("message")}
 								required
 								rows={4}
-								className="w-full rounded-xl border border-outline-variant bg-surface px-4 py-3 text-on-surface placeholder:text-on-surface-variant focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-colors resize-none"
 							/>
 							<FieldError message={errors.message?.message} />
 							<Button type="submit" variant="primary" className="w-full">

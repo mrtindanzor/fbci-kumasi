@@ -1,4 +1,5 @@
 import { AnimatePosition, slideUp } from "@/shared/ui/Framer"
+import { Image } from "@/shared/ui/primitives/Image"
 import { conference } from "../data"
 
 export function Hero() {
@@ -23,11 +24,10 @@ export function Hero() {
 					<AnimatePosition variants={slideUp}>
 						<div className="relative mx-auto lg:mx-0 max-w-md lg:max-w-none">
 							<div className="rounded-2xl overflow-hidden shadow-xl border border-outline-variant/30">
-								<img
+								<Image
 									src={conference.poster}
 									alt={conference.title}
 									className="w-full h-auto object-cover"
-									loading="lazy"
 								/>
 							</div>
 							<div className="absolute -inset-4 bg-secondary/10 rounded-3xl -z-10" />

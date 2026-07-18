@@ -1,5 +1,6 @@
 import { Download, Eye } from "lucide-react"
 import { AnimatePosition, slideUp } from "@/shared/ui/Framer"
+import { Link } from "@/shared/ui/primitives/button"
 import { collegeData } from "../data"
 
 export function CallToAction() {
@@ -16,23 +17,26 @@ export function CallToAction() {
 							and admissions by viewing the official prospectus.
 						</p>
 						<div className="flex flex-wrap justify-center gap-4">
-							<a
+							<Link
 								href={collegeData.prospectus.url}
 								target="_blank"
-								rel="noopener noreferrer"
-								className="inline-flex items-center gap-2 h-13 px-8 text-lg rounded-xl bg-secondary text-white hover:bg-secondary/90 transition-colors duration-200 font-body"
+								variant="gold"
+								size="lg"
+								className="gap-2"
 							>
 								<Eye className="size-5" />
 								View Prospectus
-							</a>
-							<a
+							</Link>
+							<Link
 								href={collegeData.prospectus.url}
 								download
-								className="inline-flex items-center gap-2 h-13 px-8 text-lg rounded-xl bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary transition-colors duration-200 font-body"
+								variant="none"
+								size="lg"
+								className="gap-2 bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary transition-colors duration-200 font-body"
 							>
 								<Download className="size-5" />
 								Download Prospectus
-							</a>
+							</Link>
 						</div>
 					</div>
 				</AnimatePosition>

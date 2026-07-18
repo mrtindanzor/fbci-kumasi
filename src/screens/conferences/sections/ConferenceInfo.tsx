@@ -1,5 +1,5 @@
-import { AnimatePosition, slideUp, staggerContainer } from "@/shared/ui/Framer"
 import { motion } from "framer-motion"
+import { AnimatePosition, slideUp, staggerContainer } from "@/shared/ui/Framer"
 import { conference } from "../data"
 
 const infoItems = [

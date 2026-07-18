@@ -43,20 +43,24 @@ export function Highlights() {
 							</h2>
 						</div>
 						<div className="flex gap-2">
-							<button
+							<Button
 								type="button"
 								onClick={prev}
+								variant="none"
+								size="none"
 								className="h-10 w-10 rounded-full border border-outline-variant flex items-center justify-center hover:bg-surface-container transition-colors"
 							>
 								<span className="material-symbols-outlined">chevron_left</span>
-							</button>
-							<button
+							</Button>
+							<Button
 								type="button"
 								onClick={next}
+								variant="none"
+								size="none"
 								className="h-10 w-10 rounded-full border border-outline-variant flex items-center justify-center hover:bg-surface-container transition-colors"
 							>
 								<span className="material-symbols-outlined">chevron_right</span>
-							</button>
+							</Button>
 						</div>
 					</div>
 				</AnimatePosition>
@@ -99,12 +103,13 @@ export function Highlights() {
 							<p className="text-xs text-on-surface-variant">
 								FBMI Verified — Official Partnership Profile
 							</p>
-							<button
-								type="button"
-								className="text-sm text-secondary font-semibold hover:underline"
+							<Button
+								variant="ghost"
+								size="sm"
+								className="text-secondary font-semibold hover:underline"
 							>
 								Visit Profile
-							</button>
+							</Button>
 						</div>
 					</div>
 				</AnimatePosition>

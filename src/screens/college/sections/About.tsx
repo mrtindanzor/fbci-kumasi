@@ -1,5 +1,6 @@
 import { ExternalLink } from "lucide-react"
 import { AnimatePosition, slideUp } from "@/shared/ui/Framer"
+import { Link } from "@/shared/ui/primitives/button"
 import { collegeData } from "../data"
 
 export function About() {
@@ -24,15 +25,16 @@ export function About() {
 						</p>
 					</div>
 
-					<a
+					<Link
 						href={collegeData.prospectus.url}
 						target="_blank"
-						rel="noopener noreferrer"
+						variant="none"
+						size="none"
 						className="inline-flex items-center gap-2 mt-8 text-secondary font-semibold hover:text-secondary/80 transition-colors duration-200"
 					>
 						View Full Prospectus
 						<ExternalLink className="size-4" />
-					</a>
+					</Link>
 				</AnimatePosition>
 			</div>
 		</section>

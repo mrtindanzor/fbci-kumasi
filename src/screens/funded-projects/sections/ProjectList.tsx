@@ -1,6 +1,7 @@
 import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 import { slideUp, staggerContainer } from "@/shared/ui/Framer"
+import { Button } from "@/shared/ui/primitives/button"
 
 type FundedProject = {
 	id: string
@@ -72,12 +73,13 @@ export function ProjectList() {
 								<p className="text-on-surface-variant text-sm leading-relaxed">
 									{project.description}
 								</p>
-								<button
-									type="button"
-									className="inline-flex items-center gap-2 text-primary font-semibold text-sm hover:gap-3 transition-all w-fit"
+								<Button
+									variant="ghost"
+									size="sm"
+									className="inline-flex items-center gap-2 w-fit"
 								>
 									View Project Impact <ArrowRight className="size-4" />
-								</button>
+								</Button>
 							</div>
 						</motion.li>
 					))}

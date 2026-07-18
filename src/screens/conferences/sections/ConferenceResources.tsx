@@ -1,6 +1,7 @@
 import { motion } from "framer-motion"
 import { Download, Eye } from "lucide-react"
 import { AnimatePosition, slideUp, staggerContainer } from "@/shared/ui/Framer"
+import { Link } from "@/shared/ui/primitives/button"
 import { conference } from "../data"
 
 export function ConferenceResources() {
@@ -54,23 +55,26 @@ export function ConferenceResources() {
 							</div>
 
 							<div className="flex gap-2">
-								<a
+								<Link
 									href={resource.file}
 									target="_blank"
-									rel="noopener noreferrer"
+									variant="none"
+									size="none"
 									className="inline-flex items-center gap-1.5 h-9 px-4 rounded-lg bg-surface-container border border-outline-variant text-sm text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200"
 								>
 									<Eye className="size-4" />
 									View
-								</a>
-								<a
+								</Link>
+								<Link
 									href={resource.file}
 									download
+									variant="none"
+									size="none"
 									className="inline-flex items-center gap-1.5 h-9 px-4 rounded-lg bg-primary text-white text-sm hover:bg-primary/90 transition-colors duration-200"
 								>
 									<Download className="size-4" />
 									Download
-								</a>
+								</Link>
 							</div>
 						</motion.div>
 					))}

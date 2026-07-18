@@ -1,6 +1,6 @@
 import { BRANDING } from "@/shared/constants"
 import { AnimatePosition, slideInLeft, slideUp } from "@/shared/ui/Framer"
-import { BackgroundImage } from "@/shared/ui/primitives/BackgrounImage"
+import { BackgroundImage } from "@/shared/ui/primitives/BackgroundImage"
 
 export function Hero() {
 	return (

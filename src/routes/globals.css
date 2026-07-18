@@ -5,10 +5,16 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/*
+1. 735c00
+2. c4a00e
+
+*/
+
 :root {
 	--color-primary: #000000;
 	--color-primary-container: #131b2e;
-	--color-secondary: #735c00;
+	--color-secondary: #e2a925;
 	--color-secondary-container: #fed65b;
 	--color-tertiary: #7d927d;
 	--color-tertiary-container: #0d1f11;
