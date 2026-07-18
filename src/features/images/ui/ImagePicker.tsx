@@ -1,6 +1,6 @@
-import { syncTryCatch } from "@/shared/utils/tryCatch"
 import type React from "react"
 import { type ComponentProps, useRef } from "react"
+import { syncTryCatch } from "@/shared/utils/tryCatch"
 
 type ImagePickerProps = {
   onSelect(files: File[]): void

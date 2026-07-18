@@ -76,10 +76,10 @@ export function Highlights() {
               className="bg-surface-container rounded-2xl p-8 border border-outline-variant/30"
             >
               <h3 className="text-xl font-headline font-semibold text-primary mb-3">
-                {highlights[current].title}
+                {highlights?.[current]?.title}
               </h3>
               <p className="text-on-surface-variant leading-relaxed">
-                {highlights[current].description}
+                {highlights?.[current]?.description}
               </p>
             </motion.div>
           </AnimatePresence>

@@ -73,7 +73,7 @@ export function MediaViewer({ project }: MediaViewerProps) {
                   url: project.videoUrl ?? "",
                   poster: project.image,
                 }
-              : { type: "image", src: images[activeMedia] }
+              : { type: "image", src: images[activeMedia] as string }
           }
           title={project.title}
           rounded="xl"

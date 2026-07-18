@@ -1,8 +1,7 @@
-import { useUserStore } from "../auth"
 import type { UserAccountType } from "./user.contract.types"
 
 export function useAuthenticatedUser(): UserAccountType {
-  const user = useUserStore((s) => s.user)
+  //   const __user = useUserStore((s) => s.user)
 
   return {
     name: "Mr. Tindanzor Simon",

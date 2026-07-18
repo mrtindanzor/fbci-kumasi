@@ -1,10 +1,12 @@
 import { useState } from "react"
+import { useImageImpUpload } from "@/features/images"
 import { useCreateProject } from "@/features/project"
 import { useNavigate } from "@/shared/hooks/useNavigate"
 import { DashboardTopbar } from "@/shared/layouts/DashboardTopbar"
 import { routes } from "@/shared/routes"
 import { ConfirmDialog } from "@/shared/ui/ConfirmDialog"
 import { Button, Link } from "@/shared/ui/primitives/button"
+import type { ProjectFormOutput } from "./ProjectForm"
 import { ProjectForm } from "./ProjectForm"
 
 export function CreateProjectPage() {
@@ -12,10 +14,30 @@ export function CreateProjectPage() {
   const createProject = useCreateProject()
   const [showDiscard, setShowDiscard] = useState(false)
 
-  const handleSubmit = async (
-    data: Parameters<typeof createProject.mutateAsync>[0],
-  ) => {
-    await createProject.mutateAsync(data)
+  const uploads = useImageImpUpload({
+    slots: {
+      hero: { multiple: false, maxImageSizeInMB: 5 },
+      gallery: {
+        multiple: true,
+        limit: 10,
+        maxImageSizeInMB: 5,
+        batchDelete: true,
+      },
+    },
+    presignedUrlEndpoint: "/uploads/presigned",
+  })
+
+  const handleSubmit = async (data: ProjectFormOutput) => {
+    const results = await uploads.uploadAll()
+
+    const heroUrl = results.hero?.completed[0]?.url ?? ""
+    const galleryUrls = results.gallery?.completed.map((img) => img.url) ?? []
+
+    await createProject.mutateAsync({
+      ...data,
+      image: heroUrl,
+      galleryImages: galleryUrls,
+    })
     navigate.push(routes.dashboard.projects.home)
   }
 
@@ -45,7 +67,7 @@ export function CreateProjectPage() {
         <span className="text-on-surface">New Project</span>
       </nav>
 
-      <ProjectForm onSubmit={handleSubmit} />
+      <ProjectForm onSubmit={handleSubmit} uploads={uploads} />
 
       <div className="flex justify-start">
         <Button

@@ -1,7 +1,7 @@
-import type { ExtractVariantsTypes } from "@/shared/types/utils/ExtractVariants"
 import type { LinkProps as TanstackLinkProps } from "@tanstack/react-router"
 import type { VariantProps } from "class-variance-authority"
 import type { ComponentProps } from "react"
+import type { ExtractVariantsTypes } from "@/shared/types/utils/ExtractVariants"
 import type { buttonVariants } from "./constants"
 
 type ButtonVariants = VariantProps<typeof buttonVariants>

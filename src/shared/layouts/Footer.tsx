@@ -127,7 +127,7 @@ export function Footer() {
                   <Link
                     variant="none"
                     size="none"
-                    to={link.href as never}
+                    href={link.href}
                     className="text-sm text-white/60 hover:text-white transition-colors duration-200"
                   >
                     {link.label}

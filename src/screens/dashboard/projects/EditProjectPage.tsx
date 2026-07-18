@@ -1,4 +1,5 @@
-import { useState } from "react"
+import { useMemo, useState } from "react"
+import { useImageImpUpload } from "@/features/images"
 import {
   useDeleteProject,
   useProject,
@@ -10,6 +11,7 @@ import { routes } from "@/shared/routes"
 import { ConfirmDialog } from "@/shared/ui/ConfirmDialog"
 import { Button, Link } from "@/shared/ui/primitives/button"
 import { Spinner } from "@/shared/ui/primitives/Spinner"
+import type { ProjectFormOutput } from "./ProjectForm"
 import { ProjectForm } from "./ProjectForm"
 
 type EditProjectPageProps = {
@@ -23,14 +25,47 @@ export function EditProjectPage({ projectId }: EditProjectPageProps) {
   const deleteProject = useDeleteProject()
   const [showDelete, setShowDelete] = useState(false)
 
-  const handleSubmit = async (
-    data: Parameters<typeof updateProject.mutateAsync>[0]["data"],
-  ) => {
-    await updateProject.mutateAsync({ id: projectId, data })
+  const heroImages = useMemo(
+    () => (project?.image ? [{ url: project.image }] : []),
+    [project?.image],
+  )
+
+  const galleryImages = useMemo(
+    () => project?.galleryImages.map((url) => ({ url })) ?? [],
+    [project?.galleryImages],
+  )
+
+  const uploads = useImageImpUpload({
+    slots: {
+      hero: { multiple: false, maxImageSizeInMB: 5, images: heroImages },
+      gallery: {
+        multiple: true,
+        limit: 10,
+        maxImageSizeInMB: 5,
+        batchDelete: true,
+        images: galleryImages,
+      },
+    },
+    presignedUrlEndpoint: "/uploads/presigned",
+  })
+
+  const handleSubmit = async (data: ProjectFormOutput) => {
+    const results = await uploads.uploadAll()
+
+    const heroUrl = results.hero?.completed[0]?.url ?? project?.image ?? ""
+    const galleryUrls = [
+      ...(results.gallery?.completed.map((img) => img.url) ?? []),
+    ]
+
+    await updateProject.mutateAsync({
+      id: projectId,
+      data: { ...data, image: heroUrl, galleryImages: galleryUrls },
+    })
     navigate.push(routes.dashboard.projects.home)
   }
 
   const handleDelete = async () => {
+    await uploads.deleteImages(["hero", "gallery"])
     await deleteProject.mutateAsync(projectId)
     navigate.push(routes.dashboard.projects.home)
   }
@@ -77,7 +112,11 @@ export function EditProjectPage({ projectId }: EditProjectPageProps) {
         <span className="text-on-surface">Edit Project</span>
       </nav>
 
-      <ProjectForm initialValues={project} onSubmit={handleSubmit} />
+      <ProjectForm
+        initialValues={project}
+        onSubmit={handleSubmit}
+        uploads={uploads}
+      />
 
       <section className="rounded-2xl border border-error/20 bg-surface-container-lowest p-6 shadow-sm">
         <h2 className="font-headline text-lg text-error">Danger Zone</h2>

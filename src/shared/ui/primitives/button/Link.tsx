@@ -1,10 +1,7 @@
-import type { ExtractVariantsTypes } from "@/shared/types/utils/ExtractVariants"
-import { cn } from "@/shared/utils/cn"
 import { Link as TanstackLink } from "@tanstack/react-router"
+import { cn } from "@/shared/utils/cn"
 import { buttonVariants } from "./constants"
 import type { LinkProps } from "./types"
-
-type LinkVariants = ExtractVariantsTypes<typeof buttonVariants>
 
 function isExternal(
   href?: string,

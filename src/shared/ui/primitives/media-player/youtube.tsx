@@ -18,7 +18,7 @@ function getYoutubeId(url: string): string | null {
   ]
   for (const pattern of patterns) {
     const match = url.match(pattern)
-    if (match) return match[1]
+    if (match) return match[1] ?? null
   }
   return null
 }
