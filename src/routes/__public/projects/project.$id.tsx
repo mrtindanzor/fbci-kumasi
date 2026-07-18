@@ -6,29 +6,29 @@ import { ProjectDetailPage } from "@/screens/projects"
 import { HydrationProvider } from "@/shared/ui/HydationProvider"
 
 export const Route = createFileRoute("/__public/projects/project/$id")({
-	component: RouteComponent,
-	loader: async ({ params }) => {
-		const qc = new QueryClient()
-		const query = projectDetailQuery(params.id)
-		const data = await qc.fetchQuery(query)
-		return { queries: [{ queryKey: query.queryKey, data }] }
-	},
-	head: () => ({
-		meta: generateMetaData({
-			title: "Project Details",
-			description: "View project details and support FBCI's ongoing missions.",
-			path: "projects/project",
-		}),
-	}),
+  component: RouteComponent,
+  loader: async ({ params }) => {
+    const qc = new QueryClient()
+    const query = projectDetailQuery(params.id)
+    const data = await qc.fetchQuery(query)
+    return { queries: [{ queryKey: query.queryKey, data }] }
+  },
+  head: () => ({
+    meta: generateMetaData({
+      title: "Project Details",
+      description: "View project details and support FBCI's ongoing missions.",
+      path: "projects/project",
+    }),
+  }),
 })
 
 function RouteComponent() {
-	const { queries } = Route.useLoaderData()
-	const { id } = Route.useParams()
+  const { queries } = Route.useLoaderData()
+  const { id } = Route.useParams()
 
-	return (
-		<HydrationProvider queries={queries}>
-			<ProjectDetailPage id={id} />
-		</HydrationProvider>
-	)
+  return (
+    <HydrationProvider queries={queries}>
+      <ProjectDetailPage id={id} />
+    </HydrationProvider>
+  )
 }

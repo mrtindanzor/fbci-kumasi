@@ -6,29 +6,29 @@ import { FundedProjectsPage } from "@/screens/projects"
 import { HydrationProvider } from "@/shared/ui/HydationProvider"
 
 export const Route = createFileRoute("/__public/projects/funded")({
-	component: RouteComponent,
-	loader: async () => {
-		const qc = new QueryClient()
-		const query = projectListQuery({ status: "funded" })
-		const data = await qc.fetchQuery(query)
-		return { queries: [{ queryKey: query.queryKey, data }] }
-	},
-	head: () => ({
-		meta: generateMetaData({
-			title: "Funded Projects",
-			description:
-				"See the fully funded missions and community projects of FBCI.",
-			path: "projects/funded",
-		}),
-	}),
+  component: RouteComponent,
+  loader: async () => {
+    const qc = new QueryClient()
+    const query = projectListQuery({ status: "funded" })
+    const data = await qc.fetchQuery(query)
+    return { queries: [{ queryKey: query.queryKey, data }] }
+  },
+  head: () => ({
+    meta: generateMetaData({
+      title: "Funded Projects",
+      description:
+        "See the fully funded missions and community projects of FBCI.",
+      path: "projects/funded",
+    }),
+  }),
 })
 
 function RouteComponent() {
-	const { queries } = Route.useLoaderData()
+  const { queries } = Route.useLoaderData()
 
-	return (
-		<HydrationProvider queries={queries}>
-			<FundedProjectsPage />
-		</HydrationProvider>
-	)
+  return (
+    <HydrationProvider queries={queries}>
+      <FundedProjectsPage />
+    </HydrationProvider>
+  )
 }

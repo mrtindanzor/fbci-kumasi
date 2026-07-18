@@ -6,54 +6,54 @@ import { Image } from "@/shared/ui/primitives/Image"
 import { collegeData } from "../data"
 
 export function Hero() {
-	return (
-		<section className="relative min-h-app-height pt-header-claim flex items-center bg-primary overflow-hidden">
-			<div className="absolute inset-0 bg-linear-to-t from-primary via-primary/60 to-transparent" />
+  return (
+    <section className="relative min-h-app-height pt-header-claim flex items-center bg-primary overflow-hidden">
+      <div className="absolute inset-0 bg-linear-to-t from-primary via-primary/60 to-transparent" />
 
-			<div className="container-app relative z-10 py-20">
-				<AnimatePosition variants={slideUp} className="max-w-3xl">
-					<Image
-						src="/images/hacwa-crest.avif"
-						alt="HACWA College Crest"
-						className="w-20 h-20 md:w-24 md:h-24 object-contain mb-8"
-					/>
+      <div className="container-app relative z-10 py-20">
+        <AnimatePosition variants={slideUp} className="max-w-3xl">
+          <Image
+            src="/images/hacwa-crest.avif"
+            alt="HACWA College Crest"
+            className="w-20 h-20 md:w-24 md:h-24 object-contain mb-8"
+          />
 
-					<p className="text-secondary font-semibold text-sm uppercase tracking-wider mb-3">
-						Hyles-Anderson College
-					</p>
+          <p className="text-secondary font-semibold text-sm uppercase tracking-wider mb-3">
+            Hyles-Anderson College
+          </p>
 
-					<h1 className="text-4xl md:text-5xl lg:text-6xl font-headline font-bold text-white leading-tight mb-4">
-						{BRANDING.college.name}
-					</h1>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-headline font-bold text-white leading-tight mb-4">
+            {BRANDING.college.name}
+          </h1>
 
-					<p className="text-lg md:text-xl text-white/70 max-w-xl mb-10">
-						{collegeData.tagline}
-					</p>
+          <p className="text-lg md:text-xl text-white/70 max-w-xl mb-10">
+            {collegeData.tagline}
+          </p>
 
-					<div className="flex flex-wrap gap-4">
-						<Link
-							href={collegeData.prospectus.url}
-							target="_blank"
-							variant="gold"
-							size="lg"
-							className="gap-2"
-						>
-							<Eye className="size-5" />
-							View Prospectus
-						</Link>
-						<Link
-							href={collegeData.prospectus.url}
-							download
-							variant="none"
-							size="lg"
-							className="gap-2 bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary transition-colors duration-200 font-body"
-						>
-							<Download className="size-5" />
-							Download Prospectus
-						</Link>
-					</div>
-				</AnimatePosition>
-			</div>
-		</section>
-	)
+          <div className="flex flex-wrap gap-4">
+            <Link
+              href={collegeData.prospectus.url}
+              target="_blank"
+              variant="gold"
+              size="lg"
+              className="gap-2"
+            >
+              <Eye className="size-5" />
+              View Prospectus
+            </Link>
+            <Link
+              href={collegeData.prospectus.url}
+              download
+              variant="none"
+              size="lg"
+              className="gap-2 bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary transition-colors duration-200 font-body"
+            >
+              <Download className="size-5" />
+              Download Prospectus
+            </Link>
+          </div>
+        </AnimatePosition>
+      </div>
+    </section>
+  )
 }

@@ -9,14 +9,14 @@ import { resetPasswordValidator } from "../auth.validators"
 // Response: { message: string }
 
 export function useResetPassword() {
-	const { register, handleSubmit, formState } = useForm<ResetPasswordProps>({
-		resolver: zodResolver(resetPasswordValidator),
-	})
+  const { register, handleSubmit, formState } = useForm<ResetPasswordProps>({
+    resolver: zodResolver(resetPasswordValidator),
+  })
 
-	const onSubmit = handleSubmit(async () => {
-		// TODO: Replace with actual API call
-		console.log("Password reset submitted")
-	})
+  const onSubmit = handleSubmit(async () => {
+    // TODO: Replace with actual API call
+    console.log("Password reset submitted")
+  })
 
-	return { register, formState, onSubmit }
+  return { register, formState, onSubmit }
 }

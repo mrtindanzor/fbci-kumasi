@@ -3,11 +3,11 @@ import { OngoingSupport } from "./sections/OngoingSupport"
 import { ProjectList } from "./sections/ProjectList"
 
 export function FundedProjectsPage() {
-	return (
-		<main>
-			<Hero />
-			<ProjectList />
-			<OngoingSupport />
-		</main>
-	)
+  return (
+    <main>
+      <Hero />
+      <ProjectList />
+      <OngoingSupport />
+    </main>
+  )
 }

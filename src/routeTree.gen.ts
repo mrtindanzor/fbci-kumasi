@@ -20,16 +20,20 @@ import { Route as _publicConferencesRouteImport } from './routes/__public/confer
 import { Route as _publicCollegeRouteImport } from './routes/__public/college'
 import { Route as _publicChurchesRouteImport } from './routes/__public/churches'
 import { Route as _publicAboutRouteImport } from './routes/__public/about'
+import { Route as _protectedDashboardRouteRouteImport } from './routes/__protected/dashboard/route'
 import { Route as _publicResourcesIndexRouteImport } from './routes/__public/resources/index'
 import { Route as _publicProjectsIndexRouteImport } from './routes/__public/projects/index'
+import { Route as _protectedDashboardIndexRouteImport } from './routes/__protected/dashboard/index'
 import { Route as _publicResourcesDiscipleshipRouteImport } from './routes/__public/resources/discipleship'
 import { Route as _publicProjectsFundedRouteImport } from './routes/__public/projects/funded'
+import { Route as _protectedDashboardProjectsIndexRouteImport } from './routes/__protected/dashboard/projects/index'
 import { Route as _publicProjectsProjectIdRouteImport } from './routes/__public/projects/project.$id'
-import { Route as _protectedDashboard_authSignupRouteImport } from './routes/__protected/dashboard/__auth/signup'
-import { Route as _protectedDashboard_authSigninRouteImport } from './routes/__protected/dashboard/__auth/signin'
-import { Route as _protectedDashboard_authResetPasswordRouteImport } from './routes/__protected/dashboard/__auth/reset-password'
-import { Route as _protectedDashboard_authLayoutRouteImport } from './routes/__protected/dashboard/__auth/layout'
-import { Route as _protectedDashboard_authForgotPasswordRouteImport } from './routes/__protected/dashboard/__auth/forgot-password'
+import { Route as _protectedDashboardProjectsNewRouteImport } from './routes/__protected/dashboard/projects/new'
+import { Route as _protectedAuthDashboardSignupRouteImport } from './routes/__protected/auth/dashboard/signup'
+import { Route as _protectedAuthDashboardSigninRouteImport } from './routes/__protected/auth/dashboard/signin'
+import { Route as _protectedAuthDashboardResetPasswordRouteImport } from './routes/__protected/auth/dashboard/reset-password'
+import { Route as _protectedAuthDashboardForgotPasswordRouteImport } from './routes/__protected/auth/dashboard/forgot-password'
+import { Route as _protectedDashboardProjectsEditIdRouteImport } from './routes/__protected/dashboard/projects/edit.$id'
 
 const _publicRouteRoute = _publicRouteRouteImport.update({
   id: '/__public',
@@ -85,6 +89,12 @@ const _publicAboutRoute = _publicAboutRouteImport.update({
   path: '/about',
   getParentRoute: () => _publicRouteRoute,
 } as any)
+const _protectedDashboardRouteRoute =
+  _protectedDashboardRouteRouteImport.update({
+    id: '/__protected/dashboard',
+    path: '/dashboard',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const _publicResourcesIndexRoute = _publicResourcesIndexRouteImport.update({
   id: '/resources/',
   path: '/resources/',
@@ -95,6 +105,12 @@ const _publicProjectsIndexRoute = _publicProjectsIndexRouteImport.update({
   path: '/projects/',
   getParentRoute: () => _publicRouteRoute,
 } as any)
+const _protectedDashboardIndexRoute =
+  _protectedDashboardIndexRouteImport.update({
+    id: '/',
+    path: '/',
+    getParentRoute: () => _protectedDashboardRouteRoute,
+  } as any)
 const _publicResourcesDiscipleshipRoute =
   _publicResourcesDiscipleshipRouteImport.update({
     id: '/resources/discipleship',
@@ -106,45 +122,58 @@ const _publicProjectsFundedRoute = _publicProjectsFundedRouteImport.update({
   path: '/projects/funded',
   getParentRoute: () => _publicRouteRoute,
 } as any)
+const _protectedDashboardProjectsIndexRoute =
+  _protectedDashboardProjectsIndexRouteImport.update({
+    id: '/projects/',
+    path: '/projects/',
+    getParentRoute: () => _protectedDashboardRouteRoute,
+  } as any)
 const _publicProjectsProjectIdRoute =
   _publicProjectsProjectIdRouteImport.update({
     id: '/projects/project/$id',
     path: '/projects/project/$id',
     getParentRoute: () => _publicRouteRoute,
   } as any)
-const _protectedDashboard_authSignupRoute =
-  _protectedDashboard_authSignupRouteImport.update({
-    id: '/__protected/dashboard/__auth/signup',
-    path: '/dashboard/signup',
+const _protectedDashboardProjectsNewRoute =
+  _protectedDashboardProjectsNewRouteImport.update({
+    id: '/projects/new',
+    path: '/projects/new',
+    getParentRoute: () => _protectedDashboardRouteRoute,
+  } as any)
+const _protectedAuthDashboardSignupRoute =
+  _protectedAuthDashboardSignupRouteImport.update({
+    id: '/__protected/auth/dashboard/signup',
+    path: '/auth/dashboard/signup',
     getParentRoute: () => rootRouteImport,
   } as any)
-const _protectedDashboard_authSigninRoute =
-  _protectedDashboard_authSigninRouteImport.update({
-    id: '/__protected/dashboard/__auth/signin',
-    path: '/dashboard/signin',
+const _protectedAuthDashboardSigninRoute =
+  _protectedAuthDashboardSigninRouteImport.update({
+    id: '/__protected/auth/dashboard/signin',
+    path: '/auth/dashboard/signin',
     getParentRoute: () => rootRouteImport,
   } as any)
-const _protectedDashboard_authResetPasswordRoute =
-  _protectedDashboard_authResetPasswordRouteImport.update({
-    id: '/__protected/dashboard/__auth/reset-password',
-    path: '/dashboard/reset-password',
+const _protectedAuthDashboardResetPasswordRoute =
+  _protectedAuthDashboardResetPasswordRouteImport.update({
+    id: '/__protected/auth/dashboard/reset-password',
+    path: '/auth/dashboard/reset-password',
     getParentRoute: () => rootRouteImport,
   } as any)
-const _protectedDashboard_authLayoutRoute =
-  _protectedDashboard_authLayoutRouteImport.update({
-    id: '/__protected/dashboard/__auth/layout',
-    path: '/dashboard/layout',
+const _protectedAuthDashboardForgotPasswordRoute =
+  _protectedAuthDashboardForgotPasswordRouteImport.update({
+    id: '/__protected/auth/dashboard/forgot-password',
+    path: '/auth/dashboard/forgot-password',
     getParentRoute: () => rootRouteImport,
   } as any)
-const _protectedDashboard_authForgotPasswordRoute =
-  _protectedDashboard_authForgotPasswordRouteImport.update({
-    id: '/__protected/dashboard/__auth/forgot-password',
-    path: '/dashboard/forgot-password',
-    getParentRoute: () => rootRouteImport,
+const _protectedDashboardProjectsEditIdRoute =
+  _protectedDashboardProjectsEditIdRouteImport.update({
+    id: '/projects/edit/$id',
+    path: '/projects/edit/$id',
+    getParentRoute: () => _protectedDashboardRouteRoute,
   } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof _publicIndexRoute
+  '/dashboard': typeof _protectedDashboardRouteRouteWithChildren
   '/about': typeof _publicAboutRoute
   '/churches': typeof _publicChurchesRoute
   '/college': typeof _publicCollegeRoute
@@ -156,14 +185,17 @@ export interface FileRoutesByFullPath {
   '/pastor': typeof _publicPastorRoute
   '/projects/funded': typeof _publicProjectsFundedRoute
   '/resources/discipleship': typeof _publicResourcesDiscipleshipRoute
+  '/dashboard/': typeof _protectedDashboardIndexRoute
   '/projects/': typeof _publicProjectsIndexRoute
   '/resources/': typeof _publicResourcesIndexRoute
-  '/dashboard/forgot-password': typeof _protectedDashboard_authForgotPasswordRoute
-  '/dashboard/layout': typeof _protectedDashboard_authLayoutRoute
-  '/dashboard/reset-password': typeof _protectedDashboard_authResetPasswordRoute
-  '/dashboard/signin': typeof _protectedDashboard_authSigninRoute
-  '/dashboard/signup': typeof _protectedDashboard_authSignupRoute
+  '/auth/dashboard/forgot-password': typeof _protectedAuthDashboardForgotPasswordRoute
+  '/auth/dashboard/reset-password': typeof _protectedAuthDashboardResetPasswordRoute
+  '/auth/dashboard/signin': typeof _protectedAuthDashboardSigninRoute
+  '/auth/dashboard/signup': typeof _protectedAuthDashboardSignupRoute
+  '/dashboard/projects/new': typeof _protectedDashboardProjectsNewRoute
   '/projects/project/$id': typeof _publicProjectsProjectIdRoute
+  '/dashboard/projects/': typeof _protectedDashboardProjectsIndexRoute
+  '/dashboard/projects/edit/$id': typeof _protectedDashboardProjectsEditIdRoute
 }
 export interface FileRoutesByTo {
   '/about': typeof _publicAboutRoute
@@ -178,18 +210,22 @@ export interface FileRoutesByTo {
   '/': typeof _publicIndexRoute
   '/projects/funded': typeof _publicProjectsFundedRoute
   '/resources/discipleship': typeof _publicResourcesDiscipleshipRoute
+  '/dashboard': typeof _protectedDashboardIndexRoute
   '/projects': typeof _publicProjectsIndexRoute
   '/resources': typeof _publicResourcesIndexRoute
-  '/dashboard/forgot-password': typeof _protectedDashboard_authForgotPasswordRoute
-  '/dashboard/layout': typeof _protectedDashboard_authLayoutRoute
-  '/dashboard/reset-password': typeof _protectedDashboard_authResetPasswordRoute
-  '/dashboard/signin': typeof _protectedDashboard_authSigninRoute
-  '/dashboard/signup': typeof _protectedDashboard_authSignupRoute
+  '/auth/dashboard/forgot-password': typeof _protectedAuthDashboardForgotPasswordRoute
+  '/auth/dashboard/reset-password': typeof _protectedAuthDashboardResetPasswordRoute
+  '/auth/dashboard/signin': typeof _protectedAuthDashboardSigninRoute
+  '/auth/dashboard/signup': typeof _protectedAuthDashboardSignupRoute
+  '/dashboard/projects/new': typeof _protectedDashboardProjectsNewRoute
   '/projects/project/$id': typeof _publicProjectsProjectIdRoute
+  '/dashboard/projects': typeof _protectedDashboardProjectsIndexRoute
+  '/dashboard/projects/edit/$id': typeof _protectedDashboardProjectsEditIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/__public': typeof _publicRouteRouteWithChildren
+  '/__protected/dashboard': typeof _protectedDashboardRouteRouteWithChildren
   '/__public/about': typeof _publicAboutRoute
   '/__public/churches': typeof _publicChurchesRoute
   '/__public/college': typeof _publicCollegeRoute
@@ -202,19 +238,23 @@ export interface FileRoutesById {
   '/__public/': typeof _publicIndexRoute
   '/__public/projects/funded': typeof _publicProjectsFundedRoute
   '/__public/resources/discipleship': typeof _publicResourcesDiscipleshipRoute
+  '/__protected/dashboard/': typeof _protectedDashboardIndexRoute
   '/__public/projects/': typeof _publicProjectsIndexRoute
   '/__public/resources/': typeof _publicResourcesIndexRoute
-  '/__protected/dashboard/__auth/forgot-password': typeof _protectedDashboard_authForgotPasswordRoute
-  '/__protected/dashboard/__auth/layout': typeof _protectedDashboard_authLayoutRoute
-  '/__protected/dashboard/__auth/reset-password': typeof _protectedDashboard_authResetPasswordRoute
-  '/__protected/dashboard/__auth/signin': typeof _protectedDashboard_authSigninRoute
-  '/__protected/dashboard/__auth/signup': typeof _protectedDashboard_authSignupRoute
+  '/__protected/auth/dashboard/forgot-password': typeof _protectedAuthDashboardForgotPasswordRoute
+  '/__protected/auth/dashboard/reset-password': typeof _protectedAuthDashboardResetPasswordRoute
+  '/__protected/auth/dashboard/signin': typeof _protectedAuthDashboardSigninRoute
+  '/__protected/auth/dashboard/signup': typeof _protectedAuthDashboardSignupRoute
+  '/__protected/dashboard/projects/new': typeof _protectedDashboardProjectsNewRoute
   '/__public/projects/project/$id': typeof _publicProjectsProjectIdRoute
+  '/__protected/dashboard/projects/': typeof _protectedDashboardProjectsIndexRoute
+  '/__protected/dashboard/projects/edit/$id': typeof _protectedDashboardProjectsEditIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/dashboard'
     | '/about'
     | '/churches'
     | '/college'
@@ -226,14 +266,17 @@ export interface FileRouteTypes {
     | '/pastor'
     | '/projects/funded'
     | '/resources/discipleship'
+    | '/dashboard/'
     | '/projects/'
     | '/resources/'
-    | '/dashboard/forgot-password'
-    | '/dashboard/layout'
-    | '/dashboard/reset-password'
-    | '/dashboard/signin'
-    | '/dashboard/signup'
+    | '/auth/dashboard/forgot-password'
+    | '/auth/dashboard/reset-password'
+    | '/auth/dashboard/signin'
+    | '/auth/dashboard/signup'
+    | '/dashboard/projects/new'
     | '/projects/project/$id'
+    | '/dashboard/projects/'
+    | '/dashboard/projects/edit/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/about'
@@ -248,17 +291,21 @@ export interface FileRouteTypes {
     | '/'
     | '/projects/funded'
     | '/resources/discipleship'
+    | '/dashboard'
     | '/projects'
     | '/resources'
-    | '/dashboard/forgot-password'
-    | '/dashboard/layout'
-    | '/dashboard/reset-password'
-    | '/dashboard/signin'
-    | '/dashboard/signup'
+    | '/auth/dashboard/forgot-password'
+    | '/auth/dashboard/reset-password'
+    | '/auth/dashboard/signin'
+    | '/auth/dashboard/signup'
+    | '/dashboard/projects/new'
     | '/projects/project/$id'
+    | '/dashboard/projects'
+    | '/dashboard/projects/edit/$id'
   id:
     | '__root__'
     | '/__public'
+    | '/__protected/dashboard'
     | '/__public/about'
     | '/__public/churches'
     | '/__public/college'
@@ -271,23 +318,26 @@ export interface FileRouteTypes {
     | '/__public/'
     | '/__public/projects/funded'
     | '/__public/resources/discipleship'
+    | '/__protected/dashboard/'
     | '/__public/projects/'
     | '/__public/resources/'
-    | '/__protected/dashboard/__auth/forgot-password'
-    | '/__protected/dashboard/__auth/layout'
-    | '/__protected/dashboard/__auth/reset-password'
-    | '/__protected/dashboard/__auth/signin'
-    | '/__protected/dashboard/__auth/signup'
+    | '/__protected/auth/dashboard/forgot-password'
+    | '/__protected/auth/dashboard/reset-password'
+    | '/__protected/auth/dashboard/signin'
+    | '/__protected/auth/dashboard/signup'
+    | '/__protected/dashboard/projects/new'
     | '/__public/projects/project/$id'
+    | '/__protected/dashboard/projects/'
+    | '/__protected/dashboard/projects/edit/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   _publicRouteRoute: typeof _publicRouteRouteWithChildren
-  _protectedDashboard_authForgotPasswordRoute: typeof _protectedDashboard_authForgotPasswordRoute
-  _protectedDashboard_authLayoutRoute: typeof _protectedDashboard_authLayoutRoute
-  _protectedDashboard_authResetPasswordRoute: typeof _protectedDashboard_authResetPasswordRoute
-  _protectedDashboard_authSigninRoute: typeof _protectedDashboard_authSigninRoute
-  _protectedDashboard_authSignupRoute: typeof _protectedDashboard_authSignupRoute
+  _protectedDashboardRouteRoute: typeof _protectedDashboardRouteRouteWithChildren
+  _protectedAuthDashboardForgotPasswordRoute: typeof _protectedAuthDashboardForgotPasswordRoute
+  _protectedAuthDashboardResetPasswordRoute: typeof _protectedAuthDashboardResetPasswordRoute
+  _protectedAuthDashboardSigninRoute: typeof _protectedAuthDashboardSigninRoute
+  _protectedAuthDashboardSignupRoute: typeof _protectedAuthDashboardSignupRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -369,6 +419,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof _publicAboutRouteImport
       parentRoute: typeof _publicRouteRoute
     }
+    '/__protected/dashboard': {
+      id: '/__protected/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof _protectedDashboardRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/__public/resources/': {
       id: '/__public/resources/'
       path: '/resources'
@@ -382,6 +439,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/projects/'
       preLoaderRoute: typeof _publicProjectsIndexRouteImport
       parentRoute: typeof _publicRouteRoute
+    }
+    '/__protected/dashboard/': {
+      id: '/__protected/dashboard/'
+      path: '/'
+      fullPath: '/dashboard/'
+      preLoaderRoute: typeof _protectedDashboardIndexRouteImport
+      parentRoute: typeof _protectedDashboardRouteRoute
     }
     '/__public/resources/discipleship': {
       id: '/__public/resources/discipleship'
@@ -397,6 +461,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof _publicProjectsFundedRouteImport
       parentRoute: typeof _publicRouteRoute
     }
+    '/__protected/dashboard/projects/': {
+      id: '/__protected/dashboard/projects/'
+      path: '/projects'
+      fullPath: '/dashboard/projects/'
+      preLoaderRoute: typeof _protectedDashboardProjectsIndexRouteImport
+      parentRoute: typeof _protectedDashboardRouteRoute
+    }
     '/__public/projects/project/$id': {
       id: '/__public/projects/project/$id'
       path: '/projects/project/$id'
@@ -404,40 +475,47 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof _publicProjectsProjectIdRouteImport
       parentRoute: typeof _publicRouteRoute
     }
-    '/__protected/dashboard/__auth/signup': {
-      id: '/__protected/dashboard/__auth/signup'
-      path: '/dashboard/signup'
-      fullPath: '/dashboard/signup'
-      preLoaderRoute: typeof _protectedDashboard_authSignupRouteImport
+    '/__protected/dashboard/projects/new': {
+      id: '/__protected/dashboard/projects/new'
+      path: '/projects/new'
+      fullPath: '/dashboard/projects/new'
+      preLoaderRoute: typeof _protectedDashboardProjectsNewRouteImport
+      parentRoute: typeof _protectedDashboardRouteRoute
+    }
+    '/__protected/auth/dashboard/signup': {
+      id: '/__protected/auth/dashboard/signup'
+      path: '/auth/dashboard/signup'
+      fullPath: '/auth/dashboard/signup'
+      preLoaderRoute: typeof _protectedAuthDashboardSignupRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/__protected/dashboard/__auth/signin': {
-      id: '/__protected/dashboard/__auth/signin'
-      path: '/dashboard/signin'
-      fullPath: '/dashboard/signin'
-      preLoaderRoute: typeof _protectedDashboard_authSigninRouteImport
+    '/__protected/auth/dashboard/signin': {
+      id: '/__protected/auth/dashboard/signin'
+      path: '/auth/dashboard/signin'
+      fullPath: '/auth/dashboard/signin'
+      preLoaderRoute: typeof _protectedAuthDashboardSigninRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/__protected/dashboard/__auth/reset-password': {
-      id: '/__protected/dashboard/__auth/reset-password'
-      path: '/dashboard/reset-password'
-      fullPath: '/dashboard/reset-password'
-      preLoaderRoute: typeof _protectedDashboard_authResetPasswordRouteImport
+    '/__protected/auth/dashboard/reset-password': {
+      id: '/__protected/auth/dashboard/reset-password'
+      path: '/auth/dashboard/reset-password'
+      fullPath: '/auth/dashboard/reset-password'
+      preLoaderRoute: typeof _protectedAuthDashboardResetPasswordRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/__protected/dashboard/__auth/layout': {
-      id: '/__protected/dashboard/__auth/layout'
-      path: '/dashboard/layout'
-      fullPath: '/dashboard/layout'
-      preLoaderRoute: typeof _protectedDashboard_authLayoutRouteImport
+    '/__protected/auth/dashboard/forgot-password': {
+      id: '/__protected/auth/dashboard/forgot-password'
+      path: '/auth/dashboard/forgot-password'
+      fullPath: '/auth/dashboard/forgot-password'
+      preLoaderRoute: typeof _protectedAuthDashboardForgotPasswordRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/__protected/dashboard/__auth/forgot-password': {
-      id: '/__protected/dashboard/__auth/forgot-password'
-      path: '/dashboard/forgot-password'
-      fullPath: '/dashboard/forgot-password'
-      preLoaderRoute: typeof _protectedDashboard_authForgotPasswordRouteImport
-      parentRoute: typeof rootRouteImport
+    '/__protected/dashboard/projects/edit/$id': {
+      id: '/__protected/dashboard/projects/edit/$id'
+      path: '/projects/edit/$id'
+      fullPath: '/dashboard/projects/edit/$id'
+      preLoaderRoute: typeof _protectedDashboardProjectsEditIdRouteImport
+      parentRoute: typeof _protectedDashboardRouteRoute
     }
   }
 }
@@ -482,15 +560,37 @@ const _publicRouteRouteWithChildren = _publicRouteRoute._addFileChildren(
   _publicRouteRouteChildren,
 )
 
+interface _protectedDashboardRouteRouteChildren {
+  _protectedDashboardIndexRoute: typeof _protectedDashboardIndexRoute
+  _protectedDashboardProjectsNewRoute: typeof _protectedDashboardProjectsNewRoute
+  _protectedDashboardProjectsIndexRoute: typeof _protectedDashboardProjectsIndexRoute
+  _protectedDashboardProjectsEditIdRoute: typeof _protectedDashboardProjectsEditIdRoute
+}
+
+const _protectedDashboardRouteRouteChildren: _protectedDashboardRouteRouteChildren =
+  {
+    _protectedDashboardIndexRoute: _protectedDashboardIndexRoute,
+    _protectedDashboardProjectsNewRoute: _protectedDashboardProjectsNewRoute,
+    _protectedDashboardProjectsIndexRoute:
+      _protectedDashboardProjectsIndexRoute,
+    _protectedDashboardProjectsEditIdRoute:
+      _protectedDashboardProjectsEditIdRoute,
+  }
+
+const _protectedDashboardRouteRouteWithChildren =
+  _protectedDashboardRouteRoute._addFileChildren(
+    _protectedDashboardRouteRouteChildren,
+  )
+
 const rootRouteChildren: RootRouteChildren = {
   _publicRouteRoute: _publicRouteRouteWithChildren,
-  _protectedDashboard_authForgotPasswordRoute:
-    _protectedDashboard_authForgotPasswordRoute,
-  _protectedDashboard_authLayoutRoute: _protectedDashboard_authLayoutRoute,
-  _protectedDashboard_authResetPasswordRoute:
-    _protectedDashboard_authResetPasswordRoute,
-  _protectedDashboard_authSigninRoute: _protectedDashboard_authSigninRoute,
-  _protectedDashboard_authSignupRoute: _protectedDashboard_authSignupRoute,
+  _protectedDashboardRouteRoute: _protectedDashboardRouteRouteWithChildren,
+  _protectedAuthDashboardForgotPasswordRoute:
+    _protectedAuthDashboardForgotPasswordRoute,
+  _protectedAuthDashboardResetPasswordRoute:
+    _protectedAuthDashboardResetPasswordRoute,
+  _protectedAuthDashboardSigninRoute: _protectedAuthDashboardSigninRoute,
+  _protectedAuthDashboardSignupRoute: _protectedAuthDashboardSignupRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

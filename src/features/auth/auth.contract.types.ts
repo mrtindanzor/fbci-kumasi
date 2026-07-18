@@ -1,20 +1,20 @@
 import type { UserAccountType } from "../user"
 
 export interface LoginProps {
-	username: string
-	password: string
+  username: string
+  password: string
 }
 
 export type SignupProps = LoginProps &
-	Omit<UserAccountType, "roles"> & {
-		confirmPassword: string
-	}
+  Omit<UserAccountType, "roles"> & {
+    confirmPassword: string
+  }
 
 export interface ForgotPasswordProps {
-	email: string
+  email: string
 }
 
 export interface ResetPasswordProps {
-	password: string
-	confirmPassword: string
+  password: string
+  confirmPassword: string
 }

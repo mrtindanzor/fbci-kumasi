@@ -5,13 +5,13 @@ import { Journey } from "./sections/Journey"
 import { Leadership } from "./sections/Leadership"
 
 export function AboutPage() {
-	return (
-		<main>
-			<Hero />
-			<Journey />
-			<Beliefs />
-			<Leadership />
-			<CallToAction />
-		</main>
-	)
+  return (
+    <main>
+      <Hero />
+      <Journey />
+      <Beliefs />
+      <Leadership />
+      <CallToAction />
+    </main>
+  )
 }

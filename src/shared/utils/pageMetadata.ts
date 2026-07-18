@@ -2,12 +2,12 @@ import { BRANDING } from "@/shared/constants/branding"
 import { toCapitalized } from "./textFormat"
 
 export function pageTitle(title: string) {
-	return `${title} ~ ${toCapitalized(BRANDING.name)}`
+  return `${title} ~ ${toCapitalized(BRANDING.name)}`
 }
 
 export function pageDescription(description: string) {
-	const descWithBranding = `${toCapitalized(BRANDING.name)} - ${description}`
-	return descWithBranding.length > 160
-		? `${descWithBranding.slice(0, 160)}...`
-		: descWithBranding
+  const descWithBranding = `${toCapitalized(BRANDING.name)} - ${description}`
+  return descWithBranding.length > 160
+    ? `${descWithBranding.slice(0, 160)}...`
+    : descWithBranding
 }

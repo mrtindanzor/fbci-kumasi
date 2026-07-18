@@ -9,14 +9,14 @@ import { forgotPasswordValidator } from "../auth.validators"
 // Response: { message: string }
 
 export function useForgotPassword() {
-	const { register, handleSubmit, formState } = useForm<ForgotPasswordProps>({
-		resolver: zodResolver(forgotPasswordValidator),
-	})
+  const { register, handleSubmit, formState } = useForm<ForgotPasswordProps>({
+    resolver: zodResolver(forgotPasswordValidator),
+  })
 
-	const onSubmit = handleSubmit(async (data) => {
-		// TODO: Replace with actual API call
-		console.log("Forgot password requested for:", data.email)
-	})
+  const onSubmit = handleSubmit(async (data) => {
+    // TODO: Replace with actual API call
+    console.log("Forgot password requested for:", data.email)
+  })
 
-	return { register, formState, onSubmit }
+  return { register, formState, onSubmit }
 }

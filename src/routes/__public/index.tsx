@@ -4,14 +4,14 @@ import { HomePage } from "@/screens/home"
 import { opengraphs } from "@/shared/routes"
 
 export const Route = createFileRoute("/__public/")({
-	component: HomePage,
-	head: () => ({
-		meta: generateMetaData({
-			title: "Home",
-			description:
-				"Welcome to FBCI - a modern sanctuary dedicated to transformative worship and global impact.",
-			path: "",
-			images: opengraphs.select("home"),
-		}),
-	}),
+  component: HomePage,
+  head: () => ({
+    meta: generateMetaData({
+      title: "Home",
+      description:
+        "Welcome to FBCI - a modern sanctuary dedicated to transformative worship and global impact.",
+      path: "",
+      images: opengraphs.select("home"),
+    }),
+  }),
 })

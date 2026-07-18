@@ -2,20 +2,20 @@ import { AnimatePosition, slideUp } from "@/shared/ui/Framer"
 import { conference } from "../data"
 
 export function ConferenceDescription() {
-	return (
-		<section className="section-gap">
-			<div className="container-app max-w-3xl mx-auto">
-				<AnimatePosition variants={slideUp}>
-					<h2 className="text-3xl md:text-4xl font-headline font-bold text-primary mb-2">
-						About the Conference
-					</h2>
-					<div className="w-8 h-0.5 bg-secondary rounded-full mb-8" />
+  return (
+    <section className="section-gap">
+      <div className="container-app max-w-3xl mx-auto">
+        <AnimatePosition variants={slideUp}>
+          <h2 className="text-3xl md:text-4xl font-headline font-bold text-primary mb-2">
+            About the Conference
+          </h2>
+          <div className="w-8 h-0.5 bg-secondary rounded-full mb-8" />
 
-					<p className="text-on-surface-variant leading-relaxed text-lg">
-						{conference.description}
-					</p>
-				</AnimatePosition>
-			</div>
-		</section>
-	)
+          <p className="text-on-surface-variant leading-relaxed text-lg">
+            {conference.description}
+          </p>
+        </AnimatePosition>
+      </div>
+    </section>
+  )
 }
