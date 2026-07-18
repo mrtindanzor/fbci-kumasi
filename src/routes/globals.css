@@ -78,7 +78,7 @@
 	--spacing-gutter: 24px;
 	--spacing-margin-mobile: 16px;
 	--spacing-margin-desktop: 80px;
-	--spacing-header-claim: 3rem;
+	--spacing-header-claim: 4rem;
 
 	--radius-sm: 0.25rem;
 	--radius-md: 0.5rem;
@@ -131,6 +131,10 @@
 
 	body {
 		@apply bg-background overflow-x-hidden text-neutral-300 font-body antialiased;
+	}
+
+	button {
+		@apply cursor-pointer;
 	}
 
 	h1,

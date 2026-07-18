@@ -1,17 +1,11 @@
-import { Download, Eye } from "lucide-react"
 import { BRANDING } from "@/shared/constants"
 import { AnimatePosition, slideUp } from "@/shared/ui/Framer"
-import { BackgroundImage } from "@/shared/ui/primitives/BackgrounImage"
+import { Download, Eye } from "lucide-react"
 import { collegeData } from "../data"
 
 export function Hero() {
 	return (
 		<section className="relative min-h-app-height pt-header-claim flex items-center bg-primary overflow-hidden">
-			<BackgroundImage
-				url="/images/hacwa-poster.avif"
-				className="*:bg-center opacity-40"
-			/>
-
 			<div className="absolute inset-0 bg-linear-to-t from-primary via-primary/60 to-transparent" />
 
 			<div className="container-app relative z-10 py-20">

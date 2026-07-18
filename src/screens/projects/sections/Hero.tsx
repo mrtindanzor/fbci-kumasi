@@ -3,7 +3,7 @@ import { AnimatePosition, slideUp } from "@/shared/ui/Framer"
 
 export function Hero() {
 	return (
-		<section className="relative flex items-center bg-linear-to-b from-primary via-primary/80 to-primary-container overflow-hidden">
+		<section className="relative flex items-center pt-header-claim bg-linear-to-b from-primary via-primary/80 to-primary-container overflow-hidden">
 			<div className="container-app relative z-10 py-8">
 				<AnimatePosition variants={slideUp} className="max-w-2xl">
 					<p className="text-secondary font-semibold text-sm uppercase tracking-wider mb-4">
