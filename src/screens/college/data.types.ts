@@ -1,16 +1,16 @@
-export type CollegeResource = {
-	id: string
+export type WhatsInsideCard = {
 	title: string
-	format: string
-	size: string
+	icon: string
 	description: string
 }
 
 export type CollegeData = {
 	name: string
 	tagline: string
-	stats: {
-		label: string
-		value: string
-	}[]
+	prospectus: {
+		title: string
+		description: string
+		url: string
+	}
+	whatsInside: WhatsInsideCard[]
 }
