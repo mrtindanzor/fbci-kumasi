@@ -5,13 +5,13 @@ import { ConferenceResources } from "./sections/ConferenceResources"
 import { Hero } from "./sections/Hero"
 
 export function ConferencesPage() {
-	return (
-		<main>
-			<Hero />
-			<ConferenceInfo />
-			<ConferenceDescription />
-			<ConferenceResources />
-			<Closing />
-		</main>
-	)
+  return (
+    <main>
+      <Hero />
+      <ConferenceInfo />
+      <ConferenceDescription />
+      <ConferenceResources />
+      <Closing />
+    </main>
+  )
 }

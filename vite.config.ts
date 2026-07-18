@@ -5,17 +5,17 @@ import viteReact from "@vitejs/plugin-react"
 import { defineConfig } from "vite"
 
 export default defineConfig({
-	server: { port: 3000 },
-	resolve: { tsconfigPaths: true },
-	plugins: [
-		tailwindcss(),
-		tanstackStart({
-			prerender: {
-				enabled: true,
-				filter: ({ path }) => path === "/",
-			},
-		}),
-		cloudflare({ viteEnvironment: { name: "ssr" } }),
-		viteReact(),
-	],
+  server: { port: 3000 },
+  resolve: { tsconfigPaths: true },
+  plugins: [
+    tailwindcss(),
+    tanstackStart({
+      prerender: {
+        enabled: true,
+        filter: ({ path }) => path === "/",
+      },
+    }),
+    cloudflare({ viteEnvironment: { name: "ssr" } }),
+    viteReact(),
+  ],
 })

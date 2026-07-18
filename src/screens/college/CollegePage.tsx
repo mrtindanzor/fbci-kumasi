@@ -5,13 +5,13 @@ import { ProspectusPreview } from "./sections/ProspectusPreview"
 import { WhatsInside } from "./sections/WhatsInside"
 
 export function CollegePage() {
-	return (
-		<main>
-			<Hero />
-			<About />
-			<ProspectusPreview />
-			<WhatsInside />
-			<CallToAction />
-		</main>
-	)
+  return (
+    <main>
+      <Hero />
+      <About />
+      <ProspectusPreview />
+      <WhatsInside />
+      <CallToAction />
+    </main>
+  )
 }

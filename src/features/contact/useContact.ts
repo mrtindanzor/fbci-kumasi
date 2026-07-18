@@ -4,14 +4,14 @@ import type { ContactType } from "./contact.contract.types"
 import { contactFormValidator } from "./contact.validators"
 
 export function useContact(props?: UseFormProps<ContactType>) {
-	const { register, handleSubmit, formState, setValue } = useForm<ContactType>({
-		...props,
-		resolver: zodResolver(contactFormValidator),
-	})
+  const { register, handleSubmit, formState, setValue } = useForm<ContactType>({
+    ...props,
+    resolver: zodResolver(contactFormValidator),
+  })
 
-	const onSubmit = handleSubmit((data) => {
-		console.log(data)
-	})
+  const onSubmit = handleSubmit((data) => {
+    console.log(data)
+  })
 
-	return { onSubmit, register, formState, setValue }
+  return { onSubmit, register, formState, setValue }
 }

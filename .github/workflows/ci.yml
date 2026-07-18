@@ -9,6 +9,9 @@ jobs:
   lint-and-build:
     environment: test
     name: Lint and build
+    env:
+      VITE_SERVER_URI: "test"
+      VITE_APP_URL: "test"
 
     runs-on: ubuntu-latest
 

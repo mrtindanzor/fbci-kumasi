@@ -4,12 +4,12 @@ import { ImpactSection } from "./sections/ImpactSection"
 import { Questions } from "./sections/Questions"
 
 export function DonatePage() {
-	return (
-		<main>
-			<Hero />
-			<GivingOptions />
-			<ImpactSection />
-			<Questions />
-		</main>
-	)
+  return (
+    <main>
+      <Hero />
+      <GivingOptions />
+      <ImpactSection />
+      <Questions />
+    </main>
+  )
 }

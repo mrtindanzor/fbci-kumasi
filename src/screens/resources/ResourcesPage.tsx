@@ -6,14 +6,14 @@ import { SalvationSection } from "./sections/SalvationSection"
 import { YouTubeSection } from "./sections/YouTubeSection"
 
 export function ResourcesPage() {
-	return (
-		<main>
-			<Hero />
-			<Categories />
-			<PodcastSection />
-			<YouTubeSection />
-			<DiscipleshipSection />
-			<SalvationSection />
-		</main>
-	)
+  return (
+    <main>
+      <Hero />
+      <Categories />
+      <PodcastSection />
+      <YouTubeSection />
+      <DiscipleshipSection />
+      <SalvationSection />
+    </main>
+  )
 }

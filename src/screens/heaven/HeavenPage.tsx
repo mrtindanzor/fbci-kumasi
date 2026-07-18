@@ -4,12 +4,12 @@ import { Hero } from "./sections/Hero"
 import { QuestionForm } from "./sections/QuestionForm"
 
 export function HeavenPage() {
-	return (
-		<main>
-			<Hero />
-			<DownloadSection />
-			<FAQAccordion />
-			<QuestionForm />
-		</main>
-	)
+  return (
+    <main>
+      <Hero />
+      <DownloadSection />
+      <FAQAccordion />
+      <QuestionForm />
+    </main>
+  )
 }

@@ -10,18 +10,18 @@ import { OnDemand } from "./sections/OnDemand"
 import { ServiceTimes } from "./sections/ServiceTimes"
 
 export function HomePage() {
-	return (
-		<main>
-			<Hero />
-			<ServiceTimes />
-			<HeavenCTA />
-			<ConferenceCTA />
-			<DiscipleshipCTA />
-			<MediaMinistry />
-			<OnDemand />
-			<FeaturedMinistry />
-			<CallToAction />
-			<MapSection />
-		</main>
-	)
+  return (
+    <main className="overflow-x-hidden">
+      <Hero />
+      <ServiceTimes />
+      <HeavenCTA />
+      <ConferenceCTA />
+      <DiscipleshipCTA />
+      <MediaMinistry />
+      <OnDemand />
+      <FeaturedMinistry />
+      <CallToAction />
+      <MapSection />
+    </main>
+  )
 }
