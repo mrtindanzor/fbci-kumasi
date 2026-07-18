@@ -1,14 +1,13 @@
+import { generateMetaData } from "@/libs/tanstack"
+import { BaseProvider } from "@/providers/BaseProvider"
+import { BRANDING } from "@/shared/constants"
+import { LoadingScreen } from "@/shared/ui/LoadingScreen"
 import {
 	createRootRoute,
 	HeadContent,
 	Outlet,
 	Scripts,
 } from "@tanstack/react-router"
-import type { PropsWithChildren } from "react"
-import { BRANDING } from "@/shared/constants"
-import { Footer } from "@/shared/layouts/Footer"
-import { Header } from "@/shared/layouts/Header"
-import { LoadingScreen } from "@/shared/ui/LoadingScreen"
 import appCss from "./globals.css?url"
 
 export const Route = createRootRoute({
@@ -17,8 +16,11 @@ export const Route = createRootRoute({
 		meta: [
 			{ charSet: "utf-8" },
 			{ name: "viewport", content: "width=device-width, initial-scale=1" },
-			{ title: BRANDING.name },
-			{ name: "description", content: BRANDING.description },
+			...generateMetaData({
+				title: BRANDING.name,
+				description: BRANDING.description,
+				path: "",
+			}),
 		],
 		links: [
 			{ rel: "stylesheet", href: appCss },
@@ -42,33 +44,17 @@ export const Route = createRootRoute({
 
 function RootLayout() {
 	return (
-		<RootDocument>
-			<Outlet />
-		</RootDocument>
-	)
-}
-
-function RootDocument({ children }: { children: React.ReactNode }) {
-	return (
 		<html lang="en">
 			<head>
 				<HeadContent />
 			</head>
 			<body className="bg-background text-on-surface font-body antialiased">
-				<LayoutOne>{children}</LayoutOne>
+				<LoadingScreen />
+				<BaseProvider>
+					<Outlet />
+				</BaseProvider>
 				<Scripts />
 			</body>
 		</html>
-	)
-}
-
-function LayoutOne({ children }: PropsWithChildren) {
-	return (
-		<>
-			<LoadingScreen />
-			<Header />
-			<div className=""> {children}</div>
-			<Footer />
-		</>
 	)
 }

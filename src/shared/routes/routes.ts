@@ -30,6 +30,15 @@ export const routes = Object.freeze({
 		local: "/donate#local",
 	},
 	churches: "/churches",
+	auth: {
+		login: "/dashboard/signin",
+		signup: "/dashboard/signup",
+		forgotPassword: "/dashboard/forgot-password",
+		resetPassword: "/dashboard/reset-password",
+	},
+	dashboard: {
+		home: "/dashboard",
+	},
 } as const)
 
 export type Routes = (typeof routes)[keyof typeof routes]

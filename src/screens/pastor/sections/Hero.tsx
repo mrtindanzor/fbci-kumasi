@@ -7,7 +7,7 @@ import { pastorData } from "../data"
 
 export function Hero() {
 	return (
-		<section className="relative min-h-app-height flex items-center bg-linear-to-br from-primary to-primary-container overflow-hidden">
+		<section className="relative min-h-app-height pt-header-claim flex items-center bg-linear-to-br from-primary to-primary-container overflow-hidden">
 			<div className="absolute inset-0 opacity-20">
 				<div className="absolute inset-0 bg-[url('/images/church-side-2.avif')] bg-cover bg-center" />
 			</div>

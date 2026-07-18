@@ -9,149 +9,207 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as PastorRouteImport } from './routes/pastor'
-import { Route as MinistriesRouteImport } from './routes/ministries'
-import { Route as HeavenRouteImport } from './routes/heaven'
-import { Route as DonateRouteImport } from './routes/donate'
-import { Route as ContactRouteImport } from './routes/contact'
-import { Route as ConferencesRouteImport } from './routes/conferences'
-import { Route as CollegeRouteImport } from './routes/college'
-import { Route as ChurchesRouteImport } from './routes/churches'
-import { Route as AboutRouteImport } from './routes/about'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as ResourcesIndexRouteImport } from './routes/resources/index'
-import { Route as ProjectsIndexRouteImport } from './routes/projects/index'
-import { Route as ResourcesDiscipleshipRouteImport } from './routes/resources/discipleship'
-import { Route as ProjectsFundedRouteImport } from './routes/projects/funded'
-import { Route as ProjectsProjectIdRouteImport } from './routes/projects/project.$id'
+import { Route as _publicRouteRouteImport } from './routes/__public/route'
+import { Route as _publicIndexRouteImport } from './routes/__public/index'
+import { Route as _publicPastorRouteImport } from './routes/__public/pastor'
+import { Route as _publicMinistriesRouteImport } from './routes/__public/ministries'
+import { Route as _publicHeavenRouteImport } from './routes/__public/heaven'
+import { Route as _publicDonateRouteImport } from './routes/__public/donate'
+import { Route as _publicContactRouteImport } from './routes/__public/contact'
+import { Route as _publicConferencesRouteImport } from './routes/__public/conferences'
+import { Route as _publicCollegeRouteImport } from './routes/__public/college'
+import { Route as _publicChurchesRouteImport } from './routes/__public/churches'
+import { Route as _publicAboutRouteImport } from './routes/__public/about'
+import { Route as _publicResourcesIndexRouteImport } from './routes/__public/resources/index'
+import { Route as _publicProjectsIndexRouteImport } from './routes/__public/projects/index'
+import { Route as _publicResourcesDiscipleshipRouteImport } from './routes/__public/resources/discipleship'
+import { Route as _publicProjectsFundedRouteImport } from './routes/__public/projects/funded'
+import { Route as _publicProjectsProjectIdRouteImport } from './routes/__public/projects/project.$id'
+import { Route as _protectedDashboard_authSignupRouteImport } from './routes/__protected/dashboard/__auth/signup'
+import { Route as _protectedDashboard_authSigninRouteImport } from './routes/__protected/dashboard/__auth/signin'
+import { Route as _protectedDashboard_authResetPasswordRouteImport } from './routes/__protected/dashboard/__auth/reset-password'
+import { Route as _protectedDashboard_authLayoutRouteImport } from './routes/__protected/dashboard/__auth/layout'
+import { Route as _protectedDashboard_authForgotPasswordRouteImport } from './routes/__protected/dashboard/__auth/forgot-password'
 
-const PastorRoute = PastorRouteImport.update({
-  id: '/pastor',
-  path: '/pastor',
+const _publicRouteRoute = _publicRouteRouteImport.update({
+  id: '/__public',
   getParentRoute: () => rootRouteImport,
 } as any)
-const MinistriesRoute = MinistriesRouteImport.update({
-  id: '/ministries',
-  path: '/ministries',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const HeavenRoute = HeavenRouteImport.update({
-  id: '/heaven',
-  path: '/heaven',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DonateRoute = DonateRouteImport.update({
-  id: '/donate',
-  path: '/donate',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ConferencesRoute = ConferencesRouteImport.update({
-  id: '/conferences',
-  path: '/conferences',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CollegeRoute = CollegeRouteImport.update({
-  id: '/college',
-  path: '/college',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ChurchesRoute = ChurchesRouteImport.update({
-  id: '/churches',
-  path: '/churches',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AboutRoute = AboutRouteImport.update({
-  id: '/about',
-  path: '/about',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const IndexRoute = IndexRouteImport.update({
+const _publicIndexRoute = _publicIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => _publicRouteRoute,
 } as any)
-const ResourcesIndexRoute = ResourcesIndexRouteImport.update({
+const _publicPastorRoute = _publicPastorRouteImport.update({
+  id: '/pastor',
+  path: '/pastor',
+  getParentRoute: () => _publicRouteRoute,
+} as any)
+const _publicMinistriesRoute = _publicMinistriesRouteImport.update({
+  id: '/ministries',
+  path: '/ministries',
+  getParentRoute: () => _publicRouteRoute,
+} as any)
+const _publicHeavenRoute = _publicHeavenRouteImport.update({
+  id: '/heaven',
+  path: '/heaven',
+  getParentRoute: () => _publicRouteRoute,
+} as any)
+const _publicDonateRoute = _publicDonateRouteImport.update({
+  id: '/donate',
+  path: '/donate',
+  getParentRoute: () => _publicRouteRoute,
+} as any)
+const _publicContactRoute = _publicContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => _publicRouteRoute,
+} as any)
+const _publicConferencesRoute = _publicConferencesRouteImport.update({
+  id: '/conferences',
+  path: '/conferences',
+  getParentRoute: () => _publicRouteRoute,
+} as any)
+const _publicCollegeRoute = _publicCollegeRouteImport.update({
+  id: '/college',
+  path: '/college',
+  getParentRoute: () => _publicRouteRoute,
+} as any)
+const _publicChurchesRoute = _publicChurchesRouteImport.update({
+  id: '/churches',
+  path: '/churches',
+  getParentRoute: () => _publicRouteRoute,
+} as any)
+const _publicAboutRoute = _publicAboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => _publicRouteRoute,
+} as any)
+const _publicResourcesIndexRoute = _publicResourcesIndexRouteImport.update({
   id: '/resources/',
   path: '/resources/',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => _publicRouteRoute,
 } as any)
-const ProjectsIndexRoute = ProjectsIndexRouteImport.update({
+const _publicProjectsIndexRoute = _publicProjectsIndexRouteImport.update({
   id: '/projects/',
   path: '/projects/',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => _publicRouteRoute,
 } as any)
-const ResourcesDiscipleshipRoute = ResourcesDiscipleshipRouteImport.update({
-  id: '/resources/discipleship',
-  path: '/resources/discipleship',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProjectsFundedRoute = ProjectsFundedRouteImport.update({
+const _publicResourcesDiscipleshipRoute =
+  _publicResourcesDiscipleshipRouteImport.update({
+    id: '/resources/discipleship',
+    path: '/resources/discipleship',
+    getParentRoute: () => _publicRouteRoute,
+  } as any)
+const _publicProjectsFundedRoute = _publicProjectsFundedRouteImport.update({
   id: '/projects/funded',
   path: '/projects/funded',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => _publicRouteRoute,
 } as any)
-const ProjectsProjectIdRoute = ProjectsProjectIdRouteImport.update({
-  id: '/projects/project/$id',
-  path: '/projects/project/$id',
-  getParentRoute: () => rootRouteImport,
-} as any)
+const _publicProjectsProjectIdRoute =
+  _publicProjectsProjectIdRouteImport.update({
+    id: '/projects/project/$id',
+    path: '/projects/project/$id',
+    getParentRoute: () => _publicRouteRoute,
+  } as any)
+const _protectedDashboard_authSignupRoute =
+  _protectedDashboard_authSignupRouteImport.update({
+    id: '/__protected/dashboard/__auth/signup',
+    path: '/dashboard/signup',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const _protectedDashboard_authSigninRoute =
+  _protectedDashboard_authSigninRouteImport.update({
+    id: '/__protected/dashboard/__auth/signin',
+    path: '/dashboard/signin',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const _protectedDashboard_authResetPasswordRoute =
+  _protectedDashboard_authResetPasswordRouteImport.update({
+    id: '/__protected/dashboard/__auth/reset-password',
+    path: '/dashboard/reset-password',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const _protectedDashboard_authLayoutRoute =
+  _protectedDashboard_authLayoutRouteImport.update({
+    id: '/__protected/dashboard/__auth/layout',
+    path: '/dashboard/layout',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const _protectedDashboard_authForgotPasswordRoute =
+  _protectedDashboard_authForgotPasswordRouteImport.update({
+    id: '/__protected/dashboard/__auth/forgot-password',
+    path: '/dashboard/forgot-password',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/churches': typeof ChurchesRoute
-  '/college': typeof CollegeRoute
-  '/conferences': typeof ConferencesRoute
-  '/contact': typeof ContactRoute
-  '/donate': typeof DonateRoute
-  '/heaven': typeof HeavenRoute
-  '/ministries': typeof MinistriesRoute
-  '/pastor': typeof PastorRoute
-  '/projects/funded': typeof ProjectsFundedRoute
-  '/resources/discipleship': typeof ResourcesDiscipleshipRoute
-  '/projects/': typeof ProjectsIndexRoute
-  '/resources/': typeof ResourcesIndexRoute
-  '/projects/project/$id': typeof ProjectsProjectIdRoute
+  '/': typeof _publicIndexRoute
+  '/about': typeof _publicAboutRoute
+  '/churches': typeof _publicChurchesRoute
+  '/college': typeof _publicCollegeRoute
+  '/conferences': typeof _publicConferencesRoute
+  '/contact': typeof _publicContactRoute
+  '/donate': typeof _publicDonateRoute
+  '/heaven': typeof _publicHeavenRoute
+  '/ministries': typeof _publicMinistriesRoute
+  '/pastor': typeof _publicPastorRoute
+  '/projects/funded': typeof _publicProjectsFundedRoute
+  '/resources/discipleship': typeof _publicResourcesDiscipleshipRoute
+  '/projects/': typeof _publicProjectsIndexRoute
+  '/resources/': typeof _publicResourcesIndexRoute
+  '/dashboard/forgot-password': typeof _protectedDashboard_authForgotPasswordRoute
+  '/dashboard/layout': typeof _protectedDashboard_authLayoutRoute
+  '/dashboard/reset-password': typeof _protectedDashboard_authResetPasswordRoute
+  '/dashboard/signin': typeof _protectedDashboard_authSigninRoute
+  '/dashboard/signup': typeof _protectedDashboard_authSignupRoute
+  '/projects/project/$id': typeof _publicProjectsProjectIdRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/churches': typeof ChurchesRoute
-  '/college': typeof CollegeRoute
-  '/conferences': typeof ConferencesRoute
-  '/contact': typeof ContactRoute
-  '/donate': typeof DonateRoute
-  '/heaven': typeof HeavenRoute
-  '/ministries': typeof MinistriesRoute
-  '/pastor': typeof PastorRoute
-  '/projects/funded': typeof ProjectsFundedRoute
-  '/resources/discipleship': typeof ResourcesDiscipleshipRoute
-  '/projects': typeof ProjectsIndexRoute
-  '/resources': typeof ResourcesIndexRoute
-  '/projects/project/$id': typeof ProjectsProjectIdRoute
+  '/about': typeof _publicAboutRoute
+  '/churches': typeof _publicChurchesRoute
+  '/college': typeof _publicCollegeRoute
+  '/conferences': typeof _publicConferencesRoute
+  '/contact': typeof _publicContactRoute
+  '/donate': typeof _publicDonateRoute
+  '/heaven': typeof _publicHeavenRoute
+  '/ministries': typeof _publicMinistriesRoute
+  '/pastor': typeof _publicPastorRoute
+  '/': typeof _publicIndexRoute
+  '/projects/funded': typeof _publicProjectsFundedRoute
+  '/resources/discipleship': typeof _publicResourcesDiscipleshipRoute
+  '/projects': typeof _publicProjectsIndexRoute
+  '/resources': typeof _publicResourcesIndexRoute
+  '/dashboard/forgot-password': typeof _protectedDashboard_authForgotPasswordRoute
+  '/dashboard/layout': typeof _protectedDashboard_authLayoutRoute
+  '/dashboard/reset-password': typeof _protectedDashboard_authResetPasswordRoute
+  '/dashboard/signin': typeof _protectedDashboard_authSigninRoute
+  '/dashboard/signup': typeof _protectedDashboard_authSignupRoute
+  '/projects/project/$id': typeof _publicProjectsProjectIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/churches': typeof ChurchesRoute
-  '/college': typeof CollegeRoute
-  '/conferences': typeof ConferencesRoute
-  '/contact': typeof ContactRoute
-  '/donate': typeof DonateRoute
-  '/heaven': typeof HeavenRoute
-  '/ministries': typeof MinistriesRoute
-  '/pastor': typeof PastorRoute
-  '/projects/funded': typeof ProjectsFundedRoute
-  '/resources/discipleship': typeof ResourcesDiscipleshipRoute
-  '/projects/': typeof ProjectsIndexRoute
-  '/resources/': typeof ResourcesIndexRoute
-  '/projects/project/$id': typeof ProjectsProjectIdRoute
+  '/__public': typeof _publicRouteRouteWithChildren
+  '/__public/about': typeof _publicAboutRoute
+  '/__public/churches': typeof _publicChurchesRoute
+  '/__public/college': typeof _publicCollegeRoute
+  '/__public/conferences': typeof _publicConferencesRoute
+  '/__public/contact': typeof _publicContactRoute
+  '/__public/donate': typeof _publicDonateRoute
+  '/__public/heaven': typeof _publicHeavenRoute
+  '/__public/ministries': typeof _publicMinistriesRoute
+  '/__public/pastor': typeof _publicPastorRoute
+  '/__public/': typeof _publicIndexRoute
+  '/__public/projects/funded': typeof _publicProjectsFundedRoute
+  '/__public/resources/discipleship': typeof _publicResourcesDiscipleshipRoute
+  '/__public/projects/': typeof _publicProjectsIndexRoute
+  '/__public/resources/': typeof _publicResourcesIndexRoute
+  '/__protected/dashboard/__auth/forgot-password': typeof _protectedDashboard_authForgotPasswordRoute
+  '/__protected/dashboard/__auth/layout': typeof _protectedDashboard_authLayoutRoute
+  '/__protected/dashboard/__auth/reset-password': typeof _protectedDashboard_authResetPasswordRoute
+  '/__protected/dashboard/__auth/signin': typeof _protectedDashboard_authSigninRoute
+  '/__protected/dashboard/__auth/signup': typeof _protectedDashboard_authSignupRoute
+  '/__public/projects/project/$id': typeof _publicProjectsProjectIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -170,10 +228,14 @@ export interface FileRouteTypes {
     | '/resources/discipleship'
     | '/projects/'
     | '/resources/'
+    | '/dashboard/forgot-password'
+    | '/dashboard/layout'
+    | '/dashboard/reset-password'
+    | '/dashboard/signin'
+    | '/dashboard/signup'
     | '/projects/project/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
-    | '/'
     | '/about'
     | '/churches'
     | '/college'
@@ -183,174 +245,252 @@ export interface FileRouteTypes {
     | '/heaven'
     | '/ministries'
     | '/pastor'
+    | '/'
     | '/projects/funded'
     | '/resources/discipleship'
     | '/projects'
     | '/resources'
+    | '/dashboard/forgot-password'
+    | '/dashboard/layout'
+    | '/dashboard/reset-password'
+    | '/dashboard/signin'
+    | '/dashboard/signup'
     | '/projects/project/$id'
   id:
     | '__root__'
-    | '/'
-    | '/about'
-    | '/churches'
-    | '/college'
-    | '/conferences'
-    | '/contact'
-    | '/donate'
-    | '/heaven'
-    | '/ministries'
-    | '/pastor'
-    | '/projects/funded'
-    | '/resources/discipleship'
-    | '/projects/'
-    | '/resources/'
-    | '/projects/project/$id'
+    | '/__public'
+    | '/__public/about'
+    | '/__public/churches'
+    | '/__public/college'
+    | '/__public/conferences'
+    | '/__public/contact'
+    | '/__public/donate'
+    | '/__public/heaven'
+    | '/__public/ministries'
+    | '/__public/pastor'
+    | '/__public/'
+    | '/__public/projects/funded'
+    | '/__public/resources/discipleship'
+    | '/__public/projects/'
+    | '/__public/resources/'
+    | '/__protected/dashboard/__auth/forgot-password'
+    | '/__protected/dashboard/__auth/layout'
+    | '/__protected/dashboard/__auth/reset-password'
+    | '/__protected/dashboard/__auth/signin'
+    | '/__protected/dashboard/__auth/signup'
+    | '/__public/projects/project/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
-  AboutRoute: typeof AboutRoute
-  ChurchesRoute: typeof ChurchesRoute
-  CollegeRoute: typeof CollegeRoute
-  ConferencesRoute: typeof ConferencesRoute
-  ContactRoute: typeof ContactRoute
-  DonateRoute: typeof DonateRoute
-  HeavenRoute: typeof HeavenRoute
-  MinistriesRoute: typeof MinistriesRoute
-  PastorRoute: typeof PastorRoute
-  ProjectsFundedRoute: typeof ProjectsFundedRoute
-  ResourcesDiscipleshipRoute: typeof ResourcesDiscipleshipRoute
-  ProjectsIndexRoute: typeof ProjectsIndexRoute
-  ResourcesIndexRoute: typeof ResourcesIndexRoute
-  ProjectsProjectIdRoute: typeof ProjectsProjectIdRoute
+  _publicRouteRoute: typeof _publicRouteRouteWithChildren
+  _protectedDashboard_authForgotPasswordRoute: typeof _protectedDashboard_authForgotPasswordRoute
+  _protectedDashboard_authLayoutRoute: typeof _protectedDashboard_authLayoutRoute
+  _protectedDashboard_authResetPasswordRoute: typeof _protectedDashboard_authResetPasswordRoute
+  _protectedDashboard_authSigninRoute: typeof _protectedDashboard_authSigninRoute
+  _protectedDashboard_authSignupRoute: typeof _protectedDashboard_authSignupRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/pastor': {
-      id: '/pastor'
-      path: '/pastor'
-      fullPath: '/pastor'
-      preLoaderRoute: typeof PastorRouteImport
+    '/__public': {
+      id: '/__public'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof _publicRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/ministries': {
-      id: '/ministries'
-      path: '/ministries'
-      fullPath: '/ministries'
-      preLoaderRoute: typeof MinistriesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/heaven': {
-      id: '/heaven'
-      path: '/heaven'
-      fullPath: '/heaven'
-      preLoaderRoute: typeof HeavenRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/donate': {
-      id: '/donate'
-      path: '/donate'
-      fullPath: '/donate'
-      preLoaderRoute: typeof DonateRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/conferences': {
-      id: '/conferences'
-      path: '/conferences'
-      fullPath: '/conferences'
-      preLoaderRoute: typeof ConferencesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/college': {
-      id: '/college'
-      path: '/college'
-      fullPath: '/college'
-      preLoaderRoute: typeof CollegeRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/churches': {
-      id: '/churches'
-      path: '/churches'
-      fullPath: '/churches'
-      preLoaderRoute: typeof ChurchesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/': {
-      id: '/'
+    '/__public/': {
+      id: '/__public/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof _publicIndexRouteImport
+      parentRoute: typeof _publicRouteRoute
     }
-    '/resources/': {
-      id: '/resources/'
+    '/__public/pastor': {
+      id: '/__public/pastor'
+      path: '/pastor'
+      fullPath: '/pastor'
+      preLoaderRoute: typeof _publicPastorRouteImport
+      parentRoute: typeof _publicRouteRoute
+    }
+    '/__public/ministries': {
+      id: '/__public/ministries'
+      path: '/ministries'
+      fullPath: '/ministries'
+      preLoaderRoute: typeof _publicMinistriesRouteImport
+      parentRoute: typeof _publicRouteRoute
+    }
+    '/__public/heaven': {
+      id: '/__public/heaven'
+      path: '/heaven'
+      fullPath: '/heaven'
+      preLoaderRoute: typeof _publicHeavenRouteImport
+      parentRoute: typeof _publicRouteRoute
+    }
+    '/__public/donate': {
+      id: '/__public/donate'
+      path: '/donate'
+      fullPath: '/donate'
+      preLoaderRoute: typeof _publicDonateRouteImport
+      parentRoute: typeof _publicRouteRoute
+    }
+    '/__public/contact': {
+      id: '/__public/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof _publicContactRouteImport
+      parentRoute: typeof _publicRouteRoute
+    }
+    '/__public/conferences': {
+      id: '/__public/conferences'
+      path: '/conferences'
+      fullPath: '/conferences'
+      preLoaderRoute: typeof _publicConferencesRouteImport
+      parentRoute: typeof _publicRouteRoute
+    }
+    '/__public/college': {
+      id: '/__public/college'
+      path: '/college'
+      fullPath: '/college'
+      preLoaderRoute: typeof _publicCollegeRouteImport
+      parentRoute: typeof _publicRouteRoute
+    }
+    '/__public/churches': {
+      id: '/__public/churches'
+      path: '/churches'
+      fullPath: '/churches'
+      preLoaderRoute: typeof _publicChurchesRouteImport
+      parentRoute: typeof _publicRouteRoute
+    }
+    '/__public/about': {
+      id: '/__public/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof _publicAboutRouteImport
+      parentRoute: typeof _publicRouteRoute
+    }
+    '/__public/resources/': {
+      id: '/__public/resources/'
       path: '/resources'
       fullPath: '/resources/'
-      preLoaderRoute: typeof ResourcesIndexRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof _publicResourcesIndexRouteImport
+      parentRoute: typeof _publicRouteRoute
     }
-    '/projects/': {
-      id: '/projects/'
+    '/__public/projects/': {
+      id: '/__public/projects/'
       path: '/projects'
       fullPath: '/projects/'
-      preLoaderRoute: typeof ProjectsIndexRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof _publicProjectsIndexRouteImport
+      parentRoute: typeof _publicRouteRoute
     }
-    '/resources/discipleship': {
-      id: '/resources/discipleship'
+    '/__public/resources/discipleship': {
+      id: '/__public/resources/discipleship'
       path: '/resources/discipleship'
       fullPath: '/resources/discipleship'
-      preLoaderRoute: typeof ResourcesDiscipleshipRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof _publicResourcesDiscipleshipRouteImport
+      parentRoute: typeof _publicRouteRoute
     }
-    '/projects/funded': {
-      id: '/projects/funded'
+    '/__public/projects/funded': {
+      id: '/__public/projects/funded'
       path: '/projects/funded'
       fullPath: '/projects/funded'
-      preLoaderRoute: typeof ProjectsFundedRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof _publicProjectsFundedRouteImport
+      parentRoute: typeof _publicRouteRoute
     }
-    '/projects/project/$id': {
-      id: '/projects/project/$id'
+    '/__public/projects/project/$id': {
+      id: '/__public/projects/project/$id'
       path: '/projects/project/$id'
       fullPath: '/projects/project/$id'
-      preLoaderRoute: typeof ProjectsProjectIdRouteImport
+      preLoaderRoute: typeof _publicProjectsProjectIdRouteImport
+      parentRoute: typeof _publicRouteRoute
+    }
+    '/__protected/dashboard/__auth/signup': {
+      id: '/__protected/dashboard/__auth/signup'
+      path: '/dashboard/signup'
+      fullPath: '/dashboard/signup'
+      preLoaderRoute: typeof _protectedDashboard_authSignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/__protected/dashboard/__auth/signin': {
+      id: '/__protected/dashboard/__auth/signin'
+      path: '/dashboard/signin'
+      fullPath: '/dashboard/signin'
+      preLoaderRoute: typeof _protectedDashboard_authSigninRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/__protected/dashboard/__auth/reset-password': {
+      id: '/__protected/dashboard/__auth/reset-password'
+      path: '/dashboard/reset-password'
+      fullPath: '/dashboard/reset-password'
+      preLoaderRoute: typeof _protectedDashboard_authResetPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/__protected/dashboard/__auth/layout': {
+      id: '/__protected/dashboard/__auth/layout'
+      path: '/dashboard/layout'
+      fullPath: '/dashboard/layout'
+      preLoaderRoute: typeof _protectedDashboard_authLayoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/__protected/dashboard/__auth/forgot-password': {
+      id: '/__protected/dashboard/__auth/forgot-password'
+      path: '/dashboard/forgot-password'
+      fullPath: '/dashboard/forgot-password'
+      preLoaderRoute: typeof _protectedDashboard_authForgotPasswordRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
 }
 
+interface _publicRouteRouteChildren {
+  _publicAboutRoute: typeof _publicAboutRoute
+  _publicChurchesRoute: typeof _publicChurchesRoute
+  _publicCollegeRoute: typeof _publicCollegeRoute
+  _publicConferencesRoute: typeof _publicConferencesRoute
+  _publicContactRoute: typeof _publicContactRoute
+  _publicDonateRoute: typeof _publicDonateRoute
+  _publicHeavenRoute: typeof _publicHeavenRoute
+  _publicMinistriesRoute: typeof _publicMinistriesRoute
+  _publicPastorRoute: typeof _publicPastorRoute
+  _publicIndexRoute: typeof _publicIndexRoute
+  _publicProjectsFundedRoute: typeof _publicProjectsFundedRoute
+  _publicResourcesDiscipleshipRoute: typeof _publicResourcesDiscipleshipRoute
+  _publicProjectsIndexRoute: typeof _publicProjectsIndexRoute
+  _publicResourcesIndexRoute: typeof _publicResourcesIndexRoute
+  _publicProjectsProjectIdRoute: typeof _publicProjectsProjectIdRoute
+}
+
+const _publicRouteRouteChildren: _publicRouteRouteChildren = {
+  _publicAboutRoute: _publicAboutRoute,
+  _publicChurchesRoute: _publicChurchesRoute,
+  _publicCollegeRoute: _publicCollegeRoute,
+  _publicConferencesRoute: _publicConferencesRoute,
+  _publicContactRoute: _publicContactRoute,
+  _publicDonateRoute: _publicDonateRoute,
+  _publicHeavenRoute: _publicHeavenRoute,
+  _publicMinistriesRoute: _publicMinistriesRoute,
+  _publicPastorRoute: _publicPastorRoute,
+  _publicIndexRoute: _publicIndexRoute,
+  _publicProjectsFundedRoute: _publicProjectsFundedRoute,
+  _publicResourcesDiscipleshipRoute: _publicResourcesDiscipleshipRoute,
+  _publicProjectsIndexRoute: _publicProjectsIndexRoute,
+  _publicResourcesIndexRoute: _publicResourcesIndexRoute,
+  _publicProjectsProjectIdRoute: _publicProjectsProjectIdRoute,
+}
+
+const _publicRouteRouteWithChildren = _publicRouteRoute._addFileChildren(
+  _publicRouteRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
-  AboutRoute: AboutRoute,
-  ChurchesRoute: ChurchesRoute,
-  CollegeRoute: CollegeRoute,
-  ConferencesRoute: ConferencesRoute,
-  ContactRoute: ContactRoute,
-  DonateRoute: DonateRoute,
-  HeavenRoute: HeavenRoute,
-  MinistriesRoute: MinistriesRoute,
-  PastorRoute: PastorRoute,
-  ProjectsFundedRoute: ProjectsFundedRoute,
-  ResourcesDiscipleshipRoute: ResourcesDiscipleshipRoute,
-  ProjectsIndexRoute: ProjectsIndexRoute,
-  ResourcesIndexRoute: ResourcesIndexRoute,
-  ProjectsProjectIdRoute: ProjectsProjectIdRoute,
+  _publicRouteRoute: _publicRouteRouteWithChildren,
+  _protectedDashboard_authForgotPasswordRoute:
+    _protectedDashboard_authForgotPasswordRoute,
+  _protectedDashboard_authLayoutRoute: _protectedDashboard_authLayoutRoute,
+  _protectedDashboard_authResetPasswordRoute:
+    _protectedDashboard_authResetPasswordRoute,
+  _protectedDashboard_authSigninRoute: _protectedDashboard_authSigninRoute,
+  _protectedDashboard_authSignupRoute: _protectedDashboard_authSignupRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

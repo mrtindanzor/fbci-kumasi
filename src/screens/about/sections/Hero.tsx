@@ -4,7 +4,7 @@ import { BackgroundImage } from "@/shared/ui/primitives/BackgroundImage"
 
 export function Hero() {
 	return (
-		<section className="relative min-h-app-height flex items-center bg-linear-to-br from-primary to-primary-container overflow-hidden">
+		<section className="relative min-h-app-height pt-header-claim flex items-center bg-linear-to-br from-primary to-primary-container overflow-hidden">
 			<BackgroundImage url="/images/church-side-2.avif" />
 
 			<div className="container-app relative z-10 py-20">
