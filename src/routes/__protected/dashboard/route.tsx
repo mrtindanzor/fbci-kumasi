@@ -1,17 +1,25 @@
 import { createFileRoute, Outlet } from "@tanstack/react-router"
-import { DashboardSidebar } from "@/shared/layouts/DashboardSidebar"
+import { authGuard, useAuthRefresh } from "@/features/auth"
+import { AwaitAuthLoad, DashboardSidebar } from "@/screens/dashboard"
 
 export const Route = createFileRoute("/__protected/dashboard")({
   component: DashboardLayout,
+  beforeLoad: async () => {
+    await authGuard.assertAuthenticated("/dashboard", "server")
+  },
 })
 
 function DashboardLayout() {
+  useAuthRefresh()
+
   return (
-    <div className="flex min-h-screen bg-surface">
-      <DashboardSidebar />
-      <main className="ml-64 flex-1 p-8">
-        <Outlet />
-      </main>
-    </div>
+    <AwaitAuthLoad>
+      <div className="flex min-h-screen bg-surface">
+        <DashboardSidebar />
+        <main className="py-24 sm:py-8 sm:ml-54 md:ml-64 flex-1 px-4">
+          <Outlet />
+        </main>
+      </div>
+    </AwaitAuthLoad>
   )
 }

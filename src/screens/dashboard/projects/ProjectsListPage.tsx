@@ -1,9 +1,10 @@
+import { FolderOpen, Plus } from "lucide-react"
 import { useProjects } from "@/features/project"
-import { DashboardTopbar } from "@/shared/layouts/DashboardTopbar"
+import { DashboardTopbar } from "@/screens/dashboard/"
 import { routes } from "@/shared/routes"
 import { Link } from "@/shared/ui/primitives/button"
 import { Spinner } from "@/shared/ui/primitives/Spinner"
-import { ProjectCard } from "./ProjectCard"
+import { ProjectCard } from "./components/ProjectCard"
 
 export function ProjectsListPage() {
   const { data: projects = [], isLoading } = useProjects()
@@ -18,10 +19,8 @@ export function ProjectsListPage() {
             variant="primary"
             size="sm"
           >
-            <span className="material-symbols-outlined mr-1 text-base">
-              add
-            </span>
-            Create New Project
+            <Plus className="size-5 mr-1" />
+            New Project
           </Link>
         }
       />
@@ -33,10 +32,8 @@ export function ProjectsListPage() {
       )}
 
       {!isLoading && projects.length === 0 && (
-        <div className="rounded-2xl bg-surface-container-lowest p-12 text-center shadow-sm">
-          <span className="material-symbols-outlined text-4xl text-on-surface-variant">
-            folder_open
-          </span>
+        <div className="rounded-2xl p-12 text-center">
+          <FolderOpen className="size-5 mx-auto" />
           <p className="mt-4 text-on-surface-variant">No projects yet</p>
           <Link
             href={routes.dashboard.projects.new}
@@ -44,16 +41,18 @@ export function ProjectsListPage() {
             size="sm"
             className="mt-4 inline-flex"
           >
-            Create your first project
+            Let's create a new project
           </Link>
         </div>
       )}
 
       {!isLoading && projects.length > 0 && (
-        <div className="space-y-4">
-          {projects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
+        <div className="@container">
+          <ul className="grid h-fit @md:grid-cols-2 @2xl:grid-cols-[repeat(auto-fill,minmax(20rem,1fr))] gap-4">
+            {projects.map((project) => (
+              <ProjectCard key={project.id} project={project} />
+            ))}
+          </ul>
         </div>
       )}
     </div>

@@ -1,6 +1,7 @@
 import type { Project } from "@/features/project"
 import { routes } from "@/shared/routes"
 import { Link } from "@/shared/ui/primitives/button"
+import { Image } from "@/shared/ui/primitives/Image"
 import { cn } from "@/shared/utils/cn"
 
 type ProjectCardProps = {
@@ -11,11 +12,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
   const progress = Math.round((project.funded / project.goal) * 100)
 
   return (
-    <div className="flex gap-4 rounded-2xl bg-surface-container-lowest p-4 shadow-sm">
-      <img
+    <li className="grid h-fit gap-4 rounded-lg bg-surface-container-lowest p-2 shadow-sm">
+      <Image
         src={project.image}
         alt={project.title}
-        className="h-28 w-64 flex-shrink-0 rounded-xl object-cover"
+        className="h-32 w-full shrink-0 rounded-md object-cover"
       />
       <div className="flex flex-1 flex-col justify-between">
         <div>
@@ -65,6 +66,6 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </Link>
         </div>
       </div>
-    </div>
+    </li>
   )
 }

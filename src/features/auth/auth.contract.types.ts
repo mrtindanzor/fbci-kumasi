@@ -8,6 +8,7 @@ export interface LoginProps {
 export type SignupProps = LoginProps &
   Omit<UserAccountType, "roles"> & {
     confirmPassword: string
+    access: string
   }
 
 export interface ForgotPasswordProps {

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
 import { useProjects } from "@/features/project"
-import { staggerContainer } from "@/shared/ui/Framer"
+import { slideUp } from "@/shared/ui/Framer"
 import { ProjectCard } from "../../components/ProjectCard"
 
 export function ProjectCards() {
@@ -10,7 +10,7 @@ export function ProjectCards() {
     <section className="section-gap">
       <div className="container-app">
         <motion.ul
-          variants={staggerContainer}
+          variants={slideUp}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}

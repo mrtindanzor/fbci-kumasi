@@ -16,7 +16,7 @@ export type ProjectFormInput = z.input<typeof projectInputValidator>
 export type ProjectFormOutput = z.output<typeof projectInputValidator>
 
 type ProjectFormProps = {
-  initialValues?: Project
+  initialValues?: Partial<Project>
   onSubmit: (data: ProjectFormOutput) => Promise<void> | void
   uploads: UseImageUpload<readonly ("hero" | "gallery")[]>
 }
@@ -32,20 +32,7 @@ export function ProjectForm({
     formState: { errors, isSubmitting },
   } = useForm<ProjectFormInput>({
     resolver: zodResolver(projectInputValidator),
-    defaultValues: initialValues
-      ? {
-          title: initialValues.title,
-          story: initialValues.story,
-          image: initialValues.image,
-          galleryImages: initialValues.galleryImages,
-          videoUrl: initialValues.videoUrl,
-          goal: initialValues.goal,
-          status: initialValues.status,
-          completionDate: initialValues.completionDate,
-          paymentLink: initialValues.paymentLink,
-          funded: initialValues.funded,
-        }
-      : undefined,
+    defaultValues: initialValues ? initialValues : undefined,
   })
 
   return (
