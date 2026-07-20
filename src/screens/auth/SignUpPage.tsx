@@ -3,6 +3,7 @@ import { AtSign, Mail, User } from "lucide-react"
 import { useState } from "react"
 import { useSignup } from "@/features/auth"
 import { signupValidator } from "@/features/auth/auth.validators"
+import { Route } from "@/routes/__protected/auth/dashboard/signup"
 import { routes } from "@/shared/routes"
 import { Button, Link } from "@/shared/ui/primitives/button"
 import { FieldError } from "@/shared/ui/primitives/FieldError"
@@ -11,7 +12,6 @@ import { Label } from "@/shared/ui/primitives/Label"
 import { Spinner } from "@/shared/ui/primitives/Spinner"
 import { AuthDecorativePanel, AuthFormPanel, AuthLayout } from "./shared"
 import { PasswordInput } from "./shared/PasswordInput"
-import { Route } from "@/routes/__protected/auth/dashboard/signup"
 
 const strengthColors = [
   "bg-error",

@@ -61,7 +61,7 @@ export const projectInputValidator = z
       funded: z
         .number("Please enter a valid funded amount")
         .min(0, "Funded amount cannot be negative")
-        .default(0)
+        .default(0),
     },
     { error: "Please fill in all required fields" },
   )

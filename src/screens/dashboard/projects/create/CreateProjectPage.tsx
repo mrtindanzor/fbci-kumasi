@@ -1,13 +1,13 @@
+import { useState } from "react"
 import { useImageImpUpload } from "@/features/images"
 import { useCreateProject } from "@/features/project"
+import { DashboardTopbar } from "@/screens/dashboard/layout/DashboardTopbar"
 import { useNavigate } from "@/shared/hooks/useNavigate"
-import { DashboardTopbar } from "@/shared/layouts/DashboardTopbar"
 import { apiRoutes, routes } from "@/shared/routes"
 import { ConfirmDialog } from "@/shared/ui/ConfirmDialog"
 import { Button, Link } from "@/shared/ui/primitives/button"
-import { useState } from "react"
-import type { ProjectFormOutput } from "./ProjectForm"
-import { ProjectForm } from "./ProjectForm"
+import type { ProjectFormOutput } from "../components/ProjectForm"
+import { ProjectForm } from "../components/ProjectForm"
 
 export function CreateProjectPage() {
   const navigate = useNavigate()
@@ -67,7 +67,11 @@ export function CreateProjectPage() {
         <span className="text-on-surface">New Project</span>
       </nav>
 
-      <ProjectForm initialValues={{funded: 0}} onSubmit={handleSubmit} uploads={uploads} />
+      <ProjectForm
+        initialValues={{ funded: 0 }}
+        onSubmit={handleSubmit}
+        uploads={uploads}
+      />
 
       <div className="flex justify-start">
         <Button

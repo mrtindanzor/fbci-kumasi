@@ -1,18 +1,17 @@
+import { useState } from "react"
 import { useImageImpUpload } from "@/features/images"
 import {
-    useDeleteProject,
-    useProject,
-    useUpdateProject,
+  useDeleteProject,
+  useProject,
+  useUpdateProject,
 } from "@/features/project"
+import { DashboardTopbar } from "@/screens/dashboard/layout/DashboardTopbar"
 import { useNavigate } from "@/shared/hooks/useNavigate"
-import { DashboardTopbar } from "@/shared/layouts/DashboardTopbar"
 import { apiRoutes, routes } from "@/shared/routes"
 import { ConfirmDialog } from "@/shared/ui/ConfirmDialog"
 import { Button, Link } from "@/shared/ui/primitives/button"
 import { Spinner } from "@/shared/ui/primitives/Spinner"
-import { useState } from "react"
-import type { ProjectFormOutput } from "./ProjectForm"
-import { ProjectForm } from "./ProjectForm"
+import { ProjectForm, type ProjectFormOutput } from "../components/ProjectForm"
 
 type EditProjectPageProps = {
   projectId: string
@@ -30,8 +29,8 @@ export function EditProjectPage({ projectId }: EditProjectPageProps) {
       hero: {
         multiple: false,
         maxImageSizeInMB: 3,
-        images: project?.image ?  [ { url: project.image }] : []
-    },
+        images: project?.image ? [{ url: project.image }] : [],
+      },
       gallery: {
         multiple: true,
         limit: 10,
@@ -40,7 +39,7 @@ export function EditProjectPage({ projectId }: EditProjectPageProps) {
         images: project?.galleryImages.map((url) => ({ url })),
       },
     },
-    presignedUrlEndpoint: apiRoutes.images.projects.path
+    presignedUrlEndpoint: apiRoutes.images.projects.path,
   })
 
   const handleSubmit = async (data: ProjectFormOutput) => {

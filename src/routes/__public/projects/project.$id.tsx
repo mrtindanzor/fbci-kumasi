@@ -11,13 +11,16 @@ export const Route = createFileRoute("/__public/projects/project/$id")({
     const qc = new QueryClient()
     const query = projectDetailQuery(params.id)
     const data = await qc.fetchQuery(query)
-    return { queries: [{ queryKey: query.queryKey, data }] }
+    return { queries: [{ queryKey: query.queryKey, data }], data }
   },
-  head: () => ({
+  head: ({ loaderData: { data } = {}, params }) => ({
     meta: generateMetaData({
-      title: "Project Details",
-      description: "View project details and support FBCI's ongoing missions.",
-      path: "projects/project",
+      title: data?.title ?? "Project Details",
+      description:
+        data?.story ??
+        "View project details and support FBCI's ongoing missions.",
+      path: `projects/project/${params.id}`,
+      images: data?.image,
     }),
   }),
 })

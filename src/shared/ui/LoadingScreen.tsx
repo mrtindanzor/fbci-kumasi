@@ -1,5 +1,5 @@
 import { motion, useAnimation, useReducedMotion } from "framer-motion"
-import { useEffect, useState } from "react"
+import { useLayoutEffect, useState } from "react"
 import { useMediaQuery } from "@/shared/hooks/useMediaQuery"
 import { Image } from "@/shared/ui/primitives/Image"
 
@@ -21,12 +21,10 @@ export function LoadingScreen() {
   const rightCurtain = useAnimation()
   const logo = useAnimation()
 
-  useEffect(() => {
-    if (!isMobile || prefersReducedMotion) return
+  useLayoutEffect(() => {
+    const cancelled = false
 
-    let cancelled = false
     const prevOverflow = document.body.style.overflowY
-
     document.body.style.overflowY = "hidden"
 
     async function sequence() {
@@ -64,15 +62,15 @@ export function LoadingScreen() {
     sequence()
 
     return () => {
-      cancelled = true
+      //   cancelled = true
       document.body.style.overflowY = prevOverflow
     }
-  }, [isMobile, prefersReducedMotion, leftCurtain, rightCurtain, logo])
+  }, [leftCurtain, rightCurtain, logo])
 
   if (!isMobile || prefersReducedMotion || phase === "done") return null
 
   return (
-    <div className="fixed inset-0 z-[100] pointer-events-auto">
+    <div className="fixed inset-0 z-100 pointer-events-auto">
       <div className="absolute inset-0 flex">
         <motion.div
           className="w-1/2 h-full bg-surface will-change-transform"
@@ -89,7 +87,7 @@ export function LoadingScreen() {
       <div className="relative z-10 flex items-center justify-center h-full">
         <motion.div
           className="will-change-transform"
-          initial={{ rotate: 180, opacity: 1 }}
+          initial={{ rotate: -170, opacity: 1 }}
           animate={logo}
         >
           <Image src="/icon-loading.png" alt="Loading" className="w-24 h-24" />

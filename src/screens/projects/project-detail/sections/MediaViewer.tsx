@@ -1,16 +1,16 @@
+import { useCallback, useEffect, useRef, useState } from "react"
 import type { Project } from "@/features/project"
 import { AnimatePosition, slideUp } from "@/shared/ui/Framer"
 import { Image } from "@/shared/ui/primitives/Image"
 import { MediaPlayer } from "@/shared/ui/primitives/media-player"
 import { cn } from "@/shared/utils/cn"
-import { useCallback, useEffect, useRef, useState } from "react"
 
 type MediaViewerProps = {
   project: Project
 }
 
 export function MediaViewer({ project }: MediaViewerProps) {
-    const {
+  const {
     activeMedia,
     setActiveMedia,
     scrollRef,
@@ -20,7 +20,7 @@ export function MediaViewer({ project }: MediaViewerProps) {
     scrollRight,
     hasContent,
     thumbs,
-    images
+    images,
   } = useMediaViewer(project)
 
   if (!hasContent) return null
@@ -143,9 +143,9 @@ export function MediaViewer({ project }: MediaViewerProps) {
   )
 }
 
-function useMediaViewer(project: Project){
-     const hasVideo = Boolean(project.videoUrl)
-  const images = [project.image, ...project.galleryImages ?? []]
+function useMediaViewer(project: Project) {
+  const hasVideo = Boolean(project.videoUrl)
+  const images = [project.image, ...(project.galleryImages ?? [])]
 
   const [activeMedia, setActiveMedia] = useState<"video" | number>(
     hasVideo ? "video" : 0,
@@ -204,6 +204,6 @@ function useMediaViewer(project: Project){
     scrollRight,
     hasContent,
     thumbs,
-    images
+    images,
   }
 }

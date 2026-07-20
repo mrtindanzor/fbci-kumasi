@@ -5,6 +5,5 @@ export function useAuthenticatedUser(): UserAccountType {
   const user = useUserStore((s) => s.user)
 
   if (!user) throw new Error("User not authenticated")
-
   return user
 }
