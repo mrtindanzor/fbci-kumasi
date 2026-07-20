@@ -10,7 +10,7 @@ export function motionVariants({
   hidden = {},
 }: MotionVariantsConfig): Variants {
   return {
-    hidden: hidden,
+    hidden,
     show: {
       ...show,
       transition: {

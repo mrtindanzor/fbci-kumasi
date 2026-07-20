@@ -31,7 +31,6 @@
   --color-outline-variant: #c6c6cd;
   --color-error: #ba1a1a;
   --color-on-error: #ffffff;
-  --color-remaining-height: calc(100vh - 3.5rem);
 
   --color-surface-container-lowest: #ffffff;
   --color-surface-bright: #fbf9f8;
@@ -164,7 +163,7 @@
   --radius-xl: 0.75rem;
   --radius-full: 9999px;
 
-  --height-app-height: var(--remaining-height);
+  --height-app-height: calc(100dvh - 3.5rem);
 }
 
 @layer base {

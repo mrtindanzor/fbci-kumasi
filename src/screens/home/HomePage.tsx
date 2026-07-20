@@ -11,7 +11,7 @@ import { ServiceTimes } from "./sections/ServiceTimes"
 
 export function HomePage() {
   return (
-    <main className="overflow-x-hidden">
+    <main>
       <Hero />
       <ServiceTimes />
       <HeavenCTA />
