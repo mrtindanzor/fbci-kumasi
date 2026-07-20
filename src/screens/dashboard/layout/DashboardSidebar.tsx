@@ -1,8 +1,6 @@
-import { motion } from "framer-motion"
-import { FolderArchive, LayoutDashboard, LogOut, Menu, X } from "lucide-react"
-import { useState } from "react"
-import { useLogout } from "@/features/auth"
+import { useAuthStore, useLogout } from "@/features/auth"
 import { useAuthenticatedUser } from "@/features/user"
+import { InviteModal } from "@/screens/dashboard/invite"
 import { useMediaQuery } from "@/shared/hooks/useMediaQuery"
 import { usePathname } from "@/shared/hooks/usePathname"
 import { routes } from "@/shared/routes"
@@ -10,6 +8,16 @@ import { motionVariants } from "@/shared/ui/Framer"
 import { Logo } from "@/shared/ui/Logo"
 import { Button, Link } from "@/shared/ui/primitives/button"
 import { cn } from "@/shared/utils/cn"
+import { motion } from "framer-motion"
+import {
+  FolderArchive,
+  LayoutDashboard,
+  LogOut,
+  Menu,
+  UserPlus,
+  X,
+} from "lucide-react"
+import { useState } from "react"
 
 type NavItem = {
   label: string
@@ -89,6 +97,9 @@ type NavbarProps = {
 }
 function Navbar({ setIsOpen }: NavbarProps) {
   const currentPath = usePathname()
+  const [inviteOpen, setInviteOpen] = useState(false)
+  const roleChecker = useAuthStore((s) => s.roleChecker)
+  const canGenerateInvite = roleChecker.add("developer").passes()
 
   const isActivePath = (path: string) =>
     path === routes.dashboard.home
@@ -116,6 +127,23 @@ function Navbar({ setIsOpen }: NavbarProps) {
           {label}
         </Link>
       ))}
+
+      {canGenerateInvite && (
+        <Button
+          variant="none"
+          size="none"
+          onClick={() => setInviteOpen(true)}
+          className={cn(
+            "flex items-center gap-3 rounded-xl py-3 text-sm font-medium transition-colors",
+            "text-white/70 hover:bg-white/10 hover:text-white",
+          )}
+        >
+          <UserPlus className="size-5" />
+          Invite User
+        </Button>
+      )}
+
+      <InviteModal open={inviteOpen} onClose={() => setInviteOpen(false)} />
     </nav>
   )
 }

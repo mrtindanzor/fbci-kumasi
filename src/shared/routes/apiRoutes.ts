@@ -16,6 +16,10 @@ export const apiRoutes = Object.freeze({
       url: "/auth/signup",
       method: "post",
     },
+    registration: {
+      url: "/auth/registration",
+      method: "post",
+    },
   },
   projects: {
     list: (filters?: { status?: string }) => {
