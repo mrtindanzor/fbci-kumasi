@@ -4,7 +4,7 @@ import { Link } from "@/shared/ui/primitives/button"
 
 export function HeavenCTA() {
   return (
-    <section className="relative w-full h-app-height">
+    <section className="relative w-full py-8 grid min-h-app-height">
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[url('/images/are-you-saved.avif')] bg-cover bg-center" />
       </div>

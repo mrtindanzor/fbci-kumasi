@@ -48,7 +48,7 @@ function RootLayout() {
       <head>
         <HeadContent />
       </head>
-      <body className="bg-background text-on-surface font-body antialiased">
+      <body className="bg-background overflow-x-hidden max-w-screeen text-on-surface font-body antialiased">
         <LoadingScreen />
         <BaseProvider>
           <Outlet />

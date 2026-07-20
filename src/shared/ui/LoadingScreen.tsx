@@ -29,7 +29,7 @@ export function LoadingScreen() {
 
     async function sequence() {
       await logo.start({
-        rotate: 0,
+        rotate: 360,
         transition: { duration: TIMING.logoRotate, ease: "easeOut" },
       })
       if (cancelled) return
@@ -87,7 +87,7 @@ export function LoadingScreen() {
       <div className="relative z-10 flex items-center justify-center h-full">
         <motion.div
           className="will-change-transform"
-          initial={{ rotate: -170, opacity: 1 }}
+          initial={{ rotate: 180, opacity: 1 }}
           animate={logo}
         >
           <Image src="/icon-loading.png" alt="Loading" className="w-24 h-24" />
