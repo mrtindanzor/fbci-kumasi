@@ -34,6 +34,9 @@ export const signupValidator = z
       confirmPassword: z
         .string("Please enter a valid password")
         .min(1, "Please confirm your password"),
+      access: z
+        .string("Registration could not be completed.")
+        .min(1, "Registration could not be completed."),
     },
     { error: "Please fill in all required fields" },
   )

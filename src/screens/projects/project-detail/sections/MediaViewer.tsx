@@ -1,64 +1,27 @@
-import { useCallback, useEffect, useRef, useState } from "react"
 import type { Project } from "@/features/project"
 import { AnimatePosition, slideUp } from "@/shared/ui/Framer"
 import { Image } from "@/shared/ui/primitives/Image"
 import { MediaPlayer } from "@/shared/ui/primitives/media-player"
 import { cn } from "@/shared/utils/cn"
+import { useCallback, useEffect, useRef, useState } from "react"
 
 type MediaViewerProps = {
   project: Project
 }
 
 export function MediaViewer({ project }: MediaViewerProps) {
-  const hasVideo = Boolean(project.videoUrl)
-  const images = project.galleryImages
-
-  const [activeMedia, setActiveMedia] = useState<"video" | number>(
-    hasVideo ? "video" : 0,
-  )
-
-  const scrollRef = useRef<HTMLDivElement>(null)
-  const [canScrollLeft, setCanScrollLeft] = useState(false)
-  const [canScrollRight, setCanScrollRight] = useState(false)
-
-  const checkScroll = useCallback(() => {
-    const el = scrollRef.current
-    if (!el) return
-    setCanScrollLeft(el.scrollLeft > 4)
-    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 4)
-  }, [])
-
-  const hasContent = hasVideo || images.length > 0
-
-  const thumbs: { type: "video" | "image"; index?: number }[] = []
-  if (hasVideo) thumbs.push({ type: "video" })
-  for (let i = 0; i < images.length; i++) {
-    thumbs.push({ type: "image", index: i })
-  }
-
-  const scrollLeft = () =>
-    scrollRef.current?.scrollBy({ left: -300, behavior: "smooth" })
-
-  const scrollRight = () =>
-    scrollRef.current?.scrollBy({ left: 300, behavior: "smooth" })
-
-  useEffect(() => {
-    checkScroll()
-    const el = scrollRef.current
-    if (!el) return
-    el.addEventListener("scroll", checkScroll)
-    const observer = new ResizeObserver(checkScroll)
-    observer.observe(el)
-    return () => {
-      el.removeEventListener("scroll", checkScroll)
-      observer.disconnect()
-    }
-  }, [checkScroll])
-
-  useEffect(() => {
-    const timeout = setTimeout(checkScroll, 300)
-    return () => clearTimeout(timeout)
-  }, [checkScroll])
+    const {
+    activeMedia,
+    setActiveMedia,
+    scrollRef,
+    canScrollLeft,
+    canScrollRight,
+    scrollLeft,
+    scrollRight,
+    hasContent,
+    thumbs,
+    images
+  } = useMediaViewer(project)
 
   if (!hasContent) return null
 
@@ -178,4 +141,69 @@ export function MediaViewer({ project }: MediaViewerProps) {
       </div>
     </AnimatePosition>
   )
+}
+
+function useMediaViewer(project: Project){
+     const hasVideo = Boolean(project.videoUrl)
+  const images = [project.image, ...project.galleryImages ?? []]
+
+  const [activeMedia, setActiveMedia] = useState<"video" | number>(
+    hasVideo ? "video" : 0,
+  )
+
+  const scrollRef = useRef<HTMLDivElement>(null)
+  const [canScrollLeft, setCanScrollLeft] = useState(false)
+  const [canScrollRight, setCanScrollRight] = useState(false)
+
+  const checkScroll = useCallback(() => {
+    const el = scrollRef.current
+    if (!el) return
+    setCanScrollLeft(el.scrollLeft > 4)
+    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 4)
+  }, [])
+
+  const hasContent = hasVideo || images.length > 0
+
+  const thumbs: { type: "video" | "image"; index?: number }[] = []
+  if (hasVideo) thumbs.push({ type: "video" })
+  for (let i = 0; i < images.length; i++) {
+    thumbs.push({ type: "image", index: i })
+  }
+
+  const scrollLeft = () =>
+    scrollRef.current?.scrollBy({ left: -300, behavior: "smooth" })
+
+  const scrollRight = () =>
+    scrollRef.current?.scrollBy({ left: 300, behavior: "smooth" })
+
+  useEffect(() => {
+    checkScroll()
+    const el = scrollRef.current
+    if (!el) return
+    el.addEventListener("scroll", checkScroll)
+    const observer = new ResizeObserver(checkScroll)
+    observer.observe(el)
+    return () => {
+      el.removeEventListener("scroll", checkScroll)
+      observer.disconnect()
+    }
+  }, [checkScroll])
+
+  useEffect(() => {
+    const timeout = setTimeout(checkScroll, 300)
+    return () => clearTimeout(timeout)
+  }, [checkScroll])
+
+  return {
+    activeMedia,
+    setActiveMedia,
+    scrollRef,
+    canScrollLeft,
+    canScrollRight,
+    scrollLeft,
+    scrollRight,
+    hasContent,
+    thumbs,
+    images
+  }
 }

@@ -4,9 +4,9 @@ import { projectService } from "./project.services"
 
 export const projectListQueryKey = (filters?: ProjectFilters) => {
   const parts: string[] = []
-  if (filters?.status) parts.push(`status:${filters.status}`)
-  if (filters?.page) parts.push(`page:${filters.page}`)
-  if (filters?.limit) parts.push(`limit:${filters.limit}`)
+  Object.entries(filters || {}).forEach(([key, value]) => {
+    if (value) parts.push(`${key}:${value}`)
+  })
   return ["projects", ...parts] as const
 }
 

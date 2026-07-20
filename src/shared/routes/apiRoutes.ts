@@ -1,26 +1,33 @@
 export const apiRoutes = Object.freeze({
   auth: {
     login: {
-      path: "/auth/login",
+      url: "/auth/signin",
       method: "post",
     },
     logout: {
-      path: "/auth/logout",
+      url: "/auth/logout",
       method: "post",
     },
     refresh: {
-      path: "/auth/refresh",
+      url: "/auth/refresh",
       method: "get",
     },
     signup: {
-      path: "/auth/signup",
+      url: "/auth/signup",
       method: "post",
     },
   },
   projects: {
-    list: {
-      path: "/projects",
-      method: "get",
+    list: (filters?: { status?: string }) => {
+      const params = new URLSearchParams()
+      Object.entries(filters || {}).forEach(([key, value]) => {
+        if (value) params.set(key, value)
+      })
+      const query = params.toString()
+      return {
+        path: query ? `/projects?${query}` : "/projects",
+        method: "get",
+      } as const
     },
     byId: (id: string) =>
       ({
@@ -48,5 +55,40 @@ export const apiRoutes = Object.freeze({
         path: `/images/${url}`,
         method: "delete",
       }) as const,
+    projects: {
+      path: "/images",
+    },
+  },
+  contact: {
+    new: {
+      path: "/contact",
+      method: "post",
+    },
+    find: {
+      path: "/contact",
+      method: "get",
+    },
+  },
+  videos: {
+    createSession: {
+      path: "/videos/upload-session",
+      method: "post",
+    },
+    presignedUrls: {
+      path: "/videos/presigned-urls",
+      method: "post",
+    },
+    complete: {
+      path: "/videos/complete",
+      method: "post",
+    },
+    abort: {
+      path: "/videos/abort",
+      method: "post",
+    },
+    uploadedParts: {
+      path: "/videos/uploaded-parts",
+      method: "post",
+    },
   },
 } as const)

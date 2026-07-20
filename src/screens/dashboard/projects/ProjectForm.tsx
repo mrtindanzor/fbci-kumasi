@@ -1,6 +1,3 @@
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import type { z } from "zod"
 import type { UseImageUpload } from "@/features/images"
 import type { Project } from "@/features/project"
 import { projectInputValidator } from "@/features/project"
@@ -10,13 +7,16 @@ import { Input } from "@/shared/ui/primitives/Input"
 import { Label } from "@/shared/ui/primitives/Label"
 import { Spinner } from "@/shared/ui/primitives/Spinner"
 import { Textarea } from "@/shared/ui/primitives/Textarea"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm } from "react-hook-form"
+import type { z } from "zod"
 import { ImageUploadField } from "./ImageUploadField"
 
 export type ProjectFormInput = z.input<typeof projectInputValidator>
 export type ProjectFormOutput = z.output<typeof projectInputValidator>
 
 type ProjectFormProps = {
-  initialValues?: Project
+  initialValues?: Partial<Project>
   onSubmit: (data: ProjectFormOutput) => Promise<void> | void
   uploads: UseImageUpload<readonly ("hero" | "gallery")[]>
 }
@@ -33,18 +33,7 @@ export function ProjectForm({
   } = useForm<ProjectFormInput>({
     resolver: zodResolver(projectInputValidator),
     defaultValues: initialValues
-      ? {
-          title: initialValues.title,
-          story: initialValues.story,
-          image: initialValues.image,
-          galleryImages: initialValues.galleryImages,
-          videoUrl: initialValues.videoUrl,
-          goal: initialValues.goal,
-          status: initialValues.status,
-          completionDate: initialValues.completionDate,
-          paymentLink: initialValues.paymentLink,
-          funded: initialValues.funded,
-        }
+      ? initialValues
       : undefined,
   })
 

@@ -1,16 +1,16 @@
-import { useMemo, useState } from "react"
 import { useImageImpUpload } from "@/features/images"
 import {
-  useDeleteProject,
-  useProject,
-  useUpdateProject,
+    useDeleteProject,
+    useProject,
+    useUpdateProject,
 } from "@/features/project"
 import { useNavigate } from "@/shared/hooks/useNavigate"
 import { DashboardTopbar } from "@/shared/layouts/DashboardTopbar"
-import { routes } from "@/shared/routes"
+import { apiRoutes, routes } from "@/shared/routes"
 import { ConfirmDialog } from "@/shared/ui/ConfirmDialog"
 import { Button, Link } from "@/shared/ui/primitives/button"
 import { Spinner } from "@/shared/ui/primitives/Spinner"
+import { useState } from "react"
 import type { ProjectFormOutput } from "./ProjectForm"
 import { ProjectForm } from "./ProjectForm"
 
@@ -25,28 +25,22 @@ export function EditProjectPage({ projectId }: EditProjectPageProps) {
   const deleteProject = useDeleteProject()
   const [showDelete, setShowDelete] = useState(false)
 
-  const heroImages = useMemo(
-    () => (project?.image ? [{ url: project.image }] : []),
-    [project?.image],
-  )
-
-  const galleryImages = useMemo(
-    () => project?.galleryImages.map((url) => ({ url })) ?? [],
-    [project?.galleryImages],
-  )
-
   const uploads = useImageImpUpload({
     slots: {
-      hero: { multiple: false, maxImageSizeInMB: 5, images: heroImages },
+      hero: {
+        multiple: false,
+        maxImageSizeInMB: 3,
+        images: project?.image ?  [ { url: project.image }] : []
+    },
       gallery: {
         multiple: true,
         limit: 10,
-        maxImageSizeInMB: 5,
+        maxImageSizeInMB: 3,
         batchDelete: true,
-        images: galleryImages,
+        images: project?.galleryImages.map((url) => ({ url })),
       },
     },
-    presignedUrlEndpoint: "/uploads/presigned",
+    presignedUrlEndpoint: apiRoutes.images.projects.path
   })
 
   const handleSubmit = async (data: ProjectFormOutput) => {

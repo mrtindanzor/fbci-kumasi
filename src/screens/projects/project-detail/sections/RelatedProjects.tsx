@@ -15,10 +15,8 @@ type RelatedProjectsProps = {
 export function RelatedProjects({ currentId }: RelatedProjectsProps) {
   const { data: projects = [] } = useProjects()
   const related = useMemo(() => {
-    console.log(projects)
-    return projects.filter((p) => p.id !== currentId).slice(0, 3)
+    return projects.filter((p) => p.id !== currentId)
   }, [projects, currentId])
-  console.log(related, projects)
 
   if (related.length === 0) return null
 

@@ -1,5 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod"
-import { Mail, User } from "lucide-react"
+import { AtSign, Mail, User } from "lucide-react"
 import { useState } from "react"
 import { useSignup } from "@/features/auth"
 import { signupValidator } from "@/features/auth/auth.validators"
@@ -11,6 +11,7 @@ import { Label } from "@/shared/ui/primitives/Label"
 import { Spinner } from "@/shared/ui/primitives/Spinner"
 import { AuthDecorativePanel, AuthFormPanel, AuthLayout } from "./shared"
 import { PasswordInput } from "./shared/PasswordInput"
+import { Route } from "@/routes/__protected/auth/dashboard/signup"
 
 const strengthColors = [
   "bg-error",
@@ -32,6 +33,7 @@ function getPasswordStrength(password: string): number {
 }
 
 export function SignUpPage() {
+  const { access } = Route.useSearch()
   const { register, formState, onSubmit } = useSignup({
     resolver: zodResolver(signupValidator),
   })
@@ -51,6 +53,8 @@ export function SignUpPage() {
         </div>
 
         <form onSubmit={onSubmit} className="space-y-4" noValidate>
+          <input type="hidden" {...register("access")} value={access} />
+
           {formState.errors.root && (
             <div className="rounded-xl bg-error-container p-3 text-sm text-on-error-container">
               {formState.errors.root.message}
@@ -69,6 +73,20 @@ export function SignUpPage() {
               />
             </div>
             <FieldError message={formState.errors.name?.message} />
+          </div>
+
+          <div className="space-y-1">
+            <Label htmlFor="username">Username</Label>
+            <div className="relative">
+              <AtSign className="absolute left-3 top-1/2 size-5 -translate-y-1/2 text-on-surface-variant" />
+              <Input
+                id="username"
+                placeholder="Choose a username"
+                className="pl-10"
+                {...register("username")}
+              />
+            </div>
+            <FieldError message={formState.errors.username?.message} />
           </div>
 
           <div className="space-y-1">
