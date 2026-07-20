@@ -1,13 +1,3 @@
-import { useAuthStore, useLogout } from "@/features/auth"
-import { useAuthenticatedUser } from "@/features/user"
-import { InviteModal } from "@/screens/dashboard/invite"
-import { useMediaQuery } from "@/shared/hooks/useMediaQuery"
-import { usePathname } from "@/shared/hooks/usePathname"
-import { routes } from "@/shared/routes"
-import { motionVariants } from "@/shared/ui/Framer"
-import { Logo } from "@/shared/ui/Logo"
-import { Button, Link } from "@/shared/ui/primitives/button"
-import { cn } from "@/shared/utils/cn"
 import { motion } from "framer-motion"
 import {
   FolderArchive,
@@ -18,6 +8,16 @@ import {
   X,
 } from "lucide-react"
 import { useState } from "react"
+import { useAuthStore, useLogout } from "@/features/auth"
+import { useAuthenticatedUser } from "@/features/user"
+import { InviteModal } from "@/screens/dashboard/invite"
+import { useMediaQuery } from "@/shared/hooks/useMediaQuery"
+import { usePathname } from "@/shared/hooks/usePathname"
+import { routes } from "@/shared/routes"
+import { motionVariants } from "@/shared/ui/Framer"
+import { Logo } from "@/shared/ui/Logo"
+import { Button, Link } from "@/shared/ui/primitives/button"
+import { cn } from "@/shared/utils/cn"
 
 type NavItem = {
   label: string

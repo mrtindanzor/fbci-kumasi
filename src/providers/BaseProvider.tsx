@@ -1,7 +1,7 @@
-import { useAuthStore } from "@/features/auth"
-import { useNavigate } from "@/shared/hooks/useNavigate"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { type ReactNode, useEffect, useState } from "react"
+import { useAuthStore } from "@/features/auth"
+import { useNavigate } from "@/shared/hooks/useNavigate"
 
 export function BaseProvider({ children }: { children: ReactNode }) {
   const [queryClient] = useState(() => new QueryClient())

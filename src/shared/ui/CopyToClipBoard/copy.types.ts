@@ -1,3 +1,3 @@
-import type { ComponentProps } from "react";
+import type { ComponentProps } from "react"
 
-export type CopyToClipBoardProps = { text: string } & ComponentProps<"div">;
+export type CopyToClipBoardProps = { text: string } & ComponentProps<"div">

@@ -1,11 +1,11 @@
+import { Link, RefreshCw } from "lucide-react"
+import { useCallback, useEffect } from "react"
 import { useInvite } from "@/features/auth/invite"
 import CopyToClipboard from "@/shared/ui/CopyToClipBoard/CopyToClipboard"
 import { AnimatePresence, motion } from "@/shared/ui/Framer"
 import { Button } from "@/shared/ui/primitives/button"
 import { Input } from "@/shared/ui/primitives/Input"
 import { Spinner } from "@/shared/ui/primitives/Spinner"
-import { Link, RefreshCw } from "lucide-react"
-import { useCallback, useEffect } from "react"
 
 type InviteModalProps = {
   open: boolean

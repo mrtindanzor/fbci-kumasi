@@ -1,7 +1,7 @@
+import { useCallback, useState } from "react"
 import { publicUrls } from "@/config/publicUrls"
 import { routes } from "@/shared/routes"
 import { tryCatch } from "@/shared/utils/tryCatch"
-import { useCallback, useState } from "react"
 import { useInviteService } from "./useInviteService"
 
 export function useInvite() {

@@ -1,8 +1,8 @@
 "use client"
 
+import { CheckSquare, Copy } from "lucide-react"
 import { Button } from "@/shared/ui/primitives/button"
 import { cn } from "@/shared/utils/cn"
-import { CheckSquare, Copy } from "lucide-react"
 import type { CopyToClipBoardProps } from "./copy.types"
 import { useCopy } from "./useCopy"
 
