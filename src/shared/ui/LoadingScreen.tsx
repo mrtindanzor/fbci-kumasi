@@ -1,7 +1,7 @@
-import { useMediaQuery } from "@/shared/hooks/useMediaQuery"
-import { Image } from "@/shared/ui/primitives/Image"
 import { motion, useAnimation, useReducedMotion } from "framer-motion"
 import { useLayoutEffect, useState } from "react"
+import { useMediaQuery } from "@/shared/hooks/useMediaQuery"
+import { Image } from "@/shared/ui/primitives/Image"
 
 const TIMING = {
   logoRotate: 0.6,
