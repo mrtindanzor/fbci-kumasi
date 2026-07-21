@@ -1,58 +1,60 @@
 import {
-	createRootRoute,
-	HeadContent,
-	Outlet,
-	Scripts,
+  createRootRoute,
+  HeadContent,
+  Outlet,
+  Scripts,
 } from "@tanstack/react-router"
+import { generateMetaData } from "@/libs/tanstack"
+import { BaseProvider } from "@/providers/BaseProvider"
 import { BRANDING } from "@/shared/constants"
-import { Footer } from "@/shared/layouts/Footer"
-import { Header } from "@/shared/layouts/Header"
+import { LoadingScreen } from "@/shared/ui/LoadingScreen"
 import appCss from "./globals.css?url"
 
 export const Route = createRootRoute({
-	component: RootLayout,
-	head: () => ({
-		meta: [
-			{ charSet: "utf-8" },
-			{ name: "viewport", content: "width=device-width, initial-scale=1" },
-			{ title: BRANDING.name },
-			{ name: "description", content: BRANDING.description },
-		],
-		links: [
-			{ rel: "stylesheet", href: appCss },
-			{
-				rel: "stylesheet",
-				href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap",
-			},
-			{
-				rel: "stylesheet",
-				href: "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined",
-			},
-			{ rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
-		],
-	}),
+  component: RootLayout,
+  head: () => ({
+    meta: [
+      { charSet: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      ...generateMetaData({
+        title: BRANDING.name,
+        description: BRANDING.description,
+        path: "",
+      }),
+    ],
+    links: [
+      { rel: "stylesheet", href: appCss },
+      {
+        rel: "icon",
+        type: "image/png",
+        href: `/favicon/favicon-96x96.png`,
+        sizes: "96x96",
+      },
+      { rel: "icon", type: "image/svg+xml", href: `/favicon/favicon.svg` },
+      { rel: "shortcut icon", href: `/favicon/favicon.ico` },
+      {
+        rel: "apple-touch-icon",
+        sizes: "180x180",
+        href: `/favicon/apple-touch-icon.png`,
+      },
+      { rel: "manifest", href: `/favicon/site.webmanifest` },
+    ],
+  }),
 })
 
 function RootLayout() {
-	return (
-		<RootDocument>
-			<Outlet />
-		</RootDocument>
-	)
-}
-
-function RootDocument({ children }: { children: React.ReactNode }) {
-	return (
-		<html lang="en">
-			<head>
-				<HeadContent />
-			</head>
-			<body className="bg-background text-on-surface font-body antialiased">
-				<Header />
-				{children}
-				<Footer />
-				<Scripts />
-			</body>
-		</html>
-	)
+  return (
+    <html lang="en">
+      <head>
+        <HeadContent />
+      </head>
+      <body className="bg-background overflow-x-hidden max-w-screeen text-on-surface font-body antialiased">
+        <LoadingScreen />
+        <BaseProvider>
+          <Outlet />
+        </BaseProvider>
+        <Scripts />
+      </body>
+    </html>
+  )
 }

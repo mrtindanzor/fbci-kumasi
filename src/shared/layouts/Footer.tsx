@@ -1,100 +1,157 @@
-import { Link } from "@tanstack/react-router"
 import { BRANDING } from "@/shared/constants"
 import { CHURCH_INFO } from "@/shared/db"
-import { footerSections } from "./constants"
-import { ChurchMap } from "./Map"
+import { Logo } from "../ui/Logo"
+import { Link } from "../ui/primitives/button"
+import { SocialMediaLinks } from "../ui/SocialMediaLinks"
+import {
+  footerGivingLinks,
+  footerQuickLinks,
+  footerResourceLinks,
+} from "./constants"
+
+function FooterSection({
+  title,
+  children,
+}: {
+  title: string
+  children: React.ReactNode
+}) {
+  return (
+    <div>
+      <h4 className="font-headline font-semibold uppercase tracking-wider text-white mb-2">
+        {title}
+      </h4>
+      <div className="w-8 h-0.5 bg-secondary rounded-full mb-5" />
+      {children}
+    </div>
+  )
+}
 
 export function Footer() {
-	return (
-		<footer className="bg-primary text-white">
-			<div className="container-app pt-8 pb-16">
-				<ChurchMap />
-				<div className="grid grid-cols-1 md:grid-cols-4 pt-10 gap-10">
-					<div className="md:col-span-2">
-						<div className="flex items-center gap-2 mb-4">
-							<img src="/logo.png" alt={BRANDING.name} className="h-8 w-auto" />
-							<span className="font-headline text-lg font-semibold">
-								{BRANDING.name}
-							</span>
-						</div>
-						<div className="flex gap-3 mt-6">
-							<a
-								href={CHURCH_INFO.socials.facebook}
-								target="_blank"
-								rel="noopener noreferrer"
-								className="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
-							>
-								<span className="material-symbols-outlined">public</span>
-							</a>
-							<a
-								href={CHURCH_INFO.socials.youtube}
-								target="_blank"
-								rel="noopener noreferrer"
-								className="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
-							>
-								<span className="material-symbols-outlined">video_library</span>
-							</a>
-							<a
-								href={CHURCH_INFO.socials.email}
-								className="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
-							>
-								<span className="material-symbols-outlined">
-									alternate_email
-								</span>
-							</a>
-						</div>
-					</div>
+  return (
+    <footer className="bg-primary text-white">
+      <div className="container-app pt-16 pb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+          <div>
+            <Logo />
+            <p className="text-sm text-white/60 mt-3 mb-6 leading-relaxed">
+              {BRANDING.tagline}
+            </p>
+            <ul className="space-y-3 text-sm text-white/60">
+              <li className="flex items-start gap-2.5">
+                <span className="material-symbols-outlined text-sm mt-0.5">
+                  location_on
+                </span>
+                <span>{CHURCH_INFO.address.gpa}</span>
+              </li>
+              {CHURCH_INFO.serviceTimes.map((st) => (
+                <li key={st.day} className="flex items-start gap-2.5">
+                  <span className="material-symbols-outlined text-sm mt-0.5">
+                    schedule
+                  </span>
+                  <span>
+                    {st.day}: {st.time}
+                  </span>
+                </li>
+              ))}
+              <li className="flex items-start gap-2.5">
+                <span className="material-symbols-outlined text-sm mt-0.5">
+                  call
+                </span>
+                <Link
+                  variant="none"
+                  size="none"
+                  href={`tel:${CHURCH_INFO.phone}`}
+                  className="hover:text-white transition-colors duration-200"
+                >
+                  {CHURCH_INFO.phone}
+                </Link>
+              </li>
+              <li className="flex items-start gap-2.5">
+                <span className="material-symbols-outlined text-sm mt-0.5">
+                  mail
+                </span>
+                <Link
+                  variant="none"
+                  size="none"
+                  href={`mailto:${CHURCH_INFO.socials.email}`}
+                  className="hover:text-white transition-colors duration-200"
+                >
+                  {CHURCH_INFO.socials.email}
+                </Link>
+              </li>
+            </ul>
+          </div>
 
-					<div>
-						<h4 className="font-headline font-semibold mb-4">Information</h4>
-						<ul className="space-y-2 text-sm text-white/70">
-							<li className="flex items-center gap-2">
-								<span className="material-symbols-outlined text-sm">
-									location_on
-								</span>
-								{CHURCH_INFO.address}
-							</li>
-							<li className="flex items-center gap-2">
-								<span className="material-symbols-outlined text-sm">
-									schedule
-								</span>
-								Service Times: Sun 8am | Wed 6pm
-							</li>
-							<li className="flex items-center gap-2">
-								<span className="material-symbols-outlined text-sm">call</span>
-								{CHURCH_INFO.phone}
-							</li>
-						</ul>
-					</div>
+          <FooterSection title="Quick Links">
+            <ul className="space-y-2.5">
+              {footerQuickLinks.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    variant="none"
+                    size="none"
+                    href={link.href}
+                    className="text-sm text-white/60 hover:text-white transition-colors duration-200"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </FooterSection>
 
-					{footerSections.map((section) => (
-						<div key={section.title}>
-							<h4 className="font-headline font-semibold mb-4">
-								{section.title}
-							</h4>
-							<ul className="space-y-2 text-sm text-white/70">
-								{section.links.map((link) => (
-									<li key={link.label}>
-										<Link
-											to={link.href as never}
-											className="hover:text-white transition-colors"
-										>
-											{link.label}
-										</Link>
-									</li>
-								))}
-							</ul>
-						</div>
-					))}
-				</div>
+          <FooterSection title="Resources">
+            <ul className="space-y-2.5">
+              {footerResourceLinks.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    variant="none"
+                    size="none"
+                    href={link.href}
+                    className="text-sm text-white/60 hover:text-white transition-colors duration-200"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </FooterSection>
 
-				<div className="mt-12 pt-8 border-t border-white/10 text-center text-sm text-white/50">
-					<p>
-						&copy; {new Date().getFullYear()} {BRANDING.name}. All rights
-						reserved.
-					</p>
-				</div>
-			</div>
-		</footer>
-	)
+          <FooterSection title="Giving">
+            <p className="text-sm text-white/50 mb-4 leading-relaxed">
+              Support the ministry and help us spread the Gospel worldwide.
+            </p>
+            <ul className="space-y-2.5">
+              {footerGivingLinks.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    variant="none"
+                    size="none"
+                    href={link.href}
+                    className="text-sm text-white/60 hover:text-white transition-colors duration-200"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </FooterSection>
+        </div>
+
+        <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+          <h4 className="font-headline font-semibold text-sm uppercase tracking-wider text-white shrink-0">
+            Connect With Us
+          </h4>
+          <SocialMediaLinks />
+        </div>
+
+        <div className="mt-8 pt-6 border-t border-white/10 text-center text-xs text-white/40">
+          <p>
+            &copy; {new Date().getFullYear()} {BRANDING.name}. All Rights
+            Reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  )
 }

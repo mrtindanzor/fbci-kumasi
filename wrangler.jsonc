@@ -1,12 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "fbci-kumasi",
-  "compatibility_date": "2026-07-17",
-  "observability": {
-    "enabled": true
-  },
+  "compatibility_date": "2025-09-02",
   "main": "@tanstack/react-start/server-entry",
-  "compatibility_flags": [
-    "nodejs_compat"
-  ]
+  "compatibility_flags": ["nodejs_compat"]
 }

@@ -1,0 +1,11 @@
+packages:
+  - .
+allowBuilds:
+  esbuild: true
+  sharp: true
+  workerd: true
+minimumReleaseAgeExclude:
+  - '@tindanzor/auth-client@0.3.2'
+  - '@tindanzor/auth-client@0.4.0'
+  - '@tindanzor/auth-client@0.4.1'
+  - '@tindanzor/auth-client@1.0.0'

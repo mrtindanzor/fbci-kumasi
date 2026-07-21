@@ -1,52 +1,60 @@
 "use client"
 
-import { useState } from "react"
-import { BRANDING } from "@/shared/constants"
-import { Link } from "@/shared/ui/primitives/button"
+import { Menu } from "lucide-react"
+import { useEffect, useState } from "react"
+import { Button, Link } from "@/shared/ui/primitives/button"
 import { routes } from "../routes"
-import { navLinks } from "./constants"
-import { MobileNav } from "./MobileNav"
+import { Logo } from "../ui/Logo"
+import { DesktopNav } from "./Navbar/DesktopNav"
+import { MobileNav } from "./Navbar/MobileNav"
 
 export function Header() {
-	const [mobileOpen, setMobileOpen] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false)
+  useNavhide(mobileOpen)
 
-	return (
-		<header className="sticky bg-background top-0 z-50 glass">
-			<div className="container-app flex h-16 items-center justify-between">
-				<Link to="/" className="flex items-center">
-					<img src="/logo.png" alt={BRANDING.name} className="h-10 w-auto" />
-				</Link>
+  return (
+    <header className="fixed inset-x-0 top-0 not-lg:bg-primary z-50 py-3 px-4 lg:px-8">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-3">
+        {/* LEFT: Logo + Social Links */}
+        <div className="flex flex-col items-center gap-y-0.5 rounded-xl bg-primary py-1 shadow-lg">
+          <Logo />
+        </div>
 
-				<nav className="hidden md:flex items-center">
-					{navLinks.map((link) => (
-						<Link
-							key={link.href}
-							href={link.href}
-							variant="none"
-							size="none"
-							className="text-sm px-2 py-1 rounded-sm font-medium text-on-surface-variant hover:text-primary transition-colors"
-						>
-							{link.label}
-						</Link>
-					))}
-				</nav>
+        {/* CENTER: Desktop Navigation */}
+        <DesktopNav />
 
-				<div className="hidden md:flex items-center gap-3">
-					<Link href={routes.projects} variant="primary" size="sm">
-						Projects
-					</Link>
-				</div>
+        <Link
+          className="hidden lg:flex rounded-4xl border py-2 px-4 shadow-lg"
+          href={routes.projects.home}
+          variant="gold"
+          size="none"
+        >
+          Projects
+        </Link>
 
-				<button
-					type="button"
-					className="md:hidden! material-symbols-outlined text-2xl text-primary"
-					onClick={() => setMobileOpen(true)}
-				>
-					menu
-				</button>
-			</div>
+        {/* MOBILE: Hamburger */}
+        <Button
+          type="button"
+          size="sm"
+          variant="none"
+          className="lg:hidden! rounded-md bg-primary px-3 py-2.5 shadow-lg text-neutral-300 hover:bg-primary/90"
+          onClick={() => setMobileOpen(true)}
+        >
+          <Menu className="size-6" />
+        </Button>
+      </div>
 
-			<MobileNav open={mobileOpen} onClose={() => setMobileOpen(false)} />
-		</header>
-	)
+      <MobileNav open={mobileOpen} onClose={() => setMobileOpen(false)} />
+    </header>
+  )
+}
+
+function useNavhide(isOpen: boolean) {
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add("overflow-y-hidden")
+    } else {
+      document.body.classList.remove("overflow-y-hidden")
+    }
+  }, [isOpen])
 }
