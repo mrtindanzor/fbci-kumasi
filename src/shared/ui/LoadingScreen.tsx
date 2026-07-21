@@ -20,39 +20,56 @@ export function LoadingScreen() {
   const leftCurtain = useAnimation()
   const rightCurtain = useAnimation()
   const logo = useAnimation()
+  const backdrop = useAnimation()
 
   useLayoutEffect(() => {
-    const cancelled = false
+    let cancelled = false
+
+    const animatePhase = async (cb: Promise<unknown>) => {
+      if (cancelled) return
+      await cb
+    }
 
     const prevOverflow = document.body.style.overflowY
     document.body.style.overflowY = "hidden"
 
     async function sequence() {
-      await logo.start({
-        rotate: 360,
-        transition: { duration: TIMING.logoRotate, ease: "easeOut" },
-      })
-      if (cancelled) return
-
-      await new Promise((r) => setTimeout(r, TIMING.logoHold))
-      if (cancelled) return
-
-      await logo.start({
-        opacity: 0,
-        transition: { duration: TIMING.logoFadeOut },
-      })
-      if (cancelled) return
-
-      await Promise.all([
-        leftCurtain.start({
-          x: "-100%",
-          transition: { duration: TIMING.curtainOpen, ease },
+      await animatePhase(
+        logo.start({
+          rotate: 360,
+          transition: { duration: TIMING.logoRotate, ease: "easeOut" },
         }),
-        rightCurtain.start({
-          x: "100%",
-          transition: { duration: TIMING.curtainOpen, ease },
+      )
+
+      await animatePhase(
+        backdrop.start({
+          opacity: 0,
         }),
-      ])
+      )
+
+      await animatePhase(new Promise((r) => setTimeout(r, TIMING.logoHold)))
+
+      await animatePhase(
+        logo.start({
+          opacity: 1,
+          visibility: "visible",
+          transition: { duration: TIMING.logoFadeOut },
+        }),
+      )
+
+      await animatePhase(
+        Promise.all([
+          leftCurtain.start({
+            x: "-100%",
+            transition: { duration: TIMING.curtainOpen, ease },
+          }),
+          rightCurtain.start({
+            x: "100%",
+            transition: { duration: TIMING.curtainOpen, ease },
+          }),
+        ]),
+      )
+
       if (cancelled) return
 
       document.body.style.overflowY = prevOverflow
@@ -62,38 +79,47 @@ export function LoadingScreen() {
     sequence()
 
     return () => {
-      //   cancelled = true
+      cancelled = true
       document.body.style.overflowY = prevOverflow
     }
-  }, [leftCurtain, rightCurtain, logo])
-
-  if (!isMobile || prefersReducedMotion || phase === "done") return null
+  }, [leftCurtain, backdrop, rightCurtain, logo])
 
   return (
-    <div className="fixed inset-0 z-100 pointer-events-auto">
-      <div className="absolute inset-0 flex">
-        <motion.div
-          className="w-1/2 h-full bg-surface will-change-transform"
-          initial={{ x: "0%" }}
-          animate={leftCurtain}
-        />
-        <motion.div
-          className="w-1/2 h-full bg-surface will-change-transform"
-          initial={{ x: "0%" }}
-          animate={rightCurtain}
-        />
-      </div>
+    <>
+      <motion.div
+        className="fixed inset-0 bg-surface z-20"
+        initial={{ opacity: 1 }}
+        animate={backdrop}
+        hidden={!isMobile || prefersReducedMotion || phase === "done"}
+      />
 
-      <div className="relative z-10 flex items-center justify-center h-full">
-        <motion.div
-          className="will-change-transform"
-          initial={{ rotate: 180, opacity: 1 }}
-          animate={logo}
-          hidden
-        >
-          <Image src="/icon-loading.png" alt="Loading" className="w-24 h-24" />
-        </motion.div>
+      <div
+        hidden={!isMobile || prefersReducedMotion || phase === "done"}
+        className="fixed inset-0 z-100 pointer-events-auto"
+      >
+        <div className="absolute inset-0 flex">
+          <motion.div
+            className="w-1/2 h-full bg-surface will-change-transform"
+            initial={{ x: "0%" }}
+            animate={leftCurtain}
+          />
+          <motion.div
+            className="w-1/2 h-full bg-surface will-change-transform"
+            initial={{ x: "0%" }}
+            animate={rightCurtain}
+          />
+        </div>
+
+        <div className="relative z-10 flex items-center justify-center h-full">
+          <motion.div
+            className="will-change-transform"
+            initial={{ rotate: 115 }}
+            animate={logo}
+          >
+            <Image src="/icon-loading.png" alt="Loading" className="size-40" />
+          </motion.div>
+        </div>
       </div>
-    </div>
+    </>
   )
 }

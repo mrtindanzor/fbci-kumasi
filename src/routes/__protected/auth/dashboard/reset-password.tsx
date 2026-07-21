@@ -5,7 +5,10 @@ import { ResetPasswordPage } from "@/screens/auth"
 export const Route = createFileRoute(
   "/__protected/auth/dashboard/reset-password",
 )({
-  component: ResetPasswordPage,
+  validateSearch: (search: Record<string, unknown>) => ({
+    access: String(search.access || ""),
+  }),
+  component: RouteComponent,
   head: () => ({
     meta: generateMetaData({
       title: "Reset Password",
@@ -14,3 +17,9 @@ export const Route = createFileRoute(
     }),
   }),
 })
+
+function RouteComponent() {
+  const { access } = Route.useSearch()
+
+  return <ResetPasswordPage access={access} />
+}

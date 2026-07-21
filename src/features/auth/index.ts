@@ -28,6 +28,8 @@ export const {
   useLogout,
   useSignup,
   useSignin,
+  usePasswordReset,
+  useRequestPasswordReset,
   useUserStore,
   authGuard,
 } = createAuthClient<UserAccountType, LoginProps, SignupProps>(
@@ -38,6 +40,14 @@ export const {
       logout: apiRoutes.auth.logout,
       refresh: apiRoutes.auth.refresh,
       register: apiRoutes.auth.signup,
+      resetPassword: apiRoutes.auth.resetPassword,
+      requestPasswordReset: {
+        ...apiRoutes.auth.forgotPassword,
+        resetPageDetails: {
+          url: `${publicUrls.appUrl}${routes.auth.resetPassword}`,
+          queryName: "access",
+        },
+      },
     },
   },
   {

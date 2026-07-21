@@ -1,5 +1,9 @@
+import { zodResolver } from "@hookform/resolvers/zod"
 import { ArrowLeft, CheckCircle, Mail } from "lucide-react"
-import { useForgotPassword } from "@/features/auth/hooks/useForgotPassword"
+import {
+  forgotPasswordValidator,
+  useRequestPasswordReset,
+} from "@/features/auth"
 import { routes } from "@/shared/routes"
 import { Button, Link } from "@/shared/ui/primitives/button"
 import { FieldError } from "@/shared/ui/primitives/FieldError"
@@ -9,7 +13,9 @@ import { Spinner } from "@/shared/ui/primitives/Spinner"
 import { AuthDecorativePanel, AuthFormPanel, AuthLayout } from "./shared"
 
 export function ForgotPasswordPage() {
-  const { register, formState, onSubmit } = useForgotPassword()
+  const { register, formState, onSubmit } = useRequestPasswordReset({
+    resolver: zodResolver(forgotPasswordValidator),
+  })
 
   return (
     <AuthLayout>
@@ -22,8 +28,7 @@ export function ForgotPasswordPage() {
             Enter your email and we'll send you a reset link
           </p>
         </div>
-
-        {formState.isSubmitSuccessful ? (
+        {formState.isSubmitSuccessful && (
           <div className="space-y-4 text-center">
             <div className="flex justify-center">
               <CheckCircle className="h-16 w-16 text-green-600" />
@@ -36,17 +41,10 @@ export function ForgotPasswordPage() {
                 We've sent a password reset link to your email address.
               </p>
             </div>
-            <Link
-              href={routes.auth.login}
-              variant="ghost"
-              size="none"
-              className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
-            >
-              <ArrowLeft size={16} />
-              Back to Sign In
-            </Link>
           </div>
-        ) : (
+        )}
+
+        {!formState.isSubmitSuccessful && (
           <form onSubmit={onSubmit} className="space-y-4" noValidate>
             {formState.errors.root && (
               <div className="rounded-xl bg-error-container p-3 text-sm text-on-error-container">
@@ -81,7 +79,6 @@ export function ForgotPasswordPage() {
             </Button>
           </form>
         )}
-
         <div className="text-center">
           <Link
             href={routes.auth.login}
