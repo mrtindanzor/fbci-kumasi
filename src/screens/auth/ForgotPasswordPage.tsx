@@ -1,3 +1,5 @@
+import { zodResolver } from "@hookform/resolvers/zod"
+import { ArrowLeft, CheckCircle, Mail } from "lucide-react"
 import {
   forgotPasswordValidator,
   useRequestPasswordReset,
@@ -8,8 +10,6 @@ import { FieldError } from "@/shared/ui/primitives/FieldError"
 import { Input } from "@/shared/ui/primitives/Input"
 import { Label } from "@/shared/ui/primitives/Label"
 import { Spinner } from "@/shared/ui/primitives/Spinner"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { ArrowLeft, CheckCircle, Mail } from "lucide-react"
 import { AuthDecorativePanel, AuthFormPanel, AuthLayout } from "./shared"
 
 export function ForgotPasswordPage() {

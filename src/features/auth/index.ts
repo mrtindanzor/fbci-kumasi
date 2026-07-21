@@ -1,9 +1,9 @@
-import { publicUrls } from "@/config/publicUrls"
-import { apiRoutes, routes } from "@/shared/routes"
 import { redirect } from "@tanstack/react-router"
 import { createServerFn } from "@tanstack/react-start"
 import { getCookie } from "@tanstack/react-start/server"
 import { createAuthClient } from "@tindanzor/auth-client"
+import { publicUrls } from "@/config/publicUrls"
+import { apiRoutes, routes } from "@/shared/routes"
 import type { UserAccountType } from "../user"
 import type { LoginProps, SignupProps } from "./auth.contract.types"
 
