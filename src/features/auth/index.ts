@@ -1,9 +1,9 @@
+import { publicUrls } from "@/config/publicUrls"
+import { apiRoutes, routes } from "@/shared/routes"
 import { redirect } from "@tanstack/react-router"
 import { createServerFn } from "@tanstack/react-start"
 import { getCookie } from "@tanstack/react-start/server"
 import { createAuthClient } from "@tindanzor/auth-client"
-import { publicUrls } from "@/config/publicUrls"
-import { apiRoutes, routes } from "@/shared/routes"
 import type { UserAccountType } from "../user"
 import type { LoginProps, SignupProps } from "./auth.contract.types"
 
@@ -28,6 +28,8 @@ export const {
   useLogout,
   useSignup,
   useSignin,
+  usePasswordReset,
+  useRequestPasswordReset,
   useUserStore,
   authGuard,
 } = createAuthClient<UserAccountType, LoginProps, SignupProps>(
@@ -38,6 +40,14 @@ export const {
       logout: apiRoutes.auth.logout,
       refresh: apiRoutes.auth.refresh,
       register: apiRoutes.auth.signup,
+      resetPassword: apiRoutes.auth.resetPassword,
+      requestPasswordReset: {
+        ...apiRoutes.auth.forgotPassword,
+        resetPageDetails: {
+          url: `${publicUrls.appUrl}${routes.auth.resetPassword}`,
+          queryName: "access",
+        },
+      },
     },
   },
   {

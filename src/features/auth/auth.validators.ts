@@ -63,6 +63,7 @@ export const resetPasswordValidator = z
       confirmPassword: z
         .string("Please enter a valid password")
         .min(1, "Please confirm your new password"),
+      token: z.string(),
     },
     { error: "Please fill in all required fields" },
   )

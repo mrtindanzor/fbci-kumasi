@@ -1,5 +1,6 @@
+import { zodResolver } from "@hookform/resolvers/zod"
 import { ArrowLeft, CheckCircle } from "lucide-react"
-import { useResetPassword } from "@/features/auth/hooks/useResetPassword"
+import { resetPasswordValidator, usePasswordReset } from "@/features/auth"
 import { routes } from "@/shared/routes"
 import { Button, Link } from "@/shared/ui/primitives/button"
 import { FieldError } from "@/shared/ui/primitives/FieldError"
@@ -8,8 +9,13 @@ import { Spinner } from "@/shared/ui/primitives/Spinner"
 import { AuthDecorativePanel, AuthFormPanel, AuthLayout } from "./shared"
 import { PasswordInput } from "./shared/PasswordInput"
 
-export function ResetPasswordPage() {
-  const { register, formState, onSubmit } = useResetPassword()
+type ResetPasswordPageProps = {
+  access: string
+}
+export function ResetPasswordPage({ access }: ResetPasswordPageProps) {
+  const { register, formState, onSubmit } = usePasswordReset({
+    resolver: zodResolver(resetPasswordValidator),
+  })
 
   return (
     <AuthLayout>
@@ -41,6 +47,8 @@ export function ResetPasswordPage() {
 
         {!formState.isSubmitSuccessful && (
           <form onSubmit={onSubmit} className="space-y-4" noValidate>
+            <input type="hidden" {...register("token")} value={access} />
+
             {formState.errors.root && (
               <div className="rounded-xl bg-error-container p-3 text-sm text-on-error-container">
                 {formState.errors.root.message}

@@ -18,4 +18,5 @@ export interface ForgotPasswordProps {
 export interface ResetPasswordProps {
   password: string
   confirmPassword: string
+  token: string
 }

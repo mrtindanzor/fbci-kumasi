@@ -20,6 +20,14 @@ export const apiRoutes = Object.freeze({
       url: "/auth/registration",
       method: "post",
     },
+    forgotPassword: {
+      url: "/auth/request-password-reset",
+      method: "post",
+    },
+    resetPassword: {
+      url: "/auth/reset-password",
+      method: "post",
+    },
   },
   projects: {
     list: (filters?: { status?: string }) => {
