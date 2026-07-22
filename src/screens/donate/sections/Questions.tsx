@@ -1,6 +1,6 @@
-import { CHURCH_INFO } from "@/shared/db"
 import { AnimatePosition, slideUp } from "@/shared/ui/Framer"
 import { Link } from "@/shared/ui/primitives/button"
+import { CONTACT_OPTIONS } from "../constants"
 
 export function Questions() {
   return (
@@ -17,46 +17,47 @@ export function Questions() {
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row justify-center gap-6">
-            <Link
-              size="none"
-              variant="none"
-              href={`mailto:${CHURCH_INFO.socials.email}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 px-6 py-4 bg-surface rounded-xl border border-outline-variant hover:border-secondary transition-colors group"
-            >
-              <span className="material-symbols-outlined text-2xl text-secondary">
-                mail
-              </span>
-              <div>
-                <p className="text-sm text-on-surface-variant">Email</p>
-                <p className="font-semibold text-primary group-hover:text-secondary transition-colors">
-                  {CHURCH_INFO.socials.email}
-                </p>
-              </div>
-            </Link>
-            <Link
-              href={`tel:${CHURCH_INFO.phone}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              size="none"
-              variant="none"
-              className="flex items-center gap-3 px-6 py-4 bg-surface rounded-xl border border-outline-variant hover:border-secondary transition-colors group"
-            >
-              <span className="material-symbols-outlined text-2xl text-secondary">
-                phone
-              </span>
-              <div>
-                <p className="text-sm text-on-surface-variant">Phone</p>
-                <p className="font-semibold text-primary group-hover:text-secondary transition-colors">
-                  {CHURCH_INFO.phone}
-                </p>
-              </div>
-            </Link>
-          </div>
+          <ul className="flex flex-col sm:flex-row justify-center gap-6">
+            {CONTACT_OPTIONS.map(({ icon: Icon, title, link, value }) => (
+              <ContactCard
+                key={title}
+                icon={Icon}
+                title={title}
+                link={link}
+                value={value}
+              />
+            ))}
+          </ul>
         </AnimatePosition>
       </div>
     </section>
+  )
+}
+
+type ContactCardProps = {
+  icon: React.ElementType
+  title: string
+  link: string
+  value: string
+}
+function ContactCard({ icon: Icon, title, link, value }: ContactCardProps) {
+  return (
+    <li>
+      <Link
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+        size="none"
+        variant="none"
+        className="grid grid-cols-[auto_1fr] items-center gap-3 px-6 py-4 bg-surface rounded-xl border border-outline-variant hover:border-secondary transition-colors group"
+      >
+        <Icon className="text-secondary" title={title} />
+        <div>
+          <p className="font-semibold text-primary group-hover:text-secondary transition-colors">
+            {value}
+          </p>
+        </div>
+      </Link>
+    </li>
   )
 }

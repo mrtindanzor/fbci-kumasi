@@ -6,7 +6,7 @@ import { Player } from "@/shared/ui/primitives/PodbeanPlayer"
 export function PodcastSection() {
   return (
     <section className="section-gap">
-      <div className="py-8" id="sermons">
+      <div className="py-8 px-4" id="sermons">
         <AnimatePosition variants={slideUp}>
           <div className="max-w-2xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-headline font-bold text-primary mb-2">

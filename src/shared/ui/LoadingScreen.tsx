@@ -105,12 +105,12 @@ export function LoadingScreen() {
         <div className="absolute inset-0 flex">
           <motion.div
             className="w-1/2 h-full bg-surface will-change-transform"
-            initial={{ x: "0%" }}
+            initial={{ x: "1%" }}
             animate={leftCurtain}
           />
           <motion.div
             className="w-1/2 h-full bg-surface will-change-transform"
-            initial={{ x: "0%" }}
+            initial={{ x: "-1%" }}
             animate={rightCurtain}
           />
         </div>

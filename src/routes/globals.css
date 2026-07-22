@@ -163,7 +163,7 @@
   --radius-xl: 0.75rem;
   --radius-full: 9999px;
 
-  --height-app-height: calc(100dvh - 3.5rem);
+  --height-app-height: calc(100vh - 3.5rem);
 }
 
 @layer base {

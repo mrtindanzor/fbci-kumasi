@@ -22,7 +22,7 @@ export function CallToAction() {
                 target="_blank"
                 variant="gold"
                 size="lg"
-                className="gap-2"
+                className="gap-2 text-sm w-full sm:w-fit"
               >
                 <Eye className="size-5" />
                 View Prospectus
@@ -32,7 +32,7 @@ export function CallToAction() {
                 download
                 variant="none"
                 size="lg"
-                className="gap-2 bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary transition-colors duration-200 font-body"
+                className="gap-2 w-full sm:w-fit text-sm bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary transition-colors duration-200 font-body"
               >
                 <Download className="size-5" />
                 Download Prospectus
