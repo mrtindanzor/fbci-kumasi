@@ -1,4 +1,5 @@
 import { createFileRoute, Outlet } from "@tanstack/react-router"
+import { MobileFloatingCTA } from "@/features/contact/components/MobileFloatingCTA"
 import { Footer } from "@/shared/layouts/Footer"
 import { Header } from "@/shared/layouts/Header"
 
@@ -14,6 +15,7 @@ function PublicLayout() {
         <Outlet />
       </div>
       <Footer />
+      <MobileFloatingCTA />
     </>
   )
 }
