@@ -1,5 +1,6 @@
 import { motion } from "framer-motion"
 import {
+  Calendar,
   FolderArchive,
   LayoutDashboard,
   LogOut,
@@ -31,6 +32,11 @@ const NAV_ITEMS: NavItem[] = [
     label: "Projects",
     href: routes.dashboard.projects.home,
     icon: FolderArchive,
+  },
+  {
+    label: "Conferences",
+    href: routes.dashboard.conferences.home,
+    icon: Calendar,
   },
 ]
 

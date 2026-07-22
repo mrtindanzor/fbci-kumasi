@@ -30,6 +30,8 @@ import { Route as _protectedAuthDashboardForgotPasswordRouteImport } from './rou
 import { Route as _protectedAuthDashboardResetPasswordRouteImport } from './routes/__protected/auth/dashboard/reset-password'
 import { Route as _protectedAuthDashboardSigninRouteImport } from './routes/__protected/auth/dashboard/signin'
 import { Route as _protectedAuthDashboardSignupRouteImport } from './routes/__protected/auth/dashboard/signup'
+import { Route as _protectedDashboardConferencesIndexRouteImport } from './routes/__protected/dashboard/conferences/index'
+import { Route as _protectedDashboardConferencesNewRouteImport } from './routes/__protected/dashboard/conferences/new'
 import { Route as _protectedDashboardProjectsIndexRouteImport } from './routes/__protected/dashboard/projects/index'
 import { Route as _protectedDashboardProjectsNewRouteImport } from './routes/__protected/dashboard/projects/new'
 import { Route as _publicProjectsProjectIdRouteImport } from './routes/__public/projects/project.$id'
@@ -146,6 +148,18 @@ const _protectedAuthDashboardSignupRoute =
     path: '/auth/dashboard/signup',
     getParentRoute: () => rootRouteImport,
   } as any)
+const _protectedDashboardConferencesIndexRoute =
+  _protectedDashboardConferencesIndexRouteImport.update({
+    id: '/conferences/',
+    path: '/conferences/',
+    getParentRoute: () => _protectedDashboardRouteRoute,
+  } as any)
+const _protectedDashboardConferencesNewRoute =
+  _protectedDashboardConferencesNewRouteImport.update({
+    id: '/conferences/new',
+    path: '/conferences/new',
+    getParentRoute: () => _protectedDashboardRouteRoute,
+  } as any)
 const _protectedDashboardProjectsIndexRoute =
   _protectedDashboardProjectsIndexRouteImport.update({
     id: '/projects/',
@@ -192,8 +206,10 @@ export interface FileRoutesByFullPath {
   '/auth/dashboard/reset-password': typeof _protectedAuthDashboardResetPasswordRoute
   '/auth/dashboard/signin': typeof _protectedAuthDashboardSigninRoute
   '/auth/dashboard/signup': typeof _protectedAuthDashboardSignupRoute
+  '/dashboard/conferences/new': typeof _protectedDashboardConferencesNewRoute
   '/dashboard/projects/new': typeof _protectedDashboardProjectsNewRoute
   '/projects/project/$id': typeof _publicProjectsProjectIdRoute
+  '/dashboard/conferences/': typeof _protectedDashboardConferencesIndexRoute
   '/dashboard/projects/': typeof _protectedDashboardProjectsIndexRoute
   '/dashboard/projects/edit/$id': typeof _protectedDashboardProjectsEditIdRoute
 }
@@ -217,8 +233,10 @@ export interface FileRoutesByTo {
   '/auth/dashboard/reset-password': typeof _protectedAuthDashboardResetPasswordRoute
   '/auth/dashboard/signin': typeof _protectedAuthDashboardSigninRoute
   '/auth/dashboard/signup': typeof _protectedAuthDashboardSignupRoute
+  '/dashboard/conferences/new': typeof _protectedDashboardConferencesNewRoute
   '/dashboard/projects/new': typeof _protectedDashboardProjectsNewRoute
   '/projects/project/$id': typeof _publicProjectsProjectIdRoute
+  '/dashboard/conferences': typeof _protectedDashboardConferencesIndexRoute
   '/dashboard/projects': typeof _protectedDashboardProjectsIndexRoute
   '/dashboard/projects/edit/$id': typeof _protectedDashboardProjectsEditIdRoute
 }
@@ -245,8 +263,10 @@ export interface FileRoutesById {
   '/__protected/auth/dashboard/reset-password': typeof _protectedAuthDashboardResetPasswordRoute
   '/__protected/auth/dashboard/signin': typeof _protectedAuthDashboardSigninRoute
   '/__protected/auth/dashboard/signup': typeof _protectedAuthDashboardSignupRoute
+  '/__protected/dashboard/conferences/new': typeof _protectedDashboardConferencesNewRoute
   '/__protected/dashboard/projects/new': typeof _protectedDashboardProjectsNewRoute
   '/__public/projects/project/$id': typeof _publicProjectsProjectIdRoute
+  '/__protected/dashboard/conferences/': typeof _protectedDashboardConferencesIndexRoute
   '/__protected/dashboard/projects/': typeof _protectedDashboardProjectsIndexRoute
   '/__protected/dashboard/projects/edit/$id': typeof _protectedDashboardProjectsEditIdRoute
 }
@@ -273,8 +293,10 @@ export interface FileRouteTypes {
     | '/auth/dashboard/reset-password'
     | '/auth/dashboard/signin'
     | '/auth/dashboard/signup'
+    | '/dashboard/conferences/new'
     | '/dashboard/projects/new'
     | '/projects/project/$id'
+    | '/dashboard/conferences/'
     | '/dashboard/projects/'
     | '/dashboard/projects/edit/$id'
   fileRoutesByTo: FileRoutesByTo
@@ -298,8 +320,10 @@ export interface FileRouteTypes {
     | '/auth/dashboard/reset-password'
     | '/auth/dashboard/signin'
     | '/auth/dashboard/signup'
+    | '/dashboard/conferences/new'
     | '/dashboard/projects/new'
     | '/projects/project/$id'
+    | '/dashboard/conferences'
     | '/dashboard/projects'
     | '/dashboard/projects/edit/$id'
   id:
@@ -325,8 +349,10 @@ export interface FileRouteTypes {
     | '/__protected/auth/dashboard/reset-password'
     | '/__protected/auth/dashboard/signin'
     | '/__protected/auth/dashboard/signup'
+    | '/__protected/dashboard/conferences/new'
     | '/__protected/dashboard/projects/new'
     | '/__public/projects/project/$id'
+    | '/__protected/dashboard/conferences/'
     | '/__protected/dashboard/projects/'
     | '/__protected/dashboard/projects/edit/$id'
   fileRoutesById: FileRoutesById
@@ -489,6 +515,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof _protectedAuthDashboardSignupRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/__protected/dashboard/conferences/': {
+      id: '/__protected/dashboard/conferences/'
+      path: '/conferences'
+      fullPath: '/dashboard/conferences/'
+      preLoaderRoute: typeof _protectedDashboardConferencesIndexRouteImport
+      parentRoute: typeof _protectedDashboardRouteRoute
+    }
+    '/__protected/dashboard/conferences/new': {
+      id: '/__protected/dashboard/conferences/new'
+      path: '/conferences/new'
+      fullPath: '/dashboard/conferences/new'
+      preLoaderRoute: typeof _protectedDashboardConferencesNewRouteImport
+      parentRoute: typeof _protectedDashboardRouteRoute
+    }
     '/__protected/dashboard/projects/': {
       id: '/__protected/dashboard/projects/'
       path: '/projects'
@@ -562,7 +602,9 @@ const _publicRouteRouteWithChildren = _publicRouteRoute._addFileChildren(
 
 interface _protectedDashboardRouteRouteChildren {
   _protectedDashboardIndexRoute: typeof _protectedDashboardIndexRoute
+  _protectedDashboardConferencesNewRoute: typeof _protectedDashboardConferencesNewRoute
   _protectedDashboardProjectsNewRoute: typeof _protectedDashboardProjectsNewRoute
+  _protectedDashboardConferencesIndexRoute: typeof _protectedDashboardConferencesIndexRoute
   _protectedDashboardProjectsIndexRoute: typeof _protectedDashboardProjectsIndexRoute
   _protectedDashboardProjectsEditIdRoute: typeof _protectedDashboardProjectsEditIdRoute
 }
@@ -570,7 +612,11 @@ interface _protectedDashboardRouteRouteChildren {
 const _protectedDashboardRouteRouteChildren: _protectedDashboardRouteRouteChildren =
   {
     _protectedDashboardIndexRoute: _protectedDashboardIndexRoute,
+    _protectedDashboardConferencesNewRoute:
+      _protectedDashboardConferencesNewRoute,
     _protectedDashboardProjectsNewRoute: _protectedDashboardProjectsNewRoute,
+    _protectedDashboardConferencesIndexRoute:
+      _protectedDashboardConferencesIndexRoute,
     _protectedDashboardProjectsIndexRoute:
       _protectedDashboardProjectsIndexRoute,
     _protectedDashboardProjectsEditIdRoute:

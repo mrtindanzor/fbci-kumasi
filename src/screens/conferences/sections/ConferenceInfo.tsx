@@ -1,16 +1,51 @@
 import { motion } from "framer-motion"
+import type { Conference } from "@/features/conference"
 import { AnimatePosition, slideUp, staggerContainer } from "@/shared/ui/Framer"
-import { conference } from "../data"
 
-const infoItems = [
-  { icon: "bookmark", label: "Theme", value: conference.theme },
-  { icon: "event", label: "Schedule", value: conference.schedule },
-  ...(conference.location
-    ? [{ icon: "location_on", label: "Location", value: conference.location }]
-    : []),
-]
+type ConferenceInfoProps = {
+  conference: Conference
+}
 
-export function ConferenceInfo() {
+export function ConferenceInfo({ conference }: ConferenceInfoProps) {
+  const formatDateRange = (start: string, end: string) => {
+    const startDate = new Date(start)
+    const endDate = new Date(end)
+    const options: Intl.DateTimeFormatOptions = {
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    }
+
+    if (start === end) {
+      return startDate.toLocaleDateString("en-US", options)
+    }
+
+    const startStr = startDate.toLocaleDateString("en-US", {
+      month: "long",
+      day: "numeric",
+    })
+    const endStr = endDate.toLocaleDateString("en-US", options)
+    return `${startStr} - ${endStr}`
+  }
+
+  const infoItems = [
+    { icon: "bookmark", label: "Theme", value: conference.theme },
+    {
+      icon: "event",
+      label: "Schedule",
+      value: formatDateRange(conference.startDate, conference.endDate),
+    },
+    ...(conference.keyScripture
+      ? [
+          {
+            icon: "menu_book",
+            label: "Key Scripture",
+            value: conference.keyScripture,
+          },
+        ]
+      : []),
+  ]
+
   return (
     <section className="section-gap bg-surface-container">
       <div className="container-app">

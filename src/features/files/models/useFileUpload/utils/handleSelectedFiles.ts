@@ -1,10 +1,10 @@
 import type {
-  ErrorImagePayload,
-  RawImagePayload,
+  ErrorFilePayload,
+  RawFilePayload,
   SlotConfig,
-} from "../../../images.contracts.types"
-import type { Uploads } from "../useImageUpload.types"
-import { checkImageRules } from "./imageRules"
+} from "../../../files.contracts.types"
+import type { Uploads } from "../useFileUpload.types"
+import { checkFileRules } from "./fileRules"
 
 type HandleSelectedFilesProps<T extends Record<string, SlotConfig>> = {
   slotKey: keyof T & string
@@ -19,10 +19,15 @@ export function handleSelectedFiles<T extends Record<string, SlotConfig>>({
   uploads,
   files,
 }: HandleSelectedFilesProps<T>): Uploads {
-  const notBelongsToSlot = uploads.filter((image) => image.slotKey !== slotKey)
-  const belongsToSlot = uploads.filter((image) => image.slotKey === slotKey)
+  const notBelongsToSlot = uploads.filter((file) => file.slotKey !== slotKey)
+  const belongsToSlot = uploads.filter((file) => file.slotKey === slotKey)
 
-  const { maxImageSizeInMB = 3, multiple, limit = multiple ? 10 : 1 } = slot
+  const {
+    maxFileSizeInMB = 10,
+    multiple,
+    limit = multiple ? 10 : 1,
+    acceptedExtensions,
+  } = slot
 
   if (limit === 1) {
     const file = files[0]
@@ -30,25 +35,25 @@ export function handleSelectedFiles<T extends Record<string, SlotConfig>>({
 
     if (belongsToSlot.length > 0) return uploads
 
-    const hasError = checkImageRules(file, maxImageSizeInMB)
+    const hasError = checkFileRules(file, maxFileSizeInMB, acceptedExtensions)
 
     if (hasError) return [...notBelongsToSlot, { ...hasError, slotKey }]
 
     return [
       ...notBelongsToSlot,
       {
-        state: "uploading",
+        state: "raw",
         file,
         id: `${file.size}${file.name}${file.lastModified}`,
-        previewImage: URL.createObjectURL(file),
+        previewUrl: URL.createObjectURL(file),
         slotKey,
       },
     ]
   }
 
-  const newSelectedFiles: (RawImagePayload | ErrorImagePayload)[] = files.map(
+  const newSelectedFiles: (RawFilePayload | ErrorFilePayload)[] = files.map(
     (file) => {
-      const hasError = checkImageRules(file, maxImageSizeInMB)
+      const hasError = checkFileRules(file, maxFileSizeInMB, acceptedExtensions)
 
       if (hasError) return { ...hasError, slotKey }
 
@@ -56,7 +61,7 @@ export function handleSelectedFiles<T extends Record<string, SlotConfig>>({
         state: "raw",
         file,
         id: `${file.size}${file.name}${file.lastModified}`,
-        previewImage: URL.createObjectURL(file),
+        previewUrl: URL.createObjectURL(file),
         slotKey,
       }
     },
@@ -66,7 +71,7 @@ export function handleSelectedFiles<T extends Record<string, SlotConfig>>({
     ...new Map(
       [...belongsToSlot, ...newSelectedFiles]
         .toReversed()
-        .map((image) => [image.id, image]),
+        .map((file) => [file.id, file]),
     ).values(),
   ].toReversed()
 
