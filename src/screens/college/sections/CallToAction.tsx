@@ -8,11 +8,11 @@ export function CallToAction() {
     <section className="section-gap">
       <div className="container-app">
         <AnimatePosition variants={slideUp}>
-          <div className="bg-primary rounded-3xl p-10 md:p-16 text-center">
-            <h2 className="text-3xl md:text-4xl font-headline font-bold text-white mb-4">
+          <div className="bg-surface-container rounded-3xl p-10 md:p-16 text-center border border-outline-variant/30">
+            <h2 className="text-3xl md:text-4xl font-headline font-bold text-primary mb-4">
               Interested in Joining HACWA?
             </h2>
-            <p className="text-white/60 max-w-xl mx-auto mb-8">
+            <p className="text-on-surface-variant max-w-xl mx-auto mb-8">
               Discover everything you need to know about our programs, courses,
               and admissions by viewing the official prospectus.
             </p>
@@ -32,7 +32,7 @@ export function CallToAction() {
                 download
                 variant="none"
                 size="lg"
-                className="gap-2 w-full sm:w-fit text-sm bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary transition-colors duration-200 font-body"
+                className="gap-2 w-full sm:w-fit text-sm bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-white transition-colors duration-200 font-body"
               >
                 <Download className="size-5" />
                 Download Prospectus

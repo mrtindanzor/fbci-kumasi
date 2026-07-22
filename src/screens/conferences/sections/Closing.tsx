@@ -12,8 +12,8 @@ export function Closing({ conference }: ClosingProps) {
     <section className="section-gap">
       <div className="container-app">
         <AnimatePosition variants={slideUp}>
-          <div className="bg-primary rounded-3xl p-10 md:p-16 text-center">
-            <h2 className="text-3xl md:text-4xl font-headline font-bold text-white leading-relaxed max-w-3xl mx-auto">
+          <div className="bg-surface-container rounded-3xl p-10 md:p-16 text-center border border-outline-variant/30">
+            <h2 className="text-3xl md:text-4xl font-headline font-bold text-primary leading-relaxed max-w-3xl mx-auto">
               {conference.closingMessage}
             </h2>
           </div>
