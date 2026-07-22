@@ -1,43 +1,23 @@
-import { ChevronDown, X } from "lucide-react"
-import { useEffect, useState } from "react"
+import { X } from "lucide-react"
 import { usePathname } from "@/shared/hooks/usePathname"
 import { AnimatePresence, motion } from "@/shared/ui/Framer"
 import { cn } from "@/shared/utils/cn"
 import { routes } from "../../routes"
 import { Logo } from "../../ui/Logo"
 import { Button, Link } from "../../ui/primitives/button"
-import { NAV_ITEMS, type NavItem } from "../constants"
+import { NAV_ITEMS } from "../constants"
 
 type MobileNavProps = {
   open: boolean
   onClose: () => void
 }
 
+const MOBILE_NAV_LINKS = NAV_ITEMS.flatMap((item) =>
+  item.children ? item.children : [item],
+)
+
 export function MobileNav({ open, onClose }: MobileNavProps) {
   const pathname = usePathname()
-  const [expanded, setExpanded] = useState<Set<string>>(new Set())
-
-  useEffect(() => {
-    if (!open) return
-    const activeGroup = NAV_ITEMS.find((item) =>
-      item.children?.some((child) => child.href === pathname),
-    )
-    if (activeGroup) {
-      setExpanded(new Set([activeGroup.label]))
-    }
-  }, [open, pathname])
-
-  function toggleGroup(label: string) {
-    setExpanded((prev) => {
-      const next = new Set(prev)
-      if (next.has(label)) {
-        next.delete(label)
-      } else {
-        next.add(label)
-      }
-      return next
-    })
-  }
 
   return (
     <AnimatePresence>
@@ -71,34 +51,27 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
               </div>
 
               <nav className="flex-1 overflow-y-auto p-5">
-                {NAV_ITEMS.map((item) =>
-                  item.children ? (
-                    <ExpandableGroup
-                      key={item.label}
-                      item={item}
-                      expanded={expanded.has(item.label)}
-                      onToggle={() => toggleGroup(item.label)}
-                      currentPath={pathname}
-                      onNavigate={onClose}
-                    />
-                  ) : (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      onClick={onClose}
-                      variant="none"
-                      size="none"
-                      className={cn(
-                        "flex justify-start py-3 text-left font-medium transition-colors border-b border-outline-variant/20",
-                        pathname === item.href
-                          ? "text-primary font-semibold"
-                          : "text-on-surface hover:text-primary",
-                      )}
-                    >
-                      {item.label}
-                    </Link>
-                  ),
-                )}
+                <ul>
+                  {MOBILE_NAV_LINKS.map(({ href, label }) => (
+                    <li key={href}>
+                      <Link
+                        key={href}
+                        href={href}
+                        onClick={onClose}
+                        variant="none"
+                        size="none"
+                        className={cn(
+                          "flex justify-start py-3 text-left font-medium transition-colors border-b border-outline-variant/20",
+                          pathname === href && "text-primary font-bold",
+                          pathname !== href &&
+                            "text-on-surface hover:text-primary",
+                        )}
+                      >
+                        {label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               </nav>
 
               <div className="border-t border-outline-variant p-5">
@@ -115,79 +88,5 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
         </>
       )}
     </AnimatePresence>
-  )
-}
-
-type ExpandableGroupProps = {
-  item: NavItem
-  expanded: boolean
-  onToggle: () => void
-  currentPath: string
-  onNavigate: () => void
-}
-
-function ExpandableGroup({
-  item,
-  expanded,
-  onToggle,
-  currentPath,
-  onNavigate,
-}: ExpandableGroupProps) {
-  const isGroupActive = item.children?.some(
-    (child) => child.href === currentPath,
-  )
-
-  return (
-    <div className="border-b border-outline-variant/20">
-      <Button
-        type="button"
-        onClick={onToggle}
-        variant="none"
-        size="none"
-        className={cn(
-          "flex w-full items-center justify-between gap-2 py-3 font-medium transition-colors",
-          isGroupActive ? "text-primary" : "text-on-surface hover:text-primary",
-        )}
-        aria-expanded={expanded}
-      >
-        {item.label}
-        <ChevronDown
-          className={cn(
-            "size-4 transition-transform duration-200",
-            expanded && "rotate-180",
-          )}
-        />
-      </Button>
-
-      <AnimatePresence>
-        {expanded && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.2, ease: "easeInOut" }}
-            className="overflow-hidden"
-          >
-            {item.children?.map((child) => (
-              <Link
-                key={child.href}
-                href={child.href}
-                onClick={onNavigate}
-                variant="none"
-                size="none"
-                className={cn(
-                  "block py-2.5 pl-8 pr-4 text-sm transition-colors",
-                  child.href === currentPath
-                    ? "text-primary font-semibold"
-                    : "text-on-surface-variant hover:text-primary",
-                )}
-              >
-                {child.label}
-              </Link>
-            ))}
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
   )
 }
