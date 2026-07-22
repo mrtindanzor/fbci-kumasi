@@ -74,7 +74,6 @@ export function ConferenceForm({ initialValues }: ConferenceFormProps) {
     success,
   } = useConferenceMutation(initialValues)
   const { error, onAddField, setCanAddNewFile } = useConferencWorkflow()
-  console.log({ success, isSubmitting, error })
 
   return (
     <form onSubmit={onSubmit} className="space-y-8">
@@ -150,7 +149,7 @@ function ConferenceIdenty({ register, errors }: ConferenceIdentyProps) {
             className="resize-y"
             {...register("shortIntro")}
           />
-          <FieldError message={errors.shortInfo?.message} />
+          <FieldError message={errors.shortIntro?.message} />
         </div>
       </div>
     </section>

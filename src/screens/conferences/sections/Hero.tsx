@@ -10,7 +10,7 @@ export function Hero({ conference }: HeroProps) {
   return (
     <section className="relative min-h-[70vh] pt-header-claim flex items-center bg-background overflow-hidden">
       <div className="container-app relative z-10 py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <AnimatePosition variants={slideUp}>
             <span className="inline-block bg-secondary-container text-on-secondary px-4 py-1.5 rounded-full text-sm font-semibold uppercase tracking-wider mb-6">
               Annual Conference

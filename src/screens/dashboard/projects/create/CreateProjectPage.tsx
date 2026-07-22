@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useImageImpUpload } from "@/features/images"
 import { useCreateProject } from "@/features/project"
+import { useVideoUpload } from "@/features/videos"
 import { DashboardTopbar } from "@/screens/dashboard/layout/DashboardTopbar"
 import { useNavigate } from "@/shared/hooks/useNavigate"
 import { apiRoutes, routes } from "@/shared/routes"
@@ -27,16 +28,22 @@ export function CreateProjectPage() {
     presignedUrlEndpoint: apiRoutes.images.projects.path,
   })
 
+  const videoUpload = useVideoUpload()
+
   const handleSubmit = async (data: ProjectFormOutput) => {
     const results = await uploads.uploadAll()
 
     const heroUrl = results.hero?.completed[0]?.url ?? ""
     const galleryUrls = results.gallery?.completed.map((img) => img.url) ?? []
 
+    const videoResult = await videoUpload.uploadAll()
+    const videoUrl = videoResult?.url ?? ""
+
     await createProject.mutateAsync({
       ...data,
       image: heroUrl,
       galleryImages: galleryUrls,
+      videoUrl,
     })
     navigate.push(routes.dashboard.projects.home)
   }
@@ -71,6 +78,7 @@ export function CreateProjectPage() {
         initialValues={{ funded: 0 }}
         onSubmit={handleSubmit}
         uploads={uploads}
+        videoUpload={videoUpload}
       />
 
       <div className="flex justify-start">

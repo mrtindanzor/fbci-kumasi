@@ -1,3 +1,6 @@
+export { VideoPicker } from "./ui/VideoPicker"
+export { VideoPreview } from "./ui/VideoPreview"
+export { VideoUploadField } from "./ui/VideoUploadField"
 export * from "./useVideoUpload/useVideoUpload"
 export type * from "./useVideoUpload/useVideoUpload.types"
 export type * from "./videos.contracts.types"

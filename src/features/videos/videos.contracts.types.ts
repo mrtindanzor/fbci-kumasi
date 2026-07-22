@@ -61,6 +61,8 @@ export interface IVideoService {
   abortUpload(payload: AbortUploadPayload): Promise<void>
 
   getUploadedParts(payload: GetUploadedPartsPayload): Promise<UploadedPart[]>
+
+  deleteVideo(url: string): Promise<void>
 }
 
 export type PartChunk = {
@@ -79,6 +81,7 @@ export type VideoUploadState =
   | VideoCompletedState
   | VideoFailedState
   | VideoCancelledState
+  | VideoValidationError
 
 export type VideoIdleState = {
   status: "idle"
@@ -213,4 +216,16 @@ export type VideoUploadError = {
   id: string
   reason: string
   failedPartNumber: number | null
+}
+
+export type VideoUploadResult = {
+  url: string
+  name: string
+  size: number
+  type: string
+}
+
+export type VideoValidationError = {
+  status: "error"
+  reason: string
 }

@@ -140,5 +140,10 @@ export const apiRoutes = Object.freeze({
       path: "/videos/uploaded-parts",
       method: "post",
     },
+    delete: (url: string) =>
+      ({
+        path: `/videos?url=${encodeURIComponent(url)}`,
+        method: "delete",
+      }) as const,
   },
 } as const)

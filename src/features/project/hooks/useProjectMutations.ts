@@ -1,6 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { useCallback } from "react"
 import { type UseImageUpload, useImageImpUpload } from "@/features/images"
+import { useVideoUpload } from "@/features/videos"
 import { useNavigate } from "@/shared/hooks/useNavigate"
 import { apiRoutes, routes } from "@/shared/routes"
 import type { Project, ProjectInput } from "../project.contract.types"
@@ -51,6 +52,12 @@ export function useUpdateProject(project: Project) {
     presignedUrlEndpoint: apiRoutes.images.projects.path,
   })
 
+  const videoUpload = useVideoUpload(
+    project?.videoUrl
+      ? { video: { url: project.videoUrl }, deferDelete: true }
+      : undefined,
+  )
+
   const onSubmit = useCallback(
     async (data: Project) => {
       const results = await uploads.uploadAll()
@@ -60,16 +67,22 @@ export function useUpdateProject(project: Project) {
         ...(results.gallery?.completed.map((img) => img.url) ?? []),
       ]
 
+      const videoResult = await videoUpload.uploadAll()
+      const videoUrl = videoResult?.url ?? ""
+
       await updateProject.mutateAsync({
         id: project.id,
-        data: { ...data, image: heroUrl, galleryImages: galleryUrls },
+        data: { ...data, image: heroUrl, galleryImages: galleryUrls, videoUrl },
       })
+
+      await videoUpload.deleteVideo()
+      videoUpload.resetAll()
       navigate.push(routes.dashboard.projects.home)
     },
-    [uploads, navigate, updateProject, project.id, project.image],
+    [uploads, navigate, updateProject, project, videoUpload],
   )
 
-  return { onSubmit, uploads }
+  return { onSubmit, uploads, videoUpload }
 }
 
 type UseDeleteProject = {

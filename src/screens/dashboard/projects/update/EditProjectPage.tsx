@@ -43,7 +43,7 @@ type EditProjectFormProps = {
   project: Project
 }
 function EditProjectForm({ projectId, project }: EditProjectFormProps) {
-  const { onSubmit, uploads } = useUpdateProject(project)
+  const { onSubmit, uploads, videoUpload } = useUpdateProject(project)
   const onDeleteProject = useDeleteProject({ projectId, uploads })
   const [showDelete, setShowDelete] = useState(false)
 
@@ -77,6 +77,7 @@ function EditProjectForm({ projectId, project }: EditProjectFormProps) {
         initialValues={project}
         onSubmit={(data) => onSubmit({ ...data, id: projectId })}
         uploads={uploads}
+        videoUpload={videoUpload}
       />
 
       <section className="rounded-2xl border border-error/20 bg-surface-container-lowest p-6 shadow-sm">

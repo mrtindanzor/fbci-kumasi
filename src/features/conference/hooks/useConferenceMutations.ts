@@ -136,7 +136,6 @@ export function useConferenceMutation(initialConference?: Conference) {
         hasFailures++
         failed.forEach((file) => {
           const updater = fileRetrievers.current.get(file.slotKey)
-          console.log({ file, updater })
           updater?.updateState(file)
         })
       }

@@ -77,6 +77,15 @@ class VideoService implements IVideoService {
     await client.fetch()
     return client.data.parts
   }
+
+  async deleteVideo(url: string): Promise<void> {
+    const { path, method } = apiRoutes.videos.delete(url)
+    const client = this.apiClient<{ message: string }>({
+      uri: path,
+      method,
+    })
+    await client.fetch()
+  }
 }
 
 export function createVideoService(apiClient: FetchDataType): IVideoService {

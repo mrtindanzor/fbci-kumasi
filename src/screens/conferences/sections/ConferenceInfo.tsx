@@ -35,15 +35,6 @@ export function ConferenceInfo({ conference }: ConferenceInfoProps) {
       label: "Schedule",
       value: formatDateRange(conference.startDate, conference.endDate),
     },
-    ...(conference.keyScripture
-      ? [
-          {
-            icon: "menu_book",
-            label: "Key Scripture",
-            value: conference.keyScripture,
-          },
-        ]
-      : []),
   ]
 
   return (
