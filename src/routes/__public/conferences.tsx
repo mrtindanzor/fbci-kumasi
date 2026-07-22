@@ -1,9 +1,18 @@
+import { QueryClient } from "@tanstack/react-query"
 import { createFileRoute } from "@tanstack/react-router"
+import { projectListQuery } from "@/features/project"
 import { generateMetaData } from "@/libs/tanstack"
 import { ConferencesPage } from "@/screens/conferences"
+import { HydrationProvider } from "@/shared/ui/HydationProvider"
 
 export const Route = createFileRoute("/__public/conferences")({
-  component: ConferencesPage,
+  component: RouteComponent,
+  loader: async () => {
+    const qc = new QueryClient()
+    const query = projectListQuery()
+    const data = await qc.fetchQuery(query)
+    return { queries: [{ queryKey: query.queryKey, data }] }
+  },
   head: () => ({
     meta: generateMetaData({
       title: "Conferences",
@@ -13,3 +22,13 @@ export const Route = createFileRoute("/__public/conferences")({
     }),
   }),
 })
+
+function RouteComponent() {
+  const { queries } = Route.useLoaderData()
+
+  return (
+    <HydrationProvider queries={queries}>
+      <ConferencesPage />
+    </HydrationProvider>
+  )
+}
