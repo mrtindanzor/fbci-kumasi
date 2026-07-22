@@ -1,12 +1,16 @@
+import type { Conference } from "@/features/conference"
 import { AnimatePosition, slideUp } from "@/shared/ui/Framer"
 import { Image } from "@/shared/ui/primitives/Image"
-import { conference } from "../data"
 
-export function Hero() {
+type HeroProps = {
+  conference: Conference
+}
+
+export function Hero({ conference }: HeroProps) {
   return (
     <section className="relative min-h-[70vh] pt-header-claim flex items-center bg-background overflow-hidden">
       <div className="container-app relative z-10 py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <AnimatePosition variants={slideUp}>
             <span className="inline-block bg-secondary-container text-on-secondary px-4 py-1.5 rounded-full text-sm font-semibold uppercase tracking-wider mb-6">
               Annual Conference
@@ -17,7 +21,7 @@ export function Hero() {
             </h1>
 
             <p className="text-lg text-on-surface-variant max-w-lg leading-relaxed">
-              {conference.subtitle}
+              {conference.shortIntro}
             </p>
           </AnimatePosition>
 

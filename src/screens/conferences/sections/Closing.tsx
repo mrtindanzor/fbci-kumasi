@@ -1,7 +1,13 @@
+import type { Conference } from "@/features/conference"
 import { AnimatePosition, slideUp } from "@/shared/ui/Framer"
-import { conference } from "../data"
 
-export function Closing() {
+type ClosingProps = {
+  conference: Conference
+}
+
+export function Closing({ conference }: ClosingProps) {
+  if (!conference.closingMessage) return null
+
   return (
     <section className="section-gap">
       <div className="container-app">

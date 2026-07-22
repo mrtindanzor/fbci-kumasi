@@ -1,24 +1,27 @@
-import type { VideoUploadState } from "../videos.contracts.types"
+import type {
+  VideoUploadResult,
+  VideoUploadState,
+} from "../videos.contracts.types"
 
 export type VideoUploadConfig = {
   chunkSizeMB?: number
   concurrency?: number
   acceptedTypes?: string[]
   maxFileSizeMB?: number
+  video?: { url: string }
+  deferDelete?: boolean
 }
 
 export type UseVideoUpload = {
   select: (files: File[]) => void
-  remove: (id: string) => void
-  clear: () => void
-
-  start: (id: string) => Promise<void>
-  pause: (id: string) => void
-  resume: (id: string) => void
-  retry: (id: string) => void
-  cancel: (id: string) => void
-
-  getById: (id: string) => VideoUploadState | undefined
-  getAll: () => VideoUploadState[]
+  uploadAll: () => Promise<VideoUploadResult | null>
+  preview: () => VideoUploadState | null
+  remove: () => void
+  resetAll: () => void
+  deleteVideo: () => Promise<void>
+  pause: () => void
+  resume: () => void
+  retry: () => void
+  cancel: () => void
   isUploading: boolean
 }

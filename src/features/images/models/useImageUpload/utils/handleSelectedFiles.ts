@@ -37,7 +37,7 @@ export function handleSelectedFiles<T extends Record<string, SlotConfig>>({
     return [
       ...notBelongsToSlot,
       {
-        state: "raw",
+        state: "uploading",
         file,
         id: `${file.size}${file.name}${file.lastModified}`,
         previewImage: URL.createObjectURL(file),

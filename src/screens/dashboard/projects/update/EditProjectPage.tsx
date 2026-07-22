@@ -1,67 +1,23 @@
 import { useState } from "react"
-import { useImageImpUpload } from "@/features/images"
 import {
+  type Project,
   useDeleteProject,
   useProject,
   useUpdateProject,
 } from "@/features/project"
 import { DashboardTopbar } from "@/screens/dashboard/layout/DashboardTopbar"
-import { useNavigate } from "@/shared/hooks/useNavigate"
-import { apiRoutes, routes } from "@/shared/routes"
+import { routes } from "@/shared/routes"
 import { ConfirmDialog } from "@/shared/ui/ConfirmDialog"
 import { Button, Link } from "@/shared/ui/primitives/button"
 import { Spinner } from "@/shared/ui/primitives/Spinner"
-import { ProjectForm, type ProjectFormOutput } from "../components/ProjectForm"
+import { ProjectForm } from "../components/ProjectForm"
 
 type EditProjectPageProps = {
   projectId: string
 }
 
 export function EditProjectPage({ projectId }: EditProjectPageProps) {
-  const navigate = useNavigate()
   const { data: project, isLoading } = useProject(projectId)
-  const updateProject = useUpdateProject()
-  const deleteProject = useDeleteProject()
-  const [showDelete, setShowDelete] = useState(false)
-
-  const uploads = useImageImpUpload({
-    slots: {
-      hero: {
-        multiple: false,
-        maxImageSizeInMB: 3,
-        images: project?.image ? [{ url: project.image }] : [],
-      },
-      gallery: {
-        multiple: true,
-        limit: 10,
-        maxImageSizeInMB: 3,
-        batchDelete: true,
-        images: project?.galleryImages.map((url) => ({ url })),
-      },
-    },
-    presignedUrlEndpoint: apiRoutes.images.projects.path,
-  })
-
-  const handleSubmit = async (data: ProjectFormOutput) => {
-    const results = await uploads.uploadAll()
-
-    const heroUrl = results.hero?.completed[0]?.url ?? project?.image ?? ""
-    const galleryUrls = [
-      ...(results.gallery?.completed.map((img) => img.url) ?? []),
-    ]
-
-    await updateProject.mutateAsync({
-      id: projectId,
-      data: { ...data, image: heroUrl, galleryImages: galleryUrls },
-    })
-    navigate.push(routes.dashboard.projects.home)
-  }
-
-  const handleDelete = async () => {
-    await uploads.deleteImages(["hero", "gallery"])
-    await deleteProject.mutateAsync(projectId)
-    navigate.push(routes.dashboard.projects.home)
-  }
 
   if (isLoading) {
     return (
@@ -78,6 +34,18 @@ export function EditProjectPage({ projectId }: EditProjectPageProps) {
       </div>
     )
   }
+
+  return <EditProjectForm projectId={projectId} project={project} />
+}
+
+type EditProjectFormProps = {
+  projectId: string
+  project: Project
+}
+function EditProjectForm({ projectId, project }: EditProjectFormProps) {
+  const { onSubmit, uploads, videoUpload } = useUpdateProject(project)
+  const onDeleteProject = useDeleteProject({ projectId, uploads })
+  const [showDelete, setShowDelete] = useState(false)
 
   return (
     <div className="space-y-6">
@@ -107,8 +75,9 @@ export function EditProjectPage({ projectId }: EditProjectPageProps) {
 
       <ProjectForm
         initialValues={project}
-        onSubmit={handleSubmit}
+        onSubmit={(data) => onSubmit({ ...data, id: projectId })}
         uploads={uploads}
+        videoUpload={videoUpload}
       />
 
       <section className="rounded-2xl border border-error/20 bg-surface-container-lowest p-6 shadow-sm">
@@ -132,7 +101,7 @@ export function EditProjectPage({ projectId }: EditProjectPageProps) {
         description={`Are you sure you want to delete "${project.title}"? This action cannot be undone.`}
         confirmLabel="Delete"
         variant="danger"
-        onConfirm={handleDelete}
+        onConfirm={onDeleteProject}
         onCancel={() => setShowDelete(false)}
       />
     </div>

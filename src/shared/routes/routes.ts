@@ -43,6 +43,10 @@ export const routes = Object.freeze({
       new: "/dashboard/projects/new",
       editById: (id: string) => `/dashboard/projects/edit/${id}` as const,
     },
+    conferences: {
+      home: "/dashboard/conferences",
+      new: "/dashboard/conferences/new",
+    },
   },
 } as const)
 

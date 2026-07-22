@@ -11,7 +11,7 @@ export function AwaitAuthLoad({ children }: PropsWithChildren) {
       {isLoggedIn && children}
       {!hasRefreshed && (
         <div className="h-vh w-screen bg-surface text-on-surfacer">
-          <Spinner className="size-20 my-auto border-5 fixed top-4/10 right-1/2 -translate-1/2" />
+          <Spinner className="size-20 border-5 fixed top-4/10 left-1/2 -translate-1/2" />
         </div>
       )}
     </>

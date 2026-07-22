@@ -1,3 +1,4 @@
+import axios, { AxiosError } from "axios"
 import type { IVideoService, PartChunk } from "../../videos.contracts.types"
 
 type UploadQueueCallbacks = {
@@ -176,44 +177,27 @@ async function uploadPartToUrl(
   onProgress: (partNumber: number, loaded: number, total: number) => void,
   signal: AbortSignal,
 ): Promise<string> {
-  return new Promise((resolve, reject) => {
-    const xhr = new XMLHttpRequest()
-
-    xhr.upload.addEventListener("progress", (e) => {
-      if (e.lengthComputable) {
-        onProgress(partNumber, e.loaded, e.total)
-      }
+  try {
+    const response = await axios.put(url, slice, {
+      signal,
+      onUploadProgress: (e) => {
+        if (e.lengthComputable) {
+          onProgress(partNumber, e.loaded, e?.total || slice.size)
+        }
+      },
     })
 
-    xhr.addEventListener("load", () => {
-      if (xhr.status >= 200 && xhr.status < 300) {
-        const etag =
-          xhr.getResponseHeader("ETag") ??
-          xhr.getResponseHeader("etag") ??
-          `"${partNumber}"`
-        resolve(etag)
-      } else {
-        reject(
-          new Error(
-            `Part ${partNumber} upload failed with status ${xhr.status}`,
-          ),
-        )
-      }
-    })
+    return response.headers.ETag ?? response.headers.etag ?? `"${partNumber}"`
+  } catch (error) {
+    if (error instanceof AxiosError) {
+      if (error.code === "ERR_CANCELED")
+        throw new DOMException("Upload aborted", "AbortError")
 
-    xhr.addEventListener("error", () => {
-      reject(new Error(`Part ${partNumber} upload failed`))
-    })
+      throw new Error(
+        `Part ${partNumber} upload failed with status ${error.status}`,
+      )
+    }
 
-    xhr.addEventListener("abort", () => {
-      reject(new DOMException("Upload aborted", "AbortError"))
-    })
-
-    signal.addEventListener("abort", () => {
-      xhr.abort()
-    })
-
-    xhr.open("PUT", url)
-    xhr.send(slice)
-  })
+    throw new Error(`Part ${partNumber} upload failed to upload`)
+  }
 }

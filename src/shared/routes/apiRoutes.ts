@@ -64,11 +64,24 @@ export const apiRoutes = Object.freeze({
   images: {
     remove: (url: string) =>
       ({
-        path: `/images/${url}`,
+        path: `/images?url=${encodeURIComponent(url)}`,
         method: "delete",
       }) as const,
     projects: {
       path: "/images",
+    },
+    conferences: {
+      path: "/images",
+    },
+  },
+  files: {
+    remove: (url: string) =>
+      ({
+        path: `/files?url=${encodeURIComponent(url)}`,
+        method: "delete",
+      }) as const,
+    conferences: {
+      path: "/files",
     },
   },
   contact: {
@@ -80,6 +93,31 @@ export const apiRoutes = Object.freeze({
       path: "/contact",
       method: "get",
     },
+  },
+  conferences: {
+    active: {
+      path: "/conferences",
+      method: "get",
+    },
+    byId: (id: string) =>
+      ({
+        path: `/conferences/${id}`,
+        method: "get",
+      }) as const,
+    create: {
+      path: "/conferences",
+      method: "post",
+    },
+    update: (id: string) =>
+      ({
+        path: `/conferences/${id}`,
+        method: "patch",
+      }) as const,
+    delete: (id: string) =>
+      ({
+        path: `/conferences/${id}`,
+        method: "delete",
+      }) as const,
   },
   videos: {
     createSession: {
@@ -102,5 +140,10 @@ export const apiRoutes = Object.freeze({
       path: "/videos/uploaded-parts",
       method: "post",
     },
+    delete: (url: string) =>
+      ({
+        path: `/videos?url=${encodeURIComponent(url)}`,
+        method: "delete",
+      }) as const,
   },
 } as const)

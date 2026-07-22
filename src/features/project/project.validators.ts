@@ -40,28 +40,21 @@ export const projectInputValidator = z
     {
       title: z.string("Please enter a valid title").min(1, "Title is required"),
       story: z.string("Please enter a valid story").min(1, "Story is required"),
-      image: z.string("Please provide a valid image URL").default(""),
-      galleryImages: z
-        .array(
-          z.string("Please provide a valid image URL"),
-          "Gallery images must be an array of URLs",
-        )
-        .default([]),
-      videoUrl: z.string("Please provide a valid video URL").default(""),
+      image: z.string("Please provide a valid image URL"),
+      galleryImages: z.array(
+        z.string("Please provide a valid image URL"),
+        "Gallery images must be an array of URLs",
+      ),
+      videoUrl: z.string("Please provide a valid video URL"),
       goal: z
         .number("Please enter a valid goal amount")
         .min(1, "Goal must be at least $1"),
-      status: z
-        .enum(["funded", "ongoing"], "Please select a valid status")
-        .default("ongoing"),
-      completionDate: z
-        .string("Please enter a valid completion date")
-        .default(""),
-      paymentLink: z.string("Please provide a valid payment link").default(""),
+      status: z.enum(["funded", "ongoing"], "Please select a valid status"),
+      completionDate: z.string("Please enter a valid completion date"),
+      paymentLink: z.string("Please provide a valid payment link"),
       funded: z
         .number("Please enter a valid funded amount")
-        .min(0, "Funded amount cannot be negative")
-        .default(0),
+        .nonnegative("Funded amount cannot be negative"),
     },
     { error: "Please fill in all required fields" },
   )

@@ -52,8 +52,13 @@ export function LoadingScreen() {
       await animatePhase(
         logo.start({
           opacity: 1,
-          visibility: "visible",
           transition: { duration: TIMING.logoFadeOut },
+        }),
+      )
+      await animatePhase(
+        logo.start({
+          opacity: 0,
+          transition: { duration: 0.2 },
         }),
       )
 

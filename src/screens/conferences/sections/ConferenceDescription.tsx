@@ -1,7 +1,13 @@
+import type { Conference } from "@/features/conference"
 import { AnimatePosition, slideUp } from "@/shared/ui/Framer"
-import { conference } from "../data"
 
-export function ConferenceDescription() {
+type ConferenceDescriptionProps = {
+  conference: Conference
+}
+
+export function ConferenceDescription({
+  conference,
+}: ConferenceDescriptionProps) {
   return (
     <section className="section-gap">
       <div className="container-app max-w-3xl mx-auto">
@@ -12,7 +18,7 @@ export function ConferenceDescription() {
           <div className="w-8 h-0.5 bg-secondary rounded-full mb-8" />
 
           <p className="text-on-surface-variant leading-relaxed text-lg">
-            {conference.description}
+            {conference.fullDescription}
           </p>
         </AnimatePosition>
       </div>

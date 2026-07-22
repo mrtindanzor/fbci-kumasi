@@ -39,7 +39,8 @@ export function UploadedImagePreview({
         x="center"
         y="center"
         title="Image uploaded"
-        className="absolute bottom-1 left-1 p-0.5 opacity-80 bg-secondary text-white"
+        size="none"
+        className="absolute rounded-md bottom-1 left-1 p-0.5 opacity-80 bg-secondary text-neutral-50"
       >
         <CloudCheck className="size-5" />
       </Pill>
@@ -73,7 +74,7 @@ export function NewImagePreview({
           x="center"
           y="center"
           title="Compressing image"
-          className="absolute bottom-1 left-1 p-0.5 bg-surface-container-high/80 text-on-surface-variant"
+          className="absolute bottom-1 left-1 p-0.5 bg-surface-container/80 text-on-surface-variant"
         >
           <LiaCompressArrowsAltSolid className="size-5 animate-pulse" />
         </Pill>
@@ -95,13 +96,13 @@ export function ErrorImagePreview({
   return (
     <PreviewWrapper
       title={`Error: ${reason}`}
-      className="text-xs text-error flex items-end size-full text-center"
+      className="text-xs text-error flex items-end text-center"
     >
       <RemoveImageButton
         {...buttonProps}
         close={() => onRemoveImage({ state: "error", id })}
       />
-      <div className="absolute inset-0 z-1 flex items-end p-2 bg-linear-to-b from-surface-container-high/40 to-surface-container-high/40">
+      <div className="absolute inset-0 z-1 flex items-end p-2 bg-linear-to-b from-primary-container/40 to-primary-container/40">
         <p className="line-clamp-3">{reason}</p>
       </div>
 
@@ -109,11 +110,11 @@ export function ErrorImagePreview({
         <>
           <Image src={url} alt="Preview" className="aspect-square" />
           <Button
-            className="absolute z-2 left-1/2 top-1/2 rounded-xl -translate-1/2 aspect-square text-on-surface"
+            className="absolute z-2 left-1/2 top-1/2 rounded-xl -translate-1/2 aspect-square text-neutral-50 hover:text-primary"
             type="button"
             y="center"
             title="Retry Upload"
-            variant="secondary"
+            variant="ghost"
             onClick={() => retryUpload(id)}
           >
             <RotateCw className="size-6" />
@@ -147,8 +148,8 @@ export function UploadingImagePreview({
 function Progress({ progress }: { progress: number | undefined | null }) {
   return (
     <Visibility show={!!progress}>
-      <div className="size-full aspect-square absolute inset-0 bg-linear-to-b text-secondary from-surface-container-high/40 via-surface-container-high/50 to-surface-container-high/40 flex-place-center mx-auto bottom-2">
-        <div className="relative aspect-square! size-[70%] bg-surface-container-high/30 rounded-full flex-place-center">
+      <div className="size-full aspect-square border-4 flex-place-center absolute inset-0 bg-linear-to-b text-secondary from-primary-container-high/90 via-primary-container/50 to-primary-container/40 mx-auto bottom-2">
+        <div className="relative aspect-square! size-[70%] bg-surface-container/30 rounded-full flex-place-center">
           <div className="absolute ease-linear inset-0 aspect-square! m-auto size-[90%] border-4 border-secondary border-l-on-surface-variant rounded-full animate-spin" />
           <p>{progress ?? 1}%</p>
         </div>
