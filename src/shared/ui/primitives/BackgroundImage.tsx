@@ -13,10 +13,10 @@ export function BackgroundImage({
   return (
     <div {...props} className={cn("absolute inset-0 opacity-50", className)}>
       <div
-        className={cn(
-          "absolute inset-0 bg-cover bg-center",
-          `bg-[url('${url}')]`,
-        )}
+        className="absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage: `url('${url}')`,
+        }}
       />
     </div>
   )
