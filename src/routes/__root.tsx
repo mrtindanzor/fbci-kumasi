@@ -7,11 +7,15 @@ import {
 import { generateMetaData } from "@/libs/tanstack"
 import { BaseProvider } from "@/providers/BaseProvider"
 import { BRANDING } from "@/shared/constants"
+import { ErrorPage } from "@/shared/ui/ErrorPage"
 import { LoadingScreen } from "@/shared/ui/LoadingScreen"
+import { NotFound } from "@/shared/ui/NotFound"
 import appCss from "./globals.css?url"
 
 export const Route = createRootRoute({
   component: RootLayout,
+  notFoundComponent: NotFound,
+  errorComponent: ({ reset }) => <ErrorPage reset={reset} />,
   head: () => ({
     meta: [
       { charSet: "utf-8" },
