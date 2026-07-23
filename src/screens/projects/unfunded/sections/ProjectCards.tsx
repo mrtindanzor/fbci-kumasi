@@ -2,9 +2,13 @@ import { motion } from "framer-motion"
 import { useProjects } from "@/features/project"
 import { slideUp } from "@/shared/ui/Framer"
 import { ProjectCard } from "../../components/ProjectCard"
+import { EmptyState } from "./EmptyState"
 
 export function ProjectCards() {
-  const { data: projects = [] } = useProjects()
+  const { data: projects = [], isLoading } = useProjects()
+
+  if (isLoading) return null
+  if (projects.length === 0 && !isLoading) return <EmptyState />
 
   return (
     <section className="section-gap">
