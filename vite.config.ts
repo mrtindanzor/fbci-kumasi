@@ -14,7 +14,7 @@ export default defineConfig({
       prerender: {
         enabled: true,
         filter: ({ path }) =>
-          ![routes.conferences, routes.projects.home].every(
+          [routes.conferences, routes.projects.home].every(
             (route) => !path.startsWith(route),
           ),
       },
