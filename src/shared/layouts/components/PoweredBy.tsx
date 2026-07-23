@@ -1,28 +1,21 @@
-import { ArrowUp } from "lucide-react"
 import { Link } from "@/shared/ui/primitives/button"
 
 export function PoweredBy() {
   return (
-    <section className="font-sans my-4 mx-auto col-span-full w-fit flex gap-y-2 flex-col items-center">
-      <h4 className="text-success text-sm">
-        Powered By Tindanzor Software Solutions&reg;
-      </h4>
-
-      <p className="text-sm flex items-center">
-        Reach out
-        <br />
+    <div className="mt-6 pt-4 border-t border-white/10 text-center">
+      <p className="text-xs text-white/40">
+        Powered by{" "}
         <Link
-          target="_blank"
-          rel="noopener norefeerer"
-          href="https://mrtindanzor.com/contact"
           variant="link"
           size="none"
-          className="group ml-2"
+          href="https://mrtindanzor.com/contact"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-white/60 hover:text-white transition-colors"
         >
-          mrtindanzor.com{" "}
-          <ArrowUp className="rotate-45 stroke-1 size-5 animate-bounce group-hover:animate-none" />
+          Tindanzor Software Solutions&reg;
         </Link>
       </p>
-    </section>
+    </div>
   )
 }
