@@ -1,6 +1,7 @@
 import { Categories } from "./sections/Categories"
 import { DiscipleshipSection } from "./sections/DiscipleshipSection"
 import { Hero } from "./sections/Hero"
+import { MusicSection } from "./sections/MusicSection"
 import { PodcastSection } from "./sections/PodcastSection"
 import { SalvationSection } from "./sections/SalvationSection"
 import { YouTubeSection } from "./sections/YouTubeSection"
@@ -14,6 +15,7 @@ export function ResourcesPage() {
       <YouTubeSection />
       <DiscipleshipSection />
       <SalvationSection />
+      <MusicSection />
     </main>
   )
 }
