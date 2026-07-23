@@ -5,7 +5,7 @@ import { collegeData } from "../data"
 
 export function About() {
   return (
-    <section className="section-gap">
+    <section className="section-gap py-8">
       <div className="container-app max-w-3xl mx-auto">
         <AnimatePosition variants={slideUp}>
           <h2 className="text-3xl md:text-4xl font-headline font-bold text-primary mb-2">
