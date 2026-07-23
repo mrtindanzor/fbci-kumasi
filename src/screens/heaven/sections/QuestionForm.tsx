@@ -5,13 +5,14 @@ import { Button, Link } from "@/shared/ui/primitives/button"
 import { FieldError } from "@/shared/ui/primitives/FieldError"
 import { FieldSuccess } from "@/shared/ui/primitives/FieldSuccess"
 import { Input } from "@/shared/ui/primitives/Input"
+import { LoadingSwap } from "@/shared/ui/primitives/LoadingSwap"
 import { Textarea } from "@/shared/ui/primitives/Textarea"
 
 export function QuestionForm() {
   const {
     onSubmit,
     register,
-    formState: { errors },
+    formState: { errors, isSubmitting },
     successMessage,
   } = useContact({
     defaultValues: {
@@ -59,8 +60,18 @@ export function QuestionForm() {
                 className="text-center"
               />
               <FieldSuccess message={successMessage} className="my-2" />
-              <Button type="submit" variant="primary" className="w-full">
-                Submit Inquiry
+              <Button
+                disabled={isSubmitting}
+                type="submit"
+                variant="primary"
+                className="w-full"
+              >
+                <LoadingSwap className="border-3" isLoading={isSubmitting}>
+                  Submit Inquiry
+                  <span className="material-symbols-outlined text-lg">
+                    send
+                  </span>
+                </LoadingSwap>
               </Button>
             </form>
           </AnimatePosition>

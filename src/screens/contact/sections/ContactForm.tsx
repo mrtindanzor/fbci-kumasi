@@ -5,6 +5,7 @@ import { FieldError } from "@/shared/ui/primitives/FieldError"
 import { FieldSuccess } from "@/shared/ui/primitives/FieldSuccess"
 import { Input } from "@/shared/ui/primitives/Input"
 import { Label } from "@/shared/ui/primitives/Label"
+import { LoadingSwap } from "@/shared/ui/primitives/LoadingSwap"
 import { Textarea } from "@/shared/ui/primitives/Textarea"
 import { SocialMediaLinks } from "@/shared/ui/SocialMediaLinks"
 
@@ -19,7 +20,7 @@ export function ContactForm() {
   const {
     onSubmit,
     register,
-    formState: { errors },
+    formState: { errors, isSubmitting },
     successMessage = SUBJECTS[0],
     setValue,
   } = useContact({
@@ -111,9 +112,18 @@ export function ContactForm() {
                 className="text-center"
               />
               <FieldSuccess message={successMessage} className="my-1" />
-              <Button type="submit" variant="primary" className="w-full gap-2">
-                Send Message
-                <span className="material-symbols-outlined text-lg">send</span>
+              <Button
+                disabled={isSubmitting}
+                type="submit"
+                variant="primary"
+                className="w-full gap-2"
+              >
+                <LoadingSwap className="border-3" isLoading={isSubmitting}>
+                  Send Message
+                  <span className="material-symbols-outlined text-lg">
+                    send
+                  </span>
+                </LoadingSwap>
               </Button>
             </form>
           </div>
