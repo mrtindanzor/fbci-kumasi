@@ -3,6 +3,7 @@ import { CHURCH_INFO } from "@/shared/db"
 import { AnimatePosition, slideUp } from "@/shared/ui/Framer"
 import { Button, Link } from "@/shared/ui/primitives/button"
 import { FieldError } from "@/shared/ui/primitives/FieldError"
+import { FieldSuccess } from "@/shared/ui/primitives/FieldSuccess"
 import { Input } from "@/shared/ui/primitives/Input"
 import { Textarea } from "@/shared/ui/primitives/Textarea"
 
@@ -11,6 +12,7 @@ export function QuestionForm() {
     onSubmit,
     register,
     formState: { errors },
+    successMessage,
   } = useContact({
     defaultValues: {
       subject: "Question on How to Be Saved",
@@ -51,6 +53,12 @@ export function QuestionForm() {
                 rows={4}
               />
               <FieldError message={errors.message?.message} />
+
+              <FieldError
+                message={errors.root?.message}
+                className="text-center"
+              />
+              <FieldSuccess message={successMessage} className="my-2" />
               <Button type="submit" variant="primary" className="w-full">
                 Submit Inquiry
               </Button>

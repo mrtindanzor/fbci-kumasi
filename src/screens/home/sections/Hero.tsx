@@ -32,9 +32,9 @@ export function Hero() {
             variants={slideUp}
             className="text-lg md:text-xl text-white/80 mb-10 max-w-xl mx-auto leading-relaxed"
           >
-            Join Us This Sunday for a transformative experience of worship,
-            community, and word. We believe in creating a modern sanctuary for
-            all generations.
+            Join us for worship grounded in the authority of God's Word. We are
+            a family of believers pursuing truth, spiritual maturity, and the
+            Great Commission.
           </motion.p>
 
           <motion.div variants={slideUp}>

@@ -83,14 +83,14 @@ export function Beliefs() {
         </motion.div>
 
         <AnimatePosition variants={slideUp} className="max-w-5xl mx-auto">
-          <div className="bg-primary rounded-2xl p-8 md:p-10 text-center text-white mt-12">
+          <div className="bg-surface-container rounded-2xl p-8 md:p-10 text-center mt-12 border border-outline-variant/30">
             <span className="material-symbols-outlined text-4xl text-secondary mb-4 block">
               lightbulb
             </span>
-            <h3 className="text-2xl md:text-3xl font-headline font-bold mb-3">
+            <h3 className="text-2xl md:text-3xl font-headline font-bold text-primary mb-3">
               Want a Deeper Understanding?
             </h3>
-            <p className="text-white/80 max-w-xl mx-auto mb-6">
+            <p className="text-on-surface-variant max-w-xl mx-auto mb-6">
               The Bible is clear about salvation and eternal life. Explore God's
               plan for yourself and discover the assurance that comes from
               knowing His Word.
@@ -170,8 +170,8 @@ export function Beliefs() {
         </AnimatePosition>
 
         <AnimatePosition variants={slideUp} className="max-w-5xl mx-auto mt-16">
-          <div className="bg-primary rounded-2xl p-8 md:p-10 text-center text-neutral-300">
-            <p className="leading-relaxed max-w-2xl mx-auto mb-8">
+          <div className="bg-surface-container rounded-2xl p-8 md:p-10 text-center border border-outline-variant/30">
+            <p className="text-on-surface-variant leading-relaxed max-w-2xl mx-auto mb-8">
               If you have any questions about the beliefs of {BRANDING.name}{" "}
               concerning any doctrine, we would be delighted to hear from you.
               Please don&rsquo;t hesitate to contact us.

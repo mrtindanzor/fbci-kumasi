@@ -59,7 +59,7 @@ export function DiscipleshipSection() {
                   rel="noopener noreferrer"
                   variant="gold"
                   size="lg"
-                  className="w-full justify-center gap-2"
+                  className="w-full text-sm justify-center gap-2"
                 >
                   <Download className="size-5" />
                   Download Complete Course (.zip)
@@ -69,7 +69,7 @@ export function DiscipleshipSection() {
                   href={routes.resources.lessons}
                   variant="secondary"
                   size="lg"
-                  className="w-full justify-center gap-2"
+                  className="w-full text-sm justify-center gap-2"
                 >
                   Browse Individual Lessons
                   <ArrowRight className="size-5" />

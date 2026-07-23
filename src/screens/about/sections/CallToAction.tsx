@@ -23,20 +23,20 @@ export function CallToAction() {
             </div>
 
             <div className="flex flex-wrap gap-8 items-start max-w-2xl mx-auto w-fit">
-              <div className="h-fit grid gap-y-2">
+              <div className="h-fit grid gap-y-2 mx-auto">
                 <p className="font-semibold justify-center gap-x-2 flex items-end text-primary">
                   <span className="material-symbols-outlined text-secondary">
                     calendar_month
                   </span>{" "}
                   Visit Us
                 </p>
-                <ul className="grid gap-y-1.5 pl-8 pr-2">
+                <ul className="grid gap-y-1.5">
                   {CHURCH_INFO.serviceTimes.map((service) => (
                     <li
                       key={service.day}
                       className="flex items-center gap-3 text-on-surface-variant"
                     >
-                      <div className="text-left">
+                      <div className="mx-auto">
                         <p className="text-sm">
                           {service.day} {service.time}
                         </p>
@@ -45,7 +45,7 @@ export function CallToAction() {
                   ))}
                 </ul>
               </div>
-              <div className="flex items-end gap-3 text-on-surface-variant">
+              <div className="flex items-end gap-3 mx-auto text-on-surface-variant">
                 <div className="text-left">
                   <div className="flex justify-center items-end gap-2">
                     <span className="material-symbols-outlined text-secondary">
@@ -53,7 +53,7 @@ export function CallToAction() {
                     </span>
                     <p className="font-semibold text-primary text-sm">Give</p>
                   </div>
-                  <p className="text-sm pl-8">Support our mission</p>
+                  <p className="text-sm">Support our mission</p>
                 </div>
               </div>
             </div>

@@ -1,3 +1,6 @@
+import { Mail, Phone } from "lucide-react"
+import { CHURCH_INFO } from "@/shared/db"
+
 export const IMPACTS = [
   {
     icon: "school",
@@ -21,5 +24,20 @@ export const IMPACTS = [
     icon: "menu_book",
     title: "Resource Dev",
     description: "Printing and distributing sound theological literature.",
+  },
+]
+
+export const CONTACT_OPTIONS = [
+  {
+    icon: Phone,
+    title: "Phone",
+    value: CHURCH_INFO.phone,
+    link: `tel:${CHURCH_INFO.phone}`,
+  },
+  {
+    icon: Mail,
+    title: "Email",
+    value: CHURCH_INFO.socials.email,
+    link: `mailto:${CHURCH_INFO.socials.email}`,
   },
 ]

@@ -36,7 +36,7 @@ export function SalvationSection() {
             rel="noopener noreferrer"
             variant="gold"
             size="lg"
-            className="gap-2"
+            className="gap-2 text-sm"
           >
             <Download className="size-5" />
             Download Salvation Booklet (PDF)

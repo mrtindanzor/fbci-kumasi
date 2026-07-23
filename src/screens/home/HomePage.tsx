@@ -6,6 +6,7 @@ import { HeavenCTA } from "./sections/HeavenCTA"
 import { Hero } from "./sections/Hero"
 import { MapSection } from "./sections/MapSection"
 import { MediaMinistry } from "./sections/MediaMinistry"
+import { MinistriesCTA } from "./sections/MinistriesCTA"
 import { OnDemand } from "./sections/OnDemand"
 import { ServiceTimes } from "./sections/ServiceTimes"
 
@@ -20,6 +21,7 @@ export function HomePage() {
       <MediaMinistry />
       <OnDemand />
       <FeaturedMinistry />
+      <MinistriesCTA />
       <CallToAction />
       <MapSection />
     </main>

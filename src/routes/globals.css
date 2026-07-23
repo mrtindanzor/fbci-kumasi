@@ -155,7 +155,7 @@
   --spacing-gutter: 24px;
   --spacing-margin-mobile: 16px;
   --spacing-margin-desktop: 80px;
-  --spacing-header-claim: 4rem;
+  --spacing-header-claim: 5rem;
 
   --radius-sm: 0.25rem;
   --radius-md: 0.5rem;
@@ -163,7 +163,7 @@
   --radius-xl: 0.75rem;
   --radius-full: 9999px;
 
-  --height-app-height: calc(100dvh - 3.5rem);
+  --height-app-height: calc(100vh - 3.5rem);
 }
 
 @layer base {

@@ -1,3 +1,4 @@
+import { ExternalLink } from "lucide-react"
 import { AnimatePosition, slideUp } from "@/shared/ui/Framer"
 import { Link } from "@/shared/ui/primitives/button"
 import { Player } from "@/shared/ui/primitives/PodbeanPlayer"
@@ -23,7 +24,7 @@ export function OnDemand() {
               href="https://tedspeer.podbean.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 font-semibold hover:underline"
+              className="hidden sm:inline-flex items-center gap-2 font-semibold hover:underline"
             >
               View Full Library
             </Link>
@@ -38,6 +39,15 @@ export function OnDemand() {
               <Player key={src} src={src} />
             ))}
           </ul>
+
+          <Link
+            href="https://tedspeer.podbean.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex sm:hidden w-fit mx-auto px-8 mt-6 items-center gap-2 font-semibold hover:underline"
+          >
+            View Full Library <ExternalLink className="size-4" />
+          </Link>
         </AnimatePosition>
       </div>
     </section>

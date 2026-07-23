@@ -2,6 +2,7 @@ import { useContact } from "@/features/contact"
 import { AnimatePosition, slideUp } from "@/shared/ui/Framer"
 import { Button } from "@/shared/ui/primitives/button"
 import { FieldError } from "@/shared/ui/primitives/FieldError"
+import { FieldSuccess } from "@/shared/ui/primitives/FieldSuccess"
 import { Input } from "@/shared/ui/primitives/Input"
 import { Label } from "@/shared/ui/primitives/Label"
 import { Textarea } from "@/shared/ui/primitives/Textarea"
@@ -19,6 +20,7 @@ export function ContactForm() {
     onSubmit,
     register,
     formState: { errors },
+    successMessage = SUBJECTS[0],
     setValue,
   } = useContact({
     defaultValues: {
@@ -104,6 +106,11 @@ export function ContactForm() {
                 <FieldError message={errors.message?.message} />
               </div>
 
+              <FieldError
+                message={errors.root?.message}
+                className="text-center"
+              />
+              <FieldSuccess message={successMessage} className="my-1" />
               <Button type="submit" variant="primary" className="w-full gap-2">
                 Send Message
                 <span className="material-symbols-outlined text-lg">send</span>

@@ -1,5 +1,4 @@
 import { type HTMLMotionProps, motion } from "framer-motion"
-import { forwardRef } from "react"
 
 type AnimatePositionProps = HTMLMotionProps<"div"> & {
   viewport?: {
@@ -8,18 +7,15 @@ type AnimatePositionProps = HTMLMotionProps<"div"> & {
   }
 }
 
-export const AnimatePosition = forwardRef<HTMLDivElement, AnimatePositionProps>(
-  function AnimatePosition({ children, viewport, ...props }, ref) {
-    return (
-      <motion.div
-        ref={ref}
-        initial="hidden"
-        whileInView="show"
-        viewport={viewport ?? { once: true }}
-        {...props}
-      >
-        {children}
-      </motion.div>
-    )
-  },
-)
+export function AnimatePosition({ children, ...props }: AnimatePositionProps) {
+  return (
+    <motion.div
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true }}
+      {...props}
+    >
+      {children}
+    </motion.div>
+  )
+}
