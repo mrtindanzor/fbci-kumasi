@@ -1,8 +1,8 @@
 "use client"
 
-import { Button, Link } from "@/shared/ui/primitives/button"
 import { ArrowRight, Menu } from "lucide-react"
 import { useEffect, useState } from "react"
+import { Button, Link } from "@/shared/ui/primitives/button"
 import { routes } from "../routes"
 import { Logo } from "../ui/Logo"
 import { DesktopNav } from "./Navbar/DesktopNav"

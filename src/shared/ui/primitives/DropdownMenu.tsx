@@ -1,8 +1,8 @@
+import { ChevronDown } from "lucide-react"
+import { useCallback, useEffect, useRef, useState } from "react"
 import { AnimatePresence, motion } from "@/shared/ui/Framer"
 import { Button, Link } from "@/shared/ui/primitives/button"
 import { cn } from "@/shared/utils/cn"
-import { ChevronDown } from "lucide-react"
-import { useCallback, useEffect, useRef, useState } from "react"
 
 type DropdownItem = {
   label: string
