@@ -16,6 +16,9 @@ export default defineConfig({
         filter: ({ path }) =>
           [routes.conferences, routes.projects.home].every(
             (route) => !path.startsWith(route),
+          ) &&
+          [".mp3", ".jpeg", ".jpg", ".png", ".zip", ".pdf"].every(
+            (ext) => !path.endsWith(ext),
           ),
       },
     }),
