@@ -17,6 +17,9 @@ export type ChurchInfo = {
     facebook: string
     youtube: string
     email: string
+    twitter: string
+    instagram: string
+    rumble: string
   }
   giving: string
   pastor: {

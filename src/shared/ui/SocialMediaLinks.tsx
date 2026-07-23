@@ -1,35 +1,36 @@
 import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa"
 import { SiRumble } from "react-icons/si"
+import { CHURCH_INFO } from "../db"
 import { Link } from "./primitives/button"
 
 const links = [
   {
     icon: FaFacebook,
-    link: "https://web.facebook.com/teamghana",
+    link: CHURCH_INFO.socials.facebook,
     color: "text-blue-500",
     title: "Facebook",
   },
   {
     icon: FaInstagram,
-    link: "https://www.instagram.com/fundamentalhour/",
+    link: CHURCH_INFO.socials.instagram,
     color: "text-red-800",
     title: "Instagram",
   },
   {
     icon: FaTwitter,
-    link: "https://x.com/fundamentalhour",
+    link: CHURCH_INFO.socials.twitter,
     color: "text-blue-500",
     title: "X (Twitter)",
   },
   {
     icon: FaYoutube,
-    link: "https://youtube.com/@fundamentalhourgh/videos",
+    link: CHURCH_INFO.socials.youtube,
     color: "text-red-600",
     title: "YouTube",
   },
   {
     icon: SiRumble,
-    link: "https://rumble.com/fundamentalhour",
+    link: CHURCH_INFO.socials.rumble,
     color: "text-green-700",
     title: "Rumble",
   },

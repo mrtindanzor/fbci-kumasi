@@ -30,9 +30,12 @@ export const CHURCH_INFO: ChurchInfo = {
     },
   ],
   socials: {
-    facebook: "https://facebook.com/houseanderson",
-    youtube: "https://youtube.com/houseanderson",
+    facebook: "https://facebook.com/fbcibohyen",
+    youtube: "https://youtube.com/@fbcibohyen",
     email: "fbcikumasi@gmail.com",
+    twitter: "https://x.com/FundamentalHour",
+    instagram: "https://www.instagram.com/fundamentalhour",
+    rumble: "https://rumble.com/fundamentalhour",
   },
   giving: "*713*2810#",
   pastor: {
@@ -43,4 +46,4 @@ export const CHURCH_INFO: ChurchInfo = {
   },
   donationLink:
     "https://forms.ministryforms.net/viewForm.aspx?formid=4acd952d-1877-4a34-8cf1-b236e92ec5cb&direct-link=&embed=true&frameid=726864893714642",
-}
+} as const

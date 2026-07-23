@@ -1,6 +1,7 @@
-import { ExternalLink } from "lucide-react"
+import { CHURCH_INFO } from "@/shared/db"
 import { AnimatePosition, slideUp } from "@/shared/ui/Framer"
 import { Link } from "@/shared/ui/primitives/button"
+import { ExternalLink } from "lucide-react"
 
 export function YouTubeSection() {
   return (
@@ -26,7 +27,7 @@ export function YouTubeSection() {
           </p>
 
           <Link
-            href="https://www.youtube.com/@fbcibohyen"
+            href={CHURCH_INFO.socials.youtube}
             target="_blank"
             rel="noopener noreferrer"
             variant="primary"

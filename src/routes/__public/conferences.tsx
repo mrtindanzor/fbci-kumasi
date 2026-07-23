@@ -1,15 +1,15 @@
-import { QueryClient } from "@tanstack/react-query"
-import { createFileRoute } from "@tanstack/react-router"
-import { projectListQuery } from "@/features/project"
+import { conferenceQuery } from "@/features/conference"
 import { generateMetaData } from "@/libs/tanstack"
 import { ConferencesPage } from "@/screens/conferences"
 import { HydrationProvider } from "@/shared/ui/HydationProvider"
+import { QueryClient } from "@tanstack/react-query"
+import { createFileRoute } from "@tanstack/react-router"
 
 export const Route = createFileRoute("/__public/conferences")({
   component: RouteComponent,
   loader: async () => {
     const qc = new QueryClient()
-    const query = projectListQuery()
+    const query = conferenceQuery()
     const data = await qc.fetchQuery(query)
     return { queries: [{ queryKey: query.queryKey, data }] }
   },
