@@ -27,7 +27,7 @@ export function PlayerBar({
   if (!state.currentTrack) return null
 
   return (
-    <div className="sticky bottom-0 rounded-b-2xl z-50 bg-surface-container border-t border-outline-variant backdrop-blur-sm">
+    <div className="sticky bottom-0 rounded-b-2xl bg-surface-container border-t border-outline-variant backdrop-blur-sm">
       <div className="container-app px-4 py-3">
         <div className="flex items-center gap-4">
           <div className="flex-1 min-w-0">
