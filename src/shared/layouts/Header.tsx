@@ -1,8 +1,8 @@
 "use client"
 
-import { Menu } from "lucide-react"
-import { useEffect, useState } from "react"
 import { Button, Link } from "@/shared/ui/primitives/button"
+import { ArrowRight, Menu } from "lucide-react"
+import { useEffect, useState } from "react"
 import { routes } from "../routes"
 import { Logo } from "../ui/Logo"
 import { DesktopNav } from "./Navbar/DesktopNav"
@@ -24,12 +24,12 @@ export function Header() {
         <DesktopNav />
 
         <Link
-          className="hidden lg:flex rounded-4xl border py-2 px-4 shadow-lg"
+          className="hidden lg:flex rounded-4xl border gap-x-1.5 transition duration-300 ease-in-out hover:scale-115 py-2 px-4 shadow-lg"
           href={routes.projects.home}
           variant="gold"
           size="none"
         >
-          Projects
+          <ArrowRight className="size-4" /> Projects
         </Link>
 
         {/* MOBILE: Hamburger */}
