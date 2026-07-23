@@ -7,7 +7,7 @@ export const Route = createFileRoute("/__public/")({
   component: HomePage,
   head: () => ({
     meta: generateMetaData({
-      title: "Home",
+      title: "Welcome",
       description:
         "Welcome to FBCI - a modern sanctuary dedicated to transformative worship and global impact.",
       path: "",
