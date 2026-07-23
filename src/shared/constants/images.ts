@@ -5,4 +5,5 @@ export const IMAGES = Object.freeze({
   heavenPage: "/images/heaven-page-bg.avif",
   areYouSaved: "/images/are-you-saved.avif",
   discipleshipLesson: "/images/discipleship-lesson.avif",
+  hacwaPoster: "/images/hacwa-poster.avif",
 } as const)

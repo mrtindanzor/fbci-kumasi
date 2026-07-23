@@ -11,14 +11,16 @@ export const Route = createFileRoute("/__public/conferences")({
     const qc = new QueryClient()
     const query = conferenceQuery()
     const data = await qc.fetchQuery(query)
-    return { queries: [{ queryKey: query.queryKey, data }] }
+    return { queries: [{ queryKey: query.queryKey, data }], data }
   },
-  head: () => ({
+  head: ({ loaderData: { data } = {} }) => ({
     meta: generateMetaData({
-      title: "Conferences",
+      title: data?.title ?? "Conferences",
       description:
+        data?.shortIntro ??
         "Join the Annual Pastors & Workers Conference at FBCI Kumasi - a time of biblical teaching, spiritual renewal, and fellowship.",
       path: "conferences",
+      images: data?.poster,
     }),
   }),
 })
