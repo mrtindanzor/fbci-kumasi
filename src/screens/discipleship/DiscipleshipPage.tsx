@@ -1,37 +1,23 @@
 import { motion } from "framer-motion"
-import { ArrowLeft } from "lucide-react"
-import { routes } from "@/shared/routes"
 import {
   AnimatePosition,
   slideInLeft,
   slideUp,
   staggerContainer,
 } from "@/shared/ui/Framer"
-import { Link } from "@/shared/ui/primitives/button"
+import { BackgroundImage } from "@/shared/ui/primitives/BackgroundImage"
 import { LessonCard } from "./components/LessonCard"
 import { LESSONS } from "./constants"
 
 export function DiscipleshipPage() {
   return (
-    <main>
+    <main className="">
       {/* Hero */}
-      <section className="relative bg-primary pt-header-claim pb-16 md:pb-20 overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute inset-0 bg-[url('/images/discipleship-lesson.avif')] bg-cover bg-center" />
-        </div>
+      <section className="relative pt-header-claim bg-primary pb-16 md:pb-20">
+        <BackgroundImage url="/images/discipleship-lesson.avif" />
 
-        <div className="container-app relative z-10">
+        <div className="container-app relative z-10 pt-header-claim">
           <AnimatePosition variants={slideInLeft}>
-            <Link
-              href={routes.resources.home}
-              variant="none"
-              size="none"
-              className="inline-flex items-center gap-2 text-neutral-300 hover:text-white transition-colors mb-8"
-            >
-              <ArrowLeft className="size-4" />
-              Back to Resources
-            </Link>
-
             <span className="text-secondary bg-neutral-50 rounded-xl w-fit font-bold px-4 py-1.5 font-label text-sm tracking-widest uppercase mb-4 block">
               Discipleship Course
             </span>

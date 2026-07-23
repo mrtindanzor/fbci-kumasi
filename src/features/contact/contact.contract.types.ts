@@ -1,7 +1,13 @@
-export abstract class ContactType {
-  abstract name: string
-  abstract email: string
-  abstract phone?: string
-  abstract subject?: string
-  abstract message: string
+import type { FetchStatus } from "@/libs/fetchData"
+
+export type ContactType = {
+  name: string
+  email: string
+  phone?: string
+  subject?: string
+  message: string
+}
+
+export abstract class IContactService {
+  abstract create(props: ContactType): Promise<FetchStatus>
 }
