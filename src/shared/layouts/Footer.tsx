@@ -3,6 +3,7 @@ import { CHURCH_INFO } from "@/shared/db"
 import { Logo } from "../ui/Logo"
 import { Link } from "../ui/primitives/button"
 import { SocialMediaLinks } from "../ui/SocialMediaLinks"
+import { PoweredBy } from "./components/PoweredBy"
 import {
   footerGivingLinks,
   footerQuickLinks,
@@ -151,6 +152,7 @@ export function Footer() {
             Reserved.
           </p>
         </div>
+        <PoweredBy />
       </div>
     </footer>
   )

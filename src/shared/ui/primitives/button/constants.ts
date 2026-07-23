@@ -10,6 +10,7 @@ export const buttonVariants = cva(
           "bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-white",
         ghost: "text-on-surface hover:bg-surface-container",
         gold: "bg-secondary text-white hover:bg-secondary/90",
+        link: "underline underline-offset-2",
         none: "",
       },
       y: {
