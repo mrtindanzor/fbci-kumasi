@@ -1,14 +1,14 @@
 import { motion } from "framer-motion"
+import { IMAGES } from "@/shared/constants"
 import { routes } from "@/shared/routes"
 import { slideUp, staggerContainer } from "@/shared/ui/Framer"
+import { BackgroundImage } from "@/shared/ui/primitives/BackgroundImage"
 import { Link } from "@/shared/ui/primitives/button"
 
 export function Hero() {
   return (
     <section className="relative min-h-150 md:min-h-175 flex items-center bg-primary overflow-hidden">
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[url('/images/church-side-1.avif')] bg-cover bg-center" />
-      </div>
+      <BackgroundImage url={IMAGES.churchSide1} className="opacity-100" />
 
       <div className="absolute inset-0 bg-linear-to-b from-black/60 via-black/40 to-black/70" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(115,92,0,0.15)_0%,transparent_70%)]" />

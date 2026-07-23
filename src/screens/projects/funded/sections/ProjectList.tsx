@@ -2,9 +2,12 @@ import { motion } from "framer-motion"
 import { useProjects } from "@/features/project"
 import { staggerContainer } from "@/shared/ui/Framer"
 import { ProjectCard } from "../../components/ProjectCard"
+import { EmptyState } from "./EmptyState"
 
 export function ProjectList() {
   const { data: projects = [] } = useProjects({ status: "funded" })
+
+  if (projects.length === 0) return <EmptyState />
 
   return (
     <section className="section-gap">

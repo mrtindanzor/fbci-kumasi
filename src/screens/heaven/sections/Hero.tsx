@@ -1,4 +1,6 @@
+import { IMAGES } from "@/shared/constants"
 import { AnimatePosition, slideUp } from "@/shared/ui/Framer"
+import { BackgroundImage } from "@/shared/ui/primitives/BackgroundImage"
 
 const faqLinks = [
   "Are you sure you would go to Heaven?",
@@ -9,9 +11,7 @@ const faqLinks = [
 export function Hero() {
   return (
     <section className="relative min-h-150 pt-header-claim flex items-center bg-linear-to-br from-primary/40 to-primary-container overflow-hidden">
-      <div className="absolute inset-0 opacity-15">
-        <div className="absolute inset-0 bg-[url('/images/heaven-page-bg.avif')] bg-cover bg-center" />
-      </div>
+      <BackgroundImage url={IMAGES.heavenPage} className="opacity-15" />
 
       <div className="container-app relative z-10 py-20">
         <AnimatePosition variants={slideUp} className="max-w-2xl">

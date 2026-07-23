@@ -21,7 +21,7 @@ export function OnDemand() {
               <p className="text-white/70">Latest Sermons & Podcasts</p>
             </div>
             <Link
-              href="https://tedspeer.podbean.com/"
+              href="https://tedspeer.podbean.com"
               target="_blank"
               rel="noopener noreferrer"
               className="hidden sm:inline-flex items-center gap-2 font-semibold hover:underline"

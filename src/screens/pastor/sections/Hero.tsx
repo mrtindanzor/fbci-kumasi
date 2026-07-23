@@ -1,6 +1,8 @@
+import { IMAGES } from "@/shared/constants"
 import { CHURCH_INFO } from "@/shared/db"
 import { routes } from "@/shared/routes"
 import { AnimatePosition, slideUp } from "@/shared/ui/Framer"
+import { BackgroundImage } from "@/shared/ui/primitives/BackgroundImage"
 import { Link } from "@/shared/ui/primitives/button"
 import { Image } from "@/shared/ui/primitives/Image"
 import { pastorData } from "../data"
@@ -8,9 +10,7 @@ import { pastorData } from "../data"
 export function Hero() {
   return (
     <section className="relative min-h-app-height pt-header-claim flex items-center bg-linear-to-br from-primary to-primary-container overflow-hidden">
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute inset-0 bg-[url('/images/church-side-2.avif')] bg-cover bg-center" />
-      </div>
+      <BackgroundImage url={IMAGES.churchSide2} className="opacity-20" />
 
       <div className="container-app relative z-10 py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
