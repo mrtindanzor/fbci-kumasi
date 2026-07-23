@@ -1,7 +1,7 @@
+import { ExternalLink } from "lucide-react"
 import { CHURCH_INFO } from "@/shared/db"
 import { AnimatePosition, slideUp } from "@/shared/ui/Framer"
 import { Link } from "@/shared/ui/primitives/button"
-import { ExternalLink } from "lucide-react"
 
 export function YouTubeSection() {
   return (

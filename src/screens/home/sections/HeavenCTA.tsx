@@ -1,13 +1,13 @@
+import { IMAGES } from "@/shared/constants"
 import { routes } from "@/shared/routes"
 import { AnimatePosition, slideUp } from "@/shared/ui/Framer"
+import { BackgroundImage } from "@/shared/ui/primitives/BackgroundImage"
 import { Link } from "@/shared/ui/primitives/button"
 
 export function HeavenCTA() {
   return (
     <section className="relative w-full py-8 grid min-h-app-height">
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[url('/images/are-you-saved.avif')] bg-cover bg-center" />
-      </div>
+      <BackgroundImage url={IMAGES.areYouSaved} className="opacity-100" />
       <div className="absolute inset-0 bg-linear-to-b from-primary/20 via-primary/40 to-primary/80" />
       <div className="relative z-10 flex flex-col items-center justify-center h-full px-margin-mobile md:px-margin-desktop text-center">
         <AnimatePosition variants={slideUp}>

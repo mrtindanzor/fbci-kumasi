@@ -1,9 +1,9 @@
+import { QueryClient } from "@tanstack/react-query"
+import { createFileRoute } from "@tanstack/react-router"
 import { conferenceQuery } from "@/features/conference"
 import { generateMetaData } from "@/libs/tanstack"
 import { ConferencesPage } from "@/screens/conferences"
 import { HydrationProvider } from "@/shared/ui/HydationProvider"
-import { QueryClient } from "@tanstack/react-query"
-import { createFileRoute } from "@tanstack/react-router"
 
 export const Route = createFileRoute("/__public/conferences")({
   component: RouteComponent,

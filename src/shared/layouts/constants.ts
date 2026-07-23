@@ -1,3 +1,4 @@
+import { DOWNLOADS } from "@/shared/constants"
 import { routes } from "@/shared/routes"
 
 export type NavItem = {
@@ -50,7 +51,7 @@ export const footerResourceLinks = [
   { label: "Sermons", href: routes.resources.sermon },
   { label: "Discipleship Lessons", href: routes.resources.discipleship },
   { label: "Fundamental Hour", href: routes.resources.youtube },
-  { label: "Salvation Booklet", href: "/files/are-you-saved-booklet.pdf" },
+  { label: "Salvation Booklet", href: DOWNLOADS.salvationBooklet },
 ] as const
 
 export const footerGivingLinks = [

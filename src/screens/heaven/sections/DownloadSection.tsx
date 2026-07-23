@@ -1,3 +1,4 @@
+import { DOWNLOADS } from "@/shared/constants"
 import { AnimatePosition, slideUp } from "@/shared/ui/Framer"
 import { Link } from "@/shared/ui/primitives/button"
 
@@ -75,7 +76,7 @@ export function DownloadSection() {
                     variant="none"
                     size="none"
                     download
-                    href="/files/are-you-saved-booklet.pdf"
+                    href={DOWNLOADS.salvationBooklet}
                     target="_blank"
                     rel="noopener"
                     className="inline-flex gap-2 text-secondary font-semibold text-sm hover:underline"

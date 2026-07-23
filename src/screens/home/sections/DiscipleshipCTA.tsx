@@ -1,13 +1,16 @@
+import { IMAGES } from "@/shared/constants"
 import { routes } from "@/shared/routes"
 import { AnimatePosition, slideUp } from "@/shared/ui/Framer"
+import { BackgroundImage } from "@/shared/ui/primitives/BackgroundImage"
 import { Link } from "@/shared/ui/primitives/button"
 
 export function DiscipleshipCTA() {
   return (
     <section className="relative w-full min-h-app-height flex items-center overflow-hidden">
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[url('/images/discipleship-lesson.avif')] bg-cover bg-center" />
-      </div>
+      <BackgroundImage
+        url={IMAGES.discipleshipLesson}
+        className="opacity-100"
+      />
 
       <div className="absolute inset-0 bg-linear-to-b from-primary via-primary/50 to-neutral-50" />
 

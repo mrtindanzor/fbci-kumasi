@@ -81,7 +81,7 @@ export function Hero({ project }: HeroProps) {
               )}
             </div>
             <Link
-              href={`${routes.projects.projectByIdAndGive(project.id)}`}
+              href={routes.projects.projectByIdAndGive(project.id)}
               variant="primary"
               size="lg"
               className="w-full flex items-center justify-center gap-2"

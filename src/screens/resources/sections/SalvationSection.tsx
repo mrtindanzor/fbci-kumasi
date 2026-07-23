@@ -1,4 +1,5 @@
 import { Download } from "lucide-react"
+import { DOWNLOADS } from "@/shared/constants"
 import { AnimatePosition, slideUp } from "@/shared/ui/Framer"
 import { Link } from "@/shared/ui/primitives/button"
 
@@ -30,7 +31,7 @@ export function SalvationSection() {
           </div>
 
           <Link
-            href="/files/are-you-saved-booklet.pdf"
+            href={DOWNLOADS.salvationBooklet}
             download
             target="_blank"
             rel="noopener noreferrer"
