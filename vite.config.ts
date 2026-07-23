@@ -3,6 +3,7 @@ import tailwindcss from "@tailwindcss/vite"
 import { tanstackStart } from "@tanstack/react-start/plugin/vite"
 import viteReact from "@vitejs/plugin-react"
 import { defineConfig } from "vite"
+import { routes } from "@/shared/routes"
 
 export default defineConfig({
   server: { port: 3000 },
@@ -12,7 +13,10 @@ export default defineConfig({
     tanstackStart({
       prerender: {
         enabled: true,
-        filter: ({ path }) => path === "/",
+        filter: ({ path }) =>
+          ![routes.conferences, routes.projects.home].every(
+            (route) => !path.startsWith(route),
+          ),
       },
     }),
     cloudflare({ viteEnvironment: { name: "ssr" } }),
