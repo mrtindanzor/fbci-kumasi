@@ -27,7 +27,7 @@ export function DesktopNav() {
             variant="none"
             size="none"
             className={cn(
-              "text-sm px-3 py-1.5 rounded-3xl font-medium transition-colors",
+              "text-sm px-3 transition duration-300 ease-in-out hover:scale-105 py-1.5 rounded-3xl font-medium",
               pathname === item.href
                 ? "text-primary bg-surface"
                 : "text-neutral-300 hover:bg-white/10",

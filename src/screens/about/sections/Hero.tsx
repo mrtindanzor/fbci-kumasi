@@ -1,11 +1,11 @@
-import { BRANDING } from "@/shared/constants"
+import { BRANDING, IMAGES } from "@/shared/constants"
 import { AnimatePosition, slideInLeft, slideUp } from "@/shared/ui/Framer"
 import { BackgroundImage } from "@/shared/ui/primitives/BackgroundImage"
 
 export function Hero() {
   return (
     <section className="relative min-h-app-height pt-header-claim flex items-center bg-linear-to-br from-primary to-primary-container overflow-hidden">
-      <BackgroundImage url="/images/church-side-2.avif" />
+      <BackgroundImage url={IMAGES.churchSide3} />
 
       <div className="container-app relative z-10 py-20">
         <AnimatePosition variants={slideInLeft} className="max-w-2xl">

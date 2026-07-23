@@ -25,7 +25,7 @@ export function DropdownMenu({ label, items, currentPath }: DropdownMenuProps) {
     // biome-ignore lint/a11y/noStaticElementInteractions: dropdown container needs hover events
     <div
       ref={ref}
-      className="relative"
+      className="relative group/dropdown"
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}
     >
@@ -35,7 +35,7 @@ export function DropdownMenu({ label, items, currentPath }: DropdownMenuProps) {
         variant="none"
         size="none"
         className={cn(
-          "flex items-center gap-1 text-sm px-3 py-1! rounded-lg font-medium transition-colors",
+          "flex items-center gap-1 text-sm px-3 py-1! transition duration-300 ease-in-out group-hover/dropdown:scale-115 rounded-lg font-medium",
           isActive
             ? "text-primary bg-surface"
             : "text-neutral-300 hover:bg-white/15",
